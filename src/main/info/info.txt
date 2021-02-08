@@ -1,0 +1,14 @@
+- 메이븐 라이브러리 검색사이트
+https://mvnrepository.com/
+
+- spring 설정 api
+https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
+
+- sitemesh
+* spring lagacy project 설정방법
+- pom.xml 디펜던시추가
+- web.xml 추가
+- sitemesh.xml
+- sitemesh-decorators.xml
+- (WEB-INF 폴더에 추가)
+- views/common/default.jsp
