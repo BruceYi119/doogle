@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="/static/front/css/main.css">
 <c:if test="${url eq '/map'}"><link rel="stylesheet" href="/static/front/css/kakao_map.css"></c:if>
 <c:if test="${url eq '/calendar'}"><link rel="stylesheet" href="/static/front/css/calendar.css"></c:if>
-<c:if test="${url eq '/terms' || url eq '/join'}"><link rel="stylesheet" href="/static/front/css/member.css"></c:if>
+<c:if test="${url eq '/terms' || url eq '/join' || url eq '/login'}"><link rel="stylesheet" href="/static/front/css/member.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
@@ -26,6 +26,7 @@
 <c:if test="${url eq '/calendar'}"><script defer type="text/javascript" src="/static/front/js/calendar.js"></script></c:if>
 <c:if test="${url eq '/terms'}"><script defer type="text/javascript" src="/static/front/js/terms.js"></script></c:if>
 <c:if test="${url eq '/join'}"><script defer type="text/javascript" src="/static/front/js/join.js"></script></c:if>
+<c:if test="${url eq '/login'}"><script defer type="text/javascript" src="/static/front/js/login.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
@@ -34,16 +35,16 @@
 				<h1 id=logo>
 					<a href="/"><span>Doogle</span></a>
 				</h1>
-				<c:if test="${id}">
+				<c:if test="${id ne null}">
 				<ul id="member">
-					<li><a href="/member/member_info">${name}</a> 님 환영합니다!</li>
-					<li><a href="/member/member_info">회원정보</a></li>
-					<li><a href="/member/logout">로그아웃</a></li>
+					<li><a href="/member/info">${name}</a> 님 환영합니다!</li>
+					<li><a href="/member/info">회원정보</a></li>
+					<li><a href="/logout">로그아웃</a></li>
 				</ul>
 				</c:if>
-				<c:if test="${!id}">
+				<c:if test="${empty id}">
 				<ul id="member">
-					<li><a href="/member/login">로그인</a></li>
+					<li><a href="/login">로그인</a></li>
 					<li><a href="/terms">회원가입</a></li>
 				</ul>
 				</c:if>

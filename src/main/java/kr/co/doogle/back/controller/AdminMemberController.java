@@ -11,7 +11,7 @@ import kr.co.doogle.front.mapper.MemberMapper;
 import kr.co.doogle.pagination.Pagination;
 
 @Controller
-public class MemberController {
+public class AdminMemberController {
 
 	@Autowired
 	private MemberMapper memberMapper;

@@ -2,6 +2,7 @@ package kr.co.doogle.front.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -31,4 +32,9 @@ public interface MemberMapper {
 
 	@Select("select id from member where id = #{id}")
 	String isDuplicateId(@Param("id") String id);
+
+	@Insert("insert into member(mno, id, pw, name, phone, birth, zipcode, addr, addr_detail, email) "
+			+ "values(s_member.nextval, #{dto.id}, #{dto.pw}, #{dto.name}, #{dto.phone}, #{dto.birth}, #{dto.zipcode}, #{dto.addr}, #{dto.addr_detail}, #{dto.email})")
+	int insert(@Param("dto") MemberDTO dto);
+
 }

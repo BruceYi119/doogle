@@ -10,15 +10,15 @@ import kr.co.doogle.security.Security;
 public class Member {
 
 	@Inject
-	private Security s;
+	private Security security;
 	@Inject
 	private MemberMapper memberMapper;
 
 	public boolean adminLogin(HttpSession session, String id, String pw) {
 		boolean login = false;
 
-		s.getSha512(pw);
-		pw = s.getSha512();
+		security.getSha512(pw);
+		pw = security.getSha512();
 
 		MemberDTO dto = memberMapper.adminLogin(id, pw);
 
@@ -35,10 +35,10 @@ public class Member {
 	public boolean login(HttpSession session, String id, String pw) {
 		boolean login = false;
 
-		s.getSha512(pw);
-		pw = s.getSha512();
+		security.getSha512(pw);
+		pw = security.getSha512();
 
-		MemberDTO dto = memberMapper.adminLogin(id, pw);
+		MemberDTO dto = memberMapper.login(id, pw);
 
 		if (dto != null) {
 			session.setAttribute("id", dto.getId());
@@ -65,6 +65,11 @@ public class Member {
 			login = true;
 		
 		return login;
+	}
+
+	public void logout(HttpSession session) {
+		session.removeAttribute("id");
+		session.removeAttribute("name");
 	}
 
 }
