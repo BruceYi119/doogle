@@ -32,6 +32,7 @@ public class MemberController {
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		int range = request.getParameter("range") != null ? Integer.parseInt(request.getParameter("range")) : 1;
 		p.setInfo(page, range, memberMapper.getTotalCnt());
+		model.addAttribute("url", "/paging");
 		model.addAttribute("page", page);
 		model.addAttribute("pageInfo", p.getInfo());
 		model.addAttribute("list", memberMapper.getAllPage(page, this.range));

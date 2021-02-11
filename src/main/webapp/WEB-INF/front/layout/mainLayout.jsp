@@ -13,11 +13,16 @@
 <link rel="stylesheet" href="/static/front/css/global.css">
 <link rel="stylesheet" href="/static/front/css/layout.css">
 <link rel="stylesheet" href="/static/front/css/main.css">
+<c:if test="${url eq '/map'}"><link rel="stylesheet" href="/static/front/css/kakao_map.css"></c:if>
+<c:if test="${url eq '/calendar'}"><link rel="stylesheet" href="/static/front/css/calendar.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
 <script defer type="text/javascript" src="/static/front/js/global.js"></script>
 <script defer type="text/javascript" src="/static/front/js/main.js"></script>
+<c:if test="${url eq '/map'}"><script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${apikey}&libraries=services"></script></c:if>
+<c:if test="${url eq '/map'}"><script defer type="text/javascript" src="/static/front/js/kakao_map.js"></script></c:if>
+<c:if test="${url eq '/calendar'}"><script defer type="text/javascript" src="/static/front/js/calendar.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
@@ -65,17 +70,16 @@
 		<nav>
 			<div class="base_wrap">
 				<ul id="menu">
-					<li><a href="/view/api/kakao/map.jsp">카카오맵</a></li>
-					<li><a href="/view/calendar/calendar.jsp">달력</a></li>
-					<li><a href="/view/wooram/wooramtrans.jsp">번역기</a></li>
-					<li><a href="/view/minkyu/minkyu.jsp">금융(투자정보)</a></li>
-					<li><a href="/view/heesoo/main/index.jsp">갈비대첩</a></li>
-					<li><a href="/view/yongsoon/pcEstimate.jsp">뚝딱조립PC</a></li>
-					<li><a href="/view/jiwon/recipe_list.jsp">레시피</a></li>
-					<li><a href="/view/wooram/list.jsp">애완동물카페</a></li>
-					<li><a href="/view/henry/henry.jsp">핸리</a></li>
+					<li><a href="/map">카카오맵</a></li>
+					<li><a href="/calendar">달력</a></li>
+		<!-- 			<li><a href="/view/wooram/wooramtrans.jsp">번역기</a></li> -->
+		<!-- 			<li><a href="/view/minkyu/minkyu.jsp">금융(투자정보)</a></li> -->
+		<!-- 			<li><a href="/view/heesoo/main/index.jsp">갈비대첩</a></li> -->
+		<!-- 			<li><a href="/view/yongsoon/pcEstimate.jsp">뚝딱조립PC</a></li> -->
+		<!-- 			<li><a href="/view/jiwon/recipe_list.jsp">레시피</a></li> -->
+		<!-- 			<li><a href="/view/wooram/list.jsp">애완동물카페</a></li> -->
+		<!-- 			<li><a href="/view/henry/henry.jsp">핸리</a></li> -->
 				</ul>
-
 			</div>
 		</nav>
 		<main>
