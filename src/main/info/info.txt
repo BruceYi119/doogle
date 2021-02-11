@@ -1,5 +1,6 @@
 - 메이븐 라이브러리 검색사이트
 https://mvnrepository.com/
+https://search.maven.org/
 
 - spring 설정 api
 https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
