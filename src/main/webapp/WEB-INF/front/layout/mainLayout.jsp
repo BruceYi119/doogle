@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="/static/front/css/main.css">
 <c:if test="${url eq '/map'}"><link rel="stylesheet" href="/static/front/css/kakao_map.css"></c:if>
 <c:if test="${url eq '/calendar'}"><link rel="stylesheet" href="/static/front/css/calendar.css"></c:if>
+<c:if test="${url eq '/terms' || url eq '/join'}"><link rel="stylesheet" href="/static/front/css/member.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
@@ -23,6 +24,8 @@
 <c:if test="${url eq '/map'}"><script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${apikey}&libraries=services"></script></c:if>
 <c:if test="${url eq '/map'}"><script defer type="text/javascript" src="/static/front/js/kakao_map.js"></script></c:if>
 <c:if test="${url eq '/calendar'}"><script defer type="text/javascript" src="/static/front/js/calendar.js"></script></c:if>
+<c:if test="${url eq '/terms'}"><script defer type="text/javascript" src="/static/front/js/terms.js"></script></c:if>
+<c:if test="${url eq '/join'}"><script defer type="text/javascript" src="/static/front/js/join.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
@@ -41,7 +44,7 @@
 				<c:if test="${!id}">
 				<ul id="member">
 					<li><a href="/member/login">로그인</a></li>
-					<li><a href="/member/terms">회원가입</a></li>
+					<li><a href="/terms">회원가입</a></li>
 				</ul>
 				</c:if>
 				<div class="search_wrap">

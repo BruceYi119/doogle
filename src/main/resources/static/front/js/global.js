@@ -56,12 +56,12 @@ const jusoPopup = (func = null) => {
     const top = Math.ceil((window.screen.height - popupHeight) / 2);
 
     if (func === 'showUpdateAddrBtns')
-    	window.open(`/view/member/jusoPopup.jsp?func=${func}`,'pop',`width=${popupWidth},height=${popupHeight}, scrollbars=yes, resizable=yes, left=${left}, top=${top}`); 
+    	window.open(`/jusoPopup?func=${func}`,'pop',`width=${popupWidth},height=${popupHeight}, scrollbars=yes, resizable=yes, left=${left}, top=${top}`); 
     else
-    	window.open('/view/member/jusoPopup.jsp','pop',`width=${popupWidth},height=${popupHeight}, scrollbars=yes, resizable=yes, left=${left}, top=${top}`); 
+    	window.open('/jusoPopup','pop',`width=${popupWidth},height=${popupHeight}, scrollbars=yes, resizable=yes, left=${left}, top=${top}`); 
 };
 
-function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo,func = null) {
+function jusoCallBack(roadAddrPart1, addrDetail, zipNo, func = null) {
 	if (func !== null && func === 'showUpdateAddrBtns') {
 		const spanZipcode = document.querySelector('#zipcode');
 		const spanAddr = document.querySelector('#addr');
@@ -96,7 +96,7 @@ const isDuplicateId = (value) => {
 			id: id.value,
 		}
 	};
-	const ajax = axios.get('/view/member/id_check.jsp', params);
+	const ajax = axios.get('/id_check', params);
 
 	ajax.then((res) => {
 		if (res.data.check === true) {

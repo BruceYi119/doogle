@@ -22,4 +22,13 @@ public interface MemberMapper {
 
 	@Select("select count(*) from member order by writedate desc")
 	int getTotalCnt();
+
+	@Select("select * from member where id = #{id} and pw = #{pw} and mtype = 'a'")
+	MemberDTO adminLogin(@Param("id") String id, @Param("pw") String pw);
+
+	@Select("select * from member where id = #{id} and pw = #{pw} and mtype = 'n'")
+	MemberDTO login(@Param("id") String id, @Param("pw") String pw);
+
+	@Select("select id from member where id = #{id}")
+	String isDuplicateId(@Param("id") String id);
 }
