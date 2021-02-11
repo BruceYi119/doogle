@@ -10,12 +10,12 @@ import kr.co.doogle.front.mapper.MemberMapper;
 @Controller
 public class MainController {
 
-	@Autowired
-	private MemberMapper memberMapper;
+//	@Autowired
+//	private MemberMapper memberMapper;
 
 	@RequestMapping("/")
 	public String main(Model model) {
-		model.addAttribute("list", memberMapper.getAll());
+//		model.addAttribute("list", memberMapper.getAll());
 		return "/front/index";
 	}
 

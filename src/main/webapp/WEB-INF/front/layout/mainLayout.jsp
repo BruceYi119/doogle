@@ -18,8 +18,7 @@
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
 <script defer type="text/javascript" src="/static/front/js/global.js"></script>
 <script defer type="text/javascript" src="/static/front/js/main.js"></script>
-<sitemesh:write property="head" />
-</head>
+<sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
 		<header>
@@ -80,9 +79,7 @@
 			</div>
 		</nav>
 		<main>
-			<div class="base_wrap">
-				<sitemesh:write property="body" />
-			</div>
+			<div class="base_wrap"><sitemesh:write property="body" /></div>
     	</main>
 		<footer>
 			<div class="base_wrap">

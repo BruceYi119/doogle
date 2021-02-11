@@ -11,9 +11,4 @@ public class AdminController {
 		return "/back/admin";
 	}
 
-	@RequestMapping("/admin/member")
-	public String member() {
-		return "/back/member/member";
-	}
-
 }

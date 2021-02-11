@@ -39,26 +39,3 @@
 		</div>
 	</div>
 </div>
-<div class="flexWeap">
-	<div class="left">
-		<table>
-			<thead>
-				<tr>
-					<th>id</th>
-					<th>name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${list}" var="dto">
-					<tr>
-						<td>${dto.id}</td>
-						<td>${dto.name}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
-	<div class="right">
-
-	</div>
-</div>

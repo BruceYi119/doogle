@@ -15,6 +15,7 @@
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
 <script defer type="text/javascript" src="/static/back/js/admin.js"></script>
+<script defer type="text/javascript" src="/static/back/js/pagination.js"></script>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
