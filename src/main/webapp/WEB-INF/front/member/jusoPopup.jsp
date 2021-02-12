@@ -17,11 +17,10 @@ window.onload = () => {
 		document.form.confmKey.value = confmKey;
 		document.form.returnUrl.value = url;
 		document.form.resultType.value = resultType;
-		document.form.action = "https://www.juso.go.kr/addrlink/addrLinkUrl.do"; //인터넷망
+		document.form.action = "https://www.juso.go.kr/addrlink/addrLinkUrl.do";
 		document.form.submit();
 	} else {
-		opener.jusoCallBack('${roadAddrPart1}', '${addrDetail}', '${zipNo}',`<c:if test="${func eq 'showUpdateAddrBtns'}">${func}</c:if>`);
-
+		opener.jusoCallBack('${roadAddrPart1}', '${addrDetail}', '${zipNo}', '${func}');
 		window.close();
 	}
 };

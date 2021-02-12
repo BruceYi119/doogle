@@ -11,7 +11,7 @@ import kr.co.doogle.key.Key;
 public class MainController {
 
 	@Autowired
-	private Key k;
+	private Key key;
 
 	@RequestMapping("/")
 	public String main(Model model) {
@@ -27,7 +27,7 @@ public class MainController {
 	@RequestMapping("/map")
 	public String map(Model model) {
 		model.addAttribute("url", "/map");
-		model.addAttribute("apikey", k.getKeys().get(Key.Kyes.KAKAO_MAP_APPKEY));
+		model.addAttribute("apikey", key.getKeys().get(Key.Kyes.KAKAO_MAP_APPKEY));
 		return "/front/api/kakao/map";
 	}
 

@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import kr.co.doogle.front.dto.MemberDTO;
 
@@ -36,5 +37,12 @@ public interface MemberMapper {
 	@Insert("insert into member(mno, id, pw, name, phone, birth, zipcode, addr, addr_detail, email) "
 			+ "values(s_member.nextval, #{dto.id}, #{dto.pw}, #{dto.name}, #{dto.phone}, #{dto.birth}, #{dto.zipcode}, #{dto.addr}, #{dto.addr_detail}, #{dto.email})")
 	int insert(@Param("dto") MemberDTO dto);
+
+	@Select("select * from member where id = #{id}")
+	MemberDTO getOne(@Param("id") String id);
+
+	@Update("update member set name = #{dto.name}, phone = #{dto.phone}, birth = #{dto.birth}, zipcode = #{dto.zipcode}, addr = #{dto.addr}, addr_detail = #{dto.addr_detail}"
+			+ ", email = #{dto.email} where id = #{dto.id}")
+	int updateInfo(@Param("dto") MemberDTO dto);
 
 }

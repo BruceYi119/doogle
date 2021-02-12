@@ -25,7 +25,8 @@ public class MemberController {
 	private Key key;
 	@Autowired
 	private Member member;
-	@Autowired Security security;
+	@Autowired
+	private Security security;
 
 	@RequestMapping("/terms")
 	public String terms(Model model) {
@@ -37,6 +38,45 @@ public class MemberController {
 	public String join(Model model) {
 		model.addAttribute("url", "/join");
 		return "/front/member/join";
+	}
+
+	@RequestMapping("/member/info")
+	public String info(Model model, HttpSession session) {
+		if (member.isLogin(session) == false)
+			return "redirect:/login";
+		model.addAttribute("dto", memberMapper.getOne(session.getAttribute("id").toString()));
+		model.addAttribute("url", "/member/info");
+		return "/front/member/info";
+	}
+
+	@RequestMapping("/member/info_update")
+	public void join(MemberDTO dto, PrintWriter out) {
+		StringBuilder sb = new StringBuilder();
+		int r = memberMapper.updateInfo(dto);
+		MemberDTO mdto = memberMapper.getOne(dto.getId());
+		if (r == 1)
+			sb.append("{ \"update\": true, \"info\": { ");
+		else
+			sb.append("{ \"update\": false, \"info\": { ");
+
+		sb.append("\"name\": \"");
+		sb.append(mdto.getName());
+		sb.append("\", \"phone\": \"");
+		sb.append(mdto.getPhone());
+		sb.append("\", \"birth\": \"");
+		sb.append(mdto.getBirth());
+		sb.append("\", \"zipcode\": \"");
+		sb.append(mdto.getZipcode());
+		sb.append("\", \"addr\": \"");
+		sb.append(mdto.getAddr());
+		sb.append("\", \"addr_detail\": \"");
+		sb.append(mdto.getAddr_detail());
+		sb.append("\", \"email\": \"");
+		sb.append(mdto.getEmail());
+		sb.append("\"");
+		sb.append(" } }");
+
+		out.write(sb.toString());
 	}
 
 	@RequestMapping("/login")
@@ -58,6 +98,7 @@ public class MemberController {
 		String id = request.getParameter("id") != null ? request.getParameter("id") : "";
 		String pw = request.getParameter("pw") != null ? request.getParameter("pw") : "";
 		boolean login = member.login(session, id, pw);
+
 		if (login == false) {
 			return "redirect:/login?login=false";
 		}
@@ -68,6 +109,7 @@ public class MemberController {
 	public String join_ok(HttpSession session, MemberDTO dto) {
 		security.getSha512(dto.getPw());
 		dto.setPw(security.getSha512());
+
 		int r = memberMapper.insert(dto);
 		if (r == 1)
 			member.login(session, dto.getId(), dto.getPw());
@@ -93,7 +135,7 @@ public class MemberController {
 		String roadAddrPart1 = request.getParameter("roadAddrPart1");   
 		String zipNo = request.getParameter("zipNo"); 
 		String addrDetail = request.getParameter("addrDetail"); 
-		String func = request.getParameter("func") != null ? request.getParameter("func") : null;
+		String func = request.getParameter("func") != "" ? request.getParameter("func") : "";
 
 		model.addAttribute("confmKey", confmKey);
 		model.addAttribute("inputYn", inputYn);

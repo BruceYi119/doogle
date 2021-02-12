@@ -30,4 +30,5 @@ public class AdminMemberController {
 		model.addAttribute("list", memberMapper.getAllPage(page, this.range));
 		return "/back/member/member";
 	}
+
 }
