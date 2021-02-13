@@ -15,6 +15,7 @@
 				<tr>
 					<th>키값</th>
 					<th>아이디</th>
+					<th>이름</th>
 					<th>핸드폰</th>
 					<th>생일</th>
 					<th>우편번호</th>
@@ -31,6 +32,7 @@
 					<tr>
 						<td>${dto.mno}</td>
 						<td>${dto.id}</td>
+						<td>${dto.name}</td>
 						<td>${dto.phone}</td>
 						<td>${dto.birth}</td>
 						<td>${dto.zipcode}</td>
@@ -45,7 +47,7 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="11">
+					<td colspan="12">
 						<ul class="pagination justify-content-center" id="pageWrap">
 							<!-- 페이징 영역 -->
 							<!-- 									<li class="page-item disabled"><a class="page-link" href="#">Prev</a></li> -->

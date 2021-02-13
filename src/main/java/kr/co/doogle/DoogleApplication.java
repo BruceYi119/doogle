@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
+import kr.co.doogle.api.data.Data;
 import kr.co.doogle.key.Key;
 import kr.co.doogle.member.Member;
 import kr.co.doogle.pagination.Pagination;
@@ -16,6 +17,12 @@ public class DoogleApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DoogleApplication.class, args);
+	}
+
+	@Bean
+	public Data data() {
+		Data data = new Data();
+		return data;
 	}
 
 	@Bean

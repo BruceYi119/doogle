@@ -125,5 +125,5 @@ const getWeather = () => {
 	}).catch(err => console.log(err));
 };
 
-//setTimeout(getCovid19, 1000);
+setTimeout(getCovid19, 1000);
 setTimeout(getWeather, 500);

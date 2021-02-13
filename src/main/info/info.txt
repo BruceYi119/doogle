@@ -13,3 +13,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-applicat
 - sitemesh-decorators.xml
 - (WEB-INF 폴더에 추가)
 - views/common/default.jsp
+
+- lombok설치
+java -jar lombok.jar
+-javaagent:lombok.jar

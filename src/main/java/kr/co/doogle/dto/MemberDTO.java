@@ -1,4 +1,4 @@
-package kr.co.doogle.front.dto;
+package kr.co.doogle.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

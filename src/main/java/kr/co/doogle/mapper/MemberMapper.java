@@ -1,4 +1,4 @@
-package kr.co.doogle.front.mapper;
+package kr.co.doogle.mapper;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import kr.co.doogle.front.dto.MemberDTO;
+import kr.co.doogle.dto.MemberDTO;
 
 @Mapper
 public interface MemberMapper {

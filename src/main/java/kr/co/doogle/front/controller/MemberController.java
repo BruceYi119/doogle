@@ -10,9 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.doogle.front.dto.MemberDTO;
-import kr.co.doogle.front.mapper.MemberMapper;
+import kr.co.doogle.dto.MemberDTO;
 import kr.co.doogle.key.Key;
+import kr.co.doogle.mapper.MemberMapper;
 import kr.co.doogle.member.Member;
 import kr.co.doogle.security.Security;
 
