@@ -17,3 +17,16 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-applicat
 - lombok설치
 java -jar lombok.jar
 -javaagent:lombok.jar
+
+- 변수명 표기법
+- 스네이크 케이스 (_)
+snake_case
+- 케밥 케이스 (-)
+kebab-case
+- 카멜 케이스 (첫단어 소문자로 시작 단어마다 대문자)
+camelCase
+- 파스칼 케이스 (단어별로 대문자)
+PascalCase
+헝가리언 표기법 (접두어 사용)
+strName (string -> str)
+bBusy (boolean -> b)
