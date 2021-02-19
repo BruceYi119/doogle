@@ -14,8 +14,15 @@ public class ShopController {
 
 	@RequestMapping("/shop/edit")
 	public String edit(Model model) {
-		model.addAttribute("url", "/shop/edit");
+		model.addAttribute("url", "/edit");
 		return "/front/shop/edit/edit";
+	}
+
+	@RequestMapping("/shop/product/form")
+	public String productform(Model model) {
+		model.addAttribute("url", "/edit");
+		model.addAttribute("js", "/shop/product/form");
+		return "/front/shop/product/form";
 	}
 
 }

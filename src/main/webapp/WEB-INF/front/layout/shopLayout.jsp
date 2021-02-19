@@ -10,16 +10,17 @@
 <link rel="icon" href="/static/front/img/favicon.ico" type="image/x-icon" />
 <title>Doogle</title>
 <link rel="stylesheet" href="/static/core/css/bootstrap.min.css">
-<c:if test="${url eq '/shop/edit'}"><link rel="stylesheet" href="/static/core/css/summernote-bs4.min.css"></c:if>
+<c:if test="${url eq '/edit'}"><link rel="stylesheet" href="/static/core/css/summernote-bs4.min.css"></c:if>
 <link rel="stylesheet" href="/static/front/css/global.css">
 <link rel="stylesheet" href="/static/front/css/shopLayout.css">
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
-<c:if test="${url eq '/shop/edit'}"><script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script></c:if>
+<c:if test="${url eq '/edit'}"><script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script></c:if>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
-<c:if test="${url eq '/shop/edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-bs4.min.js"></script></c:if>
-<c:if test="${url eq '/shop/edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-ko-KR.min.js"></script></c:if>
-<c:if test="${url eq '/shop/edit'}"><script defer type="text/javascript" src="/static/front/js/edit.js"></script></c:if>
+<c:if test="${url eq '/edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-bs4.min.js"></script></c:if>
+<c:if test="${url eq '/edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-ko-KR.min.js"></script></c:if>
+<c:if test="${url eq '/edit'}"><script defer type="text/javascript" src="/static/front/js/edit.js"></script></c:if>
+<c:if test="${js eq '/shop/product/form'}"><script defer type="text/javascript" src="/static/front/js/form.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 </head>
 <body>
