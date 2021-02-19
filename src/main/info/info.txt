@@ -30,3 +30,6 @@ PascalCase
 헝가리언 표기법 (접두어 사용)
 strName (string -> str)
 bBusy (boolean -> b)
+
+- summernote edit
+https://summernote.org/
