@@ -14,14 +14,14 @@ public class ShopController {
 
 	@RequestMapping("/shop/edit")
 	public String edit(Model model) {
-		model.addAttribute("url", "/edit");
+		model.addAttribute("edit", "edit");
 		return "/front/shop/edit/edit";
 	}
 
 	@RequestMapping("/shop/product/form")
 	public String productform(Model model) {
-		model.addAttribute("url", "/edit");
-		model.addAttribute("js", "/shop/product/form");
+		model.addAttribute("edit", "edit");
+		model.addAttribute("url", "/shop/product/form");
 		return "/front/shop/product/form";
 	}
 
