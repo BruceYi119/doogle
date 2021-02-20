@@ -35,7 +35,7 @@ public class ShopController {
 
 	@RequestMapping("/shop/product/insert")
 	public String productInsert(Model model, TestDTO dto) {
-		testMapper.insert(dto.getCon());
+		testMapper.insert(dto);
 		return "redirect:/shop/product/form";
 	}
 
