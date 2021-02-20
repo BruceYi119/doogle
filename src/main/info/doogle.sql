@@ -1,38 +1,38 @@
--- í”„ë¡œì íŠ¸ í…Œì´ë¸” ìŠ¤íŽ˜ì´ìŠ¤ ìƒì„±
+-- ÇÁ·ÎÁ§Æ® Å×ÀÌºí ½ºÆäÀÌ½º »ý¼º
 create tablespace doogle datafile 'D:\db\doogle.dbf' size 200m default storage(initial 80k next 80k minextents 1 maxextents 121 pctincrease 80) online;
 
--- í”„ë¡œì íŠ¸ ê³„ì • ìƒì„±
+-- ÇÁ·ÎÁ§Æ® °èÁ¤ »ý¼º
 create user doogle identified by enffl default tablespace doogle;
 
--- ì ‘ì†, ë¦¬ì†ŒìŠ¤ ê¶Œí•œì£¼ê¸°
+-- Á¢¼Ó, ¸®¼Ò½º ±ÇÇÑÁÖ±â
 grant connect, resource to doogle;
 
--- íšŒì› í…Œì´ë¸” (ì´ìŠ¹ì¤€)
+-- È¸¿ø Å×ÀÌºí (ÀÌ½ÂÁØ)
 drop table member;
 drop sequence s_member;
 create sequence s_member;
 create table member(
-	mno number constraint member_mno_p primary key,													-- í‚¤
-	id varchar2(50) constraint member_id_n not null,													-- ì•„ì´ë””
-	pw char(128) constraint member_pw_n not null,														-- ë¹„ë°€ë²ˆí˜¸(sha512)
-	name varchar2(30) constraint member_name_n not null,												-- ì´ë¦„
-	phone varchar2(20) constraint member_phone_n not null,											-- ì—°ë½ì²˜
-	birth varchar2(20) constraint member_birth_n not null,											-- ìƒë…„ì›”ì¼
-	zipcode varchar2(10) constraint member_zipcode_n not null,										-- ìš°íŽ¸ë²ˆí˜¸
-	addr varchar2(300) constraint member_addr_n not null,											-- ì£¼ì†Œ
-	addr_detail varchar2(300) constraint member_addr_detail_n not null,								-- ìƒì„¸ì£¼ì†Œ
-	email varchar2(30) constraint member_email_n not null,											-- ì´ë©”ì¼
-	mtype char(1) default 'n',																			-- ê´€ë¦¬ìž ì—¬ë¶€ 'a' = ê´€ë¦¬ìž, 'n' = 'ì¼ë°˜íšŒì›'
-	del_yn char(1) default 'n',																		-- íƒˆí‡´ì—¬ë¶€ 'n' = íƒˆí‡´x, 'y' = íƒˆí‡´o
-	writedate date default sysdate,																	-- ê°€ìž…ì¼
+	mno number constraint member_mno_p primary key,													-- Å°
+	id varchar2(50) constraint member_id_n not null,													-- ¾ÆÀÌµð
+	pw char(128) constraint member_pw_n not null,														-- ºñ¹Ð¹øÈ£(sha512)
+	name varchar2(30) constraint member_name_n not null,												-- ÀÌ¸§
+	phone varchar2(20) constraint member_phone_n not null,											-- ¿¬¶ôÃ³
+	birth varchar2(20) constraint member_birth_n not null,											-- »ý³â¿ùÀÏ
+	zipcode varchar2(10) constraint member_zipcode_n not null,										-- ¿ìÆí¹øÈ£
+	addr varchar2(300) constraint member_addr_n not null,											-- ÁÖ¼Ò
+	addr_detail varchar2(300) constraint member_addr_detail_n not null,								-- »ó¼¼ÁÖ¼Ò
+	email varchar2(30) constraint member_email_n not null,											-- ÀÌ¸ÞÀÏ
+	mtype char(1) default 'n',																			-- °ü¸®ÀÚ ¿©ºÎ 'a' = °ü¸®ÀÚ, 'n' = 'ÀÏ¹ÝÈ¸¿ø'
+	del_yn char(1) default 'n',																		-- Å»Åð¿©ºÎ 'n' = Å»Åðx, 'y' = Å»Åðo
+	writedate date default sysdate,																	-- °¡ÀÔÀÏ
 	constraint member_mtype_c check (mtype in ('a','n')),
 	constraint member_del_yn_c check (del_yn in ('y','n'))
 );
 
--- ê´€ë¦¬ìž íšŒì› ë“±ë¡
-insert into member values(s_member.nextval, 'admin', '38252f54a15f38fe15c2bb2304bbf1b27f0f17f9b6d7998ba4ac3833d5842c9d23f2ec6f468708f702204b7cf408fdb13391b82c9baea6137b4a4dce19537bb3', 'ê´€ë¦¬ìž', '010-1234-1234', '1983-01-19', '06241', 'ì„œìš¸íŠ¹ë³„ì‹œ ê°•ë‚¨êµ¬ ê°•ë‚¨ëŒ€ë¡œ 358', 'ìƒì„¸ì£¼ì†Œ', 'pirates119@gmail.com', 'a', 'n', sysdate);
+-- °ü¸®ÀÚ È¸¿ø µî·Ï
+insert into member values(s_member.nextval, 'admin', '38252f54a15f38fe15c2bb2304bbf1b27f0f17f9b6d7998ba4ac3833d5842c9d23f2ec6f468708f702204b7cf408fdb13391b82c9baea6137b4a4dce19537bb3', '°ü¸®ÀÚ', '010-1234-1234', '1983-01-19', '06241', '¼­¿ïÆ¯º°½Ã °­³²±¸ °­³²´ë·Î 358', '»ó¼¼ÁÖ¼Ò', 'pirates119@gmail.com', 'a', 'n', sysdate);
 
--- ê´€ë¦¬ìž íšŒì›ì •ë³´ íŽ˜ì´ì§•ì²˜ë¦¬ í™•ì¸ì„ ìœ„í•œ ë°ì´í„° ìƒì„±ì¿¼ë¦¬
+-- °ü¸®ÀÚ È¸¿øÁ¤º¸ ÆäÀÌÂ¡Ã³¸® È®ÀÎÀ» À§ÇÑ µ¥ÀÌÅÍ »ý¼ºÄõ¸®
 --GRANT EXECUTE ON DBMS_LOCK TO doogle;
 --
 --DECLARE
@@ -40,7 +40,7 @@ insert into member values(s_member.nextval, 'admin', '38252f54a15f38fe15c2bb2304
 --BEGIN
 --
 --    LOOP
---        insert into member values(s_member.nextval, 'admin' || i, '38252f54a15f38fe15c2bb2304bbf1b27f0f17f9b6d7998ba4ac3833d5842c9d23f2ec6f468708f702204b7cf408fdb13391b82c9baea6137b4a4dce19537bb3', 'ê´€ë¦¬ìž', '010-1234-1234', '1983-01-19', '06241', 'ì„œìš¸íŠ¹ë³„ì‹œ ê°•ë‚¨êµ¬ ê°•ë‚¨ëŒ€ë¡œ 358', 'ìƒì„¸ì£¼ì†Œ', 'pirates119@gmail.com', 'a', 'n', sysdate);
+--        insert into member values(s_member.nextval, 'admin' || i, '38252f54a15f38fe15c2bb2304bbf1b27f0f17f9b6d7998ba4ac3833d5842c9d23f2ec6f468708f702204b7cf408fdb13391b82c9baea6137b4a4dce19537bb3', '°ü¸®ÀÚ', '010-1234-1234', '1983-01-19', '06241', '¼­¿ïÆ¯º°½Ã °­³²±¸ °­³²´ë·Î 358', '»ó¼¼ÁÖ¼Ò', 'pirates119@gmail.com', 'a', 'n', sysdate);
 --        i := i + 1;
 --        DBMS_LOCK.SLEEP(01);
 --    EXIT WHEN i > 105;
