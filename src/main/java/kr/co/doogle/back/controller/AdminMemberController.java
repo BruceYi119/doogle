@@ -28,4 +28,9 @@ public class AdminMemberController {
 		return "/back/member/list";
 	}
 
+	@RequestMapping("/admin/member/add")
+	public String member() {
+		return "/back/member/add";
+	}
+
 }
