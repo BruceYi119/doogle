@@ -1,4 +1,4 @@
-package kr.co.doogle.front.controller;
+package kr.co.doogle.front.controller.shop;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
