@@ -1,17 +1,22 @@
 package kr.co.doogle.back.controller;
 
+import java.io.PrintWriter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.doogle.category.Category;
+import kr.co.doogle.mapper.CategoryMapper;
 
 @Controller
 public class AdminCategoryController {
 
 	@Autowired
 	private Category category;
+	@Autowired
+	private CategoryMapper categoryMapper;
 
 	@RequestMapping("/admin/category")
 	public ModelAndView category(ModelAndView mv) {

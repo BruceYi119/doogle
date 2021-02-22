@@ -732,7 +732,7 @@ CREATE TABLE category (
 	name VARCHAR2(100) NOT NULL, /* 카테고리명 */
 	lv NUMBER(1) DEFAULT 0 NOT NULL, /* 카테고리레벨 */
 	pctno NUMBER, /* 부모카테고리번호 */
-	type CHAR(2) DEFAULT 'p' NOT NULL, /* 카테고리타입 */
+	type CHAR(1) DEFAULT 'p' NOT NULL, /* 카테고리타입 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
 
@@ -765,7 +765,7 @@ ALTER TABLE category
 ALTER TABLE category
 	ADD
 		CONSTRAINT category_type_c
-		CHECK (type in ('p','pp','q','qq','f'));
+		CHECK (type in ('p','o','q','t','f'));
 
 /* 주문(헨리) */
 CREATE TABLE orders (

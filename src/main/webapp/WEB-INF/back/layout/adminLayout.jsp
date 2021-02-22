@@ -43,6 +43,7 @@
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="/admin/category">카테고리</a>
 								<a class="dropdown-item" href="/admin/category/add">추가</a>
+								<a class="dropdown-item" href="/admin/category/init">기본카테고리등록</a>
 							</div>
 						</div>
 					</li>

@@ -31,10 +31,10 @@ const getCovid19 = () => {
 			covidData.incDeathCnt = covidData.deathCnt - Number(prevDayInfo.deathCnt);
 		}
 
-		covidData.decideCnt = new Intl.NumberFormat({ maximumSignificantDigits: 3 }).format(covidData.decideCnt);
-		covidData.examCnt = new Intl.NumberFormat({ maximumSignificantDigits: 3 }).format(covidData.examCnt);
-		covidData.clearCnt = new Intl.NumberFormat({ maximumSignificantDigits: 3 }).format(covidData.clearCnt);
-		covidData.deathCnt = new Intl.NumberFormat({ maximumSignificantDigits: 3 }).format(covidData.deathCnt);
+		covidData.decideCnt = new Intl.NumberFormat().format(covidData.decideCnt);
+		covidData.examCnt = new Intl.NumberFormat().format(covidData.examCnt);
+		covidData.clearCnt = new Intl.NumberFormat().format(covidData.clearCnt);
+		covidData.deathCnt = new Intl.NumberFormat().format(covidData.deathCnt);
 
 		if (covidData.incDecideCnt < 0) {
 			covidData.decideClass = ' down';

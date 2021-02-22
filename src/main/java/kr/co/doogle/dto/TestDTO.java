@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TestDTO {
 	private int tno;
-	private String con;
+	private String con, tt;
 }

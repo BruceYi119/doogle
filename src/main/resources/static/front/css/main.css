@@ -27,6 +27,6 @@ ul.covidInfo li.info_03 .info_variation.down::after { background-position: -10px
 ul.covidInfo li.info_04 .info_variation.down::after { background-position: -20px -7px; }
 
 ul.weatherInfo { margin: 0;height: 121px; }
-ul.weatherInfo > li { float: left;line-height: 50px;padding: 0 15px; }
+ul.weatherInfo > li { float: left;line-height: 50px;padding: 0 5px; }
 ul.weatherInfo > li > div.wind { display: inline-block; }
 ul.weatherInfo > li svg { height: 15px; }

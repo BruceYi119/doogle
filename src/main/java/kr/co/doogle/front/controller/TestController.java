@@ -1,5 +1,7 @@
 package kr.co.doogle.front.controller;
 
+import java.io.PrintWriter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +36,11 @@ public class TestController {
 		testMapper.add(dto);
 		mv.setViewName("redirect:/test");
 		return mv;
+	}
+
+	@RequestMapping("/test/test")
+	public void getTno(PrintWriter out) {
+		out.print(testMapper.getTno("ff"));
 	}
 
 }

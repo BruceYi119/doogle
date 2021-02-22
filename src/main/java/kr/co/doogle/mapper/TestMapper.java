@@ -20,5 +20,8 @@ public interface TestMapper {
 
 	@Insert("insert into test values(#{dto.tno}, #{dto.con})")
 	int add(@Param("dto") TestDTO dto);
+	
+	@Select("select tno from test where tt = #{tt}")
+	int getTno(@Param("tt") String tt);
 
 }
