@@ -10,6 +10,7 @@
 <link rel="icon" href="/static/front/img/favicon.ico" type="image/x-icon" />
 <title>Doogle</title>
 <link rel="stylesheet" href="/static/core/css/bootstrap.min.css">
+<c:if test="${edit eq 'edit'}"><link rel="stylesheet" href="/static/core/css/summernote-bs4.min.css"></c:if>
 <link rel="stylesheet" href="/static/front/css/global.css">
 <link rel="stylesheet" href="/static/front/css/layout.css">
 <link rel="stylesheet" href="/static/front/css/main.css">
@@ -17,7 +18,12 @@
 <c:if test="${url eq '/calendar'}"><link rel="stylesheet" href="/static/front/css/calendar.css"></c:if>
 <c:if test="${url eq '/terms' || url eq '/join' || url eq '/login' || url eq '/member/info'}"><link rel="stylesheet" href="/static/front/css/member.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
+<c:if test="${edit eq 'edit'}"><script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script></c:if>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
+<script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
+<c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-bs4.min.js"></script></c:if>
+<c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-ko-KR.min.js"></script></c:if>
+<c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/front/js/edit.js"></script></c:if>
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
 <script defer type="text/javascript" src="/static/front/js/global.js"></script>
 <script defer type="text/javascript" src="/static/front/js/main.js"></script>
@@ -28,6 +34,7 @@
 <c:if test="${url eq '/join'}"><script defer type="text/javascript" src="/static/front/js/join.js"></script></c:if>
 <c:if test="${url eq '/login'}"><script defer type="text/javascript" src="/static/front/js/login.js"></script></c:if>
 <c:if test="${url eq '/member/info'}"><script defer type="text/javascript" src="/static/front/js/member_info.js"></script></c:if>
+<c:if test="${url eq '/test/edit'}"><script defer type="text/javascript" src="/static/front/js/test.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
