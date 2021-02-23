@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class MemberDTO implements Serializable {
 	private static final long serialVersionUID = -8204326534932710183L;
 	private int mno;
-	private String id, pw, name, phone, birth, zipcode, addr, addr_detail, email, mtype, del_yn, writedate;
+	private String id, pw, name, phone, birth, gender, zipcode, addr, addr_detail, email, mtype, del_yn, writedate;
 }

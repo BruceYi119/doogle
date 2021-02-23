@@ -1,5 +1,90 @@
 ALTER TABLE member
 	DROP
+		CONSTRAINT member_del_yn_c
+		CASCADE;
+
+ALTER TABLE member
+	DROP
+		CONSTRAINT member_mtype_c
+		CASCADE;
+
+ALTER TABLE member
+	DROP
+		CONSTRAINT member_gender_c
+		CASCADE;
+
+ALTER TABLE product
+	DROP
+		CONSTRAINT product_pack_type_c
+		CASCADE;
+
+ALTER TABLE product
+	DROP
+		CONSTRAINT product_dis_not_c
+		CASCADE;
+
+ALTER TABLE product
+	DROP
+		CONSTRAINT product_earn_not_c
+		CASCADE;
+
+ALTER TABLE product
+	DROP
+		CONSTRAINT product_sel_not_c
+		CASCADE;
+
+ALTER TABLE category
+	DROP
+		CONSTRAINT category_type_c
+		CASCADE;
+
+ALTER TABLE orders
+	DROP
+		CONSTRAINT orders_type_c
+		CASCADE;
+
+ALTER TABLE coupon
+	DROP
+		CONSTRAINT coupon_dis_type_c
+		CASCADE;
+
+ALTER TABLE notice
+	DROP
+		CONSTRAINT notice_type_c
+		CASCADE;
+
+ALTER TABLE bulk_order
+	DROP
+		CONSTRAINT bulk_order_type_c
+		CASCADE;
+
+ALTER TABLE product_info
+	DROP
+		CONSTRAINT product_info_type_c
+		CASCADE;
+
+ALTER TABLE payment
+	DROP
+		CONSTRAINT payment_type_c
+		CASCADE;
+
+ALTER TABLE popup
+	DROP
+		CONSTRAINT popup_type_c
+		CASCADE;
+
+ALTER TABLE order_list
+	DROP
+		CONSTRAINT order_list_type_c
+		CASCADE;
+
+ALTER TABLE question
+	DROP
+		CONSTRAINT question_type_c
+		CASCADE;
+
+ALTER TABLE member
+	DROP
 		PRIMARY KEY
 		CASCADE
 		KEEP INDEX;
@@ -370,192 +455,6 @@ DROP TABLE question
 DROP TABLE files 
 	CASCADE CONSTRAINTS;
 
-/* 장바구니 */
-DROP SEQUENCE s_basket;
-
-/* 최근본상품 */
-DROP SEQUENCE s_latest;
-
-/* 늘사즌것 */
-DROP SEQUENCE s_living;
-
-/* 쿠폰 */
-DROP SEQUENCE s_coupon;
-
-/* 추천 */
-DROP SEQUENCE s_recommend;
-
-/* 적립금 */
-DROP SEQUENCE s_saving;
-
-/* 적립금내역 */
-DROP SEQUENCE s_saving_list;
-
-/* 내쿠폰 */
-DROP SEQUENCE s_my_coupon;
-
-/* 재입고알림 */
-DROP SEQUENCE s_alarm;
-
-/* 배송지 */
-DROP SEQUENCE s_delivery;
-
-/* 등급 */
-DROP SEQUENCE s_grade;
-
-/* 회원 */
-DROP SEQUENCE s_member;
-
-/* 상품설명 */
-DROP SEQUENCE s_product_info;
-
-/* 상품 */
-DROP SEQUENCE s_product;
-
-/* 상품옵션 */
-DROP SEQUENCE s_product_option;
-
-/* 상품문의 */
-DROP SEQUENCE s_product_qna;
-
-/* 결제 */
-DROP SEQUENCE s_payment;
-
-/* 주문 */
-DROP SEQUENCE s_orders;
-
-/* 주문목록 */
-DROP SEQUENCE s_order_list;
-
-/* 파일 */
-DROP SEQUENCE s_files;
-
-/* 레시피 */
-DROP SEQUENCE s_recipe;
-
-/* 공지사항 */
-DROP SEQUENCE s_norice;
-
-/* 자주하는질문 */
-DROP SEQUENCE s_question;
-
-/* 1:1문의 */
-DROP SEQUENCE s_qna;
-
-/* 팝업 */
-DROP SEQUENCE s_popup;
-
-/* 이벤트 */
-DROP SEQUENCE s_event;
-
-/* 대량주문문의 */
-DROP SEQUENCE s_bulk_order;
-
-/* 상품제안 */
-DROP SEQUENCE s_proposition;
-
-/* 에코포장피드백 */
-DROP SEQUENCE s_eco;
-
-/* 카테고리 */
-DROP SEQUENCE s_category;
-
-/* 상품후기 */
-DROP SEQUENCE s_review;
-
-/* 장바구니 */
-CREATE SEQUENCE s_basket;
-
-/* 최근본상품 */
-CREATE SEQUENCE s_latest;
-
-/* 늘사즌것 */
-CREATE SEQUENCE s_living;
-
-/* 쿠폰 */
-CREATE SEQUENCE s_coupon;
-
-/* 추천 */
-CREATE SEQUENCE s_recommend;
-
-/* 적립금 */
-CREATE SEQUENCE s_saving;
-
-/* 적립금내역 */
-CREATE SEQUENCE s_saving_list;
-
-/* 내쿠폰 */
-CREATE SEQUENCE s_my_coupon;
-
-/* 재입고알림 */
-CREATE SEQUENCE s_alarm;
-
-/* 배송지 */
-CREATE SEQUENCE s_delivery;
-
-/* 등급 */
-CREATE SEQUENCE s_grade;
-
-/* 회원 */
-CREATE SEQUENCE s_member;
-
-/* 상품설명 */
-CREATE SEQUENCE s_product_info;
-
-/* 상품 */
-CREATE SEQUENCE s_product;
-
-/* 상품옵션 */
-CREATE SEQUENCE s_product_option;
-
-/* 상품문의 */
-CREATE SEQUENCE s_product_qna;
-
-/* 결제 */
-CREATE SEQUENCE s_payment;
-
-/* 주문 */
-CREATE SEQUENCE s_orders;
-
-/* 주문목록 */
-CREATE SEQUENCE s_order_list;
-
-/* 파일 */
-CREATE SEQUENCE s_files;
-
-/* 레시피 */
-CREATE SEQUENCE s_recipe;
-
-/* 공지사항 */
-CREATE SEQUENCE s_norice;
-
-/* 자주하는질문 */
-CREATE SEQUENCE s_question;
-
-/* 1:1문의 */
-CREATE SEQUENCE s_qna;
-
-/* 팝업 */
-CREATE SEQUENCE s_popup;
-
-/* 이벤트 */
-CREATE SEQUENCE s_event;
-
-/* 대량주문문의 */
-CREATE SEQUENCE s_bulk_order;
-
-/* 상품제안 */
-CREATE SEQUENCE s_proposition;
-
-/* 에코포장피드백 */
-CREATE SEQUENCE s_eco;
-
-/* 카테고리 */
-CREATE SEQUENCE s_category;
-
-/* 상품후기 */
-CREATE SEQUENCE s_review;
-
 /* 회원 (이승준) */
 CREATE TABLE member (
 	mno NUMBER NOT NULL, /* 회원번호 */
@@ -564,6 +463,7 @@ CREATE TABLE member (
 	pw CHAR(128) NOT NULL, /* 비밀번호 */
 	name VARCHAR2(30) NOT NULL, /* 이름 */
 	phone VARCHAR2(20) NOT NULL, /* 연락처 */
+	birth VARCHAR2(20) NOT NULL, /* 생일 */
 	gender CHAR(1) DEFAULT 'm' NOT NULL, /* 성별 */
 	zipcode VARCHAR2(20) NOT NULL, /* 우편번호 */
 	addr VARCHAR2(300) NOT NULL, /* 주소 */
@@ -587,6 +487,8 @@ COMMENT ON COLUMN member.pw IS '비밀번호';
 COMMENT ON COLUMN member.name IS '이름';
 
 COMMENT ON COLUMN member.phone IS '연락처';
+
+COMMENT ON COLUMN member.birth IS '생일';
 
 COMMENT ON COLUMN member.gender IS '성별';
 
@@ -772,7 +674,7 @@ CREATE TABLE orders (
 	ono NUMBER NOT NULL, /* 주문번호 */
 	mno NUMBER NOT NULL, /* 회원번호 */
 	type CHAR(1) DEFAULT 'o' NOT NULL, /* 주문상태 */
-	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
+	writedate DATE DEFAULT syadate NOT NULL /* 등록일 */
 );
 
 COMMENT ON TABLE orders IS '주문(헨리)';
@@ -918,6 +820,7 @@ ALTER TABLE delivery
 /* 쿠폰(박용순) */
 CREATE TABLE coupon (
 	cno NUMBER NOT NULL, /* 쿠폰번호 */
+	pno NUMBER, /* 상품번호 */
 	content CLOB NOT NULL, /* 쿠폰내용 */
 	discount NUMBER DEFAULT 0 NOT NULL, /* 할인율 */
 	dis_price NUMBER DEFAULT 0 NOT NULL, /* 할인금액 */
@@ -930,6 +833,8 @@ CREATE TABLE coupon (
 COMMENT ON TABLE coupon IS '쿠폰(박용순)';
 
 COMMENT ON COLUMN coupon.cno IS '쿠폰번호';
+
+COMMENT ON COLUMN coupon.pno IS '상품번호';
 
 COMMENT ON COLUMN coupon.content IS '쿠폰내용';
 
