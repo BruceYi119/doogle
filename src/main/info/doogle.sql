@@ -58,11 +58,6 @@ ALTER TABLE bulk_order
 		CONSTRAINT bulk_order_type_c
 		CASCADE;
 
-ALTER TABLE product_info
-	DROP
-		CONSTRAINT product_info_type_c
-		CASCADE;
-
 ALTER TABLE payment
 	DROP
 		CONSTRAINT payment_type_c
@@ -734,8 +729,8 @@ CREATE TABLE product (
 	earn NUMBER DEFAULT 0 NOT NULL, /* 적립율 */
 	earn_not CHAR(1) DEFAULT 'n' NOT NULL, /* 적립여부 */
 	cno NUMBER NOT NULL, /* 카테고리번호(대) */
-	cno1 NUMBER NOT NULL, /* 카테고리번호(중) */
-	cno2 NUMBER NOT NULL, /* 카테고리번호(소) */
+	cno1 NUMBER, /* 카테고리번호(중) */
+	cno2 NUMBER, /* 카테고리번호(소) */
 	fno NUMBER, /* 상품이미지 */
 	quantity NUMBER DEFAULT 0 NOT NULL, /* 수량 */
 	sel_not CHAR(1) DEFAULT 'y' NOT NULL, /* 판매여부 */
@@ -856,7 +851,7 @@ ALTER TABLE category
 ALTER TABLE category
 	ADD
 		CONSTRAINT category_type_c
-		CHECK (type in ('p','o','q','t','f'));
+		CHECK (type in ('p','o','q','t','f','e'));
 
 /* 주문(헨리) */
 CREATE TABLE orders (
@@ -900,6 +895,7 @@ CREATE TABLE basket (
 	sbno NUMBER NOT NULL, /* 장바구니번호 */
 	mno NUMBER NOT NULL, /* 회원번호 */
 	pno NUMBER NOT NULL, /* 상품번호 */
+	pono NUMBER NOT NULL, /* 상품옵션번호 */
 	quantity NUMBER DEFAULT 0 NOT NULL, /* 수량 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
@@ -911,6 +907,8 @@ COMMENT ON COLUMN basket.sbno IS '장바구니번호';
 COMMENT ON COLUMN basket.mno IS '회원번호';
 
 COMMENT ON COLUMN basket.pno IS '상품번호';
+
+COMMENT ON COLUMN basket.pono IS '상품옵션번호';
 
 COMMENT ON COLUMN basket.quantity IS '수량';
 
@@ -1460,11 +1458,6 @@ ALTER TABLE product_info
 			pino,
 			pno
 		);
-
-ALTER TABLE product_info
-	ADD
-		CONSTRAINT product_info_type_c
-		CHECK (type in ('y','n'));
 
 /* 상품옵션(이승준) */
 CREATE TABLE product_option (

@@ -32,9 +32,6 @@ public interface CategoryMapper {
 	@Insert("insert into category(ctno, name, lv, type, idx, pctno) values(s_category.nextval, #{dto.name}, #{dto.lv}, #{dto.type}, #{dto.idx}, #{dto.pctno})")
 	int addChildCategory(@Param("dto") CategoryDTO dto);
 
-	@Insert("insert into category(ctno, name, lv, type, pctno) values(s_category.nextval, #{dto.name}, #{dto.lv}, #{dto.type}, #{dto.pctno})")
-	int addCategoryLv(@Param("dto") CategoryDTO dto);
-
 	@Update("update category set name = #{dto.name}, lv = #{dto.lv}, pctno = #{dto.pctno}, type = #{dto.type}, #{dto.writedate}")
 	int mod(@Param("dto") CategoryDTO dto);
 
