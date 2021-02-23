@@ -1,6 +1,7 @@
 package kr.co.doogle.category;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import javax.inject.Inject;
 
@@ -51,45 +52,71 @@ public class Category {
 		lv1.put("반려동물", new String[]{ "강아지 간식", "강아지 주식", "고양이 간식", "고양이 주식", "반려동물 용품", "배변·위생", "소용량·샘플" });
 		lv1.put("컬리의 추천", new String[]{ "식단관리", "간편한 아침식사", "재구매 BEST", "3천원의 행복", "컬리마트", "1인 가구", "뚝딱! 간편식", "베이커리 맛집", "반찬가게", "키토제닉", "비건", "지속가능한 상품", "컬리가 만든 상품", "Kurly Only", "KF365", "1% Table" });
 
-		lv2.put("컬리의 추천", new String[]{ "식단관리", "간편한 아침식사", "재구매 BEST", "3천원의 행복", "컬리마트", "1인 가구", "뚝딱! 간편식", "베이커리 맛집", "반찬가게", "키토제닉", "비건", "지속가능한 상품", "컬리가 만든 상품", "Kurly Only", "KF365", "1% Table" });
+		lv2.put("식단관리", new String[]{ "샐러드", "클렌즈 주스", "닭가슴살/달걀", "도시락", "프로틴/보조제", "시리얼/선식/간식", "식단관리 채소" });
+		lv2.put("간편한 아침식사", new String[]{ "베이커리·델리", "우유·커피·주스", "과일", "샐러드·간편식·스프", "선식·시리얼·그래놀라" });
+		lv2.put("재구매 BEST", new String[]{ "신선식품", "가공식품", "반찬·간편식", "리빙·뷰티·펫" });
+		lv2.put("3천원의 행복", new String[]{ "1천원 미만", "2천원 미만", "3천원 미만" });
+		lv2.put("컬리마트", new String[]{ "라면·간편식", "김치·반찬", "간식·과자·시리얼", "유제품·아이스크림", "생수·음료·커피", "장류·양념·오일", "생활용품" });
+		lv2.put("1인 가구", new String[]{ "한끼채소", "과일/쌀", "간편식/재료", "간식/음료", "생활용품" });
+		lv2.put("뚝딱! 간편식", new String[]{ "전자레인지용", "에어프라이어용", "밀키트" });
+		lv2.put("베이커리 맛집", new String[]{ "사층빵집", "리치몬드 과자점", "아우어베이커리", "빵공장띠에리", "더브레드블루", "무화당", "근대골목단팥빵", "밀도" });
+		lv2.put("반찬가게", new String[]{ "정미경키친", "조선호텔김치", "스마일찬", "탐나는 밥상", "Everyday", "동광젓갈" });
+		lv2.put("키토제닉", new String[]{ "키토인을 위한 간편식", "요리하는 키토인", "키토인을 위한 간식" });
+		lv2.put("비건", new String[]{ "대체육·간편식", "대체유제품·음료", "샐러드", "시리얼·선식", "간식", "베이커리", "양념·소스", "생활·뷰티" });
+		lv2.put("지속가능한 상품", new String[]{ "친환경", "ASC/MSC/GAP", "공정무역/동물복지" });
+		lv2.put("컬리가 만든 상품", new String[]{ "Kurly`s", "일반 상품" });
+		lv2.put("Kurly Only", new String[]{ "농산", "수산", "정육·계란", "간편식", "유제품", "가공식품", "건강식품", "리빙·펫" });
 	}
 
 	public void initCategory() {
-		StringBuilder sb = new StringBuilder();
-		String typeStr = type.keySet().toString();
-		typeStr = typeStr.replace("[", "");
-		typeStr = typeStr.replace("]", "");
-		String[] typeStrArr = typeStr.split(",");
-		for (int i = 0;i < typeStrArr.length;i++) {
-			if (i == typeStrArr.length - 1)
-				sb.append("'" + typeStrArr[i].trim() + "'");
-			else
-				sb.append("'" + typeStrArr[i].trim() + "', ");
-		}
-		int cnt = categoryMapper.checkInitCategory(sb.toString());
+		int cnt = categoryMapper.getTotal();	
 
 		if (cnt == 0) {
-//			for (Entry<String, String> entry : type.entrySet()) {
-//				dto.setName(entry.getValue());
-//				dto.setType(entry.getKey());
-//				dto.setLv(0);
-//				categoryMapper.addCategory(dto);
-//				int pctno = categoryMapper.getCtno(entry.getKey(), 0);
-//
-//				for (String v : lv0.get(entry.getKey())) {
-//					dto.setName(v);
-//					dto.setType(entry.getKey());
-//					dto.setLv(1);
-//					dto.setPctno(pctno);
-//					categoryMapper.addCategoryLv(dto);
-//				}
-//			}
+			for (Entry<String, String[]> entry : lv0.entrySet()) {
+				int i = 1;
+
+				for (String v0 : entry.getValue()) {
+					dto.setName(v0);
+					dto.setType(entry.getKey());
+					dto.setLv(0);
+					dto.setIdx(i);
+					categoryMapper.addCategory(dto);
+
+					if (lv1.get(v0) != null) {
+						int pctno = categoryMapper.getCtno(v0, 0);
+						int j = 1;
+
+						for (String v1 : lv1.get(v0)) {
+							dto.setName(v1);
+							dto.setType(entry.getKey());
+							dto.setLv(1);
+							dto.setIdx(j);
+							dto.setPctno(pctno);
+							categoryMapper.addChildCategory(dto);
+
+							if (lv2.get(v1) != null) {
+								int ppctno = categoryMapper.getCtno(v1, 1);
+								int k = 1;
+
+								for (String v2 : lv2.get(v1)) {
+									dto.setName(v2);
+									dto.setType(entry.getKey());
+									dto.setLv(2);
+									dto.setIdx(k);
+									dto.setPctno(ppctno);
+									categoryMapper.addChildCategory(dto);
+									k++;
+								}
+							}
+
+							j++;
+						}
+					}
+
+					i++;
+				}
+			}
 		}
 	}
-
-//	public static void main(String[] arsg) {
-//		Category c = new Category();
-//		System.out.println(Arrays.toString(c.lv1.get("p")));
-//	}
 
 }

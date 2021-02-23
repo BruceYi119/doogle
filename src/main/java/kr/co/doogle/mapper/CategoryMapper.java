@@ -17,17 +17,20 @@ public interface CategoryMapper {
 	@Select("${sql}")
 	List<CategoryDTO> getQueryAll(@Param("sql") String sql);
 
-	@Select("select * from category order by type asc, writedate desc")
+	@Select("select * from category order by type asc, lv asc, idx asc")
 	List<CategoryDTO> getAll();
 
-	@Select("select ctno from category where type = #{type} and lv = #{lv}")
-	int getCtno(@Param("type") String type, @Param("lv") int lv);
+	@Select("select ctno from category where name = #{name} and lv = #{lv}")
+	int getCtno(@Param("name") String name, @Param("lv") int lv);
 
 	@Insert("insert into category values(s_category.nextval(), #{dto.name}, #{dto.lv}, #{pctno}, #{dto.type}, sysdate)")
 	int add(@Param("dto") CategoryDTO dto);
 
-	@Insert("insert into category(ctno, name, lv, type) values(s_category.nextval, #{dto.name}, #{dto.lv}, #{dto.type})")
+	@Insert("insert into category(ctno, name, lv, type, idx) values(s_category.nextval, #{dto.name}, #{dto.lv}, #{dto.type}, #{dto.idx})")
 	int addCategory(@Param("dto") CategoryDTO dto);
+
+	@Insert("insert into category(ctno, name, lv, type, idx, pctno) values(s_category.nextval, #{dto.name}, #{dto.lv}, #{dto.type}, #{dto.idx}, #{dto.pctno})")
+	int addChildCategory(@Param("dto") CategoryDTO dto);
 
 	@Insert("insert into category(ctno, name, lv, type, pctno) values(s_category.nextval, #{dto.name}, #{dto.lv}, #{dto.type}, #{dto.pctno})")
 	int addCategoryLv(@Param("dto") CategoryDTO dto);
@@ -38,7 +41,7 @@ public interface CategoryMapper {
 	@Delete("delete from category where ctno = #{ctno}")
 	int del(@Param("ctno") int ctno);
 
-	@Select("select count(*) from category where lv = 0 and type in (${type})")
-	int checkInitCategory(@Param("type") String type);
+	@Select("select count(*) from category")
+	int getTotal();
 
 }

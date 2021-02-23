@@ -455,6 +455,192 @@ DROP TABLE question
 DROP TABLE files 
 	CASCADE CONSTRAINTS;
 
+/* 장바구니 */
+DROP SEQUENCE s_basket;
+
+/* 최근본상품 */
+DROP SEQUENCE s_latest;
+
+/* 늘사즌것 */
+DROP SEQUENCE s_living;
+
+/* 쿠폰 */
+DROP SEQUENCE s_coupon;
+
+/* 추천 */
+DROP SEQUENCE s_recommend;
+
+/* 적립금 */
+DROP SEQUENCE s_saving;
+
+/* 적립금내역 */
+DROP SEQUENCE s_saving_list;
+
+/* 내쿠폰 */
+DROP SEQUENCE s_my_coupon;
+
+/* 재입고알림 */
+DROP SEQUENCE s_alarm;
+
+/* 배송지 */
+DROP SEQUENCE s_delivery;
+
+/* 등급 */
+DROP SEQUENCE s_grade;
+
+/* 회원 */
+DROP SEQUENCE s_member;
+
+/* 상품설명 */
+DROP SEQUENCE s_product_info;
+
+/* 상품 */
+DROP SEQUENCE s_product;
+
+/* 상품옵션 */
+DROP SEQUENCE s_product_option;
+
+/* 상품문의 */
+DROP SEQUENCE s_product_qna;
+
+/* 결제 */
+DROP SEQUENCE s_payment;
+
+/* 주문 */
+DROP SEQUENCE s_orders;
+
+/* 주문목록 */
+DROP SEQUENCE s_order_list;
+
+/* 파일 */
+DROP SEQUENCE s_files;
+
+/* 레시피 */
+DROP SEQUENCE s_recipe;
+
+/* 공지사항 */
+DROP SEQUENCE s_norice;
+
+/* 자주하는질문 */
+DROP SEQUENCE s_question;
+
+/* 1:1문의 */
+DROP SEQUENCE s_qna;
+
+/* 팝업 */
+DROP SEQUENCE s_popup;
+
+/* 이벤트 */
+DROP SEQUENCE s_event;
+
+/* 대량주문문의 */
+DROP SEQUENCE s_bulk_order;
+
+/* 상품제안 */
+DROP SEQUENCE s_proposition;
+
+/* 에코포장피드백 */
+DROP SEQUENCE s_eco;
+
+/* 카테고리 */
+DROP SEQUENCE s_category;
+
+/* 상품후기 */
+DROP SEQUENCE s_review;
+
+/* 장바구니 */
+CREATE SEQUENCE s_basket;
+
+/* 최근본상품 */
+CREATE SEQUENCE s_latest;
+
+/* 늘사즌것 */
+CREATE SEQUENCE s_living;
+
+/* 쿠폰 */
+CREATE SEQUENCE s_coupon;
+
+/* 추천 */
+CREATE SEQUENCE s_recommend;
+
+/* 적립금 */
+CREATE SEQUENCE s_saving;
+
+/* 적립금내역 */
+CREATE SEQUENCE s_saving_list;
+
+/* 내쿠폰 */
+CREATE SEQUENCE s_my_coupon;
+
+/* 재입고알림 */
+CREATE SEQUENCE s_alarm;
+
+/* 배송지 */
+CREATE SEQUENCE s_delivery;
+
+/* 등급 */
+CREATE SEQUENCE s_grade;
+
+/* 회원 */
+CREATE SEQUENCE s_member;
+
+/* 상품설명 */
+CREATE SEQUENCE s_product_info;
+
+/* 상품 */
+CREATE SEQUENCE s_product;
+
+/* 상품옵션 */
+CREATE SEQUENCE s_product_option;
+
+/* 상품문의 */
+CREATE SEQUENCE s_product_qna;
+
+/* 결제 */
+CREATE SEQUENCE s_payment;
+
+/* 주문 */
+CREATE SEQUENCE s_orders;
+
+/* 주문목록 */
+CREATE SEQUENCE s_order_list;
+
+/* 파일 */
+CREATE SEQUENCE s_files;
+
+/* 레시피 */
+CREATE SEQUENCE s_recipe;
+
+/* 공지사항 */
+CREATE SEQUENCE s_norice;
+
+/* 자주하는질문 */
+CREATE SEQUENCE s_question;
+
+/* 1:1문의 */
+CREATE SEQUENCE s_qna;
+
+/* 팝업 */
+CREATE SEQUENCE s_popup;
+
+/* 이벤트 */
+CREATE SEQUENCE s_event;
+
+/* 대량주문문의 */
+CREATE SEQUENCE s_bulk_order;
+
+/* 상품제안 */
+CREATE SEQUENCE s_proposition;
+
+/* 에코포장피드백 */
+CREATE SEQUENCE s_eco;
+
+/* 카테고리 */
+CREATE SEQUENCE s_category;
+
+/* 상품후기 */
+CREATE SEQUENCE s_review;
+
 /* 회원 (이승준) */
 CREATE TABLE member (
 	mno NUMBER NOT NULL, /* 회원번호 */
@@ -635,6 +821,7 @@ CREATE TABLE category (
 	lv NUMBER(1) DEFAULT 0 NOT NULL, /* 카테고리레벨 */
 	pctno NUMBER, /* 부모카테고리번호 */
 	type CHAR(1) DEFAULT 'p' NOT NULL, /* 카테고리타입 */
+	idx NUMBER DEFAULT 1, /* 순서 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
 
@@ -649,6 +836,8 @@ COMMENT ON COLUMN category.lv IS '카테고리레벨';
 COMMENT ON COLUMN category.pctno IS '부모카테고리번호';
 
 COMMENT ON COLUMN category.type IS '카테고리타입';
+
+COMMENT ON COLUMN category.idx IS '순서';
 
 COMMENT ON COLUMN category.writedate IS '등록일';
 
@@ -674,7 +863,7 @@ CREATE TABLE orders (
 	ono NUMBER NOT NULL, /* 주문번호 */
 	mno NUMBER NOT NULL, /* 회원번호 */
 	type CHAR(1) DEFAULT 'o' NOT NULL, /* 주문상태 */
-	writedate DATE DEFAULT syadate NOT NULL /* 등록일 */
+	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
 
 COMMENT ON TABLE orders IS '주문(헨리)';
