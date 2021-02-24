@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.doogle.mapper.MemberMapper;
-import kr.co.doogle.pagination.Pagination;
+import kr.co.doogle.paging.Paging;
 
 @Controller
 public class AdminMemberController {

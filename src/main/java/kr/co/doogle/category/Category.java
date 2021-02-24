@@ -121,4 +121,8 @@ public class Category {
 		}
 	}
 
+	public HashMap<String, String> getType() {
+		return type;
+	}
+
 }

@@ -10,7 +10,7 @@ import kr.co.doogle.category.Category;
 import kr.co.doogle.dto.CategoryDTO;
 import kr.co.doogle.key.Key;
 import kr.co.doogle.member.Member;
-import kr.co.doogle.pagination.Pagination;
+import kr.co.doogle.paging.Paging;
 import kr.co.doogle.security.Security;
 import kr.co.doogle.sitemesh.config.SiteMeshConfig;
 
@@ -59,8 +59,8 @@ public class DoogleApplication {
 	}
 
 	@Bean
-	public Pagination pagination() {
-		Pagination pagination = new Pagination();
+	public Paging pagination() {
+		Paging pagination = new Paging();
 		return pagination;
 	}
 

@@ -20,6 +20,9 @@ public interface CategoryMapper {
 	@Select("select * from category order by type asc, lv asc, idx asc")
 	List<CategoryDTO> getAll();
 
+	@Select("select * from category where type = #{type} order by type asc, lv asc, idx asc")
+	List<CategoryDTO> getAllType(@Param("type") String type);
+
 	@Select("select ctno from category where name = #{name} and lv = #{lv}")
 	int getCtno(@Param("name") String name, @Param("lv") int lv);
 
