@@ -971,6 +971,7 @@ CREATE TABLE delivery (
 	addr_detail VARCHAR2(300) NOT NULL, /* 상세주소 */
 	receive_name VARCHAR2(100) NOT NULL, /* 받으시는분 */
 	phone VARCHAR2(20) NOT NULL, /* 핸드폰 */
+	default_yn char(1) DEFAULT 'y' NOT NULL, /* 기본배송지 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
 
@@ -988,6 +989,8 @@ COMMENT ON COLUMN delivery.receive_name IS '받으시는분';
 
 COMMENT ON COLUMN delivery.phone IS '핸드폰';
 
+COMMENT ON COLUMN delivery.default_yn IS '기본배송지';
+
 COMMENT ON COLUMN delivery.writedate IS '등록일';
 
 CREATE UNIQUE INDEX delivery_dno_i
@@ -1003,6 +1006,11 @@ ALTER TABLE delivery
 			dno,
 			mno
 		);
+
+ALTER TABLE delivery
+	ADD
+		CONSTRAINT delivery_default_yn_c
+		CHECK (default_yn in ('y','n'));
 
 /* 쿠폰(박용순) */
 CREATE TABLE coupon (
