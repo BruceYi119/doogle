@@ -272,7 +272,7 @@ DROP INDEX category_ctno_i;
 
 DROP INDEX orders_ono_i;
 
-DROP INDEX basket_sbno_i;
+DROP INDEX basket_bno_i;
 
 DROP INDEX grade_gno_i;
 
@@ -892,7 +892,7 @@ ALTER TABLE orders
 
 /* 장바구니(정지원) */
 CREATE TABLE basket (
-	sbno NUMBER NOT NULL, /* 장바구니번호 */
+	bno NUMBER NOT NULL, /* 장바구니번호 */
 	mno NUMBER NOT NULL, /* 회원번호 */
 	pno NUMBER NOT NULL, /* 상품번호 */
 	pono NUMBER NOT NULL, /* 상품옵션번호 */
@@ -902,7 +902,7 @@ CREATE TABLE basket (
 
 COMMENT ON TABLE basket IS '장바구니(정지원)';
 
-COMMENT ON COLUMN basket.sbno IS '장바구니번호';
+COMMENT ON COLUMN basket.bno IS '장바구니번호';
 
 COMMENT ON COLUMN basket.mno IS '회원번호';
 
@@ -914,18 +914,18 @@ COMMENT ON COLUMN basket.quantity IS '수량';
 
 COMMENT ON COLUMN basket.writedate IS '등록일';
 
-CREATE UNIQUE INDEX basket_sbno_i
+CREATE UNIQUE INDEX basket_bno_i
 	ON basket (
-		sbno ASC,
+		bno ASC,
 		mno ASC,
 		pno ASC
 	);
 
 ALTER TABLE basket
 	ADD
-		CONSTRAINT basket_sbno_p
+		CONSTRAINT basket_bno_p
 		PRIMARY KEY (
-			sbno,
+			bno,
 			mno,
 			pno
 		);
