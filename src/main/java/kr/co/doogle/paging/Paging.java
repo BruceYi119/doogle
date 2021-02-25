@@ -18,7 +18,16 @@ public class Paging {
 	private boolean prev;
 	private boolean next;
 
-	public void setPaging(int totalCnt) {
+	public Paging () {
+		page = 1;
+		totalCnt = 0;
+	}
+
+	public Paging (int page, int totalCnt) {
+		setPaging(page, totalCnt);
+	}
+
+	public void setPaging(int page, int totalCnt) {
 		this.totalCnt = totalCnt;
 		startRow = (page - 1) * viewCnt + 1;
 		endRow = startRow + viewCnt -1;
@@ -176,5 +185,11 @@ public class Paging {
 				+ ", startRow=" + startRow + ", endRow=" + endRow + ", RowTotalCnt=" + RowTotalCnt + ", RowCnt="
 				+ RowCnt + ", prev=" + prev + ", next=" + next + "]";
 	}
+
+//	public static void main(String[] args) {
+//		Paging p = new Paging();
+//		p.setPaging(1, 101);
+//		System.out.println(p.toString());
+//	}
 
 }
