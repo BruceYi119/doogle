@@ -1,11 +1,13 @@
 package kr.co.doogle.paging;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Paging {
 
 	private StringBuilder sb;
 	private int viewCnt = 10;				// 한페이지 보여지는 수
 	private int totalCnt = 10;				// 전체 row 수
-	private int rowRangeCnt = 10;			// 초기값으로 페이지범위를 10으로 셋팅
 	private int page;						// 현재 페이지
 	private int startPage;					// 시작 페이지
 	private int endPage;					// 끝 페이지
@@ -14,12 +16,13 @@ public class Paging {
 	private int endRow;						// 끝 줄번호
 	private int RowTotalCnt;				// 전체 줄 수
 	private int RowCnt;						// 페이지 표시 수
-	private String pageHtml;				// 페이지 HTML	
+	private String pageHtml;				// 페이지 HTML
 	private boolean prev;
 	private boolean next;
 
 	public Paging () {
 		page = 1;
+		RowCnt = 10;
 		totalCnt = 0;
 	}
 
@@ -28,12 +31,13 @@ public class Paging {
 	}
 
 	public void setPaging(int page, int totalCnt) {
+		this.page = page;
 		this.totalCnt = totalCnt;
 		startRow = (page - 1) * viewCnt + 1;
 		endRow = startRow + viewCnt -1;
 
 		// 이전 버튼 상태
-		prev = rowRangeCnt == 1 ? false : true;
+		prev = RowCnt == 1 ? false : true;
 		// 다음 버튼 상태
 		next = endPage > RowCnt ? false : true;
 
@@ -43,14 +47,16 @@ public class Paging {
 		}
 
 		pageTotalCnt = (RowTotalCnt - 1) / RowCnt + 1;
-		startPage = (page - 1) / rowRangeCnt * rowRangeCnt + 1;
-		endPage = startPage + rowRangeCnt - 1;
+		startPage = (page - 1) / RowCnt * RowCnt + 1;
+		endPage = startPage + RowCnt - 1;
 		if(endPage > pageTotalCnt) endPage = pageTotalCnt;
 
 		setPagingHtml();
 	}
 
 	public void setPagingHtml() {
+		sb = new StringBuilder();
+
 		if (prev)
 			sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"#\">Prev</a></li>");
 		else
@@ -80,14 +86,6 @@ public class Paging {
 
 	public void setTotalCnt(int totalCnt) {
 		this.totalCnt = totalCnt;
-	}
-
-	public int getRowRangeCnt() {
-		return rowRangeCnt;
-	}
-
-	public void setRowRangeCnt(int rowRangeCnt) {
-		this.rowRangeCnt = rowRangeCnt;
 	}
 
 	public int getPage() {
@@ -180,16 +178,14 @@ public class Paging {
 
 	@Override
 	public String toString() {
-		return "Paging [viewCnt=" + viewCnt + ", totalCnt=" + totalCnt + ", rowRangeCnt=" + rowRangeCnt + ", page="
-				+ page + ", startPage=" + startPage + ", endPage=" + endPage + ", pageTotalCnt=" + pageTotalCnt
-				+ ", startRow=" + startRow + ", endRow=" + endRow + ", RowTotalCnt=" + RowTotalCnt + ", RowCnt="
-				+ RowCnt + ", prev=" + prev + ", next=" + next + "]";
+		return "Paging [viewCnt=" + viewCnt + ", totalCnt=" + totalCnt + ", page=" + page + ", startPage=" + startPage
+				+ ", endPage=" + endPage + ", pageTotalCnt=" + pageTotalCnt + ", startRow=" + startRow + ", endRow="
+				+ endRow + ", RowTotalCnt=" + RowTotalCnt + ", RowCnt=" + RowCnt + ", prev=" + prev + ", next=" + next
+				+ "]";
 	}
 
-//	public static void main(String[] args) {
-//		Paging p = new Paging();
-//		p.setPaging(1, 101);
-//		System.out.println(p.toString());
-//	}
+	 public static void main(String[] args) { 
+
+	 }
 
 }

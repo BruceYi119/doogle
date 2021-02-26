@@ -898,7 +898,7 @@ CREATE TABLE basket (
 	bno NUMBER NOT NULL, /* 장바구니번호 */
 	mno NUMBER NOT NULL, /* 회원번호 */
 	pno NUMBER NOT NULL, /* 상품번호 */
-	pono NUMBER NOT NULL, /* 상품옵션번호 */
+	pono NUMBER, /* 상품옵션번호 */
 	quantity NUMBER DEFAULT 0 NOT NULL, /* 수량 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
