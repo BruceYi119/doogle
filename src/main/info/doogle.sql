@@ -717,6 +717,7 @@ ALTER TABLE member
 /* 상품(이승준) */
 CREATE TABLE product (
 	pno NUMBER NOT NULL, /* 상품번호 */
+	brand VARCHAR2(300), /* 브랜드명 */
 	pname VARCHAR2(300) NOT NULL, /* 상품명 */
 	psubject VARCHAR2(300), /* 부제목 */
 	sel_unit VARCHAR2(100) NOT NULL, /* 판매단위 */
@@ -740,6 +741,8 @@ CREATE TABLE product (
 COMMENT ON TABLE product IS '상품(이승준)';
 
 COMMENT ON COLUMN product.pno IS '상품번호';
+
+COMMENT ON COLUMN product.brand IS '브랜드명';
 
 COMMENT ON COLUMN product.pname IS '상품명';
 
