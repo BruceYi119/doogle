@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TestDTO {
-	private int tno;
+public class Test1DTO {
+	private int tno, tno1;
 	private String con;
 }

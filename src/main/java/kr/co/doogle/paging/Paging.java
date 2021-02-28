@@ -1,55 +1,52 @@
 package kr.co.doogle.paging;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Paging {
-
+ 
 	private StringBuilder sb;
-	private int viewCnt = 10;				// 한페이지 보여지는 수
-	private int totalCnt = 10;				// 전체 row 수
-	private int page;						// 현재 페이지
-	private int startPage;					// 시작 페이지
-	private int endPage;					// 끝 페이지
-	private int pageTotalCnt;				// 전체 페이지 수	
-	private int startRow;					// 시작 줄번호
-	private int endRow;						// 끝 줄번호
-	private int RowTotalCnt;				// 전체 줄 수
-	private int RowCnt;						// 페이지 표시 수
-	private String pageHtml;				// 페이지 HTML
-	private boolean prev;
-	private boolean next;
+	private int viewCnt = 10;				// 한페이지 보여지는 row 수
+	private int pageViewCnt = 10;			// 페이지 표시 수
+	private int totalCnt = 0;				// 전체 row 수
+	private int pageTotalCnt = 0;			// 전체 페이지 수
+	private int pageGroupToltalCnt = 1;		// 전체 페이지 그룹 수	
+	private int page = 1;					// 현재 페이지
+	private int startPage = 1;				// 시작 페이지
+	private int endPage = 1;				// 끝 페이지
+	private int startRow = 1;				// 시작 줄번호
+	private int endRow = 1;					// 끝 줄번호
+	private int pageGroup = 1;				// 현재 페이지 그룹번호
+	private String pageHtml = "";			// 페이지 HTML
+	private boolean prev;					// prev 버튼 상태
+	private boolean next;					// next 버튼 상태
 
-	public Paging () {
-		page = 1;
-		RowCnt = 10;
-		totalCnt = 0;
+	public Paging() {		
+		System.out.println("constructor");
+		setPaging(page, totalCnt);
 	}
 
-	public Paging (int page, int totalCnt) {
+	public Paging(int page, int totalCnt) {
+		System.out.println("arg constructor");
 		setPaging(page, totalCnt);
 	}
 
 	public void setPaging(int page, int totalCnt) {
 		this.page = page;
 		this.totalCnt = totalCnt;
+
 		startRow = (page - 1) * viewCnt + 1;
-		endRow = startRow + viewCnt -1;
+		endRow = startRow + viewCnt - 1;
+		pageTotalCnt = (totalCnt - 1) / viewCnt + 1;
+		startPage = (page - 1) / pageViewCnt * pageViewCnt + 1;
+		endPage = startPage + pageViewCnt - 1;
+		pageGroupToltalCnt = (int)Math.ceil(pageTotalCnt / (pageViewCnt * 1.0d));
+		pageGroup = (int)Math.ceil(page / (pageViewCnt * 1.0d));
+
+		if (endPage > pageTotalCnt)
+			endPage = pageTotalCnt;
 
 		// 이전 버튼 상태
-		prev = RowCnt == 1 ? false : true;
+		prev = pageGroup == 1 ? false : true;
 		// 다음 버튼 상태
-		next = endPage > RowCnt ? false : true;
-
-		if (endPage > RowCnt) {
-			endPage = RowCnt;
-			next = false;
-		}
-
-		pageTotalCnt = (RowTotalCnt - 1) / RowCnt + 1;
-		startPage = (page - 1) / RowCnt * RowCnt + 1;
-		endPage = startPage + RowCnt - 1;
-		if(endPage > pageTotalCnt) endPage = pageTotalCnt;
+		next = pageGroup < pageGroupToltalCnt ? true : false;
 
 		setPagingHtml();
 	}
@@ -80,12 +77,36 @@ public class Paging {
 		this.viewCnt = viewCnt;
 	}
 
+	public int getPageViewCnt() {
+		return pageViewCnt;
+	}
+
+	public void setPageViewCnt(int pageViewCnt) {
+		this.pageViewCnt = pageViewCnt;
+	}
+
 	public int getTotalCnt() {
 		return totalCnt;
 	}
 
 	public void setTotalCnt(int totalCnt) {
 		this.totalCnt = totalCnt;
+	}
+
+	public int getPageTotalCnt() {
+		return pageTotalCnt;
+	}
+
+	public void setPageTotalCnt(int pageTotalCnt) {
+		this.pageTotalCnt = pageTotalCnt;
+	}
+
+	public int getPageGroupToltalCnt() {
+		return pageGroupToltalCnt;
+	}
+
+	public void setPageGroupToltalCnt(int pageGroupToltalCnt) {
+		this.pageGroupToltalCnt = pageGroupToltalCnt;
 	}
 
 	public int getPage() {
@@ -112,14 +133,6 @@ public class Paging {
 		this.endPage = endPage;
 	}
 
-	public int getPageTotalCnt() {
-		return pageTotalCnt;
-	}
-
-	public void setPageTotalCnt(int pageTotalCnt) {
-		this.pageTotalCnt = pageTotalCnt;
-	}
-
 	public int getStartRow() {
 		return startRow;
 	}
@@ -136,20 +149,12 @@ public class Paging {
 		this.endRow = endRow;
 	}
 
-	public int getRowTotalCnt() {
-		return RowTotalCnt;
+	public int getPageGroup() {
+		return pageGroup;
 	}
 
-	public void setRowTotalCnt(int rowTotalCnt) {
-		RowTotalCnt = rowTotalCnt;
-	}
-
-	public int getRowCnt() {
-		return RowCnt;
-	}
-
-	public void setRowCnt(int rowCnt) {
-		RowCnt = rowCnt;
+	public void setPageGroup(int pageGroup) {
+		this.pageGroup = pageGroup;
 	}
 
 	public String getPageHtml() {
@@ -178,14 +183,18 @@ public class Paging {
 
 	@Override
 	public String toString() {
-		return "Paging [viewCnt=" + viewCnt + ", totalCnt=" + totalCnt + ", page=" + page + ", startPage=" + startPage
-				+ ", endPage=" + endPage + ", pageTotalCnt=" + pageTotalCnt + ", startRow=" + startRow + ", endRow="
-				+ endRow + ", RowTotalCnt=" + RowTotalCnt + ", RowCnt=" + RowCnt + ", prev=" + prev + ", next=" + next
-				+ "]";
+		return "Paging [viewCnt=" + viewCnt + ", pageViewCnt=" + pageViewCnt + ", totalCnt=" + totalCnt
+				+ ", pageTotalCnt=" + pageTotalCnt + ", pageGroupToltalCnt=" + pageGroupToltalCnt + ", page=" + page
+				+ ", startPage=" + startPage + ", endPage=" + endPage + ", startRow=" + startRow + ", endRow=" + endRow
+				+ ", pageGroup=" + pageGroup + ", prev=" + prev + ", next=" + next + "]";
 	}
 
-	 public static void main(String[] args) { 
-
-	 }
+//	public static void main(String[] args) {
+//		Paging p = new Paging();
+//		Paging p = new Paging(1, 101);
+//		p.setPageViewCnt(5);
+//		p.setPaging(11, 101);
+//		System.out.println(p.toString());
+//	}
 
 }

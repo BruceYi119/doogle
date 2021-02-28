@@ -20,6 +20,9 @@ public interface CategoryMapper {
 	@Select("select * from category order by type asc, lv asc, idx asc")
 	List<CategoryDTO> getAll();
 
+	@Select("select ctno, name, lv, pctno, type, idx, writedate from (select seq, tt.* from (select rownum seq, t.* from (select * from category order by order by type asc, lv asc, idx asc) t) tt where seq >= ?) where rownum <= ?")
+	List<CategoryDTO> getAllPage();
+
 	@Select("select * from category where type = #{type} order by type asc, lv asc, idx asc")
 	List<CategoryDTO> getAllType(@Param("type") String type);
 

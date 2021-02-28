@@ -1,13 +1,13 @@
 package kr.co.doogle.front.controller;
 
-import java.io.PrintWriter;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.doogle.dto.Test1DTO;
 import kr.co.doogle.dto.TestDTO;
+import kr.co.doogle.mapper.Test1Mapper;
 import kr.co.doogle.mapper.TestMapper;
 
 @Controller
@@ -15,32 +15,23 @@ public class TestController {
 
 	@Autowired
 	private TestMapper testMapper;
+	@Autowired
+	private Test1Mapper test1Mapper;
 
-	@RequestMapping("/test")
-	public ModelAndView test(ModelAndView mv) {
-		mv.addObject("list", testMapper.getAll());
-		mv.setViewName("/front/edit/list");
-		return mv;
-	}
-
-	@RequestMapping("/test/edit")
-	public ModelAndView edit(ModelAndView mv) {
-		mv.addObject("edit", "edit");
-		mv.addObject("url", "/test/edit");
-		mv.setViewName("/front/edit/edit");
-		return mv;
-	}
-
-	@RequestMapping("/test/add")
-	public ModelAndView add(ModelAndView mv, TestDTO dto) {
+	@RequestMapping("/test/trainsaction")
+	@Transactional(timeout = 10)
+	public String test() {
+		TestDTO dto = new TestDTO();
+		Test1DTO dto1 = new Test1DTO();
+		int seq = testMapper.getSeq();
+		dto.setTno(seq);
+		dto.setCon("ㅠㅠㅠㅠㅠ");
+		dto1.setCon("ㅇㅇㅇㅇㅇㅇㅇㅇㅇ");
+		dto1.setTno(seq);
 		testMapper.add(dto);
-		mv.setViewName("redirect:/test");
-		return mv;
-	}
+		test1Mapper.add(dto1);
 
-	@RequestMapping("/test/test")
-	public void getTno(PrintWriter out) {
-		out.print(testMapper.getTno("ff"));
+		return "redirect:/admin/category";
 	}
-
+	
 }

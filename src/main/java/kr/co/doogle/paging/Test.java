@@ -43,7 +43,7 @@ public class Test {
 		endRow = startRow + perPageNum - 1;
 
 		// JSP 하단 부분에 몇개의 페이지를 표시할지 정한다.
-		perGroupPageNum = 10;
+		perGroupPageNum = 5;
 		System.out.println("PageObject(페이지,페이지 당 글수)");
 	}
 
@@ -54,7 +54,7 @@ public class Test {
 		this.page = 1;
 		this.perPageNum = 10;
 		// JSP 하단 부분에 몇개의 페이지를 표시할지 정한다.
-		perGroupPageNum = 10;
+		perGroupPageNum = 5;
 
 		// 기본적으로 찾는 공지 분류 - 현재 공지 :pre
 		this.period = "pre";

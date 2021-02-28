@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.doogle.category.Category;
 import kr.co.doogle.dto.CategoryDTO;
 import kr.co.doogle.mapper.CategoryMapper;
+import kr.co.doogle.paging.Paging;
 
 @Controller
 public class AdminCategoryController {
@@ -16,9 +17,15 @@ public class AdminCategoryController {
 	private Category category;
 	@Autowired
 	private CategoryMapper categoryMapper;
+//	@Autowired
+//	private BiFunction<Integer, Integer, Paging> myBeanFactory;
+	@Autowired
+	private Paging paging;
 
 	@RequestMapping("/admin/category")
 	public ModelAndView category(ModelAndView mv, CategoryDTO dto) {
+//		Paging paging = myBeanFactory.apply(1, 101);
+		mv.addObject("paging", paging.toString());
 		if (dto.getType() == null || dto.getType() == "")
 			mv.addObject("list", categoryMapper.getAll());
 		else
