@@ -5,7 +5,6 @@
 <div class="w3-white w3-padding notranslate fix mt-3">
 	<h3>카테고리관리</h3>
 </div>
-<div>${paging}</div>
 <div class="w3-padding w3-white notranslate">
 	<div class="table-responsive">
 		<table class="table">
@@ -44,7 +43,7 @@
 			<tfoot>
 				<tr>
 					<td colspan="7">
-						<ul class="pagination justify-content-center" id="pageWrap"><!-- 페이징 영역 --></ul>
+						<ul class="pagination justify-content-center" id="pageWrap">${paging}</ul>
 					</td>
 				</tr>
 			</tfoot>

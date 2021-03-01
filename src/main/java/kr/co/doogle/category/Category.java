@@ -74,7 +74,7 @@ public class Category {
 	}
 
 	public void initCategory() {
-		int cnt = categoryMapper.getTotal();	
+		int cnt = categoryMapper.getTotal("", "");	
 
 		if (cnt == 0) {
 			for (Entry<String, String[]> entry : lv0.entrySet()) {

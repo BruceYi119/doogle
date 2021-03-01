@@ -1,5 +1,7 @@
 package kr.co.doogle.back.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,22 +19,25 @@ public class AdminCategoryController {
 	private Category category;
 	@Autowired
 	private CategoryMapper categoryMapper;
-//	@Autowired
-//	private BiFunction<Integer, Integer, Paging> myBeanFactory;
 	@Autowired
 	private Paging paging;
 
 	@RequestMapping("/admin/category")
-	public ModelAndView category(ModelAndView mv, CategoryDTO dto) {
-//		Paging paging = myBeanFactory.apply(1, 101);
-		mv.addObject("paging", paging.toString());
-		if (dto.getType() == null || dto.getType() == "")
-			mv.addObject("list", categoryMapper.getAll());
-		else
-			mv.addObject("list", categoryMapper.getAllType(dto.getType()));
+	public ModelAndView category(ModelAndView mv, HttpServletRequest request, CategoryDTO dto) {
+		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+		if (dto.getType() == null || dto.getType() == "") {
+			paging.setPaging(page, categoryMapper.getTotal("", ""), "/admin/category");
+			mv.addObject("paging", paging.toString());
+			mv.addObject("list", categoryMapper.getAll(paging.getStartRow(), paging.getViewCnt(), "", ""));
+		} else {
+			paging.setPaging(page, categoryMapper.getTotal("where type = #{type}", dto.getType()), "/admin/category?type=" + dto.getType());
+			mv.addObject("paging", paging.toString());
+			mv.addObject("list", categoryMapper.getAll(paging.getStartRow(), paging.getViewCnt(), "where type = #{type}", dto.getType()));
+		}
 		mv.addObject("type", dto.getType() != null ? dto.getType() : "");
 		mv.addObject("category", category.getType());
 		mv.addObject("url", "/admin/category");
+		mv.addObject("paging", paging.getPageHtml());
 		mv.setViewName("/back/category/list");
 		return mv;
 	}

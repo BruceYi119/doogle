@@ -1,5 +1,7 @@
 package kr.co.doogle.paging;
 
+import java.util.regex.Pattern;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,21 +19,19 @@ public class Paging {
 	private int startRow = 1;				// 시작 줄번호
 	private int endRow = 1;					// 끝 줄번호
 	private int pageGroup = 1;				// 현재 페이지 그룹번호
+	private String link = "";				// 링크
 	private String pageHtml = "";			// 페이지 HTML
 	private boolean prev;					// prev 버튼 상태
 	private boolean next;					// next 버튼 상태
 
-	public Paging() {		
-		setPaging(page, totalCnt);
+	public Paging() {
+		setPaging(page, totalCnt, "");
 	}
 
-	public Paging(int page, int totalCnt) {
-		setPaging(page, totalCnt);
-	}
-
-	public void setPaging(int page, int totalCnt) {
+	public void setPaging(int page, int totalCnt, String link) {
 		this.page = page;
 		this.totalCnt = totalCnt;
+		this.link = link;
 
 		startRow = (page - 1) * viewCnt + 1;
 		endRow = startRow + viewCnt - 1;
@@ -54,16 +54,25 @@ public class Paging {
 
 	public void setPagingHtml() {
 		sb = new StringBuilder();
+		Pattern pattern = Pattern.compile("[?].");
+		String queryStr = pattern.matcher(link).find() ? "&" : "?";
+		int prevStartPage = (page - pageViewCnt - 1) / pageViewCnt * pageViewCnt + 1;
+		int nextStartPage = (page + pageViewCnt - 1) / pageViewCnt * pageViewCnt + 1;
 
 		if (prev)
-			sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"#\">Prev</a></li>");
+			sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"" + link + queryStr + "page=" + prevStartPage + "\">Prev</a></li>");
 		else
 			sb.append("<li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\">Prev</a></li>");
 
-		sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li>");
+		for (int i = startPage;i <= endPage;i++) {
+			if (page == i)
+				sb.append("<li class=\"page-item active\"><a class=\"page-link\" href=\"" + link + queryStr + "page=" + i + "\">" + i + "</a></li>");
+			else
+				sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"" + link + queryStr + "page=" + i + "\">" + i + "</a></li>");			
+		}
 
 		if (next)
-			sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"#\">Next</a></li>");
+			sb.append("<li class=\"page-item\"><a class=\"page-link\" href=\"" + link + queryStr + "page=" + nextStartPage + "\">Next</a></li>");
 		else
 			sb.append("<li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\">Next</a></li>");
 
@@ -158,12 +167,16 @@ public class Paging {
 		this.pageGroup = pageGroup;
 	}
 
-	public String getPageHtml() {
-		return pageHtml;
+	public String getLink() {
+		return link;
 	}
 
-	public void setPageHtml(String pageHtml) {
-		this.pageHtml = pageHtml;
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public String getPageHtml() {
+		return pageHtml;
 	}
 
 	public boolean isPrev() {
@@ -187,15 +200,7 @@ public class Paging {
 		return "Paging [viewCnt=" + viewCnt + ", pageViewCnt=" + pageViewCnt + ", totalCnt=" + totalCnt
 				+ ", pageTotalCnt=" + pageTotalCnt + ", pageGroupToltalCnt=" + pageGroupToltalCnt + ", page=" + page
 				+ ", startPage=" + startPage + ", endPage=" + endPage + ", startRow=" + startRow + ", endRow=" + endRow
-				+ ", pageGroup=" + pageGroup + ", prev=" + prev + ", next=" + next + "]";
+				+ ", pageGroup=" + pageGroup + ", link=" + link + ", prev=" + prev + ", next=" + next + "]";
 	}
-
-//	public static void main(String[] args) {
-//		Paging p = new Paging();
-//		Paging p = new Paging(1, 101);
-//		p.setPageViewCnt(5);
-//		p.setPaging(11, 101);
-//		System.out.println(p.toString());
-//	}
 
 }
