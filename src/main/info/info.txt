@@ -36,3 +36,6 @@ https://summernote.org/
 
 - 프로젝트 repository 주소
 https://github.com/BruceYi119/doogle
+
+- 사용포트확인
+netstat -ano

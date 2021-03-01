@@ -1,5 +1,8 @@
 package kr.co.doogle.paging;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class Paging {
  
 	private StringBuilder sb;
@@ -19,12 +22,10 @@ public class Paging {
 	private boolean next;					// next 버튼 상태
 
 	public Paging() {		
-		System.out.println("constructor");
 		setPaging(page, totalCnt);
 	}
 
 	public Paging(int page, int totalCnt) {
-		System.out.println("arg constructor");
 		setPaging(page, totalCnt);
 	}
 

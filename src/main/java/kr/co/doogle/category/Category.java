@@ -5,9 +5,12 @@ import java.util.Map.Entry;
 
 import javax.inject.Inject;
 
+import org.springframework.stereotype.Service;
+
 import kr.co.doogle.dto.CategoryDTO;
 import kr.co.doogle.mapper.CategoryMapper;
 
+@Service
 public class Category {
 
 	@Inject

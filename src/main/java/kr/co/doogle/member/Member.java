@@ -3,10 +3,13 @@ package kr.co.doogle.member;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Service;
+
 import kr.co.doogle.dto.MemberDTO;
 import kr.co.doogle.mapper.MemberMapper;
 import kr.co.doogle.security.Security;
 
+@Service
 public class Member {
 
 	@Inject

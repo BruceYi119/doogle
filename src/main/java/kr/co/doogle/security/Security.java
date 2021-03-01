@@ -3,6 +3,9 @@ package kr.co.doogle.security;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class Security {
 
 	private String sha512;
