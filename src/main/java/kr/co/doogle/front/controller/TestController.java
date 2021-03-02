@@ -53,8 +53,6 @@ public class TestController {
 			System.err.println(file.getRealLoc("product"));
 		}
 
-		System.out.println(dto.getPname());
-
 		file.setLocation(file.getLoc().get("product"));
 		file.fileUpload(files);
 		file.getRealLoc(file.getLoc().get("product"));

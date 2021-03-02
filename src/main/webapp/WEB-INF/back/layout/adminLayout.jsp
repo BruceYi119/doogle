@@ -54,7 +54,7 @@
 							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"></button>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="/admin/product">상품</a>
-								<a class="dropdown-item" href="/admin/product/add">추가</a>
+								<a class="dropdown-item" href="/admin/product/add">등록</a>
 							</div>
 						</div>
 					</li>

@@ -32,14 +32,14 @@
 				<c:set var="i" value="${idx}" />
 				<c:forEach items="${list}" var="dto">
 					<tr>
-						<th>${i}</th>
-						<th>${dto.ctno}</th>
-						<th>${dto.name}</th>
-						<th>${dto.lv}</th>
-						<th>${dto.pctno}</th>
-						<th>${dto.type}</th>
-						<th>${dto.idx}</th>
-						<th>${dto.writedate}</th>
+						<td>${i}</td>
+						<td>${dto.ctno}</td>
+						<td>${dto.name}</td>
+						<td>${dto.lv}</td>
+						<td>${dto.pctno}</td>
+						<td>${dto.type}</td>
+						<td>${dto.idx}</td>
+						<td>${dto.writedate}</td>
 					</tr>
 					<c:set var="i" value="${i + 1}" />
 				</c:forEach>
