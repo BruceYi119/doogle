@@ -10,6 +10,7 @@
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
+					<th>번호</th>
 					<th>키값</th>
 					<th>
 						카테고리명
@@ -28,8 +29,10 @@
 				</tr>
 			</thead>
 			<tbody>
+				<c:set var="i" value="${idx}" />
 				<c:forEach items="${list}" var="dto">
 					<tr>
+						<th>${i}</th>
 						<th>${dto.ctno}</th>
 						<th>${dto.name}</th>
 						<th>${dto.lv}</th>
@@ -38,11 +41,12 @@
 						<th>${dto.idx}</th>
 						<th>${dto.writedate}</th>
 					</tr>
+					<c:set var="i" value="${i + 1}" />
 				</c:forEach>
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="7">
+					<td colspan="8">
 						<ul class="pagination justify-content-center" id="pageWrap">${paging}</ul>
 					</td>
 				</tr>

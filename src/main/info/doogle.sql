@@ -678,7 +678,7 @@ ALTER TABLE category
 ALTER TABLE category
 	ADD
 		CONSTRAINT category_type_c
-		CHECK (type in ('p','o','q','t','f','e'));
+		CHECK (type in ('p','o','q','t','f','e','c','d'));
 
 /* ¡÷πÆ(«Ó∏Æ) */
 CREATE TABLE orders (
