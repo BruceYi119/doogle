@@ -556,6 +556,8 @@ CREATE TABLE product (
 	cno NUMBER NOT NULL, /* 카테고리번호(대) */
 	cno1 NUMBER, /* 카테고리번호(중) */
 	cno2 NUMBER, /* 카테고리번호(소) */
+	only_yn CHAR(1) DEFAULT 'n' NOT NULL, /* 두글만팜 */
+	od_yn CHAR(1) DEFAULT 'n' NOT NULL, /* 최저가 */
 	fno VARCHAR2(100) NOT NULL, /* 상품이미지 */
 	quantity NUMBER DEFAULT 0 NOT NULL, /* 수량 */
 	sel_not CHAR(1) DEFAULT 'y' NOT NULL, /* 판매여부 */
@@ -595,6 +597,10 @@ COMMENT ON COLUMN product.cno IS '카테고리번호(대)';
 COMMENT ON COLUMN product.cno1 IS '카테고리번호(중)';
 
 COMMENT ON COLUMN product.cno2 IS '카테고리번호(소)';
+
+COMMENT ON COLUMN product.only_yn IS '두글만팜';
+
+COMMENT ON COLUMN product.od_yn IS '최저가';
 
 COMMENT ON COLUMN product.fno IS '상품이미지';
 
