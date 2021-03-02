@@ -31,7 +31,7 @@ public class TestController {
 		TestDTO dto = new TestDTO();
 		Test1DTO dto1 = new Test1DTO();
 		int seq = testMapper.getSeq();
-		dto.setTno(1);
+		dto.setTno(4);
 		dto.setCon("ㅠㅠㅠㅠㅠ");
 		dto1.setCon("ㅇㅇㅇㅇㅇㅇㅇㅇㅇ");
 		dto1.setTno(seq);
@@ -50,13 +50,14 @@ public class TestController {
 	public String uploadFIle(@RequestParam("files") MultipartFile[] files, ProductDTO dto) {
 		for (MultipartFile f : files) {
 			System.out.println(f.getOriginalFilename());
-			System.err.println(file.getRealLoc("event"));
+			System.err.println(file.getRealLoc("product"));
 		}
 
 		System.out.println(dto.getPname());
 
-		file.setLocation(file.getLoc().get("event"));
+		file.setLocation(file.getLoc().get("product"));
 		file.fileUpload(files);
+		file.getRealLoc(file.getLoc().get("product"));
 		return "redirect:/test/upload/form";
 	}
 

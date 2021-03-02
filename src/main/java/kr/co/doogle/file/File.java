@@ -32,11 +32,12 @@ public class File {
 	private Map<String, String> loc = new HashMap(); 
 
 	{
-		loc.put("product", "src/main/resources/static/upload/img/shop/product");
-		loc.put("event", "src/main/resources/static/upload/img/shop/event");
-		loc.put("product", "src/main/resources/static/upload/img/shop/product");
-		loc.put("product", "src/main/resources/static/upload/img/shop/product");
-		loc.put("product", "src/main/resources/static/upload/img/shop/product");
+		loc.put("product", "src/main/resources/static/upload/img/shop/product");			// 상품
+		loc.put("event", "src/main/resources/static/upload/img/shop/event");				// 이벤트
+		loc.put("recipe", "src/main/resources/static/upload/img/shop/recipe");				// 레시피
+		loc.put("qna", "src/main/resources/static/upload/img/shop/qna");					// 1:1문의
+		loc.put("proposition", "src/main/resources/static/upload/img/shop/proposition");	// 상품제안
+		loc.put("eco", "src/main/resources/static/upload/img/shop/eco");					// 에코포장피드백
 	}
 
 	public void setLocation(String loc) {
