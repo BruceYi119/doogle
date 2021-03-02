@@ -3,11 +3,13 @@ package kr.co.doogle.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import kr.co.doogle.dto.FileDTO;
 
+@Mapper
 public interface FileMapper {
 
 	@Select("select * from files ${param1}")
