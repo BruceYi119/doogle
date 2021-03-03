@@ -62,7 +62,7 @@ public class File {
 	}
 
 	public String getRealLoc(String loc) {
-		return this.loc.get(loc).replace("src/main/resources/", "") + "/";
+		return this.loc.get(loc).replace("src/main/resources/", "/") + "/";
 	}
 
 }

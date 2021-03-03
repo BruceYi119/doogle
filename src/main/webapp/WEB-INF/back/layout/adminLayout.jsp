@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/static/core/css/bootstrap.min.css">
 <link rel="stylesheet" href="/static/front/css/global.css">
 <link rel="stylesheet" href="/static/back/css/admin.css">
+<c:if test="${url eq '/admin/product'}"><link rel="stylesheet" href="/static/back/css/product.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>

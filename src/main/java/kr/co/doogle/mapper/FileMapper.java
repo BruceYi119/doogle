@@ -12,8 +12,8 @@ import kr.co.doogle.dto.FileDTO;
 @Mapper
 public interface FileMapper {
 
-	@Select("select * from files ${param1}")
-	List<FileDTO> getAll(@Param("where") String where, @Param("ctno") int ctno);
+	@Select("select * from files ${where}")
+	List<FileDTO> getAll(@Param("where") String where, @Param("fno") String fno);
 
 	@Select("select count(*) from files ${param1}")
 	int getTotal(@Param("where") String where, @Param("ctno") int ctno);

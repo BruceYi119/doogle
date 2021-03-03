@@ -9,7 +9,7 @@
 	<div class="table-responsive">
 		<form action="/admin/product/mod/ok" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="pno" value="${dto.pno}" />
-			<table class="table">
+			<table class="table product-mod">
 				<tbody>
 					<tr>
 						<td class="w150">브랜드</td>
@@ -95,6 +95,11 @@
 					<tr>
 						<td>상품이미지</td>
 						<td>
+							<p>
+								<c:forEach items="${flist}" var="fdto">
+									<img src="${fdto.loc}${fdto.name}" />
+								</c:forEach>
+							</p>
 							<input type="file" name="files" /> 메인이미지(필수)<br /> 
 							<input type="file" name="files" /> 서브이미지1<br />
 							<input type="file" name="files" /> 서브이미지2<br />

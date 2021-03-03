@@ -60,7 +60,10 @@ public class AdminProductController {
 
 	@RequestMapping("/admin/product/mod")
 	public ModelAndView mod(ModelAndView mv, @RequestParam("pno") int pno) {
-		mv.addObject("dto", productMapper.getOne(pno));
+		ProductDTO dto = productMapper.getOne(pno);
+		mv.addObject("url", "/admin/product");
+		mv.addObject("dto", dto);
+		mv.addObject("flist", fileMapper.getAll("where fno in (" + dto.getFno().replaceAll("(\\d+)", "'$1'") + ")", null));
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		mv.setViewName("/back/product/mod");
 		return mv;
