@@ -72,10 +72,13 @@
 				</c:forEach>
 			</tbody>
 			<tfoot>
-				<tr>
-					<td colspan="24">
+				<tr>					
+					<td colspan="24" class="text-center">
 						<ul class="pagination justify-content-center" id="pageWrap">${paging}</ul>
 					</td>
+				</tr>
+				<tr>					
+					<td colspan="24" class="text-center"><a href="/admin/product/add"><button type="button" class="btn btn-primary">등록</button></a></td>
 				</tr>
 			</tfoot>
 		</table>

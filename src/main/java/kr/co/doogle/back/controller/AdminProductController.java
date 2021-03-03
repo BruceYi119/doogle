@@ -47,6 +47,7 @@ public class AdminProductController {
 		mv.addObject("i", paging.getStartRow());
 		mv.addObject("url", "/admin/product/add");
 		mv.addObject("list", product.convert(productMapper.getAll(paging.getStartRow(), paging.getViewCnt(), null, null, null, null)));
+		mv.addObject("paging", paging.getPageHtml());
 		mv.setViewName("/back/product/list");
 		return mv;
 	}
