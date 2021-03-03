@@ -11,7 +11,7 @@
 <title>Doogle admin</title>
 <link rel="stylesheet" href="/static/core/css/bootstrap.min.css">
 <c:if test="${edit eq 'edit'}"><link rel="stylesheet" href="/static/core/css/summernote-bs4.min.css"></c:if>
-<link rel="stylesheet" href="/static/front/css/global.css">
+<link rel="stylesheet" href="/static/back/css/global.css">
 <link rel="stylesheet" href="/static/back/css/admin.css">
 <c:if test="${url eq '/admin/product'}"><link rel="stylesheet" href="/static/back/css/product.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
@@ -20,7 +20,7 @@
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-bs4.min.js"></script></c:if>
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-ko-KR.min.js"></script></c:if>
-<c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/front/js/edit.js"></script></c:if>
+<c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/back/js/edit.js"></script></c:if>
 <script defer type="text/javascript" src="/static/back/js/admin.js"></script>
 <c:if test="${url eq '/paging'}"><script defer type="text/javascript" src="/static/back/js/pagination.js"></script></c:if>
 <c:if test="${url eq '/admin/category'}"><script defer type="text/javascript" src="/static/back/js/categoryList.js"></script></c:if>
