@@ -24,7 +24,6 @@
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-bs4.min.js"></script></c:if>
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-ko-KR.min.js"></script></c:if>
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/front/js/edit.js"></script></c:if>
-<script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
 <script defer type="text/javascript" src="/static/front/js/global.js"></script>
 <script defer type="text/javascript" src="/static/front/js/main.js"></script>
 <c:if test="${url eq '/map'}"><script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${apikey}&libraries=services"></script></c:if>
