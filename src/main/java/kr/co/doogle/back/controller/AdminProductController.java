@@ -1,10 +1,14 @@
 package kr.co.doogle.back.controller;
 
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,7 +57,7 @@ public class AdminProductController {
 	}
 
 	@RequestMapping("/admin/product/detail")
-	public ModelAndView add(ModelAndView mv, @RequestParam("pno") int pno) {
+	public ModelAndView detail(ModelAndView mv, @RequestParam("pno") int pno) {
 		ProductDTO dto = productMapper.getOne(pno);
 		mv.addObject("url", "/admin/product");
 		mv.addObject("dto", product.convert(dto));
@@ -65,6 +69,7 @@ public class AdminProductController {
 	@RequestMapping("/admin/product/add")
 	public ModelAndView add(ModelAndView mv) {
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
+		mv.addObject("url", "/admin/product/add");
 		mv.setViewName("/back/product/add");
 		return mv;
 	}
@@ -87,8 +92,15 @@ public class AdminProductController {
 	}
 
 	@RequestMapping("/admin/product/ajax/category")
-	public void ajaxCategory(PrintWriter out, CategoryDTO dto) {
-		out.print(dto.getPctno() + " / " + dto.getLv());
+	public void ajaxCategory(PrintWriter out, CategoryDTO dto) throws UnsupportedEncodingException {
+		JSONObject json = new JSONObject();
+		List<CategoryDTO> list = categoryMapper.getAll("where type = #{type} and lv = #{lv} and pctno = #{pctno}", "p", Integer.toString(dto.getLv()), Integer.toString(dto.getPctno()));
+		JSONObject jObj;
+		if (list.size() == 0)
+			jObj = json.put("list", false);
+		else
+			jObj = json.put("list", list);
+		out.print(URLEncoder.encode(jObj.toString(), "UTF-8"));
 	}
 
 	@RequestMapping("/admin/product/add/ok")

@@ -125,6 +125,7 @@
 					<tr>
 						<td colspan="2" class="text-center">
 							<button type="submit" class="btn btn-success">수정</button>
+							<a href="/admin/product/mod?pno=${dto.pno}"><button type="button" class="btn btn-secondary">취소</button></a>
 							<a href="/admin/product"><button type="button" class="btn btn-warning">리스트</button></a>
 						</td>
 					</tr>

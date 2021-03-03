@@ -71,7 +71,7 @@
 					</tr>
 					<tr>
 						<td>분류</td>
-						<td>
+						<td class="product-select">
 							<select name="ctno">
 								<c:forEach items="${clist}" var="dto"><option value="${dto.ctno}">${dto.name}</option></c:forEach>
 							</select>
