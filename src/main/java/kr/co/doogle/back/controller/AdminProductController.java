@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -55,6 +56,20 @@ public class AdminProductController {
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		mv.setViewName("/back/product/add");
 		return mv;
+	}
+
+	@RequestMapping("/admin/product/mod")
+	public ModelAndView mod(ModelAndView mv, @RequestParam("pno") int pno) {
+		mv.addObject("dto", productMapper.getOne(pno));
+		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
+		mv.setViewName("/back/product/mod");
+		return mv;
+	}
+
+	@RequestMapping("/admin/product/mod/ok")
+	public String modOk(Model model, ProductDTO dto) {
+		productMapper.mod(dto);
+		return "redirect:/admin/product/mod?pno=" + dto.getPno();
 	}
 
 	@RequestMapping("/admin/product/ajax/category")

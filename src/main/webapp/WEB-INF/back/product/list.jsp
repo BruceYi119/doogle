@@ -64,7 +64,7 @@
 						<td>${dto.csel_yn}</td>
 						<td>${dto.writedate}</td>
 						<td>
-							<a href="#"><button type="button" class="btn btn-success">수정</button></a>
+							<a href="/admin/product/mod?pno=${dto.pno}"><button type="button" class="btn btn-success">수정</button></a>
 							<a href="#"><button type="button" class="btn btn-danger">삭제</button></a>
 						</td>
 					</tr>
