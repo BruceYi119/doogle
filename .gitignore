@@ -33,5 +33,5 @@ build/
 .vscode/
 
 /src/main/java/kr/co/doogle/key/
-
-bin/
+/src/main/resources/static/upload/
+/bin/

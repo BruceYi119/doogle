@@ -21,7 +21,7 @@ public interface FileMapper {
 	@Select("select s_files.nextval from dual")
 	int getSeq();
 
-	@Insert("insert into files(fno, name, real_name, loc, ctno) values(s_files.nextval, #{dto.name}, #{dto.real_name}, #{dto.loc}, #{dto.ctno})")
+	@Insert("insert into files(fno, name, real_name, loc, ctno) values(#{dto.fno}, #{dto.name}, #{dto.real_name}, #{dto.loc}, #{dto.ctno})")
 	int add(@Param("dto") FileDTO dto);
 
 }

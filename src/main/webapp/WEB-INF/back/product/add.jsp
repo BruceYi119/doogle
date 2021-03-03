@@ -24,7 +24,7 @@
 					</tr>
 					<tr>
 						<td>판매단위</td>
-						<td><input type="text" name="subject" /></td>
+						<td><input type="text" name="sel_unit" /></td>
 					</tr>
 					<tr>
 						<td>중량/용량</td>
@@ -41,15 +41,15 @@
 					</tr>
 					<tr>
 						<td>안내사항</td>
-						<td><textarea name="info"></textarea></td>
+						<td><textarea name="info" class="w500 h300 p10"></textarea></td>
 					</tr>
 					<tr>
 						<td>가격</td>
-						<td><input type="text" name="price" /></td>
+						<td><input type="text" name="price" value="0" /></td>
 					</tr>
 					<tr>
 						<td>할인율</td>
-						<td><input type="text" name="discount" /></td>
+						<td><input type="text" name="discount" value="0" /></td>
 					</tr>
 					<tr>
 						<td>할인여부</td>
@@ -60,7 +60,7 @@
 					</tr>
 					<tr>
 						<td>적립율</td>
-						<td><input type="text" name="earn" /></td>
+						<td><input type="text" name="earn" value="0" /></td>
 					</tr>
 					<tr>
 						<td>적립여부</td>
@@ -73,7 +73,7 @@
 						<td>분류</td>
 						<td>
 							<select name="ctno">
-								<option value="">대분류</option>
+								<c:forEach items="${clist}" var="dto"><option value="${dto.ctno}">${dto.name}</option></c:forEach>
 							</select>
 						</td>
 					</tr>
@@ -87,8 +87,8 @@
 					<tr>
 						<td>최저가</td>
 						<td>
-							일반상품 <input type="radio" value="n" name="only_yn" checked="checked" />
-							최저가 <input type="radio" value="y" name="only_yn" />
+							일반상품 <input type="radio" value="n" name="od_yn" checked="checked" />
+							최저가 <input type="radio" value="y" name="od_yn" />
 						</td>
 					</tr>
 					<tr>
@@ -104,7 +104,7 @@
 					<tr>
 						<td>수량</td>
 						<td>
-							<input type="text" name="quantity" />
+							<input type="text" name="quantity" value="0" />
 						</td>
 					</tr>
 					<tr>

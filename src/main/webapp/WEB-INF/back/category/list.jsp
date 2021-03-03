@@ -29,7 +29,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:set var="i" value="${idx}" />
+				<c:set var="i" value="${i}" />
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${i}</td>

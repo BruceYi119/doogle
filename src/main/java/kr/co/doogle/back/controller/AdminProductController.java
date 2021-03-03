@@ -1,6 +1,9 @@
 package kr.co.doogle.back.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,12 +11,17 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.doogle.dto.CategoryDTO;
 import kr.co.doogle.dto.FileDTO;
 import kr.co.doogle.dto.ProductDTO;
 import kr.co.doogle.file.File;
+import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.FileMapper;
 import kr.co.doogle.mapper.ProductMapper;
+import kr.co.doogle.paging.Paging;
+import kr.co.doogle.product.Product;
 
 @Controller
 public class AdminProductController {
@@ -21,18 +29,37 @@ public class AdminProductController {
 	@Autowired
 	private File file;
 	@Autowired
-	private ProductMapper productMapper;
+	private Paging paging;
+	@Autowired
+	private Product product;
 	@Autowired
 	private FileMapper fileMapper;
+	@Autowired
+	private ProductMapper productMapper;
+	@Autowired
+	private CategoryMapper categoryMapper;
 
 	@RequestMapping("/admin/product")
-	public String product() {
-		return "/back/product/list";
+	public ModelAndView product(ModelAndView mv, HttpServletRequest request) {
+		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+		paging.setPaging(page, productMapper.getTotal(null, null, null, null), "/admin/category");
+		mv.addObject("i", paging.getStartRow());
+		mv.addObject("url", "/admin/product/add");
+		mv.addObject("list", product.convert(productMapper.getAll(paging.getStartRow(), paging.getViewCnt(), null, null, null, null)));
+		mv.setViewName("/back/product/list");
+		return mv;
 	}
 
 	@RequestMapping("/admin/product/add")
-	public String add() {
-		return "/back/product/add";
+	public ModelAndView add(ModelAndView mv) {
+		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
+		mv.setViewName("/back/product/add");
+		return mv;
+	}
+
+	@RequestMapping("/admin/product/ajax/category")
+	public void ajaxCategory(PrintWriter out, CategoryDTO dto) {
+		out.print(dto.getPctno() + " / " + dto.getLv());
 	}
 
 	@RequestMapping("/admin/product/add/ok")
@@ -40,25 +67,39 @@ public class AdminProductController {
 	public String addOk(@RequestParam("files") MultipartFile[] files, ProductDTO dto) {
 		FileDTO fdto = null;
 		ArrayList<String> flist = null;
-		
+		int ctno = 0;
+
 		// 업로드 파일이 있으면 fileDTO 생성 기본 loc등록
 		if (files.length > 0) {
 			flist = new ArrayList();
 			fdto = new FileDTO();
-			fdto.setLoc(file.getRealLoc(file.getLoc().get("product")));
+			file.setLocation(file.getLoc().get("product"));
+			fdto.setLoc(file.getRealLoc("product"));
+			ctno = categoryMapper.getTypeCtno("상품", 0, "f");
 		}
 
 		for (MultipartFile f : files) {
-			// 파일을 선택한 폼만 insert처리
+			// 파일을 선택하고 넘어온 파일 files에 insert
 			if (f.getOriginalFilename() != "") {
+				int fno = fileMapper.getSeq();
+				fdto.setFno(fno);
 				fdto.setName(f.getOriginalFilename());
 				fdto.setReal_name(f.getOriginalFilename());
+				fdto.setCtno(ctno);
+				flist.add(Integer.toString(fno));
+				fileMapper.add(fdto);
 			}
 		}
 
-		file.setLocation(file.getLoc().get("product"));
+		// 파일 업로드
 		file.fileUpload(files);
-		file.getRealLoc(file.getLoc().get("product"));
+
+		// insert한 이미지파일fno productDTO에 등록
+		dto.setFno(String.join(",", flist));
+
+		// 상품 insert
+		productMapper.add(dto);
+
 		return "redirect:/admin/product";
 	}
 

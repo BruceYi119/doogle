@@ -26,13 +26,13 @@ public class AdminCategoryController {
 	public ModelAndView category(ModelAndView mv, HttpServletRequest request, CategoryDTO dto) {
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		if (dto.getType() == null || dto.getType() == "") {
-			paging.setPaging(page, categoryMapper.getTotal("", ""), "/admin/category");
-			mv.addObject("list", categoryMapper.getAll(paging.getStartRow(), paging.getViewCnt(), "", ""));
+			paging.setPaging(page, categoryMapper.getTotal(null, null), "/admin/category");
+			mv.addObject("list", categoryMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), null, null));
 		} else {
 			paging.setPaging(page, categoryMapper.getTotal("where type = #{type}", dto.getType()), "/admin/category?type=" + dto.getType());
-			mv.addObject("list", categoryMapper.getAll(paging.getStartRow(), paging.getViewCnt(), "where type = #{type}", dto.getType()));
+			mv.addObject("list", categoryMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), "where type = #{type}", dto.getType()));
 		}
-		mv.addObject("idx", paging.getStartRow());
+		mv.addObject("i", paging.getStartRow());
 		mv.addObject("type", dto.getType() != null ? dto.getType() : "");
 		mv.addObject("category", category.getType());
 		mv.addObject("url", "/admin/category");

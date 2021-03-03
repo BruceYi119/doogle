@@ -42,3 +42,17 @@ li, dt, dd { list-style: none; }
 .w200 { width: 200px; }
 .w250 { width: 250px; }
 .w300 { width: 300px; }
+.w350 { width: 350px; }
+.w400 { width: 400px; }
+.w450 { width: 450px; }
+.w500 { width: 500px; }
+
+.h100 { height: 100px; }
+.h150 { height: 150px; }
+.h200 { height: 200px; }
+.h250 { height: 250px; }
+.h300 { height: 300px; }
+.h350 { height: 350px; }
+.h400 { height: 400px; }
+.h450 { height: 450px; }
+.h500 { height: 500px; }
