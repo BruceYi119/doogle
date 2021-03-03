@@ -13,10 +13,12 @@
 <c:if test="${edit eq 'edit'}"><link rel="stylesheet" href="/static/core/css/summernote-bs4.min.css"></c:if>
 <link rel="stylesheet" href="/static/front/css/global.css">
 <link rel="stylesheet" href="/static/front/css/shopLayout.css">
+<link rel="stylesheet" href="/static/front/css/shop.css">
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <c:if test="${edit eq 'edit'}"><script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script></c:if>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
+<script defer type="text/javascript" src="/static/front/js/shop.js"></script>
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-bs4.min.js"></script></c:if>
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-ko-KR.min.js"></script></c:if>
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/front/js/edit.js"></script></c:if>
@@ -37,23 +39,34 @@
 					<li></li>
 					<li><a href="#">고객센터</a></li>
 				</ul>
+			</div>
+		</header>
+		<nav>
+			<div class="wrap-container">
 				<ul id="main-menu">
-					<li><a href="#">전체 카테고리</a></li>
+					<li>
+						<a href="#">전체 카테고리</a>
+						<ul id="product-menu"  class="hide">
+							<li>
+								<ul>
+									<c:forEach items="${clist}" var="dto"><li><a href="#">${dto.name}</a></li></c:forEach>
+								</ul>
+							</li>
+							<li class="hide">
+								<ul>
+									<li><a href="#">상품</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
 					<li><a href="#">신상품</a></li>
 					<li><a href="#">베스트</a></li>
 					<li><a href="#">알뜰쇼핑</a></li>
 					<li><a href="#">금주혜택</a></li>
 				</ul>
 			</div>
-		</header>
-		<nav>
-			<div class="wrap-container">
-				nav
-			</div>
 		</nav>
-		<main>
-			<div class="wrap-container"><sitemesh:write property="body" /></div>
-		</main>
+		<main><sitemesh:write property="body" /></main>
 		<footer>
 			<div class="wrap-container">
 				<a href="#"><img src="/static/front/img/shop/footer_banner.png" id="footer-banner" /></a>

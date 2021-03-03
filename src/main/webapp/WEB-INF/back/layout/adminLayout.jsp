@@ -131,6 +131,27 @@
 							</div>
 						</div>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="/admin/coupon">쿠폰</a></li>
+					<li>
+						<div class="dropdown">
+							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"></button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="/admin/coupon">쿠폰</a>
+								<a class="dropdown-item" href="/admin/coupon/add">추가</a>
+								<a class="dropdown-item" href="/admin/coupon/myCoupon">회원쿠폰</a>
+							</div>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/admin/question">자주하는질문</a></li>
+					<li>
+						<div class="dropdown">
+							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"></button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="/admin/question">자주하는질문</a>
+								<a class="dropdown-item" href="/admin/question/add">추가</a>
+							</div>
+						</div>
+					</li>
 				</ul>
 				<ul class="nav nav-pills" id="adminLoginInfo">
 					<li class="nav-item"><a class="nav-link text-white" href="#">${name}님 환엽합니다!</a></li>

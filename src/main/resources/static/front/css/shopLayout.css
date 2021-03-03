@@ -6,20 +6,6 @@
 
 #wrap { display: flex;flex-direction: column; }
 #wrap > header { height: 198px; }
-#wrap > header > div.wrap-container { position: relative;height: 156px; }
-#wrap > header #top-banner { position: absolute;top: 5px;left: 5px;z-index: 1; } 
-#wrap > header #home { position: absolute;top: 30px;width: 100%;text-align: center; }
-#wrap > header #home > a { color: var(--main-color); }
-#wrap > header #home > a:hover { text-decoration: none; }
-#wrap > header #member-menu { position: absolute;top: 5px;right: 5px;display: flex;z-index: 1; }
-#wrap > header #member-menu > li { padding: 10px; }
-#wrap > header #member-menu > li:nth-child(even)::after { content: '|'; }
-#wrap > header #main-menu { position: absolute;bottom: 0px;left: 0;display: flex;z-index: 1; }
-#wrap > header #main-menu > li { padding: 16px; }
-
 #wrap > footer {}
-#wrap > footer #footer-banner { width: 1050px; }
 
-div.wrap-container { width: 100%;height: 100%;max-width: 1050px;margin: 0 auto; }	
-
-#main-banner { height: 42px;background-color: var(--main-color); }
+div.wrap-container { width: 100%;height: 100%;max-width: 1050px;margin: 0 auto; }

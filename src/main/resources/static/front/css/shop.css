@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body { font-family: 'Noto Sans'; }
+
+#main-banner { height: 42px;background-color: var(--main-color); }
+
+#wrap > header > div.wrap-container { position: relative;height: 156px; }
+#wrap > header #top-banner { position: absolute;top: 5px;left: 5px;z-index: 1; } 
+#wrap > header #home { position: absolute;top: 30px;width: 100%;text-align: center; }
+#wrap > header #home > a { color: var(--main-color); }
+#wrap > header #home > a:hover { text-decoration: none; }
+#wrap > header #member-menu { position: absolute;top: 5px;right: 5px;display: flex;z-index: 1; }
+#wrap > header #member-menu > li { padding: 10px; }
+#wrap > header #member-menu > li:nth-child(even)::after { content: '|'; }
+
+#wrap > header #main-menu { position: absolute;bottom: 0px;left: 0;display: flex;z-index: 100; }
+#main-menu > li > a { letter-spacing: -0.3px;list-style-type: none;word-break: break-all;font-size: 16px;color: #333;line-height: 20px;float: left;border-bottom: 0;font-weight: 700;display: inline-block;padding: 16px 48px 16px 0; }
+#main-menu > li > a:hover { text-decoration: none; }
+#main-menu > li:first-child > a { background: url(/static/front/img/shop/ico_shop_all_category.webp) no-repeat;background-position: 0 3px;padding-left: 30px; }
+#main-menu > li { position: relative; }
+#product-menu { display: flex;position: absolute;top: 30px;left: 0;border: 1px solid #ddd;background-color: #fff;z-index: 100 }
+#product-menu > li { width: 50%; }
+#product-menu > li > ul > li { height: 39px; }
+#product-menu > li > ul > li > a { display: inline-block;color: #4c4c4c;padding: 3.5px 14px;width: 219px; }
+#product-menu > li > ul > li > a:hover { text-decoration: none;color: #5f0080; }
+
+#demo { margin: 10px auto;width: 1900px; }
+
+#wrap > footer #footer-banner { width: 1050px; }

@@ -5,16 +5,25 @@ import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.co.doogle.mapper.CategoryMapper;
 
 @Controller
 public class ShopController {
 
+	@Autowired
+	private CategoryMapper categoryMapper;
+
 	@RequestMapping("/shop")
-	public String shop() {
-		return "/front/shop/shop";
+	public ModelAndView shop(ModelAndView mv) {
+		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
+		mv.setViewName("/front/shop/shop");
+		return mv;
 	}
 
 	@RequestMapping("/shop/edit")
