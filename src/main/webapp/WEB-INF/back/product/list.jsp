@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <input type="hidden" id="active" value="6" />
 <div class="w3-white w3-padding notranslate fix mt-3">
 	<h3>상품관리</h3>
 </div>
 <div class="w3-padding w3-white notranslate">
 	<div class="table-responsive">
-		<table class="table">
+		<table class="table product-list">
 			<thead class="thead-dark">
 				<tr>
 					<th>번호</th>
@@ -42,17 +43,17 @@
 					<tr>
 						<td>${i}</td>
 						<td>${dto.pno}</td>
-						<th>${dto.brand}</td>
+						<td>${dto.brand}</td>
 						<td><a href="/admin/product/detail?pno=${dto.pno}">${dto.name}</a></td>
 						<td>${dto.subject}</td>
 						<td>${dto.sel_unit}</td>
 						<td>${dto.weight}</td>
 						<td>${dto.cpack_type}</td>
 						<td>${dto.info}</td>
-						<td>${dto.price}</td>
-						<td>${dto.discount}</td>
+						<td>₩<fmt:formatNumber type="number" value="${dto.price}" /></td>
+						<td>${dto.discount} %</td>
 						<td>${dto.cdis_yn}</td>
-						<td>${dto.earn}</td>
+						<td>${dto.earn} %</td>
 						<td>${dto.cearn_yn}</td>
 						<td>${dto.ctno}</td>
 						<td>${dto.ctno1}</td>

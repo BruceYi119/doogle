@@ -2,3 +2,4 @@
 
 table.product-mod img { width: 100px;height: 100px;vertical-align: middle; }
 table .product-select select { margin-right: 20px; }
+table.product-list td { line-height: 38px; }
