@@ -90,6 +90,7 @@
 				<tr>
 					<td colspan="2" class="text-center">
 						<a href="/admin/product/mod?pno=${dto.pno}"><button type="button" class="btn btn-success">수정</button></a>
+						<button type="button" class="btn btn-danger">삭제</button>
 						<a href="/admin/product"><button type="button" class="btn btn-warning">리스트</button></a>
 					</td>
 				</tr>
