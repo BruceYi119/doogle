@@ -51,6 +51,16 @@ public class AdminProductController {
 		return mv;
 	}
 
+	@RequestMapping("/admin/product/detail")
+	public ModelAndView add(ModelAndView mv, @RequestParam("pno") int pno) {
+		ProductDTO dto = productMapper.getOne(pno);
+		mv.addObject("url", "/admin/product");
+		mv.addObject("dto", product.convert(dto));
+		mv.addObject("flist", fileMapper.getAll("where fno in (" + dto.getFno().replaceAll("(\\d+)", "'$1'") + ")", null));
+		mv.setViewName("/back/product/detail");
+		return mv;
+	}
+
 	@RequestMapping("/admin/product/add")
 	public ModelAndView add(ModelAndView mv) {
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));

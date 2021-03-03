@@ -34,6 +34,17 @@ public class Product {
 		return this.list;
 	}
 
+	public ProductDTO convert(ProductDTO dto) {
+		ProductDTO row = dto;
+		dto.setCpack_type(convertPackType(dto.getPack_type()));
+		dto.setCdis_yn(convertDisYn(dto.getDis_yn()));
+		dto.setCearn_yn(convertEarnYn(dto.getEarn_yn()));
+		dto.setConly_yn(convertOnlyYn(dto.getOnly_yn()));
+		dto.setCod_yn(convertOdYn(dto.getOd_yn()));
+		dto.setCsel_yn(convertSelYn(dto.getSel_yn()));
+		return row;
+	}
+
 	private String convertPackType(String packType) {
 		String str;
 		switch (packType) {

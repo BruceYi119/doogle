@@ -43,7 +43,7 @@
 						<td>${i}</td>
 						<td>${dto.pno}</td>
 						<th>${dto.brand}</td>
-						<td>${dto.name}</td>
+						<td><a href="/admin/product/detail?pno=${dto.pno}">${dto.name}</a></td>
 						<td>${dto.subject}</td>
 						<td>${dto.sel_unit}</td>
 						<td>${dto.weight}</td>
