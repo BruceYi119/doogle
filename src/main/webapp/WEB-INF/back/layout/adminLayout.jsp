@@ -25,8 +25,7 @@
 <c:if test="${url eq '/paging'}"><script defer type="text/javascript" src="/static/back/js/pagination.js"></script></c:if>
 <c:if test="${url eq '/admin/category'}"><script defer type="text/javascript" src="/static/back/js/categoryList.js"></script></c:if>
 <c:if test="${url eq '/admin/product/add'}"><script defer type="text/javascript" src="/static/back/js/productAdd.js"></script></c:if>
-<sitemesh:write property="head" />
-</head>
+<sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
 		<header>

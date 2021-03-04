@@ -19,9 +19,11 @@ body { font-family: 'Noto Sans'; }
 #main-menu > li > a:hover { color: var(--main-color);text-decoration: none;border-bottom: 1px solid var(--main-color); }
 #main-menu > li:first-child > a { background: url(/static/front/img/shop/ico_shop_all_category.webp) no-repeat;background-position: 0 5px;padding-left: 30px; }
 #main-menu > li:first-child > a:hover { border-bottom-color: #fff; }
-#product-menu { display: flex;position: absolute;top: 56px;left: 0;border: 1px solid #ddd;background-color: #fff;z-index: 100 }
+#product-menu { display: flex;position: absolute;top: 56px;left: 0;border: 1px solid #ddd;background-color: #fff;z-index: 11000; }
 #product-menu > li { width: 50%; }
+#product-menu #sub-loading { width: 221px;height: 704px;line-height: 704px;text-align: center; }
 #product-menu > li > ul > li { height: 39px; }
+#product-menu > li > ul > li:hover { background-color: #ddd; }
 #product-menu > li > ul > li > a { display: inline-block;color: #4c4c4c;padding: 3.5px 14px;width: 219px;font-weight: bold; }
 #product-menu > li > ul > li > a:hover { text-decoration: none;color: var(--main-color); }
 

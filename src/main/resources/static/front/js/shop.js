@@ -12,6 +12,13 @@ const initShop = () => {
 
 		productMenu.addClass('hide');
 	});
+
+	$('#product-menu ul > li').bind('mouseover', () => {
+		const productSubLi = $('#product-menu > li:last-child');
+
+		productSubLi.removeClass('hide');
+	});
+
 };
 
 initShop();

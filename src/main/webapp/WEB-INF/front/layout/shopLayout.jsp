@@ -24,7 +24,6 @@
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/front/js/edit.js"></script></c:if>
 <c:if test="${url eq '/shop/product/form'}"><script defer type="text/javascript" src="/static/front/js/form.js"></script></c:if>
 <sitemesh:write property="head" /></head>
-</head>
 <body>
 	<div id="wrap">
 		<header>
@@ -53,9 +52,8 @@
 								</ul>
 							</li>
 							<li class="hide">
-								<ul>
-									<li><a href="#">상품</a></li>
-								</ul>
+								<div id="sub-loading"><div class="spinner-border text-muted"></div></div>
+<!-- 								<ul id="product-sub-menu"><li><a href="#">상품</a></li></ul> -->
 							</li>
 						</ul>
 					</li>

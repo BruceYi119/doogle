@@ -5,9 +5,9 @@
 }
 
 #wrap { display: flex;flex-direction: column; }
-#wrap > header { min-width: 1021px;height: 198px; }
-#wrap > nav { min-width: 1021px; }
-#wrap > main { min-width: 1021px; }
-#wrap > footer { min-width: 1021px; }
+#wrap > header { min-width: 1050px;height: 198px; }
+#wrap > nav { min-width: 1050px; }
+#wrap > main { min-width: 1050px; }
+#wrap > footer { min-width: 1050px; }
 
 div.wrap-container { width: 100%;height: 100%;max-width: 1050px;margin: 0 auto; }
