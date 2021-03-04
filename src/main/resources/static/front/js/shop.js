@@ -1,13 +1,13 @@
 'use strict';
 
 const initShop = () => {
-	$('#main-menu > li:first-child > a').bind('mouseover', () => {
+	$('#main-menu > li:first-child').bind('mouseover', () => {
 		const productMenu = $('#product-menu');
 
 		productMenu.removeClass('hide');
 	});
 
-	$('#main-menu > li:first-child > a').bind('mouseout', () => {
+	$('#main-menu > li:first-child').bind('mouseout', () => {
 		const productMenu = $('#product-menu');
 
 		productMenu.addClass('hide');

@@ -890,7 +890,7 @@ ALTER TABLE category
 ALTER TABLE category
 	ADD
 		CONSTRAINT category_type_c
-		CHECK (type in ('p','o','q','t','f','e','c','d'));
+		CHECK (type in ('p','o','q','t','f','e','c','d','r'));
 
 /* 주문(헨리) */
 CREATE TABLE orders (
@@ -1691,6 +1691,7 @@ CREATE TABLE recipe (
 	rno NUMBER NOT NULL, /* 레시피번호 */
 	title VARCHAR2(500) NOT NULL, /* 제목 */
 	content CLOB NOT NULL, /* 내용 */
+	ctno CHAR(1) NOT NULL, /* 카테고리 */
 	fno NUMBER NOT NULL, /* 이미지 */
 	name VARCHAR2(30) NOT NULL, /* 작성자 */
 	read_cnt NUMBER DEFAULT 0 NOT NULL, /* 조회수 */
@@ -1704,6 +1705,8 @@ COMMENT ON COLUMN recipe.rno IS '레시피번호';
 COMMENT ON COLUMN recipe.title IS '제목';
 
 COMMENT ON COLUMN recipe.content IS '내용';
+
+COMMENT ON COLUMN recipe.ctno IS '카테고리';
 
 COMMENT ON COLUMN recipe.fno IS '이미지';
 
