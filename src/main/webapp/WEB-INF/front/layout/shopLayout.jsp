@@ -29,14 +29,14 @@
 		<header>
 			<div id="main-banner"></div>
 			<div class="wrap-container">
-				<div id="top-banner">베너</div>
+				<div id="top-banner"><a href="#"><img src="/static/front/img/shop/img_courier.webp" alt="서울, 경기, 인천 샛별배송, 수도권 이외 지역 택배배송" /></a></div>
 				<h1 id="home"><a href="/shop">Doogle 쇼핑</a></h1>
 				<ul id="member-menu">
 					<li><a href="/terms">회원가입</a></li>
 					<li></li>
 					<li><a href="/login">로그인</a></li>
 					<li></li>
-					<li><a href="#">고객센터</a></li>
+					<li><a href="#" class="before">고객센터</a></li>
 				</ul>
 			</div>
 		</header>
@@ -47,7 +47,7 @@
 						<a href="#">전체 카테고리</a>
 						<ul id="product-menu"  class="hide">
 							<li>
-								<ul>
+								<ul>	
 									<c:forEach items="${clist}" var="dto"><li><a href="#">${dto.name}</a></li></c:forEach>
 								</ul>
 							</li>
@@ -61,6 +61,13 @@
 					<li><a href="#">베스트</a></li>
 					<li><a href="#">알뜰쇼핑</a></li>
 					<li><a href="#">금주혜택</a></li>
+					<li>
+						<form action="/shop/search" method="post">
+							<input type="text" id="shop-search" name="search" placeholder="내 맘대로 골라담는 식단조절 도시락" />
+							<input type="button" id="btn-shop-search" />
+							<input type="button" id="btn-shop-search-del" />
+						</form>
+					</li>
 				</ul>
 			</div>
 		</nav>
