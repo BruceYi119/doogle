@@ -38,44 +38,42 @@
 					<li></li>
 					<li><a href="#" class="before">고객센터</a></li>
 				</ul>
-			</div>
-		</header>
-		<nav>
-			<div class="wrap-container">
-				<ul id="main-menu">
-					<li>
-						<a href="#">전체 카테고리</a>
-						<ul id="product-menu"  class="hide">
+				<nav>
+					<div class="wrap-container">
+						<ul id="main-menu">
 							<li>
-								<ul>	
-									<c:forEach items="${clist}" var="dto"><li><a href="#">${dto.name}</a></li></c:forEach>
+								<a href="#">전체 카테고리</a>
+								<ul id="product-menu"  class="hide">
+									<li>
+										<ul>	
+											<c:forEach items="${clist}" var="dto"><li><a href="#">${dto.name}</a></li></c:forEach>
+										</ul>
+									</li>
+									<li class="hide">
+										<div id="sub-loading"><div class="spinner-border text-muted"></div></div>
+		<!-- 								<ul id="product-sub-menu"><li><a href="#">상품</a></li></ul> -->
+									</li>
 								</ul>
 							</li>
-							<li class="hide">
-								<div id="sub-loading"><div class="spinner-border text-muted"></div></div>
-<!-- 								<ul id="product-sub-menu"><li><a href="#">상품</a></li></ul> -->
+							<li><a href="#">신상품</a></li>
+							<li><a href="#">베스트</a></li>
+							<li><a href="#">알뜰쇼핑</a></li>
+							<li><a href="#">금주혜택</a></li>
+							<li>
+								<form action="/shop/search" method="post">
+									<input type="text" id="shop-search" name="search" placeholder="내 맘대로 골라담는 식단조절 도시락" />
+									<button type="submit" id="btn-shop-search"></button>
+									<button type="button" id="btn-shop-search-del"></button>
+								</form>
 							</li>
 						</ul>
-					</li>
-					<li><a href="#">신상품</a></li>
-					<li><a href="#">베스트</a></li>
-					<li><a href="#">알뜰쇼핑</a></li>
-					<li><a href="#">금주혜택</a></li>
-					<li>
-						<form action="/shop/search" method="post">
-							<input type="text" id="shop-search" name="search" placeholder="내 맘대로 골라담는 식단조절 도시락" />
-							<button type="submit" id="btn-shop-search"></button>
-							<button type="button" id="btn-shop-search-del"></button>
-						</form>
-					</li>
-				</ul>
+					</div>
+				</nav>
 			</div>
-		</nav>
+		</header>
 		<main><sitemesh:write property="body" /></main>
 		<footer>
-			<div class="wrap-container">
-				<a href="#"><img src="/static/front/img/shop/footer_banner.png" id="footer-banner" /></a>
-			</div>
+			풋터
 		</footer>
 	</div>
 </body>

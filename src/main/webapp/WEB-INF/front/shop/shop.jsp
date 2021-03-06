@@ -56,6 +56,90 @@
 	<a class="carousel-control-prev" href="#demo" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
 	<a class="carousel-control-next" href="#demo" data-slide="next"><span class="carousel-control-next-icon"></span></a>
 </div>
+<div class="tit-goods"><h3>이 상품 어때요?</h3></div>
+<div class="base_wrap">
+	<div id="product-slide1" class="carousel slide product-slide" data-bs-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<ul class="product-slide-list">
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+				</ul>
+			</div>
+			<div class="carousel-item">
+				<ul class="product-slide-list">
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+				</ul>
+			</div>
+			<div class="carousel-item">
+				<ul class="product-slide-list">
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#product-slide1" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+		<a class="carousel-control-next" href="#product-slide1" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+	</div>
+</div>
+<div class="main-event">
+	<div class="tit-goods"><h3>이벤트 소식</h3></div>
+	<div class="base_wrap">
+		<ul id="product-slide2" class="product-slide-list">
+			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+		</ul>
+	</div>
+</div>
+<div class="tit-goods"><h3>알뜰상품</h3></div>
+<div class="base_wrap">
+	<div id="product-slide3" class="carousel slide product-slide" data-bs-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<ul class="product-slide-list">
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+				</ul>
+			</div>
+			<div class="carousel-item">
+				<ul class="product-slide-list">
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+				</ul>
+			</div>
+			<div class="carousel-item">
+				<ul class="product-slide-list">
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#product-slide3" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+		<a class="carousel-control-next" href="#product-slide3" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+	</div>
+</div>
 <div class="wrap-container">
-	<p>쇼핑 메인</p>
+	<div class="bnr_main">
+		<a href="#">
+			<span class="tit">장바구니 자랑하면 5천원의 행운이 매일!</span>
+			<span class="txt">매일 20분께 드리는 적립금 혜택!</span>
+		</a>
+	</div>
+</div>
+<div class="wrap-container">
+	<a href="#"><img src="/static/front/img/shop/footer_banner.png" id="img-delivery" /></a>
 </div>
