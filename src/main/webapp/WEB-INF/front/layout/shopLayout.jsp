@@ -64,8 +64,8 @@
 					<li>
 						<form action="/shop/search" method="post">
 							<input type="text" id="shop-search" name="search" placeholder="내 맘대로 골라담는 식단조절 도시락" />
-							<input type="button" id="btn-shop-search" />
-							<input type="button" id="btn-shop-search-del" />
+							<button type="submit" id="btn-shop-search"></button>
+							<button type="button" id="btn-shop-search-del"></button>
 						</form>
 					</li>
 				</ul>

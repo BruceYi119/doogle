@@ -1691,7 +1691,7 @@ CREATE TABLE recipe (
 	rno NUMBER NOT NULL, /* 레시피번호 */
 	title VARCHAR2(500) NOT NULL, /* 제목 */
 	content CLOB NOT NULL, /* 내용 */
-	ctno CHAR(1) NOT NULL, /* 카테고리 */
+	ctno NUMBER NOT NULL, /* 카테고리 */
 	fno NUMBER NOT NULL, /* 이미지 */
 	name VARCHAR2(30) NOT NULL, /* 작성자 */
 	read_cnt NUMBER DEFAULT 0 NOT NULL, /* 조회수 */
