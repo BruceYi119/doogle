@@ -19,6 +19,9 @@ public interface ProductMapper {
 			+ "(select * from product ${where} order by writedate desc) t) tt where seq >= #{start}) where rownum <= #{end}"})
 	List<ProductDTO> getAll(@Param("start") int start, @Param("end") int end, @Param("where") String where, @Param("ctno") String ctno,  @Param("ctno1") String ctno1, @Param("ctno2") String ctno2);
 
+	@Select("select * from category SAMPLE(10) where rownum <= 16")
+	List<ProductDTO> getRandom16();
+
 	@Select("select count(*) from product ${where}")
 	int getTotal(@Param("where") String where, @Param("ctno") String ctno, @Param("ctno1") String ctno1, @Param("ctno2") String ctno2);
 
