@@ -26,6 +26,7 @@ public class ShopController {
 	@RequestMapping("/shop")
 	public ModelAndView shop(ModelAndView mv) {
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
+		mv.addObject("url", "main");
 		mv.setViewName("/front/shop/shop");
 		return mv;
 	}

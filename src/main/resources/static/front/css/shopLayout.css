@@ -4,9 +4,10 @@
 	--main-color: #5f0080;
 }
 
+body { position: relative; }
 #wrap { display: flex;flex-direction: column; }
 #wrap > header { min-width: 1050px;height: 198px; }
-#wrap > main { min-width: 1050px; }
+#wrap > main { position:relative;min-width: 1050px; }
 #wrap > footer { min-width: 1050px; }
 #wrap div.base_wrap { max-width: 1050px;margin: 0 auto; }
 #wrap > main { min-width: 1050px;border-bottom: 1px solid #f7f7f7 }

@@ -1372,7 +1372,7 @@ CREATE TABLE eco (
 	title VARCHAR2(500) NOT NULL, /* 제목 */
 	content CLOB NOT NULL, /* 내용 */
 	ctno NUMBER NOT NULL, /* 카테고리번호 */
-	pname VARCHAR2(500) NOT NULL, /* 상품명 */
+	name VARCHAR2(500) NOT NULL, /* 상품명 */
 	fno VARCHAR2(100), /* 파일번호 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
@@ -1387,7 +1387,7 @@ COMMENT ON COLUMN eco.content IS '내용';
 
 COMMENT ON COLUMN eco.ctno IS '카테고리번호';
 
-COMMENT ON COLUMN eco.pname IS '상품명';
+COMMENT ON COLUMN eco.name IS '상품명';
 
 COMMENT ON COLUMN eco.fno IS '파일번호';
 

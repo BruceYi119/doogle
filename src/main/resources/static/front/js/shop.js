@@ -1,30 +1,8 @@
 'use strict';
 
-let carousel1;
-let carousel2;
-let carousel3;
+let latestFlag = true; 
 
-const initShop = () => {
-	$('#main-menu > li:first-child').bind('mouseenter', () => {
-		const productMenu = $('#product-menu');
-
-		productMenu.removeClass('hide');
-	});
-
-	$('#main-menu > li:first-child').bind('mouseleave', () => {
-		const productMenu = $('#product-menu');
-		const productSubLi = $('#product-menu > li:last-child');
-
-		productMenu.addClass('hide');
-		productSubLi.addClass('hide');
-	});
-
-	$('#product-menu ul:first-child > li').bind('mouseenter', () => {
-		const productSubLi = $('#product-menu > li:last-child');
-
-		productSubLi.removeClass('hide');
-	});
-
+const initShopMain = () => {
 	$('#main-slide').carousel({ interval: 3000 });
 	$('#product-slide1').carousel({ pause: true, wrap: false });
 	$('#product-slide3').carousel({ pause: true, wrap: false });
@@ -69,6 +47,33 @@ const initShop = () => {
 		listByn.removeClass('btn-show-ani');
 	});
 
+	$('#btn-latest-up').bind('click', () => {
+		const obj = $('div.latest-wrap > ul');
+		const top = parseInt(obj.css('top').replace('px',''));
+		const moveCheck = -(obj.height() - 240) < top &&(obj.height() - 240) > 0 ? true : false;
+
+		if (moveCheck && latestFlag) {
+			latestFlag = false;
+
+			obj.animate({ top: `${top - 80}px` }, 800, () => {
+				latestFlag = true;				
+			});			
+		}
+	});
+
+	$('#btn-latest-down').bind('click', () => {
+		const obj = $('div.latest-wrap > ul');
+		const top = parseInt(obj.css('top').replace('px',''));
+		const moveCheck = top < 0 ? true : false;
+
+		if (moveCheck && latestFlag) {
+			latestFlag = false;
+
+			obj.animate({ top: `${top + 80}px` }, 800, () => {
+				latestFlag = true;				
+			});
+		}
+	});
 };
 
-initShop();
+initShopMain();
