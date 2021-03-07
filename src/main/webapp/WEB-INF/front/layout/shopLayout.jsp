@@ -107,7 +107,75 @@
 			</div>
 		</main>
 		<footer>
-			풋터
+			<div class="wrap-container">
+				<div class="footer-top">
+					<div class="help">
+						<h2>고객행복센터</h2>
+						<div class="call">
+							<h3>0000-0000</h3>
+							<dl>
+								<dt>365고객센터</dt>
+								<dd>오전 7시 - 오후 7시</dd>
+							</dl>
+						</div>
+						<div class="kakao mt12">
+							<a href="#"><h3>카톡오톡 문의</h3></a>
+							<dl>
+								<dt>365고객센터</dt>
+								<dd>오전 7시 - 오후 7시</dd>
+							</dl>
+						</div>
+						<div class="qna mt12">
+							<a href="#"><h3>1:1 문의</h3></a>
+							<dl>
+								<dt>24시간 접수 가능</dt>
+								<dd>고객센터 운영시간에 순차적으로 답변해드리겠습니다.</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="company">
+						<ul class="list">
+							<li><a href="#">두글소개</a></li>
+							<li><a href="#">두글소개영상</a></li>
+							<li><a href="#">인재채용</a></li>
+							<li><a href="#">이용약관</a></li>
+							<li><a href="#"><strong>개인정보처리방침</strong></a></li>
+							<li><a href="#">이용안내</a></li>
+						</ul>
+						<p>법인명 (상호):주식회사 두글 | 사업자등록번호:000-00-00000 사업자정보 확인</p>
+						<p>통신판매업:제 0000-서울구로-00000 호 | 개인정보보호책임자:홍길동</p>
+						<p>주소:서울특별시 구로구 구로중앙로34길 33-4(구로동, 경영기술개발원빌딩) | 대표이사:홍길동</p>
+						<p>입점문의:입점문의하기 | 제휴문의:business@doogle.com</p>
+						<p>채용문의:recruit@doogle.com</p>
+						<p>팩스:000-0000-0000 | 이메일:help@doogle.com</p>
+						<p class="copy">© KURLY CORP. ALL RIGHTS RESERVED</p>
+						<ul class="list-sns">
+							<li><a href="https://instagram.com/marketkurly" class="link_sns" target="_blank"><img src="/static/front/img/shop/ico_instagram.webp" alt="마켓컬리 인스타그램 바로가기"></a></li>
+							<li><a href="https://www.facebook.com/marketkurly" class="link_sns" target="_blank"><img src="/static/front/img/shop/ico_fb.webp" alt="마켓컬리 페이스북 바로가기"></a></li>
+							<li><a href="http://blog.naver.com/marketkurly" class="link_sns" target="_blank"><img src="/static/front/img/shop/ico_blog.webp" alt="마켓컬리 네이버블로그 바로가기"></a></li>
+							<li><a href="https://m.post.naver.com/marketkurly" class="link_sns" target="_blank"><img src="/static/front/img/shop/ico_naverpost.webp" alt="마켓컬리 유튜브 바로가기"></a></li>
+							<li><a href="https://www.youtube.com/channel/UCfpdjL5pl-1qKT7Xp4UQzQg" class="link_sns lst" target="_blank"><img src="/static/front/img/shop/ico_youtube.webp" alt="마켓컬리 유튜브 바로가기"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="authentication">
+					<a href="#">
+						<img src="/static/front/img/shop/logo_isms.webp" />
+						<p>[인증범위] 두글 쇼핑몰 서비스 개발 · 운영</p>
+						<p>[유효기간] 2019.04.01 ~ 2022.03.31</p>
+					</a>
+					<a href="#">
+						<img src="/static/front/img/shop/logo_eprivacyplus.webp" />
+						<p>개인정보보호 우수 웹사이트 ·</p>
+						<p>개인정보처리시스템 인증 (ePRIVACY PLUS)</p>
+					</a>
+					<a href="#">
+						<img src="/static/front/img/shop/logo_payments.webp" />
+						<p>고객님의 안전거래를 위해 현금 등으로 결제 시 저희 쇼핑몰에서 가입한</p>
+						<p>토스 페이먼츠 구매안전(에스크로) 서비스를 이용하실 수 있습니다.</p>
+					</a>
+				</div>
+			</div>
 		</footer>
 		<a href="#" id="btn-page-top"><button type="button">맨 위로가기</button></a>
 	</div>
