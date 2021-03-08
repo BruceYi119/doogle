@@ -24,9 +24,9 @@ div.wrap-container { width: 100%;height: 100%;max-width: 1050px;margin: 0 auto; 
 #wrap nav { position: absolute;bottom: 0; left: 0;z-index: 2000; }
 #top-banner { position: absolute;top: 5px;left: 5px;z-index: 1; } 
 #top-banner > a > img { width: 163px;height: 22px; } 
-#home { position: absolute;top: 5px;width: 100%;text-align: center; }
+#home { position: absolute;top: 20px;width: 100%;text-align: center; }
 #home > a { display: inline-block;z-index: 3000; }
-#home > a > img { width: 200px;height: 100px; }
+#home > a > img { width: 130px;height: 70px; }
 
 #main-banner { width: 100%;height: 42px;background-color: var(--main-color);text-align: center; }
 #main-banner > div.wrap-container { position: relative; }
