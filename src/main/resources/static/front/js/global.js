@@ -27,6 +27,21 @@ const memberErrTxt = {
 	email: '이메일 형식에 맞지 않습니다'
 };
 
+const setCookie = (name, value, exp) => {
+	const date = new Date();
+	date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+	document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+};
+
+const getCookie = (name) => {
+	const value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+	return value? value[2] : null;
+};
+
+var deleteCookie = (name) => {
+	document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
+}
+
 const naverSearch = () => {
 	const search = document.querySelector('#search');
 	const searchType = document.querySelector('#searchType').value;

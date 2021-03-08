@@ -10,6 +10,8 @@ li, dt, dd { list-style: none; }
 .tac { text-align: center !important; }
 .tar { text-align: right !important; }
 
+.m0 { margin: 0 !important; }
+
 .mt5 { margin-top: 5px !important; }
 .mt10 { margin-top: 10px !important; }
 .mt12 { margin-top: 12px !important; }

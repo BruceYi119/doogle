@@ -136,7 +136,7 @@
 					<div class="company">
 						<ul class="list">
 							<li><a href="#">두글소개</a></li>
-							<li><a href="#">두글소개영상</a></li>
+							<li><a href="https://www.youtube.com/embed/WEep7BcboMQ?rel=0&amp;showinfo=0&amp;wmode=opaque&amp;enablejsapi=1" onclick="window.open(this.href, 'pop', 'width=1330,height=660,scrollbars=yes');return false;">두글소개영상</a></li>
 							<li><a href="#">인재채용</a></li>
 							<li><a href="#">이용약관</a></li>
 							<li><a href="#"><strong>개인정보처리방침</strong></a></li>
