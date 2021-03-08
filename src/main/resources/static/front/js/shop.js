@@ -33,7 +33,7 @@ const initShopMain = () => {
 			ppobj.find('.carousel-control-next').removeClass('hide');
 	});
 
-	$('#main-slide .carousel-item img, #main-slide > a.carousel-control-prev, #main-slide > a.carousel-control-next, #main-slide > ul.carousel-indicators').bind('mouseenter', () => {
+	$('#main-slide').bind('mouseenter', () => {
 		const prevBtn = $('#main-slide > a.carousel-control-prev');
 		const nextVtn = $('#main-slide > a.carousel-control-next');
 		const listByn = $('#main-slide > ul.carousel-indicators');
@@ -43,7 +43,7 @@ const initShopMain = () => {
 		listByn.addClass('btn-show-ani');
 	});
 
-	$('#main-slide .carousel-item img').bind('mouseleave', () => {
+	$('#main-slide').bind('mouseleave', () => {
 		const prevBtn = $('#main-slide > a.carousel-control-prev');
 		const nextVtn = $('#main-slide > a.carousel-control-next');
 		const listByn = $('#main-slide > ul.carousel-indicators');
