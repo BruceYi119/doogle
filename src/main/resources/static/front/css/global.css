@@ -42,6 +42,9 @@ li, dt, dd { list-style: none; }
 .p15 { padding: 15px !important; }
 .p20 { padding: 20px !important; }
 
+.pl20 { padding-left: 20px !important; }
+.pr20 { padding-right: 20px !important; }
+
 .pb7 { padding-bottom: 7px; }
 
 .w100 { width: 100px; }

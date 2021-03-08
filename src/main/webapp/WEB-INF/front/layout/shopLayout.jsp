@@ -27,22 +27,31 @@
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
-		<header>
-			<div id="main-banner">
-				<div class="wrap-container">
-					<a href="#">지금 가입하고 인기상품 <b>100원에 받아가세요!</b><img src="/static/front/img/shop/ico_arrow.webp" /></a>
-					<button type="button" id="btn-main-banner-close">가입하고 혜택받기</button>
-				</div>
+		<div id="main-banner">
+			<div class="wrap-container">
+				<a href="#">지금 가입하고 인기상품 <b>100원에 받아가세요!</b><img src="/static/front/img/shop/ico_arrow.webp" /></a>
+				<button type="button" id="btn-main-banner-close">가입하고 혜택받기</button>
 			</div>
+		</div>
+		<header>
 			<div class="wrap-container">
 				<div id="top-banner"><a href="#"><img src="/static/front/img/shop/img_courier.webp" alt="서울, 경기, 인천 샛별배송, 수도권 이외 지역 택배배송" /></a></div>
-				<h1 id="home"><a href="/shop">Doogle 쇼핑</a></h1>
+				<h1 id="home"><a href="/shop"><img src="/static/front/img/shop/doogle_mask.png" /></a></h1>
 				<ul id="member-menu">
 					<li><a href="/terms">회원가입</a></li>
 					<li></li>
 					<li><a href="/login">로그인</a></li>
 					<li></li>
-					<li><a href="#" class="before">고객센터</a></li>
+					<li>
+						<a href="#" class="before">고객센터</a>
+						<ul class="sub hide">
+							<li><a href="#">공지사항</a></li>
+							<li><a href="#">자주하는 질문</a></li>
+							<li><a href="#">1:1 문의</a></li>
+							<li><a href="#">상품 제안</a></li>
+							<li><a href="#">에코포장 피드백</a></li>
+						</ul>
+					</li>
 				</ul>
 				<nav>
 					<div class="wrap-container">
@@ -69,9 +78,11 @@
 								<form action="/shop/search" method="post">
 									<input type="text" id="shop-search" name="search" placeholder="내 맘대로 골라담는 식단조절 도시락" />
 									<button type="submit" id="btn-shop-search"></button>
-									<button type="button" id="btn-shop-search-del"></button>
+									<button type="button" id="btn-shop-search-del" class="hide"></button>
 								</form>
 							</li>
+							<li class="pl20 pr20"><a href="#"><img src="/static/front/img/shop/ico_delivery_setting.svg" /></a></li>
+							<li class="pr20"><a href="#"><img src="/static/front/img/shop/ico_cart.svg" /></a></li>
 						</ul>
 					</div>
 				</nav>

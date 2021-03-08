@@ -54,6 +54,36 @@ const initShop = () => {
 		else
 			targetObj.slideUp(500);
 	});
+
+	$('#member-menu > li:last-child').bind('mouseenter', () => {
+		const obj = $('#member-menu > li > ul.sub');
+
+		obj.removeClass('hide');
+	});
+
+	$('#member-menu > li:last-child').bind('mouseleave', () => {
+		const obj = $('#member-menu > li > ul.sub');
+
+		obj.addClass('hide');
+	});
+
+	$('#shop-search').bind('keyup', function() {
+		const obj = $(this);
+		const val = obj.val();
+		const btnDel = $('#btn-shop-search-del');
+
+		if (val === '')
+			btnDel.addClass('hide');
+		else
+			btnDel.removeClass('hide');
+	});
+
+	$('#btn-shop-search-del').bind('click', function() {
+		const obj = $(this);
+		const searchObj = $('#shop-search');
+		searchObj.val('');
+		obj.addClass('hide');
+	});
 };
 
 initShop();
