@@ -54,7 +54,7 @@
 		<header>
 			<div class="wrap-container">
 				<div id="top-banner"><a href="#"><img src="/static/front/img/shop/img_courier.webp" alt="서울, 경기, 인천 샛별배송, 수도권 이외 지역 택배배송" /></a></div>
-				<h1 id="home"><a href="/shop"><img src="/static/front/img/shop/doogle_mask.png" /></a></h1>
+				<h1 id="home"><a href="/shop"><img src="/static/front/img/shop/doogle_shopping.png" /></a></h1>
 				<ul id="member-menu">
 					<li><a href="/terms">회원가입</a></li>
 					<li></li>
