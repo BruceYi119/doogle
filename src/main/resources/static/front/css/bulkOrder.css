@@ -1,0 +1,217 @@
+#bulk .gray-list li{
+	color:gray;
+	list-style-type:disc;
+	left:10px;
+}
+#bulk .gray-list{
+	margin-left:20px;
+	font-size:14px;
+}
+#bulk .section-wrap{
+	border-top:2px solid black;
+	border-bottom:1px solid gray;
+	padding:20px 10px;
+	margin:20px 0 20px;
+}
+#bulk .table{
+	text-align:left;
+}
+#bulk .table td{
+	border-top:none;
+}
+#bulk .table th{
+	font-weight: 1000;
+	border-top:none;
+}
+#bulk #cal{
+	position: relative;
+	display:inline-block;
+	width: 173px;
+	height: 36px;
+}
+
+#calImg {
+	position: absolute;
+	top:0;
+	right:0;
+	
+	width: 27px;
+	height: 28px;
+}
+
+#bulk .cal-input{
+	cursor:pointer;
+	width:147px;
+	height:28px;
+	display:inline-block;
+	border-width: 2px;
+    border-style: solid;
+    border-color:   rgb(133, 133, 133);
+}
+#bulk .red{
+	color:red;
+	font-size:9px;
+	margin-top:12px;
+	margin-bottom: -15px;
+}
+#bulk #disable{
+	font-weight: 1000;
+}
+#bulk #disable li{
+	font-size:13px;	
+	font-weight: 1000;
+}
+#bulk #mun{
+	border:	1px solid #5f0080;
+	background:#795b8f;
+	color:#fff;
+	width:150px;
+	height: 40px;
+	font-size:13px;
+}
+#bulk #gray{
+	font-size:13px;
+	color:gray;
+}
+#bulk #purple{
+	font-size:13px;
+	color:purple;
+}
+#bulk .font13{
+	font-size:13px;
+}
+#bulk #white{
+	border:	1px solid #5f0080;
+	background:#fff;
+	color:#795b8f;
+	width:150px;
+	height: 40px;
+	font-size:13px;
+}
+/* 캘린더 css  */
+.calendarTitleY {
+    font-size: 11px;
+    color: 666666;
+    text-align: left;
+    padding-top: 8px;
+    padding-left: 10px
+}
+
+.calendarTitleM {
+    font-size: 24px;
+    color: #78b300;
+    text-align: left;
+    font-weight: 700;
+    padding-left: 5px
+}
+
+.calendarWeekS {
+    font-size: 9px;
+    color: #78b300;
+    float: left;
+    width: 30px;
+    height: 25px;
+    padding-top: 5px
+}
+
+.calendarWeekT {
+    font-size: 9px;
+    color: gray;
+    float: left;
+    width: 30px;
+    height: 25px;
+    padding-top: 5px
+}
+
+.calendarWeek {
+    font-size: 9px;
+    color: gray;
+    float: left;
+    width: 30px;
+    height: 25px;
+    padding-top: 5px
+}
+
+.calendarDayS {
+    font-size: 11px;
+    color: #78b300;
+    float: left;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    padding-top: 5px
+}
+
+.calendarDayT {
+    font-size: 11px;
+    color: gray;
+    float: left;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    padding-top: 5px
+}
+
+.calendarDay {
+    font-size: 11px;
+    color: gray;
+    float: left;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    padding-top: 5px
+}
+
+.calendarToDay {
+    font-size: 11px;
+    color: #fe5400;
+    float: left;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    padding-top: 5px
+}
+
+.calendarNoDay {
+    float: left;
+    width: 30px;
+    height: 25px;
+    padding-top: 5px
+}
+
+.calendarNow {
+    font-size: 11px;
+    color: 333333;
+    float: left;
+    width: 148px;
+    height: 20px;
+    cursor: pointer;
+    padding-left: 8px
+}
+
+.calendarClose {
+    font-size: 11px;
+    color: 333333;
+    float: left;
+    width: 55px;
+    height: 20px;
+    cursor: pointer
+}
+
+.clearboth {
+    clear: both
+}
+
+.content_img {
+    background: url(img/sch_bg_gray.gif)
+}
+/* bulkOredrT css  */
+#bulk-ok{
+	margin:auto;
+	
+}
+

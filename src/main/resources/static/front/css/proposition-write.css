@@ -1,0 +1,53 @@
+#proposition-write .gray-list li{
+	color:gray;
+	list-style-type:disc;
+	left:10px;
+}
+#proposition-write .gray-list{
+	margin-left:20px;
+	font-size:14px;
+}
+#proposition-write .section-wrap{
+	border-top:2px solid black;
+	padding:20px 10px;
+	margin:20px 0 20px;
+	padding:0px;
+}
+#proposition-write input[type='text']{
+	margin-top:10px;
+	width:800px;
+}
+#proposition-write .table{
+	text-align:left;
+}
+#proposition-write .table td{
+	border-top:none;
+	border-bottom:1px solid #f4f4f4;
+}
+#proposition-write .table th{
+	vertical-align: middle;
+	border-top:none;
+	background:#f7f5f8;
+	border-bottom:1px solid #f4f4f4;
+}
+#proposition-write #table{
+	width:800px;
+}
+#proposition-write #table tr{
+	border:1px solid #f4f4f4;
+}
+#proposition-write #small{
+	font-size:9px;
+}
+#proposition-write #submit_td{
+	text-align:center;
+	border-bottom:none;
+}
+#proposition-write input[type='submit']{
+    background-color: #401661;
+    border: 1px solid #5f0080;
+    width:150px;
+    color:white;
+    font-size:13px;
+    height: 40px;
+}

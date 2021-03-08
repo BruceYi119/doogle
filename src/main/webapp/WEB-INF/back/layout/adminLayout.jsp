@@ -151,6 +151,9 @@
 							</div>
 						</div>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="/admin/bulkOrder">대량주문문의</a></li>
+					<li class="nav-item"><a class="nav-link" href="/admin/proposition">상품제안</a></li>
+					<li class="nav-item"><a class="nav-link" href="/admin/eco">에코포장문의</a></li>
 				</ul>
 				<ul class="nav nav-pills" id="adminLoginInfo">
 					<li class="nav-item"><a class="nav-link text-white" href="#">${name}님 환엽합니다!</a></li>

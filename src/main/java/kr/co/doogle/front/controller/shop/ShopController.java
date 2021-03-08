@@ -2,8 +2,6 @@ package kr.co.doogle.front.controller.shop;
 
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;

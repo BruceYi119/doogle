@@ -1,0 +1,48 @@
+#proposition .gray-list li{
+	color:gray;
+	list-style-type:disc;
+	left:10px;
+}
+#proposition .gray-list{
+	margin-left:20px;
+	font-size:14px;
+}
+#proposition .section-wrap{
+	border-top:2px solid black;
+	border-bottom:1px solid gray;
+	padding:20px 10px;
+	margin:20px 0 20px;
+}
+#proposition .table{
+	text-align:left;
+}
+#proposition .table td{
+	border-top:none;
+}
+#proposition .table th{
+	font-weight: 1000;
+	border-top:none;
+}
+#proposition .no-data{
+	text-align:center;
+	color:gray;
+	padding-top:43px;
+}
+#proposition #button{
+	float:right;
+	width:100px;
+	height:32px;
+}
+#proposition .mun{
+	background:#795b8f;
+	color:white;
+	border:1px solid #5f0080;
+}
+#proposition .white{
+	border:	1px solid #5f0080;
+	background:#fff;
+	color:#795b8f;
+}
+#proposition #btn-right::after{
+	clear:both;	
+}

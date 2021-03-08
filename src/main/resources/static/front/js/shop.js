@@ -1,8 +1,7 @@
 'use strict';
 
-let latestFlag = true; 
-
 const initShopMain = () => {
+
 	$('#main-slide').carousel({ interval: 3000 });
 	$('#product-slide1').carousel({ pause: true, wrap: false });
 	$('#product-slide3').carousel({ pause: true, wrap: false });
@@ -54,33 +53,6 @@ const initShopMain = () => {
 		listByn.removeClass('btn-show-ani');
 	});
 
-	$('#btn-latest-up').bind('click', () => {
-		const obj = $('div.latest-wrap > ul');
-		const top = parseInt(obj.css('top').replace('px',''));
-		const moveCheck = top < 0 ? true : false;
-
-		if (moveCheck && latestFlag) {
-			latestFlag = false;
-
-			obj.animate({ top: `${top + 80}px` }, 800, () => {
-				latestFlag = true;				
-			});
-		}
-	});
-
-	$('#btn-latest-down').bind('click', () => {
-		const obj = $('div.latest-wrap > ul');
-		const top = parseInt(obj.css('top').replace('px',''));
-		const moveCheck = -(obj.height() - 240) < top &&(obj.height() - 240) > 0 ? true : false;
-
-		if (moveCheck && latestFlag) {
-			latestFlag = false;
-
-			obj.animate({ top: `${top - 80}px` }, 800, () => {
-				latestFlag = true;				
-			});			
-		}
-	});
 };
 
 initShopMain();

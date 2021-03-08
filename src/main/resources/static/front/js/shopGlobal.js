@@ -1,5 +1,7 @@
 'use strict';
 
+let latestFlag = true;
+
 const setCookie = (name, value, exp) => {
 	const date = new Date();
 	date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
@@ -16,6 +18,7 @@ var deleteCookie = (name) => {
 }
 
 const initShop = () => {
+
 	$('#btn-main-banner-close').bind('click', () => {
 		const obj = $('#main-banner');
 
@@ -84,6 +87,35 @@ const initShop = () => {
 		searchObj.val('');
 		obj.addClass('hide');
 	});
+
+	$('#btn-latest-up').bind('click', () => {
+		const obj = $('div.latest-wrap > ul');
+		const top = parseInt(obj.css('top').replace('px',''));
+		const moveCheck = top < 0 ? true : false;
+
+		if (moveCheck && latestFlag) {
+			latestFlag = false;
+
+			obj.animate({ top: `${top + 80}px` }, 800, () => {
+				latestFlag = true;				
+			});
+		}
+	});
+
+	$('#btn-latest-down').bind('click', () => {
+		const obj = $('div.latest-wrap > ul');
+		const top = parseInt(obj.css('top').replace('px',''));
+		const moveCheck = -(obj.height() - 240) < top &&(obj.height() - 240) > 0 ? true : false;
+
+		if (moveCheck && latestFlag) {
+			latestFlag = false;
+
+			obj.animate({ top: `${top - 80}px` }, 800, () => {
+				latestFlag = true;				
+			});			
+		}
+	});
+
 };
 
 initShop();

@@ -14,6 +14,12 @@
 <link rel="stylesheet" href="/static/front/css/global.css">
 <link rel="stylesheet" href="/static/front/css/shopLayout.css">
 <link rel="stylesheet" href="/static/front/css/shop.css">
+<c:if test="${url eq '/shop/propositionList'}"><link rel="stylesheet" href="/static/front/css/proposition-list.css"></c:if>
+<c:if test="${url eq '/shop/propositionWrite'}"><link rel="stylesheet" href="/static/front/css/proposition-write.css"></c:if>
+<c:if test="${url eq '/shop/propositionUpdate'}"><link rel="stylesheet" href="/static/front/css/proposition-write.css"></c:if>
+<c:if test="${url eq '/shop/ecoList'}"><link rel="stylesheet" href="/static/front/css/proposition-list.css"></c:if>
+<c:if test="${url eq '/shop/ecoWrite'}"><link rel="stylesheet" href="/static/front/css/proposition-write.css"></c:if>
+<c:if test="${url eq '/shop/ecoUpdate'}"><link rel="stylesheet" href="/static/front/css/proposition-write.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <c:if test="${edit eq 'edit'}"><script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script></c:if>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
@@ -22,8 +28,20 @@
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-bs4.min.js"></script></c:if>
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/core/js/summernote-ko-KR.min.js"></script></c:if>
 <c:if test="${edit eq 'edit'}"><script defer type="text/javascript" src="/static/front/js/edit.js"></script></c:if>
-<c:if test="${url eq '/shop/product/form'}"><script defer type="text/javascript" src="/static/front/js/form.js"></script></c:if>
 <c:if test="${url eq 'main'}"><script defer type="text/javascript" src="/static/front/js/shop.js"></script></c:if>
+<c:if test="${url eq '/shop/product/form'}"><script defer type="text/javascript" src="/static/front/js/form.js"></script></c:if>
+<c:if test="${url eq '/shop/bulkOrder'}"><script defer type="text/javascript" src="/static/front/js/bulk.js"></script></c:if>
+<c:if test="${url eq '/shop/bulkOrder'}"><script defer type="text/javascript" src="/static/front/js/bulklist.js"></script></c:if>
+<c:if test="${url eq '/shop/propositionList'}"><script defer type="text/javascript" src="/static/front/js/propositionList.js"></script></c:if>
+<c:if test="${url eq '/shop/propositionWrite'}"><script defer type="text/javascript" src="/static/front/js/bulklist.js"></script></c:if>
+<c:if test="${url eq '/shop/propositionUpdate'}"><script defer type="text/javascript" src="/static/front/js/bulklist.js"></script></c:if>
+<c:if test="${url eq '/shop/propositionWrite'}"><script defer type="text/javascript" src="/static/front/js/propositionWrite.js"></script></c:if>
+<c:if test="${url eq '/shop/propositionUpdate'}"><script defer type="text/javascript" src="/static/front/js/propositionWrite.js"></script></c:if>
+<c:if test="${url eq '/shop/ecoList'}"><script defer type="text/javascript" src="/static/front/js/ecoList.js"></script></c:if>
+<c:if test="${url eq '/shop/ecoWrite'}"><script defer type="text/javascript" src="/static/front/js/bulklist.js"></script></c:if>
+<c:if test="${url eq '/shop/ecoUpdate'}"><script defer type="text/javascript" src="/static/front/js/bulklist.js"></script></c:if>
+<c:if test="${url eq '/shop/ecoWrite'}"><script defer type="text/javascript" src="/static/front/js/propositionWrite.js"></script></c:if>
+<c:if test="${url eq '/shop/ecoUpdate'}"><script defer type="text/javascript" src="/static/front/js/propositionWrite.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
@@ -48,8 +66,9 @@
 							<li><a href="#">공지사항</a></li>
 							<li><a href="#">자주하는 질문</a></li>
 							<li><a href="#">1:1 문의</a></li>
-							<li><a href="#">상품 제안</a></li>
-							<li><a href="#">에코포장 피드백</a></li>
+							<li><a href="/shop/bulkOrder">대량주문 문의</a></li>
+							<li><a href="/shop/propositionList">상품 제안</a></li>
+							<li><a href="/shop/ecoList">에코포장 피드백</a></li>
 						</ul>
 					</li>
 				</ul>
