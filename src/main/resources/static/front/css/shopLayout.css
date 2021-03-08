@@ -72,7 +72,7 @@ div.wrap-container { width: 100%;height: 100%;max-width: 1050px;margin: 0 auto; 
 #main-menu > li:nth-child(7) > a:hover, #main-menu > li:nth-child(8) > a:hover { border-bottom-color: #fff; }
 #main-menu > li:nth-child(6) { position: relative; }
 
-#product-menu { display: flex;position: absolute;top: 68px;left: 0;border: 1px solid #ddd;background-color: #fff; }
+#product-menu { display: flex;position: absolute;top: 57px;left: 0;border: 1px solid #ddd;background-color: #fff; }
 #product-menu > li { width: 50%; }
 #product-menu #sub-loading { width: 221px;height: 704px;line-height: 704px;text-align: center; }
 #product-menu > li > ul > li { height: 39px; }
