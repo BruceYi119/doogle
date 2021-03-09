@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<input type="hidden" id="qnb-top" value="638" />
 <div id="main-slide" class="carousel slide" data-ride="carousel">
 	<ul class="carousel-indicators">
 		<li data-target="#main-slide" data-slide-to="0" class="active"></li>

@@ -1,6 +1,7 @@
 'use strict';
 
 let latestFlag = true;
+let qnbFlag = true;
 
 const setCookie = (name, value, exp) => {
 	const date = new Date();
@@ -13,16 +14,27 @@ const getCookie = (name) => {
 	return value? value[2] : null;
 };
 
-var deleteCookie = (name) => {
+const deleteCookie = (name) => {
 	document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
 }
 
 const initShop = () => {
 
+	if ($('#qnb-top').length === 1) {
+		$('#qnb').css('top', parseInt($('#qnb-top').val()) + 'px');
+	}
+
 	$('#btn-main-banner-close').bind('click', () => {
 		const obj = $('#main-banner');
+		const qnb = $('#qnb');
+		const top = parseInt(qnb.css('top').replace('px','')) - 42;
 
 		obj.slideUp();
+
+		if (qnbFlag) {
+			qnbFlag = false;			
+			qnb.animate({ top: `${top}px` }, 100, () => { qnbFlag = true; });
+		}
 	});
 
 	$('#main-menu > li:first-child').bind('mouseenter', () => {
@@ -47,15 +59,35 @@ const initShop = () => {
 
 	$(window).scroll(() => {
 		const obj = $(window);
+		const qnbObj = $('#qnb');
 		const targetObj = $('#btn-page-top'); 
+		const qnbTopObj = $('#qnb-top');
 		const scrollHeight = window.innerHeight;
 		const scrollTop = obj.scrollTop();
 		const showCheck = scrollHeight / 2 < scrollTop ? true : false;
+		let top = qnbTopObj.length === 1 ? parseInt(qnbTopObj.val()) : 268;
 
 		if (showCheck)
 			targetObj.slideDown(500);
 		else
 			targetObj.slideUp(500);
+
+		if (scrollTop > 300) {
+			const qnbHeight = qnbObj.height();
+			top = (window.screen.availHeight - qnbHeight) / 2;
+			
+		}
+
+		if (qnbFlag) {
+			qnbFlag = false;
+
+			qnbObj.animate({ top: `${top}px`, slow: 'easein' }, 100, () => {
+				qnbFlag = true;
+
+				if ($(window).scrollTop < 100)
+					qnbObj.css('top', `${top}px`);
+			});
+		}
 	});
 
 	$('#member-menu > li:last-child').bind('mouseenter', () => {
@@ -96,9 +128,7 @@ const initShop = () => {
 		if (moveCheck && latestFlag) {
 			latestFlag = false;
 
-			obj.animate({ top: `${top + 80}px` }, 800, () => {
-				latestFlag = true;				
-			});
+			obj.animate({ top: `${top + 80}px` }, 800, () => { latestFlag = true; });
 		}
 	});
 
@@ -110,9 +140,7 @@ const initShop = () => {
 		if (moveCheck && latestFlag) {
 			latestFlag = false;
 
-			obj.animate({ top: `${top - 80}px` }, 800, () => {
-				latestFlag = true;				
-			});			
+			obj.animate({ top: `${top - 80}px` }, 800, () => { latestFlag = true; });			
 		}
 	});
 

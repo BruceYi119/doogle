@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="/static/front/css/global.css">
 <link rel="stylesheet" href="/static/front/css/shopLayout.css">
 <link rel="stylesheet" href="/static/front/css/shop.css">
+<c:if test="${url eq '/shop/bulkOrder'}"><link rel="stylesheet" href="/static/front/css/bulkOrder.css"></c:if>
 <c:if test="${url eq '/shop/propositionList'}"><link rel="stylesheet" href="/static/front/css/proposition-list.css"></c:if>
 <c:if test="${url eq '/shop/propositionWrite'}"><link rel="stylesheet" href="/static/front/css/proposition-write.css"></c:if>
 <c:if test="${url eq '/shop/propositionUpdate'}"><link rel="stylesheet" href="/static/front/css/proposition-write.css"></c:if>
@@ -109,32 +110,6 @@
 		</header>
 		<main>
 			<sitemesh:write property="body" />
-			<div id="qnb">
-				<div class="pb7">
-					<a href="#"><img src="/static/front/img/shop/img_qnb.webp" /></a>
-				</div>
-				<div class="pb7">
-					<ul>
-						<li><a href="#">등급별 혜택</a></li>
-						<li><a href="#">레시피</a></li>
-						<li><a href="#">베스트후기</a></li>
-					</ul>
-				</div>
-				<div id="latest">
-					<button type="button" id="btn-latest-up">최근 본 상품 위로 올리기</button>
-					<strong>최근 본 상품</strong>
-					<div class="latest-wrap">
-						<ul>
-							<li><a href="#"><img src="/static/upload/img/shop/product/감자.jpg" /></a></li>
-							<li><a href="#"><img src="/static/upload/img/shop/product/감자.jpg" /></a></li>
-							<li><a href="#"><img src="/static/upload/img/shop/product/감자.jpg" /></a></li>
-							<li><a href="#"><img src="/static/upload/img/shop/product/버섯.png" /></a></li>
-							<li><a href="#"><img src="/static/upload/img/shop/product/정직한훈제란6구.PNG" /></a></li>
-						</ul>
-					</div>
-					<button type="button" id="btn-latest-down">최근 본 상품 아래로 내리기</button>
-				</div>
-			</div>
 		</main>
 		<footer>
 			<div class="wrap-container">
@@ -207,6 +182,32 @@
 				</div>
 			</div>
 		</footer>
+		<div id="qnb">
+			<div class="pb7">
+				<a href="#"><img src="/static/front/img/shop/img_qnb.webp" /></a>
+			</div>
+			<div class="pb7">
+				<ul>
+					<li><a href="#">등급별 혜택</a></li>
+					<li><a href="#">레시피</a></li>
+					<li><a href="#">베스트후기</a></li>
+				</ul>
+			</div>
+			<div id="latest">
+				<button type="button" id="btn-latest-up">최근 본 상품 위로 올리기</button>
+				<strong>최근 본 상품</strong>
+				<div class="latest-wrap">
+					<ul>
+						<li><a href="#"><img src="/static/upload/img/shop/product/감자.jpg" /></a></li>
+						<li><a href="#"><img src="/static/upload/img/shop/product/감자.jpg" /></a></li>
+						<li><a href="#"><img src="/static/upload/img/shop/product/감자.jpg" /></a></li>
+						<li><a href="#"><img src="/static/upload/img/shop/product/버섯.png" /></a></li>
+						<li><a href="#"><img src="/static/upload/img/shop/product/정직한훈제란6구.PNG" /></a></li>
+					</ul>
+				</div>
+				<button type="button" id="btn-latest-down">최근 본 상품 아래로 내리기</button>
+			</div>
+		</div>
 		<a href="#" id="btn-page-top"><button type="button">맨 위로가기</button></a>
 	</div>
 </body>
