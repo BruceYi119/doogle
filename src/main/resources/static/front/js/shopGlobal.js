@@ -81,7 +81,7 @@ const initShop = () => {
 		if (qnbFlag) {
 			qnbFlag = false;
 
-			qnbObj.animate({ top: `${top}px`, slow: 'easein' }, 100, () => {
+			qnbObj.animate({ top: `${top}px` }, 100, () => {
 				qnbFlag = true;
 
 				if ($(window).scrollTop < 100)
