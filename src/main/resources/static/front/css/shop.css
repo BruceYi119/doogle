@@ -12,9 +12,10 @@ div.carousel > a.carousel-control-next { right: 330px; }
 div.carousel.product-slide > a.carousel-control-prev { left: -30px; }
 div.carousel.product-slide > a.carousel-control-next { right: -30px; }
 div.carousel > a.carousel-control-prev > span.carousel-control-prev-icon { background-image: url("/static/front/img/shop/ico_prev.webp"); }
-div.carousel > a.carousel-control-next > span.carousel-control-next-icon {background-image: url("/static/front/img/shop/ico_next.webp"); }
+div.carousel > a.carousel-control-next > span.carousel-control-next-icon { background-image: url("/static/front/img/shop/ico_next.webp"); }
 div.carousel.product-slide > a.carousel-control-prev > span.carousel-control-prev-icon { background-image: url("/static/front/img/shop/btn_prev_default.webp"); }
 div.carousel.product-slide > a.carousel-control-next > span.carousel-control-next-icon {background-image: url("/static/front/img/shop/btn_next_default.webp"); }
+#product-slide10.carousel.product-slide > a { top: 57.5px; }
 
 #main-slide > a,#main-slide > ul.carousel-indicators { opacity: 0; }
 .btn-show-ani { animation: main-slide-btn-ani 0.5s ease-in-out forwards; }

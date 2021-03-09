@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
 * { margin: 0;padding: 0; }
+h1, h2, h3, h4, h5, h6, div, p, span, textarea, input, button, img, ul, ol, dl, li, dt, dd, table { margin: 0;padding: 0; }
 table { border-collapse: collapse; }
-li, dt, dd { list-style: none; }
+li, dl, dt, dd { list-style: none; }
+a:hover { text-decoration: none; }
 
 .hide { display: none !important; }
 
