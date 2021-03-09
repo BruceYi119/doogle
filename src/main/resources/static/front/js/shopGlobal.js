@@ -201,6 +201,11 @@ const initShop = () => {
 	if ($('div.latest-wrap > ul > li').length > 0) {
 		$('#latest').removeClass('hide');
 
+		if ($('div.latest-wrap > ul > li').length === 2)
+			$('div.latest-wrap').css('height', '160px');
+		else if ($('div.latest-wrap > ul > li').length > 2)
+			$('div.latest-wrap').css('height', '240px');
+
 		if ($('div.latest-wrap > ul').height() > 240)
 			$('#btn-latest-down').addClass('on');
 	}
