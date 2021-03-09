@@ -194,7 +194,7 @@
 					<li><a href="#">베스트후기</a></li>
 				</ul>
 			</div>
-			<div id="latest">
+			<div id="latest" class="hide">
 				<button type="button" id="btn-latest-up">최근 본 상품 위로 올리기</button>
 				<strong>최근 본 상품</strong>
 				<div class="latest-wrap">

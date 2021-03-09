@@ -46,6 +46,7 @@ public class PropositionController {
 			paging.setPaging(page, propositionMapper.getTotal("where type = #{type}", ctno), "/shop/propositionList?ctno=" + ctno);
 			model.addAttribute("list", propositionMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), "where ctno = #{ctno}", ctno));
 		}
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		model.addAttribute("url", "/shop/propositionList");
 		model.addAttribute("list", propositionMapper.getPcategory());
 		model.addAttribute("i", paging.getStartRow());

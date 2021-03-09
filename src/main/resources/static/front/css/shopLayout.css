@@ -45,6 +45,8 @@ div.wrap-container { width: 100%;height: 100%;max-width: 1050px;margin: 0 auto; 
 #qnb button { border: none;width: 80px;height: 17px; }
 #qnb button:first-child { background: url("/static/front/img/shop/ico_quick_up.webp") no-repeat 50%;text-indent: -9999px; }
 #qnb button:last-child { background: url("/static/front/img/shop/ico_quick_down.webp") no-repeat 50%;text-indent: -9999px; }
+#qnb button.on:first-child { background-image: url("/static/front/img/shop/ico_quick_up_hover.webp"); }
+#qnb button.on:last-child { background-image: url("/static/front/img/shop/ico_quick_down_hover.webp"); }
 #qnb strong { width: 60px;padding: 10px 0;display: inline-block; }
 #qnb #latest .latest-wrap { position:relative;width: 60px;height: 240px;overflow: hidden;margin: 0 auto; }
 #qnb #latest ul { position: absolute;top: 0; left: 0; }

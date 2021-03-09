@@ -45,6 +45,7 @@ public class EcoController {
 			paging.setPaging(page, ecoMapper.getTotal("where type = #{type}", ctno), "/shop/ecoList?ctno=" + ctno);
 			model.addAttribute("list", ecoMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), "where ctno = #{ctno}", ctno));
 		}
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		model.addAttribute("url", "/shop/ecoList");
 		model.addAttribute("list", ecoMapper.getPcategory());
 		model.addAttribute("i", paging.getStartRow());

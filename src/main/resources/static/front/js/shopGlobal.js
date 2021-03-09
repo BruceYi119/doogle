@@ -123,26 +123,61 @@ const initShop = () => {
 	$('#btn-latest-up').bind('click', () => {
 		const obj = $('div.latest-wrap > ul');
 		const top = parseInt(obj.css('top').replace('px',''));
+		const upBtn = $('#btn-latest-up');
+		const downBtn = $('#btn-latest-down');
 		const moveCheck = top < 0 ? true : false;
 
 		if (moveCheck && latestFlag) {
 			latestFlag = false;
 
-			obj.animate({ top: `${top + 80}px` }, 800, () => { latestFlag = true; });
+			obj.animate({ top: `${top + 80}px` }, 800, () => {
+				latestFlag = true;
+
+				if (obj.css('top') === '0px')
+					upBtn.removeClass('on');
+				else
+					upBtn.addClass('on');
+
+				if (Math.abs(obj.height() - 240) <= Math.abs(parseInt(obj.css('top').replace('px',''))))
+					downBtn.removeClass('on');
+				else
+					downBtn.addClass('on');
+			});
 		}
 	});
 
 	$('#btn-latest-down').bind('click', () => {
 		const obj = $('div.latest-wrap > ul');
 		const top = parseInt(obj.css('top').replace('px',''));
+		const upBtn = $('#btn-latest-up');
+		const downBtn = $('#btn-latest-down');
 		const moveCheck = -(obj.height() - 240) < top &&(obj.height() - 240) > 0 ? true : false;
 
 		if (moveCheck && latestFlag) {
 			latestFlag = false;
 
-			obj.animate({ top: `${top - 80}px` }, 800, () => { latestFlag = true; });			
+			obj.animate({ top: `${top - 80}px` }, 800, () => {
+				latestFlag = true;
+
+				if (obj.css('top') === '0px')
+					upBtn.removeClass('on');
+				else
+					upBtn.addClass('on');
+
+				if (Math.abs(obj.height() - 240) <= Math.abs(parseInt(obj.css('top').replace('px',''))))
+					downBtn.removeClass('on');
+				else
+					downBtn.addClass('on');
+			});			
 		}
 	});
+
+	if ($('div.latest-wrap > ul > li').length > 0) {
+		$('#latest').removeClass('hide');
+
+		if ($('div.latest-wrap > ul').height() > 240)
+			$('#btn-latest-down').addClass('on');
+	}
 
 };
 

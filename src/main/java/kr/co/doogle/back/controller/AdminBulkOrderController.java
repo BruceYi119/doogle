@@ -10,9 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.doogle.dto.BulkOrderDTO;
-import kr.co.doogle.dto.EcoDTO;
 import kr.co.doogle.mapper.BulkOrderMapper;
-import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.paging.Paging;
 
 @Controller
@@ -22,9 +20,7 @@ public class AdminBulkOrderController {
 	private BulkOrderMapper bulkOrderMapper;
 	@Autowired
 	private Paging paging;
-	@Autowired
-	private CategoryMapper categoryMapper;
-	
+
 	@RequestMapping("/admin/bulkOrder")
 	public String bulk_order(Model model,HttpServletRequest request) {
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
@@ -36,7 +32,6 @@ public class AdminBulkOrderController {
 				case "o" : d.setKtype("한곳");break;
 			}
 		}
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		model.addAttribute("list", dto);
 		model.addAttribute("url", "/admin/bulkOrder");
 		model.addAttribute("i", paging.getStartRow());
