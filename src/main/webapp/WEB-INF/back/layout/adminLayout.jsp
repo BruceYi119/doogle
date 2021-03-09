@@ -34,7 +34,7 @@
 					<div class="p-2">
 						<ul class="navbar-nav" id="menu">
 							<li class="nav-item"><a class="nav-link" href="/">사이트 메인</a></li>
-							<li class="nav-item"><a class="nav-link" href="/admin">메인</a></li>
+							<li class="nav-item"><a class="nav-link" href="/admin">관리자 메인</a></li>
 							<li class="nav-item"><a class="nav-link" href="/admin/member">회원</a></li>
 							<li>
 								<div class="dropdown">

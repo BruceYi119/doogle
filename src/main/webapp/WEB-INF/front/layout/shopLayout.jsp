@@ -188,6 +188,7 @@
 			</div>
 			<div class="pb7">
 				<ul>
+					<li><a href="/">Doogle</a></li>
 					<li><a href="#">등급별 혜택</a></li>
 					<li><a href="#">레시피</a></li>
 					<li><a href="#">베스트후기</a></li>
