@@ -157,3 +157,7 @@ footer div.authentication > a > p { font-size: 10px;color: #999;line-height: 16p
 	0% { width: 0; }
 	100% { width: 221px; }
 }
+
+div.tooltip {}
+div.tooltip-arrow {}
+div.tooltip-inner {}
