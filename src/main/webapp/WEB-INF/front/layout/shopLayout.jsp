@@ -80,11 +80,11 @@
 								<a href="#">전체 카테고리</a>
 								<ul id="product-menu"  class="hide">
 									<li>
-										<ul>	
-											<c:forEach items="${clist}" var="dto"><li><a href="#">${dto.name}</a></li></c:forEach>
+										<ul id="product-main-wrap">	
+											<c:forEach items="${clist}" var="dto"><li><a href="#" ctno="${dto.ctno}">${dto.name}</a></li></c:forEach>
 										</ul>
 									</li>
-									<li class="hide">
+									<li class="hide" id="product-sub-wrap">
 										<div id="sub-loading"><div class="spinner-border text-muted"></div></div>
 		<!-- 								<ul id="product-sub-menu"><li><a href="#">상품</a></li></ul> -->
 									</li>

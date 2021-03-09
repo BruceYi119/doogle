@@ -57,6 +57,32 @@ const initShop = () => {
 		productSubLi.removeClass('hide').addClass('product-sub-ani');
 	});
 
+	$('#product-main-wrap > li > a').bind('mouseenter', function() {
+		const ctno = $(this).attr('ctno');
+		const targetObj = $('#product-sub-wrap');
+		const loddingHtml = `<div id="sub-loading"><div class="spinner-border text-muted"></div></div>`;
+		const ajax = axios.get(`/shop/product/category/${ctno}`);
+
+		targetObj.empty().html(loddingHtml);
+
+		ajax.then((res) => {
+			if (res.data) {
+				const list = JSON.parse(decodeURIComponent(res.data))?.list;
+
+				if (list !== undefined) {
+					let html = `<ul id="product-sub-menu">`;
+
+					list.forEach((o) => {
+						html += `<li><a href="#">${o.name}</a></li>`;
+					});
+					html += `</ul>`;
+
+					targetObj.empty().html(html);
+				}
+			}
+		}).catch(err => console.log(err));
+	});
+
 	$(window).scroll(() => {
 		const obj = $(window);
 		const qnbObj = $('#qnb');
