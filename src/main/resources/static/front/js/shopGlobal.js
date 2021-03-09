@@ -48,13 +48,13 @@ const initShop = () => {
 		const productSubLi = $('#product-menu > li:last-child');
 
 		productMenu.addClass('hide');
-		productSubLi.addClass('hide');
+		productSubLi.addClass('hide').removeClass('product-sub-ani');
 	});
 
 	$('#product-menu ul:first-child > li').bind('mouseenter', () => {
 		const productSubLi = $('#product-menu > li:last-child');
 
-		productSubLi.removeClass('hide');
+		productSubLi.removeClass('hide').addClass('product-sub-ani');
 	});
 
 	$(window).scroll(() => {

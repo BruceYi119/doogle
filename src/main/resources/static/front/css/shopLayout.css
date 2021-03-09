@@ -73,12 +73,45 @@ div.wrap-container { width: 100%;height: 100%;max-width: 1050px;margin: 0 auto; 
 #main-menu > li:nth-child(6) { position: relative; }
 
 #product-menu { display: flex;position: absolute;top: 57px;left: 0;border: 1px solid #ddd;background-color: #fff; }
-#product-menu > li { width: 50%; }
+#product-menu > li { width: 221px;overflow: hidden; }
 #product-menu #sub-loading { width: 221px;height: 704px;line-height: 704px;text-align: center; }
-#product-menu > li > ul > li { height: 39px; }
 #product-menu > li > ul > li:hover { background-color: #ddd; }
-#product-menu > li > ul > li > a { display: inline-block;color: #4c4c4c;padding: 3.5px 14px;width: 219px;font-weight: bold; }
-#product-menu > li > ul > li > a:hover { color: var(--main-color); }
+#product-menu > li > ul > li > a { display: inline-block;color: #4c4c4c;padding: 3.5px 0 3.5px 44px;width: 219px;font-weight: bold;background: url("/static/front/img/shop/icon_veggies.png") no-repeat 14px 10px;background-size: 24px; }
+#product-menu > li > ul > li > a:hover { color: var(--main-color);background-image: url("/static/front/img/shop/icon_veggies_active.png"); }
+#product-menu > li > ul > li:nth-child(2) > a { background-image: url("/static/front/img/shop/icon_fruit.png"); }
+#product-menu > li > ul > li:nth-child(2) > a:hover { background-image: url("/static/front/img/shop/icon_fruit_active.png"); }
+#product-menu > li > ul > li:nth-child(3) > a { background-image: url("/static/front/img/shop/icon_seafood.png"); }
+#product-menu > li > ul > li:nth-child(3) > a:hover { background-image: url("/static/front/img/shop/icon_seafood_active.png"); }
+#product-menu > li > ul > li:nth-child(4) > a { background-image: url("/static/front/img/shop/icon_meat.png"); }
+#product-menu > li > ul > li:nth-child(4) > a:hover { background-image: url("/static/front/img/shop/icon_meat_active.png"); }
+#product-menu > li > ul > li:nth-child(5) > a { background-image: url("/static/front/img/shop/icon_side.png"); }
+#product-menu > li > ul > li:nth-child(5) > a:hover { background-image: url("/static/front/img/shop/icon_side_active.png"); }
+#product-menu > li > ul > li:nth-child(6) > a { background-image: url("/static/front/img/shop/icon_convenient.png"); }
+#product-menu > li > ul > li:nth-child(6) > a:hover { background-image: url("/static/front/img/shop/icon_convenient_active.png"); }
+#product-menu > li > ul > li:nth-child(7) > a { background-image: url("/static/front/img/shop/icon_sauce.png"); }
+#product-menu > li > ul > li:nth-child(7) > a:hover { background-image: url("/static/front/img/shop/icon_sauce_active.png"); }
+#product-menu > li > ul > li:nth-child(8) > a { background-image: url("/static/front/img/shop/icon_snacks.png"); }
+#product-menu > li > ul > li:nth-child(8) > a:hover { background-image: url("/static/front/img/shop/icon_snacks_active.png"); }
+#product-menu > li > ul > li:nth-child(9) > a { background-image: url("/static/front/img/shop/icon_cookie.png"); }
+#product-menu > li > ul > li:nth-child(9) > a:hover { background-image: url("/static/front/img/shop/icon_cookie_active.png"); }
+#product-menu > li > ul > li:nth-child(10) > a { background-image: url("/static/front/img/shop/icon_deli.png"); }
+#product-menu > li > ul > li:nth-child(10) > a:hover { background-image: url("/static/front/img/shop/icon_deli_active.png"); }
+#product-menu > li > ul > li:nth-child(11) > a { background-image: url("/static/front/img/shop/icon_health.png"); }
+#product-menu > li > ul > li:nth-child(11) > a:hover { background-image: url("/static/front/img/shop/icon_health_active.png"); }
+#product-menu > li > ul > li:nth-child(12) > a { background-image: url("/static/front/img/shop/icon_living.png"); }
+#product-menu > li > ul > li:nth-child(12) > a:hover { background-image: url("/static/front/img/shop/icon_living_active.png"); }
+#product-menu > li > ul > li:nth-child(13) > a { background-image: url("/static/front/img/shop/icon_beauty.png"); }
+#product-menu > li > ul > li:nth-child(13) > a:hover { background-image: url("/static/front/img/shop/icon_beauty_active.png"); }
+#product-menu > li > ul > li:nth-child(14) > a { background-image: url("/static/front/img/shop/icon_kitchen.png"); }
+#product-menu > li > ul > li:nth-child(14) > a:hover { background-image: url("/static/front/img/shop/icon_kitchen_active.png"); }
+#product-menu > li > ul > li:nth-child(15) > a { background-image: url("/static/front/img/shop/icon_electronic.png"); }
+#product-menu > li > ul > li:nth-child(15) > a:hover { background-image: url("/static/front/img/shop/icon_electronic_active.png"); }
+#product-menu > li > ul > li:nth-child(16) > a { background-image: url("/static/front/img/shop/icon_kids.png"); }
+#product-menu > li > ul > li:nth-child(16) > a:hover { background-image: url("/static/front/img/shop/icon_kids_active.png"); }
+#product-menu > li > ul > li:nth-child(17) > a { background-image: url("/static/front/img/shop/icon_pet.png"); }
+#product-menu > li > ul > li:nth-child(17) > a:hover { background-image: url("/static/front/img/shop/icon_pet_active.png"); }
+#product-menu > li > ul > li:nth-child(18) > a { background-image: url("/static/front/img/shop/ico_recommend.webp"); }
+#product-menu > li > ul > li:nth-child(18) > a:hover { background-image: url("/static/front/img/shop/ico_recommend_active.webp"); }
 
 #shop-search { word-break: break-all;box-sizing: border-box;font: inherit;margin: 0;letter-spacing: -0.05em;max-width: 100%;width: 242px;height: 36px;padding: 0 60px 0 14px;border: 1px solid #f7f7f6;border-radius: 18px;background-color: #f7f7f7;font-weight: 400;font-size: 12px;color: #666;line-height: 16px;outline: none; }
 #shop-search::placeholder { font-family: 'Noto Sans';letter-spacing: -.05em;color: #4c4c4c;font-size: 12px;letter-spacing: -2px; }
@@ -116,3 +149,10 @@ footer div.authentication > a:last-child { width: 428px; }
 footer div.authentication > a > img { width: 34px;height: 34px;float: left;margin-right: 10px; }
 footer div.authentication > a:last-child > img { width: 102px; }
 footer div.authentication > a > p { font-size: 10px;color: #999;line-height: 16px;letter-spacing: -0.5px;float: left;margin: 0; }
+
+.product-sub-ani { animation: product-menu-sub-ani 0.3s ease-in-out forwards; }
+
+@keyframes product-menu-sub-ani {
+	0% { width: 0; }
+	100% { width: 221px; }
+}
