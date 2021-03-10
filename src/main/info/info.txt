@@ -1,4 +1,4 @@
-- 메이븐 라이브러리 검색사이트
+﻿- 메이븐 라이브러리 검색사이트
 https://mvnrepository.com/
 https://search.maven.org/
 
@@ -39,5 +39,9 @@ https://github.com/BruceYi119/doogle
 
 - 사용포트확인
 netstat -ano
+
 - 프로세스 강제 종료
 taskkill /pid 24068 /f
+
+- 스크롤 최하단
+window.scrollTo(0, document.scrollingElement.scrollHeight)
