@@ -279,6 +279,76 @@ ALTER TABLE files
 		CASCADE
 		KEEP INDEX;
 
+ALTER TABLE qna_answer
+	DROP
+		PRIMARY KEY
+		CASCADE
+		KEEP INDEX;
+
+DROP INDEX member_mno_i;
+
+DROP INDEX product_pno_i;
+
+DROP INDEX category_ctno_i;
+
+DROP INDEX orders_ono_i;
+
+DROP INDEX basket_bno_p;
+
+DROP INDEX grade_gno_i;
+
+DROP INDEX delivery_dno_i;
+
+DROP INDEX coupon_cno_i;
+
+DROP INDEX saving_svno_i;
+
+DROP INDEX alarm_ano_i;
+
+DROP INDEX notice_nno_i;
+
+DROP INDEX qna_qnno_i;
+
+DROP INDEX bulk_order_bono_i;
+
+DROP INDEX proposition_ppno_i;
+
+DROP INDEX eco_epno_i;
+
+DROP INDEX living_lno_i;
+
+DROP INDEX review_rvno_i;
+
+DROP INDEX product_info_pino_i;
+
+DROP INDEX product_option_pono_i;
+
+DROP INDEX event_eno_i;
+
+DROP INDEX payment_pmno_i;
+
+DROP INDEX popup_puno_i;
+
+DROP INDEX recipe_rno_i;
+
+DROP INDEX latest_ltno_i;
+
+DROP INDEX product_qna_pqno_i;
+
+DROP INDEX my_coupon_mcno_i;
+
+DROP INDEX saving_list_svlno_i;
+
+DROP INDEX order_list_olno_i;
+
+DROP INDEX recommend_rcno_i;
+
+DROP INDEX question_qno_i;
+
+DROP INDEX files_fno_i;
+
+DROP INDEX qna_answer_qano_p;
+
 /* 회원 (이승준) */
 DROP TABLE member 
 	CASCADE CONSTRAINTS;
@@ -403,6 +473,10 @@ DROP TABLE question
 DROP TABLE files 
 	CASCADE CONSTRAINTS;
 
+/* 1:1문의답변 */
+DROP TABLE qna_answer 
+	CASCADE CONSTRAINTS;
+
 /* 장바구니 */
 DROP SEQUENCE s_basket;
 
@@ -496,6 +570,9 @@ DROP SEQUENCE s_category;
 /* 상품후기 */
 DROP SEQUENCE s_review;
 
+/* 1:1문의답변 */
+DROP SEQUENCE s_qna_answer;
+
 /* 장바구니 */
 CREATE SEQUENCE s_basket;
 
@@ -588,6 +665,9 @@ CREATE SEQUENCE s_category;
 
 /* 상품후기 */
 CREATE SEQUENCE s_review;
+
+/* 1:1문의답변 */
+CREATE SEQUENCE s_qna_answer;
 
 /* 회원 (이승준) */
 CREATE TABLE member (
@@ -1119,6 +1199,7 @@ CREATE TABLE notice (
 	name VARCHAR2(30) DEFAULT '관리자' NOT NULL, /* 작성자 */
 	read_cnt NUMBER DEFAULT 0 NOT NULL, /* 조회수 */
 	type CHAR(1) DEFAULT 'y' NOT NULL, /* 노출여부 */
+	state NUMBER DEFAULT 0 NOT NULL, /* 상태 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
 
@@ -1135,6 +1216,8 @@ COMMENT ON COLUMN notice.name IS '작성자';
 COMMENT ON COLUMN notice.read_cnt IS '조회수';
 
 COMMENT ON COLUMN notice.type IS '노출여부';
+
+COMMENT ON COLUMN notice.state IS '상태';
 
 COMMENT ON COLUMN notice.writedate IS '등록일';
 
@@ -1972,4 +2055,37 @@ ALTER TABLE files
 		CONSTRAINT files_fno_p
 		PRIMARY KEY (
 			fno
+		);
+
+/* 1:1문의답변 */
+CREATE TABLE qna_answer (
+	qano NUMBER NOT NULL, /* 1:1답변번호 */
+	qnno NUMBER NOT NULL, /* 1:1문의번호 */
+	name VARCHAR2(30) NOT NULL, /* 이름 */
+	content CLOB NOT NULL, /* 내용 */
+	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
+);
+
+COMMENT ON TABLE qna_answer IS '1:1문의답변';
+
+COMMENT ON COLUMN qna_answer.qano IS '1:1답변번호';
+
+COMMENT ON COLUMN qna_answer.qnno IS '1:1문의번호';
+
+COMMENT ON COLUMN qna_answer.name IS '이름';
+
+COMMENT ON COLUMN qna_answer.content IS '내용';
+
+COMMENT ON COLUMN qna_answer.writedate IS '등록일';
+
+CREATE UNIQUE INDEX qna_answer_qano_p
+	ON qna_answer (
+		qano ASC
+	);
+
+ALTER TABLE qna_answer
+	ADD
+		CONSTRAINT qna_answer_qano_p
+		PRIMARY KEY (
+			qano
 		);
