@@ -78,11 +78,6 @@ ALTER TABLE bulk_order
 		CONSTRAINT bulk_order_type_c
 		CASCADE;
 
-ALTER TABLE payment
-	DROP
-		CONSTRAINT payment_type_c
-		CASCADE;
-
 ALTER TABLE popup
 	DROP
 		CONSTRAINT popup_type_c
@@ -283,68 +278,6 @@ ALTER TABLE files
 		PRIMARY KEY
 		CASCADE
 		KEEP INDEX;
-
-DROP INDEX member_mno_i;
-
-DROP INDEX product_pno_i;
-
-DROP INDEX category_ctno_i;
-
-DROP INDEX orders_ono_i;
-
-DROP INDEX basket_bno_p;
-
-DROP INDEX grade_gno_i;
-
-DROP INDEX delivery_dno_i;
-
-DROP INDEX coupon_cno_i;
-
-DROP INDEX saving_svno_i;
-
-DROP INDEX alarm_ano_i;
-
-DROP INDEX notice_nno_i;
-
-DROP INDEX qna_qnno_i;
-
-DROP INDEX bulk_order_bono_i;
-
-DROP INDEX proposition_ppno_i;
-
-DROP INDEX eco_epno_i;
-
-DROP INDEX living_lno_i;
-
-DROP INDEX review_rvno_i;
-
-DROP INDEX product_info_pino_i;
-
-DROP INDEX product_option_pono_i;
-
-DROP INDEX event_eno_i;
-
-DROP INDEX payment_pmno_i;
-
-DROP INDEX popup_puno_i;
-
-DROP INDEX recipe_rno_i;
-
-DROP INDEX latest_ltno_i;
-
-DROP INDEX product_qna_pqno_i;
-
-DROP INDEX my_coupon_mcno_i;
-
-DROP INDEX saving_list_svlno_i;
-
-DROP INDEX order_list_olno_i;
-
-DROP INDEX recommend_rcno_i;
-
-DROP INDEX question_qno_i;
-
-DROP INDEX files_fno_i;
 
 /* 회원 (이승준) */
 DROP TABLE member 
@@ -1625,11 +1558,6 @@ ALTER TABLE payment
 			ono
 		);
 
-ALTER TABLE payment
-	ADD
-		CONSTRAINT payment_type_c
-		CHECK (type in ('c','b','p','m'));
-
 /* 팝업(진우람) */
 CREATE TABLE popup (
 	puno NUMBER NOT NULL, /* 팝업번호 */
@@ -1891,6 +1819,7 @@ CREATE TABLE order_list (
 	mno NUMBER NOT NULL, /* 회원번호 */
 	ono NUMBER NOT NULL, /* 주문번호 */
 	pno NUMBER NOT NULL, /* 상품번호 */
+	pono NUMBER, /* 상품옵션번호 */
 	type CHAR(1) DEFAULT 'd' NOT NULL, /* 상태 */
 	quantity NUMBER DEFAULT 0 NOT NULL, /* 수량 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
@@ -1905,6 +1834,8 @@ COMMENT ON COLUMN order_list.mno IS '회원번호';
 COMMENT ON COLUMN order_list.ono IS '주문번호';
 
 COMMENT ON COLUMN order_list.pno IS '상품번호';
+
+COMMENT ON COLUMN order_list.pono IS '상품옵션번호';
 
 COMMENT ON COLUMN order_list.type IS '상태';
 
