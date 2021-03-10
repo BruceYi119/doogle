@@ -88,9 +88,8 @@ const initShop = () => {
 		const qnbObj = $('#qnb');
 		const targetObj = $('#btn-page-top'); 
 		const qnbTopObj = $('#qnb-top');
-		const scrollHeight = window.innerHeight;
 		const scrollTop = obj.scrollTop();
-		const showCheck = scrollHeight / 2 < scrollTop ? true : false;
+		const showCheck = scrollTop > 1300 ? true : false;
 		let top = qnbTopObj.length === 1 ? parseInt(qnbTopObj.val()) : 268;
 
 		if (showCheck)
