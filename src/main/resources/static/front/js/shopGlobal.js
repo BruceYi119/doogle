@@ -2,6 +2,7 @@
 
 let latestFlag = true;
 let qnbFlag = true;
+let basketFlag = true;
 
 const setCookie = (name, value, exp) => {
 	const date = new Date();
@@ -17,6 +18,15 @@ const getCookie = (name) => {
 const deleteCookie = (name) => {
 	document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
 }
+
+const showBasket = (msg = '') => {
+	if (basketFlag) {
+		basketFlag = false;
+		$('#btn-basket').attr('data-original-title', msg).tooltip({ update: true, trigger: 'click', delay: { hide : 2000 }}).trigger('click');
+	} else {
+		$('#btn-basket').attr('data-original-title', msg).tooltip('toggleEnabled').tooltip({ update: true, trigger: 'click', delay: { hide : 2000 }}).trigger('click');		
+	}
+};
 
 const initShop = () => {
 
@@ -209,15 +219,9 @@ const initShop = () => {
 			$('#btn-latest-down').addClass('on');
 	}
 
-	$('#btn-basket').on('shown.bs.tooltip', function () { 
-		$('#btn-basket').trigger('click');
+	$('#btn-basket').on('shown.bs.tooltip', function () {
+		$('#btn-basket').trigger('click').tooltip('disable');
 	});
-
-	$('#btn-basket').on('hidden.bs.tooltip', function () { 
-		$('#btn-basket').tooltip('dispose');
-	});
-
-	//$('#btn-basket').tooltip('update').attr('data-original-title', '아이스크림이 장바구니에 추가 되었습니다.').tooltip({ trigger: 'click', delay: { hide : 2000 }}).trigger('click');
 
 };
 
