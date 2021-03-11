@@ -209,6 +209,16 @@ const initShop = () => {
 			$('#btn-latest-down').addClass('on');
 	}
 
+	$('#btn-basket').on('shown.bs.tooltip', function () { 
+		$('#btn-basket').trigger('click');
+	});
+
+	$('#btn-basket').on('hidden.bs.tooltip', function () { 
+		$('#btn-basket').tooltip('dispose');
+	});
+
+	//$('#btn-basket').tooltip('update').attr('data-original-title', '아이스크림이 장바구니에 추가 되었습니다.').tooltip({ trigger: 'click', delay: { hide : 2000 }}).trigger('click');
+
 };
 
 initShop();

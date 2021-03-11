@@ -22,7 +22,7 @@
 <c:if test="${url eq '/shop/ecoWrite'}"><link rel="stylesheet" href="/static/front/css/proposition-write.css"></c:if>
 <c:if test="${url eq '/shop/ecoUpdate'}"><link rel="stylesheet" href="/static/front/css/proposition-write.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
-<c:if test="${edit eq 'edit'}"><script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script></c:if>
+<script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
 <script defer type="text/javascript" src="/static/core/js/axios.min.js"></script>
 <script defer type="text/javascript" src="/static/front/js/shopGlobal.js"></script>
@@ -102,7 +102,7 @@
 								</form>
 							</li>
 							<li class="pl20 pr20"><a href="#"><img src="/static/front/img/shop/ico_delivery_setting.svg" /></a></li>
-							<li class="pr20"><a href="#"><img src="/static/front/img/shop/ico_cart.svg" /></a></li>
+							<li class="pr20"><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="" id="btn-basket"><img src="/static/front/img/shop/ico_cart.svg" /></a></li>
 						</ul>
 					</div>
 				</nav>
