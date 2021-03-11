@@ -1861,8 +1861,9 @@ CREATE TABLE saving_list (
 	svlno NUMBER NOT NULL, /* 적립금내역번호 */
 	svno NUMBER NOT NULL, /* 적립금번호 */
 	mno NUMBER NOT NULL, /* 회원번호 */
+	olno NUMBER NOT NULL, /* 주문목록번호 */
 	credit NUMBER DEFAULT 0 NOT NULL, /* 금액 */
-	expiry DATE DEFAULT sysdate NOT NULL, /* 유효기간 */
+	expiry DATE DEFAULT add_months(sysdate, +1) NOT NULL, /* 유효기간 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
 
@@ -1873,6 +1874,8 @@ COMMENT ON COLUMN saving_list.svlno IS '적립금내역번호';
 COMMENT ON COLUMN saving_list.svno IS '적립금번호';
 
 COMMENT ON COLUMN saving_list.mno IS '회원번호';
+
+COMMENT ON COLUMN saving_list.olno IS '주문목록번호';
 
 COMMENT ON COLUMN saving_list.credit IS '금액';
 
