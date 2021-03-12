@@ -1,1 +1,2 @@
-insert into files(fno, mno, name, real_name, loc, ctno, writedate) select s_files.nextval fno, null mno, name, name || '.jpg' real_name, '/static/upload/img/shop/product/' loc, 284 ctno, sysdate writedate from product;
+insert into files(fno, name, real_name, loc, ctno, pno) select s_files.nextval,  pno || '.jpg', pno || '.jpg' real_name, '/static/upload/img/shop/product/', 284, pno from product;
+commit;

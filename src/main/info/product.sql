@@ -12138,3 +12138,4 @@ insert into product(pno, quantity, brand, name, subject, sel_unit, weight, disco
 insert into product(pno, quantity, brand, name, subject, sel_unit, weight, discount, price, ctno, ctno1, ctno2) values(s_product.nextval,99,'[빅스비]','DOG리버티샘플3종','다양한 레시피의 건사료 샘플','','','0','1000','120','127','');
 insert into product(pno, quantity, brand, name, subject, sel_unit, weight, discount, price, ctno, ctno1, ctno2) values(s_product.nextval,99,'[하림더리얼]','CAT그레인프리크런치샘플4종','바삭바삭 도넛 모양 반려묘 사료','','','0','1000','120','127','');
 insert into product(pno, quantity, brand, name, subject, sel_unit, weight, discount, price, ctno, ctno1, ctno2) values(s_product.nextval,99,'[트루라인]','CAT피쉬샘플','전연령의 고양이를 위한 주식','','','0','1000','120','127','');
+commit;

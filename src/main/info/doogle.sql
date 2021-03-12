@@ -2025,6 +2025,7 @@ ALTER TABLE question
 CREATE TABLE files (
 	fno NUMBER NOT NULL, /* 파일번호 */
 	mno NUMBER, /* 회원번호 */
+	pno NUMBER, /* 상품번호 */
 	name VARCHAR2(200) NOT NULL, /* 파일명 */
 	real_name VARCHAR2(200) NOT NULL, /* 실제파일명 */
 	loc VARCHAR2(500) DEFAULT '/static/upload/img/shop/product/' NOT NULL, /* 경로 */
@@ -2037,6 +2038,8 @@ COMMENT ON TABLE files IS '파일(이승준)';
 COMMENT ON COLUMN files.fno IS '파일번호';
 
 COMMENT ON COLUMN files.mno IS '회원번호';
+
+COMMENT ON COLUMN files.pno IS '상품번호';
 
 COMMENT ON COLUMN files.name IS '파일명';
 
