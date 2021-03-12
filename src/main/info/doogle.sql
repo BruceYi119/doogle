@@ -753,8 +753,8 @@ CREATE TABLE product (
 	brand VARCHAR2(300), /* 브랜드명 */
 	name VARCHAR2(300) NOT NULL, /* 상품명 */
 	subject VARCHAR2(300), /* 부제목 */
-	sel_unit VARCHAR2(100) NOT NULL, /* 판매단위 */
-	weight VARCHAR2(100) NOT NULL, /* 중량/용량 */
+	sel_unit VARCHAR2(100) DEFAULT '1개' NOT NULL, /* 판매단위 */
+	weight VARCHAR2(100) DEFAULT '0g' NOT NULL, /* 중량/용량 */
 	pack_type CHAR(1) DEFAULT 'd' NOT NULL, /* 포장타입 */
 	info VARCHAR2(500), /* 안내사항 */
 	price NUMBER NOT NULL, /* 가격 */
@@ -767,7 +767,7 @@ CREATE TABLE product (
 	ctno2 NUMBER, /* 카테고리번호(소) */
 	only_yn CHAR(1) DEFAULT 'n' NOT NULL, /* 두글만팜 */
 	od_yn CHAR(1) DEFAULT 'n' NOT NULL, /* 최저가 */
-	fno VARCHAR2(100) NOT NULL, /* 상품이미지 */
+	fno VARCHAR2(100), /* 상품이미지 */
 	quantity NUMBER DEFAULT 0 NOT NULL, /* 수량 */
 	sel_yn CHAR(1) DEFAULT 'y' NOT NULL, /* 판매여부 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
