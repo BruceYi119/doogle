@@ -753,8 +753,8 @@ CREATE TABLE product (
 	brand VARCHAR2(300), /* 브랜드명 */
 	name VARCHAR2(300) NOT NULL, /* 상품명 */
 	subject VARCHAR2(300), /* 부제목 */
-	sel_unit VARCHAR2(100) DEFAULT '1개' NOT NULL, /* 판매단위 */
-	weight VARCHAR2(100) DEFAULT '0g' NOT NULL, /* 중량/용량 */
+	sel_unit VARCHAR2(100) DEFAULT '1개', /* 판매단위 */
+	weight VARCHAR2(100) DEFAULT '0g', /* 중량/용량 */
 	pack_type CHAR(1) DEFAULT 'd' NOT NULL, /* 포장타입 */
 	info VARCHAR2(500), /* 안내사항 */
 	price NUMBER NOT NULL, /* 가격 */

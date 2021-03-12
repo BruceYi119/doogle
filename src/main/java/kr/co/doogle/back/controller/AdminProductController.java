@@ -47,7 +47,7 @@ public class AdminProductController {
 	@RequestMapping("/admin/product")
 	public ModelAndView product(ModelAndView mv, HttpServletRequest request) {
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
-		paging.setPaging(page, productMapper.getTotal(null, null, null, null), "/admin/category");
+		paging.setPaging(page, productMapper.getTotal(null, null, null, null), "/admin/product");
 		mv.addObject("i", paging.getStartRow());
 		mv.addObject("url", "/admin/product/add");
 		mv.addObject("list", product.convert(productMapper.getAll(paging.getStartRow(), paging.getViewCnt(), null, null, null, null)));
