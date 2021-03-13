@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+.base_wrap #container{width:1200px;height:2750px;padding-top:30px;}
+.base_wrap #container #con_nav{	float:left;	width:12%;	height:2750px;	margin-right:20px;	padding-left:0;}
+.base_wrap #container #con_nav ul{font-family: noto sans,malgun gothic,AppleGothic,dotum;line-height: 1;letter-spacing: -.05em;color: #4c4c4c;font-size: 12px;text-align: right;word-break: break-all;box-sizing: border-box;margin: 0;padding: 0;list-style-type: none;float:left;}
+.base_wrap #container #con_nav li{list-style-type: none;margin-bottom: 20px;}
+.base_wrap #container #con_nav a{background-color: transparent;text-decoration: none;font-weight: 800;font-size: 16px;font-family: Noto Sans;letter-spacing: -.4px;position: relative;padding-right: 15px;color: #999;}
+.base_wrap #container #con_nav #font_color{color: #875eb3;}
+.base_wrap #container #con_nav a:after{margin-left:4px;content: "·";}
+.base_wrap #container #con_nav #con_nav2{margin-top:150px;margin-left:0;}
+.base_wrap #container #incon{ width:80%;	height:2400px;	float:left;}
+/*여기까지 */
+
+.base_wrap #container #incon .event_tit{width:86%;	height:90px;}
+.base_wrap #container #incon .event_tit .tit_event{line-height: 1;font-family: Noto Sans;word-break: break-all;box-sizing: border-box;margin: 0;padding: 0;display: block;margin-bottom: 15px;font-size: 31px;color: #333;letter-spacing: -1.5px;font-weight: 600;}
+.base_wrap #container #incon .event_tit .txt_event{font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;padding: 0;word-break: break-all;font-weight: 300;font-size: 17px;line-height: 28px;letter-spacing: -.7px;padding-bottom:20px;}
+.base_wrap #container #incon .grade_list{width:86%;line-height: 1;letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;padding: 0;word-break: break-all;display: flex;position: relative;padding-top: 50px;justify-content: space-between;border-bottom: 3px solid #5f0080;border-top: 1px solid #eee;/*글씨색 color: #fff;
+1:background-color: #5f0080;
+2:background-color: #875eb3;
+3:background-color: #a775d6;
+4:background-color: #ba99e1;
+5:background-color: #d2beff;
+6:background-color: #b1a9c6;
+*/
+}
+.base_wrap #container #incon .grade_list #grade_item1{float:left;padding: 0;width: 120px;margin: auto 0 0;border: 1px solid #5f0080;border-bottom:none;border-radius: 5px 0 0 0;text-align: center;box-sizing: border-box;transition: background-color .3s ease-in-out;height: 90px;color: #fff;background-color: #5f0080;}
+.base_wrap #container #incon .grade_list #grade_item2{float:left;padding: 0;word-break: break-all;width: 120px;margin: auto 0 0;border: 1px solid #5f0080;border-bottom:none;border-radius: 5px 0 0 0;text-align: center;box-sizing: border-box;transition: background-color .3s ease-in-out;height: 80px;border-color: #875eb3;color: #875eb3;}
+.base_wrap #container #incon .grade_list #grade_item3{float:left;padding: 0;word-break: break-all;width: 120px;margin: auto 0 0;border: 1px solid #5f0080;border-bottom:none;border-radius: 5px 0 0 0;text-align: center;box-sizing: border-box;transition: background-color .3s ease-in-out;height: 70px;border-color: #a775d6;color: #a775d6;}
+.base_wrap #container #incon .grade_list #grade_item4{float:left;padding: 0;word-break: break-all;width: 120px;margin: auto 0 0;border: 1px solid #5f0080;border-bottom:none;border-radius: 5px 0 0 0;text-align: center;box-sizing: border-box;transition: background-color .3s ease-in-out;height: 60px;border-color: #ba99e1;color: #ba99e1;}
+.base_wrap #container #incon .grade_list #grade_item5{float:left;padding: 0;word-break: break-all;width: 120px;margin: auto 0 0;border: 1px solid #5f0080;border-bottom:none;border-radius: 5px 0 0 0;text-align: center;box-sizing: border-box;transition: background-color .3s ease-in-out;height: 50px;border-color: #d2beff;color: #d2beff;}
+.base_wrap #container #incon .grade_list #grade_item6{float:left;padding: 0;word-break: break-all;width: 120px;margin: auto 0 0;border: 1px solid #5f0080;border-bottom:none;border-radius: 5px 0 0 0;text-align: center;box-sizing: border-box;transition: background-color .3s ease-in-out;height: 43px;border-color: #b1a9c6;color: #b1a9c6;}
+.base_wrap #container #incon .grade_list .a_grade{line-height: 1;letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;word-break: break-all;text-align: center;margin: 0;background-color: transparent;text-decoration: none;color: inherit;display: flex;height: 100%;padding: 0 9px 12px;box-sizing: border-box;cursor: pointer;}
+.base_wrap #container #incon .grade_list .a_grade .tit{line-height: 1;letter-spacing: -.05em;font-family: Noto Sans;word-break: break-all;color: inherit;box-sizing: border-box;padding: 0;width: 100%;margin: auto 0 1px;font-weight: 600;font-size: 16px;text-align: left;}
+.base_wrap #container #incon .grade_list .a_grade .txt{line-height: 1;letter-spacing: -.05em;font-family: Noto Sans;color: inherit;box-sizing: border-box;padding: 0;word-break: break-all;width: 100%;margin: auto 0 0;font-size: 12px;text-align: right;}
+.base_wrap #container #incon .grade_list .a_grade .num{text-align: right;box-sizing: border-box;margin: 0;padding: 0;font-weight: 500;font-size: 18px;}
+.base_wrap #container #incon .item_on{height: 222px;}
+.base_wrap #container #incon .item_on img{width: 86%;height: 222px;}
+
+.base_wrap #container #incon .list_noti{width:86%;letter-spacing: -.05em;font-family: Noto Sans;word-break: break-all;box-sizing: border-box;margin: 0;list-style-type: none;padding: 25px 15px 40px;border-top: 1px solid #eee;color: #999;font-size: 13px;line-height: 23px;}
+.base_wrap #container #incon .list_noti li{list-style-type: disc;margin: 0;padding: 0;position: relative;padding-left: 7px;font-weight: 300;font-size: 13px;line-height: 23px;color: #999;letter-spacing: -.5px;}
+.base_wrap #container #incon .event_btn{margin-bottom:80px;}
+.base_wrap #container #incon .event_btn img{width: 82%;margin-left:20px;}
+.base_wrap #container #incon .event_gift{height:1200px;}
+.base_wrap #container #incon .event_gift img{margin-top:-3px;
+/*글씨색 color: #fff;
+1:background-color: #5f0080;
+2:background-color: #875eb3;
+3:background-color: #a775d6;
+4:background-color: #ba99e1;
+5:background-color: #d2beff;
+6:background-color: #b1a9c6;
+*/}
+.base_wrap #container #incon .item_on #item_img2,#item_img3,#item_img4,#item_img5,#item_img6 {
+display: none;
+}

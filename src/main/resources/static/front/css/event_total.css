@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+#container{ width:1200px;}
+#container #con_nav{ float:left; width:12%;height:800px;margin-right:20px;}
+#container #con_nav ul{font-family: noto sans,malgun gothic,AppleGothic,dotum;line-height: 1;letter-spacing: -.05em;color: #4c4c4c;font-size: 12px;text-align: right;word-break: break-all;box-sizing: border-box;margin: 0;padding: 0;list-style-type: none;float:left;}
+#container #con_nav li{list-style-type: none;margin-bottom: 20px;}
+#container #con_nav li{list-style-type: none;margin-bottom: 20px;}
+#container #con_nav a{background-color: transparent;text-decoration: none;font-weight: 800;font-size: 16px;font-family: Noto Sans;letter-spacing: -.4px;position: relative;padding-right: 15px;color: #999;}
+#container #con_nav #font_color{color: #875eb3;}
+#container #con_nav a:after{margin-left:4px;content: "·";}
+/*여기까지*/
+
+
+#container #incon{ float:left;width:86%;}
+
+#container #incon .item{letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;word-break: break-all;display: table;width: 80%;padding: 44px 0;border-bottom: 1px solid #eee;line-height: 1.5;border-top: 1px solid #eee;}
+#container #incon .item > a{letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;word-break: break-all;line-height: 1.5;box-sizing: border-box;margin: 0;padding: 0;background-color: transparent;text-decoration: none;color: inherit;display: table-cell;width: 260px;vertical-align: middle;}
+#container #incon .item > p{font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;padding: 0;display: table-cell;font-weight: 300;font-size: 16px;line-height: 28px;letter-spacing: -.7px;word-break: keep-all;vertical-align: top;}
+#container #incon .item a p{letter-spacing: -.05em;font-family: Noto Sans;line-height: 1.5;box-sizing: border-box;padding: 0;word-break: break-all;margin: 1px 0 0 3px;font-size: 14px;color: #875eb3;}
+#container #incon .item .tit_total{font-family: Noto Sans;word-break: break-all;line-height: 1.5;box-sizing: border-box;margin: 0;padding: 0;display: block;font-weight: 600;font-size: 27px;letter-spacing: -1px;color: #282828;}
+#container #incon .item .tit_benefit{line-height: 1;font-family: Noto Sans;word-break: break-all;box-sizing: border-box;margin: 0;padding: 0;float: left;width: 260px;font-weight: 600;font-size: 28px;letter-spacing: -1px;color: #282828;}
+
+#container #incon .item .img_con{ margin-bottom:12px;width:600px;margin-left:0;}
+#container #incon .img_con img{	width:850px;height:90px;}
+#container #con_after{	clear: both;}
+#container #con_nav #con_nav2{margin-top:150px;margin-left:0;}

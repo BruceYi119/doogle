@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,16 @@
 <c:if test="${url eq '/shop/ecoList'}"><link rel="stylesheet" href="/static/front/css/proposition-list.css"></c:if>
 <c:if test="${url eq '/shop/ecoWrite'}"><link rel="stylesheet" href="/static/front/css/proposition-write.css"></c:if>
 <c:if test="${url eq '/shop/ecoUpdate'}"><link rel="stylesheet" href="/static/front/css/proposition-write.css"></c:if>
+<c:if test="${url eq '/shop/event/basket'}"><link rel="stylesheet" href="/static/front/css/event_basket.css"></c:if>
+<c:if test="${url eq '/shop/event/benefit'}"><link rel="stylesheet" href="/static/front/css/event_benefit.css"></c:if>
+<c:if test="${url eq '/shop/event/friend'}"><link rel="stylesheet" href="/static/front/css/event_friend.css"></c:if>
+<c:if test="${url eq '/shop/event/lover'}"><link rel="stylesheet" href="/static/front/css/event_lover.css"></c:if>
+<c:if test="${url eq '/shop/event/total'}"><link rel="stylesheet" href="/static/front/css/event_total.css"></c:if>
+<c:if test="${url eq '/shop/event/collection'}"><link rel="stylesheet" href="/static/front/css/event_collection.css"></c:if>
+<c:if test="${url eq '/shop/event/my_benefit'}"><link rel="stylesheet" href="/static/front/css/event_my_benefit.css"></c:if>
+<c:if test="${url eq '/shop/event'}"><link rel="stylesheet" href="/static/front/css/event_list.css"></c:if>
+<c:if test="${url eq '/shop/recipe'}"><link rel="stylesheet" href="/static/front/css/recipe_list.css"></c:if>
+<c:if test="${url eq '/shop/recipe/content'}"><link rel="stylesheet" href="/static/front/css/recipe_content.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
@@ -44,9 +55,31 @@
 <c:if test="${url eq '/shop/ecoWrite'}"><script defer type="text/javascript" src="/static/front/js/propositionWrite.js"></script></c:if>
 <c:if test="${url eq '/shop/ecoUpdate'}"><script defer type="text/javascript" src="/static/front/js/propositionWrite.js"></script></c:if>
 <c:if test="${url eq '/shop/product/detail/'}"><script defer type="text/javascript" src="/static/front/js/productDetail.js"></script></c:if>
+<c:if test="${url eq '/shop/event/basket'}"><script defer type="text/javascript" src="/static/front/js/event_nav.js"></script></c:if>
+<c:if test="${url eq '/shop/event/benefit'}"><script defer type="text/javascript" src="/static/front/js/event_nav.js"></script></c:if>
+<c:if test="${url eq '/shop/event/friend'}"><script defer type="text/javascript" src="/static/front/js/event_nav.js"></script></c:if>
+<c:if test="${url eq '/shop/event/lover'}"><script defer type="text/javascript" src="/static/front/js/event_lover.js"></script></c:if>
+<c:if test="${url eq '/shop/event/total'}"><script defer type="text/javascript" src="/static/front/js/event_nav.js"></script></c:if>
+<c:if test="${url eq '/shop/event/collection'}"><script defer type="text/javascript" src="/static/front/js/event_collection.js"></script></c:if>
+<c:if test="${url eq '/shop/event/my_benefit'}"><script defer type="text/javascript" src="/static/front/js/event_my_benefit.js"></script></c:if>
+<c:if test="${url eq '/shop/recipe'}"><script defer type="text/javascript" src="/static/front/js/recipe_list.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
+		<!-- s:팝업 -->
+		<jsp:useBean id="now" class="java.util.Date" />
+		<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />		
+		<c:forEach items="${pulist}" var="pudto">
+			<c:if test="${today >= pudto.start_date && today <= pudto.end_date && pudto.type == 'y'}">
+				<input type="hidden" name="popup_no" value="${pudto.puno}"/>
+				<input type="hidden" name="popup_title" value="${dto.title}"/>
+				<input type="hidden" name="popup_left" value="${pudto.left}"/>
+				<input type="hidden" name="popup_top" value="${pudto.top}"/>
+				<input type="hidden" name="popup_width" value="${pudto.width}"/>
+				<input type="hidden" name="popup_height" value="${pudto.height}"/>
+			</c:if>
+		</c:forEach>
+		<!-- e:팝업 -->
 		<div id="main-banner">
 			<div class="wrap-container">
 				<a href="#">지금 가입하고 인기상품 <b>100원에 받아가세요!</b><img src="/static/front/img/shop/ico_arrow.webp" /></a>

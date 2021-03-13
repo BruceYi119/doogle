@@ -58,6 +58,22 @@ const initLatest = () => {
 	}
 }
 
+const initPopup = () => {
+	if ($('input[name=popup_no]').length > 0) {
+		$('input[name=popup_no]').each(function(index) {
+			var vpuno=$('input[name=popup_no]:eq(' + index + ')').val();
+			var vtitle=$('input[name=popup_title]:eq(' + index + ')').val();
+			var vleft=$('input[name=popup_left]:eq(' + index + ')').val();
+			var vright=$('input[name=popup_top]:eq(' + index + ')').val();
+			var vwidth=$('input[name=popup_width]:eq(' + index + ')').val();
+			var vheight=$('input[name=popup_height]:eq(' + index + ')').val();
+	   		console.log(vpuno);
+	   		console.log(vtitle);
+			window.open("/admin/popup/on?puno="+vpuno, vtitle,"width="+vwidth+", height="+vheight+",left="+vleft+",top="+vright+",resizable=no ,scrollbars=no");
+		});
+	}
+};
+
 const initShop = () => {
 
 	if ($('#qnb-top').length === 1) {
@@ -242,6 +258,7 @@ const initShop = () => {
 	});
 
 	initLatest();
+	initPopup();
 };
 
 initShop();

@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.base_wrap{background: #f9f9f9;height: 1800px;padding:60px;width:100%;}
+.base_wrap #container{width:1064px;background: white;height: 1175px;padding-top:40px;margin:auto;}
+.base_wrap #container h4{font-weight: 500;}
+.base_wrap #container .my_grade > p{font-size: 14px;font-weight: 600;margin-bottom: 1px;}
+.base_wrap #container .my_grade >span{font-size: 13px;font-weight: 600;}
+.base_wrap #container .my_grade .p_txt{font-size: 11px;font-weight: 100;margin-left:30px;color:#666666;}
+.base_wrap #container .my_grade_box{width: 65px;height:65px;border-radius: 3px;font-size: 16px;font-weight: 600;text-align: center;padding-top:20px;color:white;margin:25px;}
+
+.base_wrap .all_grade{width:98%;height: 930px;padding: 10px 20px;margin: auto;}
+
+.base_wrap #container .name{font-family: 'Noto Sans';color: #514859;letter-spacing: 0;list-style-type: none;box-sizing: border-box;word-break: break-all;width: 148px;margin: 0 auto;text-align: center;display: block;position: relative;padding: 39px 0 20px;border-bottom: 1px solid #dcdbde;font-size: 12px;line-height: 18px;}
+.base_wrap #container .name .desc_grade{ font-size: 10px;font-weight:600;color:#666666;}
+.base_wrap #container .all_grade_box{width:48px;height:48px;color:white;border-radius: 3px;font-size: 12px;font-weight: 600;text-align: center;padding-top:12px;margin-bottom:10px;}
+.base_wrap #container .div_center{width:100%;}
+
+.base_wrap #container .general{color:#512772;border: 1px solid #512772;}
+.base_wrap #container .friends{background:#cba3e9;border: 1px solid #cba3e8;}
+.base_wrap #container .white{background:#a864d8;border: 1px solid #a864d7;}
+.base_wrap #container .lavender{background:#8d4cc4;border: 1px solid #8d4cc3;}
+.base_wrap #container .purple{background:#641898;border: 1px solid #641897;}
+.base_wrap #container .the_purple{background:#4f177a;border: 1px solid #4f1770;}
+
+.base_wrap #container .list{width:167px;height:897px;float: left;border: 1px solid #dcdbde;}
+.base_wrap #container .list li{clear:both;float: center;}
+.base_wrap #container .list .point img{width:30px;height:30px;margin-bottom:10px;}
+
+.base_wrap #container .point{line-height: 1;font-size: 12px;font-family: 'Noto Sans';color: #514859;letter-spacing: 0;list-style-type: none;box-sizing: border-box;word-break: break-all;width: 148px;margin: 0 auto;text-align: center;padding: 40px 0 36px;}
+.base_wrap #container .point .info{font-size:14px;font-weight: 600;}
+.base_wrap #container .coupon{line-height: 1;font-size: 8px;font-family: 'Noto Sans';color: #514859;list-style-type: none;box-sizing: border-box;padding: 0;word-break: break-all;width: 108px;height: 54px;margin: 14px auto 0;border: 1px solid #512772;border-radius: 6px;background-size: 1px 47px;letter-spacing: -0.3px;text-align: left;position: relative;}
+.base_wrap #container .coupon img{position:absolute;right:6px;top:0;}
+
+.base_wrap #container .coupon .txt{display: block;padding: 7px 0 0 8px;font-size: 14px;font-weight:600;color: #000;line-height: 20px;}
+.base_wrap #container .coupon .sub{display: block;padding: 5px 0 0 9px;font-size: 5px;white-space: nowrap;text-align: left;}.coupon img{height: 45px;margin: 3px;}
+
+
+.base_wrap #container .write,.gift{line-height: 1;font-size:14px;font-weight: 600;font-family: 'Noto Sans';color: #514859;letter-spacing: 0;list-style-type: none;box-sizing: border-box;padding: 0;word-break: break-all;width: 148px;margin: 0 auto;text-align: center;padding-top: 46px;}
+
+.base_wrap #container #write_id{padding-top: 114px;}
+.base_wrap #container .list .write img{width:30px;height:30px;margin-bottom:10px;}
+.base_wrap #container .list .gift img{width:30px;height:30px;margin-bottom:10px;}
+.base_wrap #container .list .gift a{font-size:14px;font-weight: 600;color: #514859;text-decoration:none;}
+.base_wrap #container .end_info{ background-image: url("/static/front/img/shop/event/default/endinfo.jpg");background-repeat: no-repeat; width:100%; height:500px; }
+.clear_div{clear:both;}
+
+.base_wrap #container .next_grade{border:2px solid #512772;}
+.base_wrap #container .grade2,.grade3,.grade4,.grade5,.grade6{display: none;}

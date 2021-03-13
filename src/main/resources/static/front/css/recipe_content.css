@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+main{margin-bottom:50px;}
+.base_wrap{width:100%;}
+.base_wrap #container{width:60%;}
+.base_wrap #container #recipe_title{width:100%;height:200px;padding-top: 70px;}
+.base_wrap #container #recipe_title h2{word-break: break-all;box-sizing: border-box;margin: 0;padding: 0;font-weight: 800;font-family: noto sans;font-size: 30px;color: #333;line-height: 50px;text-align: center;letter-spacing: -.5px;align-content: center;}
+.base_wrap #container table {font-family: noto sans,malgun gothic,AppleGothic,dotum;line-height: 1;letter-spacing: -.05em;color: #4c4c4c;font-size: 12px;word-break: break-all;width: 100%;box-sizing: border-box;margin: 0;padding: 0;padding-top : 10px;border-collapse: collapse;border-spacing: 0;border-top: 2px solid;}
+.base_wrap #container th{font-family: noto sans,malgun gothic,AppleGothic,dotum;letter-spacing: -.05em;font-size: 12px;border-collapse: collapse;border-spacing: 0;color: #333;line-height: 180%;box-sizing: border-box;margin: 0;word-break: break-all;width: 130px;padding: 13px 0 13px 20px;background-color: #f7f5f8;text-align: left;border: none;}
+.base_wrap #container td{font-family: noto sans,malgun gothic,AppleGothic,dotum;letter-spacing: -.05em;font-size: 12px;border-collapse: collapse;border-spacing: 0;color: #333;line-height: 180%;box-sizing: border-box;margin: 0;word-break: break-all;width: auto;padding: 13px 0 13px 23px;border-top: 1px solid #f4f4f4;}
+.base_wrap #container #re_td{height:50px;border-top: 1px solid #795b8f;}
+.base_wrap #container #re_td #re_li{font-family: noto sans,malgun gothic,AppleGothic,dotum;letter-spacing: -.05em;border-collapse: collapse;border-spacing: 0;word-break: break-all;box-sizing: border-box;margin: 0;padding: 0;width: 150px;display: inline-block;line-height: 40px;text-align: center;border: 1px solid #5f0080;margin-left: 2px;font-size: 13px;background-color: #795b8f;color: #fff;float: none;}
+.base_wrap #container table .recipe_np td{line-height: 70%;}
+.base_wrap #container table .recipe_np td a{color:black;height:100%;}
+.base_wrap #container table .recipe_np td a:hover{text-decoration: none;}

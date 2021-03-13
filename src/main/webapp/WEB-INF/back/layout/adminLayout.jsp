@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="/static/back/css/global.css">
 <link rel="stylesheet" href="/static/back/css/admin.css">
 <c:if test="${url eq '/admin/product' || url eq '/admin/product/add'}"><link rel="stylesheet" href="/static/back/css/product.css"></c:if>
+<c:if test="${url eq '/admin/popup/add'}"><link rel="stylesheet" href="/static/back/css/popupAdd.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <c:if test="${edit eq 'edit'}"><script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script></c:if>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
@@ -25,6 +26,9 @@
 <c:if test="${url eq '/paging'}"><script defer type="text/javascript" src="/static/back/js/pagination.js"></script></c:if>
 <c:if test="${url eq '/admin/category'}"><script defer type="text/javascript" src="/static/back/js/categoryList.js"></script></c:if>
 <c:if test="${url eq '/admin/product/add'}"><script defer type="text/javascript" src="/static/back/js/productAdd.js"></script></c:if>
+<c:if test="${url eq '/admin/recipe/add'}"><script defer type="text/javascript" src="/static/back/js/recipeAdd.js"></script></c:if>
+<c:if test="${url eq '/admin/event/add'}"><script defer type="text/javascript" src="/static/back/js/eventAdd.js"></script></c:if>
+<c:if test="${url eq '/admin/popup/add'}"><script defer type="text/javascript" src="/static/back/js/popupAdd.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">

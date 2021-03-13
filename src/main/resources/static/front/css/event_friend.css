@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#container{	width:1200px; height:1800px;position:relative;z-index: 2;}
+
+#container #con_nav{ float:left;	width:12%;	height:1800px;	margin-right:20px;}
+#container #con_nav ul{font-family: noto sans,malgun gothic,AppleGothic,dotum;line-height: 1;letter-spacing: -.05em;color: #4c4c4c;font-size: 12px;text-align: right;word-break: break-all;box-sizing: border-box;margin: 0;padding: 0;list-style-type: none;float:left;}
+#container #con_nav li{list-style-type: none;margin-bottom: 20px;}
+#container #con_nav a{background-color: transparent;text-decoration: none;font-weight: 800;font-size: 16px;font-family: Noto Sans;letter-spacing: -.4px;position: relative;padding-right: 15px;color: #999;}
+#container #con_nav #font_color{color: #875eb3;}
+
+#container #con_nav a:after{margin-left:4px;content: "·";}
+#container #con_nav #con_nav2{margin-top:150px;margin-left:0;}
+
+#container #incon{ width:86%;height:800px;float:left;}
+/*여기까지*/
+#container #incon .event_tit{line-height: 1;letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;word-break: break-all;position: relative;padding: 65px 0 45px;}
+#container #incon .event_tit > img{width:80%;}
+#container #incon .event_info{line-height: 1;letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;word-break: break-all;padding: 60px 0 70px;}
+#container #incon .cont_info img{width:80%;}
+#container #incon .event_btn{line-height: 1;letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;padding-left: 120px;word-break: break-all;cursor: pointer;}
+#container #incon .event_btn img{width:70%;height:85px;margin:auto;}
+
+#container #incon2{	float:left;	width:86%; height:700px;padding-left: 30px;padding-top: 150px;/*background-color: #eae7ef;*/}
+#container #incon2 img{float:left;width:86%;height:500px;}
+#container #incon3{	float:left;	width:86%;height:600px;	padding-left:30px;padding-top:80px;}
+#container #incon3 img{	float:left;width:86%;height:400px;}
+#absolute_div{position: absolute;width:100%;height:600px;top:1150px;background: #eae7ee; z-index: 1;}

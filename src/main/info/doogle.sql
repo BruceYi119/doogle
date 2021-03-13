@@ -1652,6 +1652,8 @@ CREATE TABLE popup (
 	bottom NUMBER, /* 아래 */
 	left NUMBER, /* 오른쪽 */
 	right NUMBER DEFAULT 0, /* 왼쪽 */
+	width VARCHAR2(30) DEFAULT '0', /* 너비 */
+	height VARCHAR2(30) DEFAULT '0', /* 높이 */
 	type CHAR(1) DEFAULT 'y' NOT NULL, /* 활성화여부 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
@@ -1675,6 +1677,10 @@ COMMENT ON COLUMN popup.bottom IS '아래';
 COMMENT ON COLUMN popup.left IS '오른쪽';
 
 COMMENT ON COLUMN popup.right IS '왼쪽';
+
+COMMENT ON COLUMN popup.width IS '너비';
+
+COMMENT ON COLUMN popup.height IS '높이';
 
 COMMENT ON COLUMN popup.type IS '활성화여부';
 
