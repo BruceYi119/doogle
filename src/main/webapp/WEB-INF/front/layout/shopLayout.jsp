@@ -131,7 +131,7 @@
 								<ul id="product-menu"  class="hide">
 									<li>
 										<ul id="product-main-wrap">	
-											<c:forEach items="${clist}" var="dto"><li><a href="#" ctno="${dto.ctno}">${dto.name}</a></li></c:forEach>
+											<c:forEach items="${clist}" var="dto"><li><a href="/shop/product/${dto.ctno}" ctno="${dto.ctno}">${dto.name}</a></li></c:forEach>
 										</ul>
 									</li>
 									<li class="hide" id="product-sub-wrap">

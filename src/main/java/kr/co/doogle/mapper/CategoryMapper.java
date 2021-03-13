@@ -25,6 +25,9 @@ public interface CategoryMapper {
 			+ "(select * from category ${where} order by type asc, lv asc, idx asc) t) tt where seq >= #{start}) where rownum <= #{end}"})
 	List<CategoryDTO> getAllPaging(@Param("start") int start, @Param("end") int end, @Param("where") String where, @Param("type") String type);
 
+	@Select("select * from category where ctno = #{ctno}")
+	CategoryDTO getOne(@Param("ctno") int ctno);
+
 	@Select("select count(*) from category ${where}")
 	int getTotal(@Param("where") String where, @Param("type") String type);
 

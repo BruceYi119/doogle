@@ -129,7 +129,7 @@ const initShop = () => {
 					let html = `<ul id="product-sub-menu">`;
 
 					list.forEach((o) => {
-						html += `<li><a href="#">${o.name}</a></li>`;
+						html += `<li><a href="/shop/product/${ctno}?cctno=${o.ctno}">${o.name}</a></li>`;
 					});
 					html += `</ul>`;
 
