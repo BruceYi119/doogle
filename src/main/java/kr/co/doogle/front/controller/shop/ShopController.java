@@ -17,16 +17,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.doogle.mapper.CategoryMapper;
+import kr.co.doogle.mapper.ProductMapper;
 
 @Controller
 public class ShopController {
 
 	@Autowired
 	private CategoryMapper categoryMapper;
+	@Autowired
+	private ProductMapper productMapper;
 
 	@RequestMapping("/shop")
 	public ModelAndView shop(ModelAndView mv) {
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
+		mv.addObject("slist", productMapper.getSample());
 		mv.addObject("url", "main");
 		mv.setViewName("/front/shop/shop");
 		return mv;

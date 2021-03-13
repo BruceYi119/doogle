@@ -54,22 +54,13 @@
 <div class="base_wrap">
 	<div id="product-slide1" class="carousel slide product-slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<ul class="product-slide-list">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
-			<div class="carousel-item">
-				<ul class="product-slide-list">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
+			<c:set var="i" value="1" />
+			<c:forEach items="${slist}" var="dto">
+				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
+					<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
+				<c:set var="i" value="${i + 1}" />
+			</c:forEach>
 		</div>
 		<a class="carousel-control-prev hide" href="#product-slide1" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
 		<a class="carousel-control-next" href="#product-slide1" data-slide="next"><span class="carousel-control-next-icon"></span></a>
