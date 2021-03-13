@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.ProductMapper;
+import kr.co.doogle.paging.Paging;
 
 @Controller
 public class ProductController {
@@ -18,18 +19,25 @@ public class ProductController {
 	private ProductMapper productMapper;
 	@Autowired
 	private CategoryMapper categoryMapper;
+	@Autowired
+	private Paging paging;
 
 	@RequestMapping("/shop/product/{ctno}")
 	public ModelAndView list(ModelAndView mv, @PathVariable("ctno") int ctno, HttpServletRequest request) {
 		String cctno = request.getParameter("cctno") != null ? request.getParameter("cctno") : null;
+		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+		paging.setViewCnt(30);
 
 		if (cctno == null) {
-			mv.addObject("plist", productMapper.getAllFile(1, 21, "where p.ctno = #{ctno}", Integer.toString(ctno), null, null));			
+			paging.setPaging(page, productMapper.getTotal("where ctno = #{ctno}", Integer.toString(ctno), null, null), "/shop/product/" + ctno);
+			mv.addObject("plist", productMapper.getAllFile(paging.getStartRow(), paging.getViewCnt(), "where p.ctno = #{ctno}", Integer.toString(ctno), null, null));			
 		} else {
-			mv.addObject("plist", productMapper.getAllFile(1, 21, "where p.ctno = #{ctno} and p.ctno1 = #{ctno1}", Integer.toString(ctno), cctno, null));						
+			paging.setPaging(page, productMapper.getTotal("where ctno = #{ctno} and ctno1 = #{ctno1}", Integer.toString(ctno), cctno, null), "/shop/product/" + ctno + "?cctno=" + cctno);
+			mv.addObject("plist", productMapper.getAllFile(paging.getStartRow(), paging.getViewCnt(), "where p.ctno = #{ctno} and p.ctno1 = #{ctno1}", Integer.toString(ctno), cctno, null));						
 		}
 
 		mv.addObject("cctno", cctno);
+		mv.addObject("paging", paging.getPageHtml());
 		mv.addObject("category", categoryMapper.getOne(ctno));
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		mv.addObject("mlist", categoryMapper.getAll("where type = #{type} and lv = #{lv} and pctno = #{pctno}", "p", "1", Integer.toString(ctno)));

@@ -20,5 +20,6 @@
 				</li>
 			</c:forEach>
 		</ul>
+		<div class="product-paging-wrap"><ul class="pagination justify-content-center" id="pageWrap">${paging}</ul></div>
 	</div>
 </div>
