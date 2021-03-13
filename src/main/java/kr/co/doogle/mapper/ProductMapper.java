@@ -44,4 +44,7 @@ public interface ProductMapper {
 			+ "quantity = #{dto.quantity}, sel_yn = #{dto.sel_yn} where pno = #{dto.pno}"})
 	int mod(@Param("dto") ProductDTO dto);
 
+	@Select("select name,quantity,pno from product where pno=#{pno}")
+	List<ProductDTO> getQuantity(int pno);
+
 }

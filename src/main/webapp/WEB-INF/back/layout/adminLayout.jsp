@@ -28,6 +28,16 @@
 <c:if test="${url eq '/admin/recipe/add'}"><script defer type="text/javascript" src="/static/back/js/recipeAdd.js"></script></c:if>
 <c:if test="${url eq '/admin/event/add'}"><script defer type="text/javascript" src="/static/back/js/eventAdd.js"></script></c:if>
 <c:if test="${url eq '/admin/popup/add'}"><script defer type="text/javascript" src="/static/back/js/popupAdd.js"></script></c:if>
+<c:if test="${url eq '/admin/alarm'}"><script defer type="text/javascript" src="/static/back/js/alarm.js"></script></c:if>
+<c:if test="${url eq '/admin/notice'}"><script defer type="text/javascript" src="/static/back/js/notice.js"></script></c:if>
+<c:if test="${url eq '/admin/notice/add'}"><script defer type="text/javascript" src="/static/back/js/notice_insert.js"></script></c:if>
+<c:if test="${url eq '/admin/notice_update'}"><script defer type="text/javascript" src="/static/back/js/notice_insert.js"></script></c:if>
+<c:if test="${url eq '/admin/question'}"><script defer type="text/javascript" src="/static/back/js/questionList.js"></script></c:if>
+<c:if test="${url eq '/admin/question/add'}"><script defer type="text/javascript" src="/static/back/js/questionRegister.js"></script></c:if>
+<c:if test="${url eq '/admin/questionUpdate'}"><script defer type="text/javascript" src="/static/back/js/questionUpdate.js"></script></c:if>
+<c:if test="${url eq '/admin/qnaAnswer'}"><script defer type="text/javascript" src="/static/back/js/qnaAnswer.js"></script></c:if>
+<c:if test="${url eq '/admin/qnaAnswerWrite'}"><script defer type="text/javascript" src="/static/back/js/qnaAnswerWrite.js"></script></c:if>
+<c:if test="${url eq '/admin/quaAnswerView'}"><script defer type="text/javascript" src="/static/back/js/qnaAnswerWrite.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
@@ -168,6 +178,8 @@
 							<li class="nav-item"><a class="nav-link" href="/admin/bulkOrder">대량주문문의</a></li>
 							<li class="nav-item"><a class="nav-link" href="/admin/proposition">상품제안</a></li>
 							<li class="nav-item"><a class="nav-link" href="/admin/eco">에코포장문의</a></li>
+							<li class="nav-item"><a class="nav-link" href="/admin/qnaAnswer">1:1문의</a></li>
+							<li class="nav-item"><a class="nav-link" href="/admin/alarm">재입고알림</a></li>
 						</ul>
 					</div>
 				</div>

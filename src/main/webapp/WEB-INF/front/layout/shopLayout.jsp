@@ -32,6 +32,12 @@
 <c:if test="${url eq '/shop/event'}"><link rel="stylesheet" href="/static/front/css/event_list.css"></c:if>
 <c:if test="${url eq '/shop/recipe'}"><link rel="stylesheet" href="/static/front/css/recipe_list.css"></c:if>
 <c:if test="${url eq '/shop/recipe/content'}"><link rel="stylesheet" href="/static/front/css/recipe_content.css"></c:if>
+<c:if test="${url eq '/shop/deliveryList'}"><link rel="stylesheet" href="/static/front/css/deliveryList.css"></c:if>
+<c:if test="${url eq '/shop/notice'}"><link rel="stylesheet" href="/static/front/css/notice.css"></c:if>
+<c:if test="${url eq '/shop/notice_view'}"><link rel="stylesheet" href="/static/front/css/notice_view.css"></c:if>
+<c:if test="${url eq '/shop/qna'}"><link rel="stylesheet" href="/static/front/css/qna.css"></c:if>
+<c:if test="${url eq '/shop/qnaUpdate'}"><link rel="stylesheet" href="/static/front/css/qnaUpdate.css"></c:if>
+<c:if test="${url eq '/shop/questionList'}"><link rel="stylesheet" href="/static/front/css/questionList.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
@@ -63,6 +69,16 @@
 <c:if test="${url eq '/shop/event/collection'}"><script defer type="text/javascript" src="/static/front/js/event_collection.js"></script></c:if>
 <c:if test="${url eq '/shop/event/my_benefit'}"><script defer type="text/javascript" src="/static/front/js/event_my_benefit.js"></script></c:if>
 <c:if test="${url eq '/shop/recipe'}"><script defer type="text/javascript" src="/static/front/js/recipe_list.js"></script></c:if>
+<c:if test="${url eq '/deliveryPop'}"><script defer type="text/javascript" src="/static/front/js/deliveryPop.js"></script></c:if>
+<c:if test="${url eq '/shop/deliveryList'}"><script defer type="text/javascript" src="/static/front/js/delivery.js"></script></c:if>
+<c:if test="${url eq '/shop/notice'}"><script defer type="text/javascript" src="/static/front/js/notice.js"></script></c:if>
+<c:if test="${url eq '/notice_insert'}"><script defer type="text/javascript" src="/static/front/js/notice_insert.js"></script></c:if>
+<c:if test="${url eq '/notice_update'}"><script defer type="text/javascript" src="/static/front/js/notice_update.js"></script></c:if>
+<c:if test="${url eq '/shop/qna'}"><script defer type="text/javascript" src="/static/front/js/qna.js"></script></c:if>
+<c:if test="${url eq '/shop/qnaUpdate'}"><script defer type="text/javascript" src="/static/front/js/qnaRegister.js"></script></c:if>
+<c:if test="${url eq '/qna_register'}"><script defer type="text/javascript" src="/static/front/js/qnaRegister.js"></script></c:if>
+<c:if test="${url eq '/questionRegister'}"><script defer type="text/javascript" src="/static/front/js/questionRegister.js"></script></c:if>
+<c:if test="${url eq '/questionUpdate'}"><script defer type="text/javascript" src="/static/front/js/questionUpdate.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">

@@ -18,3 +18,4 @@ grant connect, resource to doogle;
 --@D:\projectWorkspace\doogle\src\main\info\delete_product.sql
 --@D:\projectWorkspace\doogle\src\main\info\delete_file.sql
 --@D:\projectWorkspace\doogle\src\main\info\trigger.sql
+--@D:\projectWorkspace\doogle\src\main\info\question.sql

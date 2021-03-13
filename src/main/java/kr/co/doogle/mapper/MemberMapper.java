@@ -12,6 +12,7 @@ import kr.co.doogle.dto.MemberDTO;
 
 @Mapper
 public interface MemberMapper {
+
 	@Select("select * from member order by writedate desc")
 //	@Results({
 //		@Result(property="id", column="member_id"),
@@ -44,5 +45,8 @@ public interface MemberMapper {
 	@Update("update member set name = #{dto.name}, phone = #{dto.phone}, birth = #{dto.birth}, zipcode = #{dto.zipcode}, addr = #{dto.addr}, addr_detail = #{dto.addr_detail}"
 			+ ", email = #{dto.email} where id = #{dto.id}")
 	int updateInfo(@Param("dto") MemberDTO dto);
+
+	@Select("select mno from member where id=#{param1}")
+	int getId(String id);
 
 }

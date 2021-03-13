@@ -12,8 +12,11 @@ const editOption = {
 	//fontNamesIgnoreCheck: ['Merriweather']
 };
 
-const initEdit = (option = editOption) => {
-	$('#summernote').summernote(option);
+const initEdit = (option = editOption, target = null) => {
+	if (target === null)
+		$('#summernote').summernote(option);
+	else
+		$(`#${target}`).summernote(option);
 };
 
 //initEdit();

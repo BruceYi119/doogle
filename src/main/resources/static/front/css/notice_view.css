@@ -1,0 +1,654 @@
+@charset "UTF-8";
+
+#qnb {
+	position: absolute;
+	z-index: 1;
+	right: 20px;
+	top: 70px;
+	width: 80px;
+	font: normal 12px/16px "Noto Sans";
+	color: #333;
+	letter-spacing: -0.3px;
+	transition: top 0.2s
+}
+
+.goods-goods_view #qnb {
+	top: 20px
+}
+/* 배너 */
+#qnb .bnr_qnb {
+	padding-bottom: 7px
+}
+
+#qnb .bnr_qnb .thumb {
+	width: 80px;
+	height: 120px;
+	vertical-align: top
+}
+/* 메뉴 */
+#qnb .side_menu {
+	width: 80px;
+	border: 1px solid #ddd;
+	border-top: 0 none;
+	background-color: #fff
+}
+
+#qnb .link_menu {
+	display: block;
+	height: 29px;
+	padding-top: 5px;
+	border-top: 1px solid #ddd;
+	text-align: center
+}
+
+#qnb .link_menu:hover, #qnb .link_menu.on {
+	color: #5f0080
+}
+/* 최근본상품 */
+#qnb .side_recent {
+	position: relative;
+	margin-top: 6px;
+	border: 1px solid #ddd;
+	background-color: #fff
+}
+
+#qnb .side_recent .tit {
+	display: block;
+	padding: 22px 0 6px;
+	text-align: center
+}
+
+#qnb .side_recent .list_goods {
+	overflow: hidden;
+	position: relative;
+	width: 60px;
+	margin: 0 auto
+}
+
+#qnb .side_recent .list {
+	position: absolute;
+	left: 0;
+	top: 0
+}
+
+#qnb .side_recent .link_goods {
+	display: block;
+	overflow: hidden;
+	width: 60px;
+	height: 80px;
+	padding: 1px 0 2px
+}
+
+#qnb .side_recent .btn {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	height: 17px;
+	border: 0 none;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px
+}
+
+#qnb .side_recent .btn_up {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background:
+		url(https://res.kurly.com/pc/service/main/2002/ico_quick_up_hover.png)
+		no-repeat 50% 50%
+}
+
+#qnb .side_recent .btn_up.off {
+	background:
+		url(https://res.kurly.com/pc/service/main/2002/ico_quick_up.png)
+		no-repeat 50% 50%
+}
+
+#qnb .side_recent .btn_down {
+	background:
+		url(https://res.kurly.com/pc/service/main/2002/ico_quick_down_hover.png)
+		no-repeat 50% 0
+}
+
+#qnb .side_recent .btn_down.off {
+	background:
+		url(https://res.kurly.com/pc/service/main/2002/ico_quick_down.png)
+		no-repeat 50% 0
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) , only screen and
+		(min-device-pixel-ratio: 1.5) , only screen and (min-resolution:
+	1.5dppx) {
+	#qnb .side_recent .btn_up {
+		background-image:
+			url(https://res.kurly.com/pc/service/main/2002/ico_quick_up_hover_x2.png);
+		background-size: 12px 18px
+	}
+	#qnb .side_recent .btn_down {
+		background-image:
+			url(https://res.kurly.com/pc/service/main/2002/ico_quick_down_hover_x2.png);
+		background-size: 12px 18px
+	}
+	#qnb .side_recent .btn_up.off {
+		background-image:
+			url(https://res.kurly.com/pc/service/main/2002/ico_quick_up_x2.png);
+		background-size: 12px 18px
+	}
+	#qnb .side_recent .btn_down.off {
+		background-image:
+			url(https://res.kurly.com/pc/service/main/2002/ico_quick_down_x2.png);
+		background-size: 12px 18px
+	}
+}
+
+@media all and (max-width: 1250px) {
+	#qnb {
+		display: none
+	}
+}
+
+.tit_page {
+	overflow: hidden;
+	width: 1050px;
+	margin: 0 auto;
+	padding: 55px 0 46px
+}
+
+.tit_page {
+	font-family: noto sans, malgun gothic, AppleGothic, dotum;
+	line-height: 1;
+	letter-spacing: -.05em;
+	color: #4c4c4c;
+	font-size: 12px;
+	-webkit-box-sizing: border-box;
+	word-break: break-all;
+	overflow: hidden;
+	width: 1050px;
+	margin: 0 auto;
+	padding: 55px 0 46px;
+}
+
+.tit_page h2.tit {
+	font-weight: 800;
+	font-family: noto sans;
+	font-size: 30px;
+	color: #333;
+	line-height: 50px;
+	text-align: center;
+	letter-spacing: -.5px
+}
+
+.tit_page .sub {
+	font-family: noto sans;
+	font-size: 14px;
+	color: #999;
+	line-height: 20px;
+	letter-spacing: -.3px;
+	text-align: center
+}
+
+.page_aticle .tit_sub {
+	padding-left: 11px;
+	font-size: 14px;
+	color: #999;
+	line-height: 20px;
+	letter-spacing: -.3px;
+	vertical-align: 3px
+}
+
+.sub {
+	-webkit-box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	word-break: break-all;
+	font-family: noto sans;
+	font-size: 14px;
+	color: #999;
+	line-height: 20px;
+	letter-spacing: -.3px;
+	text-align: center;
+}
+
+.layout-wrapper {
+	position: relative;
+	width: 1050px;
+	height: 100%;
+	margin: 0 auto
+}
+
+.layout-wrapper.goods-view-area {
+	padding-right: 40px
+}
+
+.xans-element-.xans-myshop.xans-myshop-couponserial td#contents span {
+	line-height: 25px
+}
+
+.xans-element-.xans-myshop.xans-myshop-couponserial td#contents p {
+	line-height: 25px
+}
+
+.xans-element-.xans-myshop.xans-myshop-couponserial td#contents .board_view_content
+	{
+	line-height: 25px
+}
+
+.xans-element-.xans-myshop.xans-myshop-couponserial td#contents .board_view_content div
+	{
+	line-height: 25px
+}
+
+.xans-element-.xans-myshop.xans-myshop-couponserial .eng {
+	display: none
+}
+
+.boardView {
+	table-layout: fixed;
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #f4f4f4;
+	color: #333;
+	line-height: 180%;
+	margin-top: 20px
+}
+
+.boardView th {
+	width: 130px;
+	padding: 13px 0 13px 20px;
+	background-color: #f7f5f8;
+	border-top: 1px solid #f4f4f4;
+	text-align: left
+}
+
+.boardView td {
+	width: auto;
+	padding: 13px 0 13px 23px;
+	border-top: 1px solid #f4f4f4
+}
+
+.boardView tr.etcArea td {
+	padding: 0;
+	border: 0
+}
+
+.xans-myshop-bankbook ul {
+	display: table;
+	width: 100%;
+	min-width: 756px;
+	font-size: 0;
+	line-height: 0
+}
+
+.xans-myshop-boardlist tr td {
+	padding: 25px 3px 23px;
+	border-top: 1px solid #e3e3e3;
+	text-align: center;
+	vertical-align: middle
+}
+
+.xans-myshop-boardlist table td {
+	padding: 25px 3px 23px;
+	border-top: 1px solid #e3e3e3;
+	text-align: center;
+	font-weight: 700;
+	vertical-align: middle
+}
+
+.xans-myshop-boardlist .goodsnm {
+	padding-top: 10px;
+	font-weight: 700
+}
+
+.xans-myshop-wishlistbutton {
+	overflow: hidden;
+	margin: 20px 0 0;
+	text-align: right
+}
+
+.xans-myshop-wishlistbutton span.left {
+	float: left
+}
+
+.xans-myshop-summary {
+	margin: 0 0 50px;
+	padding: 0;
+	border-top: 2px solid #5f0080;
+	border-bottom: 1px solid #5f0080
+}
+
+.xans-myshop-summary ul {
+	display: table;
+	width: 100%;
+	min-width: 756px;
+	font-size: 0;
+	line-height: 0
+}
+
+.xans-myshop-summary li {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	width: 50%;
+	margin: 0;
+	font-size: 12px;
+	color: #353535;
+	line-height: 18px;
+	vertical-align: top;
+	border-bottom: 1px solid #e1e1e1
+}
+
+.xans-myshop-summary li .title {
+	float: left;
+	width: 30%;
+	padding: 25px 0 23px 10px
+}
+
+.xans-myshop-summary li .data {
+	width: 35%;
+	padding: 25px 0 23px 10px;
+	text-align: left;
+	vertical-align: middle;
+	float: left
+}
+
+.xans-myshop-summary li strong {
+	background-color: #f7f5f8;
+	font-size: 13px
+}
+
+.xans-myshop-mileagehistorypackage .tab {
+	display: table;
+	width: 100%;
+	padding-bottom: 10px
+}
+
+.xans-myshop-mileagehistorypackage .tab .right {
+	float: right
+}
+
+.xans-myshop-mileagehistorypackage .tab .right li {
+	display: inline-block;
+	padding-left: 15px
+}
+
+.xans-myshop-mileagehistorypackage .tab .right li .on {
+	color: #6a3664;
+	font-weight: 700
+}
+
+.xans-myshop-mileagehistorypackage .tab h2 {
+	color: gray;
+	float: left
+}
+
+.xans-myshop-mileagehistorypackage table tr:last-child {
+	border-bottom: none
+}
+
+.xans-myshop-mileagehistorypackage table tr td {
+	padding: 15px 0;
+	border-bottom: 1px solid #d9d9d9;
+	font-size: 13px
+}
+
+.xans-myshop-mileagehistorypackage table tr td.text {
+	text-align: left;
+	color: #858585
+}
+
+.xans-myshop-mileagehistorypackage table tr td.date {
+	text-align: center
+}
+
+.xans-myshop-mileagehistorypackage table tr td.money {
+	text-align: center;
+	font-weight: 700
+}
+
+.xans-myshop-mileagehistorypackage .noact {
+	color: #acacac
+}
+
+.xans-myshop-mileagehistorypackage .act {
+	color: #5f0080
+}
+
+.xans-myshop-unavaillist table td.noData {
+	padding: 50px 0;
+	text-align: center;
+	font-weight: 700;
+	color: #757575
+}
+
+.xans-myshop-unavaillist table th {
+	padding: 25px 0 23px;
+	vertical-align: middle;
+	font-size: 13px
+}
+
+.xans-myshop-unavaillist table {
+	border-collapse: separate;
+	line-height: 1.5;
+	border-top: 2px solid #6a3664;
+	border-bottom: 1px solid #6a3664
+}
+
+.xans-myshop-unavaillist2 table {
+	border-top: 2px solid #5f0080
+}
+
+.xans-myshop-unavaillist table {
+	border-top: 2px solid #5f0080
+}
+
+.xans-myshop-unavaillist2 table td.noData {
+	padding: 50px 0;
+	text-align: center;
+	font-weight: 700;
+	color: #757575
+}
+
+.xans-myshop-unavaillist2 table th {
+	padding: 25px 0 23px;
+	vertical-align: middle;
+	font-size: 13px
+}
+
+.xans-myshop-unavaillist2 table {
+	border-collapse: separate;
+	line-height: 1.5;
+	border-top: 2px solid #6a3664;
+	border-bottom: 1px solid #6a3664
+}
+
+.boardView tr.etcArea ul {
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	width: 100%;
+	border-top: 1px solid #f4f4f4
+}
+
+.boardView tr.etcArea ul li {
+	float: left
+}
+
+.boardView tr.etcArea ul .th {
+	float: left;
+	padding: 13px 0 13px 20px;
+	width: 130px;
+	background-color: #f7f5f8
+}
+
+.boardView tr.etcArea ul .td {
+	float: left;
+	padding: 13px 0 13px 20px;
+	width: 180px
+}
+
+.bhs_button {
+	width: 150px;
+	display: inline-block;
+	line-height: 40px;
+	text-align: center;
+	background-color: #795b8f;
+	border: 1px solid #5f0080;
+	color: #fff;
+	font-size: 15px;
+	float: right;
+	margin-left: 2px;
+	font-size: 13px
+}
+
+.bhs_button.cancel {
+	width: 95px;
+	height: 35px;
+	line-height: 35px;
+	float: none;
+	margin-top: 10px
+}
+
+.bhs_button.cancel:hover {
+	width: 95px;
+	height: 35px;
+	line-height: 35px;
+	float: none;
+	margin-top: 10px;
+	background: #fff;
+	color: #5f0080
+}
+
+.bhs_button:hover {
+	width: 150px;
+	display: inline-block;
+	line-height: 40px;
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid #5f0080;
+	color: #5f0080;
+	font-size: 15px;
+	float: right;
+	margin-left: 2px;
+	font-size: 13px
+}
+
+.bhs_buttonsm {
+	width: 100px;
+	display: inline-block;
+	line-height: 30px;
+	text-align: center;
+	background-color: #795b8f;
+	border: 1px solid #5f0080;
+	color: #fff;
+	font-size: 15px;
+	float: right;
+	margin-left: 2px;
+	font-size: 13px
+}
+
+.bhs_buttonsm:hover {
+	width: 100px;
+	display: inline-block;
+	line-height: 30px;
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid #5f0080;
+	color: #5f0080;
+	font-size: 15px;
+	float: right;
+	margin-left: 2px;
+	font-size: 13px
+}
+
+.xans-board-movement {
+	border-top: 2px solid #333;
+	border-bottom: 2px solid #333;
+	margin: 20px 0
+}
+
+.xans-board-movement li {
+	overflow: hidden;
+	padding: 0 20px;
+	border-bottom: 1px solid #f4f4f4;
+	line-height: 140%;
+	color: #333
+}
+
+.xans-board-movement li strong {
+	width: 6%;
+	padding-left: 15px;
+	border-right: 1px solid #f4f4f4;
+	font-weight: 400;
+	background:
+		url(https://res.kurly.com/pc/etc/old/images/board/ico_move_prev.gif)
+		no-repeat 0 15px
+}
+
+.xans-board-movement li a, .xans-board-movement li strong {
+	float: left;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.xans-board-movement li.next {
+	border: 0
+}
+
+.xans-board-movement li.next strong {
+	background:
+		url(https://res.kurly.com/pc/etc/old/images/board/ico_move_next.gif)
+		no-repeat 0 15px
+}
+
+.boardView {
+	table-layout: fixed;
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #f4f4f4;
+	color: #333;
+	line-height: 180%;
+	margin-top: 20px
+}
+
+.boardView th {
+	width: 130px;
+	padding: 13px 0 13px 20px;
+	background-color: #f7f5f8;
+	border-top: 1px solid #f4f4f4;
+	text-align: left
+}
+
+.boardView td {
+	width: auto;
+	padding: 13px 0 13px 23px;
+	border-top: 1px solid #f4f4f4
+}
+
+.boardView tr.etcArea td {
+	padding: 0;
+	border: 0
+}
+
+.boardView tr.etcArea ul {
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	width: 100%;
+	border-top: 1px solid #f4f4f4
+}
+
+.boardView tr.etcArea ul li {
+	float: left
+}
+
+.boardView tr.etcArea ul .th {
+	float: left;
+	padding: 13px 0 13px 20px;
+	width: 130px;
+	background-color: #f7f5f8
+}
+
+.boardView tr.etcArea ul .td {
+	float: left;
+	padding: 13px 0 13px 20px;
+	width: 180px
+}
