@@ -43,22 +43,6 @@ public class ShopController {
 		out.print(URLEncoder.encode(json.toString(), "UTF-8"));
 	}
 
-	@RequestMapping("/shop/edit")
-	public String edit(Model model) {
-		model.addAttribute("edit", "edit");
-		return "/front/shop/edit/edit";
-	}
-
-	@RequestMapping("/shop/form")
-	public String form() {
-		return "/front/shop/product/form";
-	}
-
-	@RequestMapping("/shop/form/test")
-	public void formTest(PrintWriter out, HttpServletRequest request) {
-		out.print(Arrays.toString(request.getParameterValues("bno")));
-	}
-
 	@RequestMapping("/shop/search")
 	public void search(@RequestParam("search") String search, PrintWriter out) {
 		System.out.println(search);

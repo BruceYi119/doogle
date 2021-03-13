@@ -32,5 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 
-/src/main/java/kr/co/doogle/key/
-/bin/
+src/main/java/kr/co/doogle/key/
+src/log
+bin/
