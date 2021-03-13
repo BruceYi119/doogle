@@ -45,3 +45,6 @@ taskkill /pid 24068 /f
 
 - 스크롤 최하단
 window.scrollTo(0, document.scrollingElement.scrollHeight)
+
+- oracle 정규식
+select b.*, p.pname, f.name from basket b left join product p on b.pno = p.pno left join files f on REGEXP_SUBSTR(p.fno, '[^,]+', 1, 1) = f.fno;

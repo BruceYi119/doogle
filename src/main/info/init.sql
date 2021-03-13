@@ -6,3 +6,15 @@ create user doogle identified by enffl default tablespace doogle;
 
 -- 접속, 리소스 권한주기
 grant connect, resource to doogle;
+
+-- 프로젝트 데이터 생성
+--@D:\projectWorkspace\doogle\src\main\info\doogle.sql
+--PURGE RECYCLEBIN;
+--@D:\projectWorkspace\doogle\src\main\info\admin.sql
+--@D:\projectWorkspace\doogle\src\main\info\product.sql
+--@D:\projectWorkspace\doogle\src\main\info\grade.sql
+--@D:\projectWorkspace\doogle\src\main\info\files.sql
+--@D:\projectWorkspace\doogle\src\main\info\product_update.sql
+--@D:\projectWorkspace\doogle\src\main\info\delete_product.sql
+--@D:\projectWorkspace\doogle\src\main\info\delete_file.sql
+--@D:\projectWorkspace\doogle\src\main\info\trigger.sql
