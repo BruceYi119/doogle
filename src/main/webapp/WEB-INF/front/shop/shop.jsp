@@ -70,9 +70,9 @@
 	<div class="tit-goods"><h3><a href="#">이벤트 소식</a></h3></div>
 	<div class="base_wrap">
 		<ul id="product-slide2" class="product-slide-list">
-			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
 		</ul>
 	</div>
 </div>
@@ -80,22 +80,13 @@
 <div class="base_wrap">
 	<div id="product-slide3" class="carousel slide product-slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<ul class="product-slide-list">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
-			<div class="carousel-item">
-				<ul class="product-slide-list">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
+			<c:set var="i" value="1" />
+			<c:forEach items="${slist}" var="dto">
+				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
+					<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
+				<c:set var="i" value="${i + 1}" />
+			</c:forEach>
 		</div>
 		<a class="carousel-control-prev hide" href="#product-slide3" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
 		<a class="carousel-control-next" href="#product-slide3" data-slide="next"><span class="carousel-control-next-icon"></span></a>
@@ -114,22 +105,13 @@
 	</div>
 	<div id="product-slide4" class="carousel slide product-slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<ul class="product-slide-list">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
-			<div class="carousel-item">
-				<ul class="product-slide-list">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
+			<c:set var="i" value="1" />
+			<c:forEach items="${slist}" var="dto">
+				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
+					<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
+				<c:set var="i" value="${i + 1}" />
+			</c:forEach>
 		</div>
 		<a class="carousel-control-prev hide" href="#product-slide4" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
 		<a class="carousel-control-next" href="#product-slide4" data-slide="next"><span class="carousel-control-next-icon"></span></a>
@@ -155,22 +137,13 @@
 <div class="base_wrap">
 	<div id="product-slide5" class="carousel slide product-slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<ul class="product-slide-list">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
-			<div class="carousel-item">
-				<ul class="product-slide-list">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
+			<c:set var="i" value="1" />
+			<c:forEach items="${slist}" var="dto">
+				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
+					<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
+				<c:set var="i" value="${i + 1}" />
+			</c:forEach>
 		</div>
 		<a class="carousel-control-prev hide" href="#product-slide5" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
 		<a class="carousel-control-next" href="#product-slide5" data-slide="next"><span class="carousel-control-next-icon"></span></a>
@@ -181,22 +154,13 @@
 	<div class="base_wrap">
 		<div id="product-slide6" class="carousel slide product-slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<ul class="product-slide-list">
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					</ul>
-				</div>
-				<div class="carousel-item">
-					<ul class="product-slide-list">
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					</ul>
-				</div>
+			<c:set var="i" value="1" />
+				<c:forEach items="${slist}" var="dto">
+					<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
+						<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<c:if test="${i % 4 eq 0}"></ul></div></c:if>
+					<c:set var="i" value="${i + 1}" />
+				</c:forEach>
 			</div>
 			<a class="carousel-control-prev hide" href="#product-slide6" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
 			<a class="carousel-control-next" href="#product-slide6" data-slide="next"><span class="carousel-control-next-icon"></span></a>
@@ -215,22 +179,13 @@
 	<div class="base_wrap">
 		<div id="product-slide7" class="carousel slide product-slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<ul class="product-slide-list">
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					</ul>
-				</div>
-				<div class="carousel-item">
-					<ul class="product-slide-list">
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-						<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					</ul>
-				</div>
+				<c:set var="i" value="1" />
+				<c:forEach items="${slist}" var="dto">
+					<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
+						<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<c:if test="${i % 4 eq 0}"></ul></div></c:if>
+					<c:set var="i" value="${i + 1}" />
+				</c:forEach>
 			</div>
 			<a class="carousel-control-prev hide" href="#product-slide7" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
 			<a class="carousel-control-next" href="#product-slide7" data-slide="next"><span class="carousel-control-next-icon"></span></a>
@@ -241,22 +196,13 @@
 <div class="base_wrap">
 	<div id="product-slide8" class="carousel slide product-slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<ul class="product-slide-list">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
-			<div class="carousel-item">
-				<ul class="product-slide-list">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
+			<c:set var="i" value="1" />
+			<c:forEach items="${slist}" var="dto">
+				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
+					<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
+				<c:set var="i" value="${i + 1}" />
+			</c:forEach>
 		</div>
 		<a class="carousel-control-prev hide" href="#product-slide8" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
 		<a class="carousel-control-next" href="#product-slide8" data-slide="next"><span class="carousel-control-next-icon"></span></a>
@@ -268,16 +214,16 @@
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<ul class="product-slide-list recipe">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
 				</ul>
 			</div>
 			<div class="carousel-item">
 				<ul class="product-slide-list recipe">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/감자.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
 				</ul>
 			</div>
 		</div>
