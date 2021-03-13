@@ -263,12 +263,11 @@ const initShop = () => {
 		ajax.then((res) => {
 			if (res.data) {
 				const list = JSON.parse(decodeURIComponent(res.data))?.list;
-				const btn = $('#product-slide4 > a.carousel-control-prev');
-				const objs = $('#product-slide4 div.carousel-item');
+				const ul1 = $('#md1');
+				const ul2 = $('#md2');
 
 				$('a.btn-product-category').removeClass('on');
 				obj.addClass('on');
-				btn.trigger('click');
 
 				if (list !== undefined) {
 					let html1 = `<ul class="product-slide-list">`;
@@ -288,8 +287,8 @@ const initShop = () => {
 					html1 += `</ul>`;
 					html2 += `</ul>`;
 
-					$(objs[0]).html(html1);
-					$(objs[0]).html(html2);
+					ul1.html(html1);
+					ul2.html(html2);
 				}
 			}
 		}).catch(err => console.log(err));

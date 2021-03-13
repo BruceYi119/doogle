@@ -107,7 +107,7 @@
 		<div class="carousel-inner">
 			<c:set var="i" value="1" />
 			<c:forEach items="${mdlist}" var="dto">
-				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
+				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"<c:if test='${i == 1}'> id="md1"</c:if><c:if test='${i == 5}'> id="md2"</c:if>></c:if>
 					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 				<c:set var="i" value="${i + 1}" />
