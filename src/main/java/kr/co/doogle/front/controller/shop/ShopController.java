@@ -30,10 +30,18 @@ public class ShopController {
 	public ModelAndView shop(ModelAndView mv) {
 		mv.addObject("pulist", popupMapper.getAll());
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
-		mv.addObject("slist", productMapper.getSample());
+		mv.addObject("slist", productMapper.getSample(10, "where rownum < #{rownum}", "17", null));
+		mv.addObject("mdlist", productMapper.getSample(10, "where rownum < #{rownum} and p.ctno = #{ctno}", "9", "1"));
 		mv.addObject("url", "main");
 		mv.setViewName("/front/shop/shop");
 		return mv;
+	}
+
+	@RequestMapping("/shop/product/md/{ctno}")
+	public void shopAjaxMd(PrintWriter out, @PathVariable("ctno") String ctno) throws UnsupportedEncodingException {
+		JSONObject json = new JSONObject();
+		json.put("list", productMapper.getSample(10, "where rownum < #{rownum} and p.ctno = #{ctno}", "9", ctno));
+		out.print(URLEncoder.encode(json.toString(), "UTF-8"));
 	}
 
 	@RequestMapping("/shop/product/category/{ctno}")

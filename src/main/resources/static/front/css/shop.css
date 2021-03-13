@@ -95,6 +95,7 @@ div.instar-link > a { font-size: 16px;line-height: 29px;font-family: noto sans;c
 .product-list-wrap > ul.list > li > a:hover { color: var(--main-color); }
 .product-list-wrap > ul.product-list { float: left; }
 .product-list-wrap > ul.product-list > li { float: left;width: 336px;height: 643px;padding: 25px 28px 0 0; }
-.product-list-wrap > ul.product-list > li > a { color: #4c4c4c;font-size: 12px;font-family: noto sans;font-weight: 400; }
-.product-list-wrap > ul.product-list > li > a > img { width: 308px;height: 396px;vertical-align: top; }
+.product-list-wrap > ul.product-list > li > a { display: inline-block;width: 308px;height: 396px;color: #4c4c4c;font-size: 12px;font-family: noto sans;font-weight: 400;background-size: 100%;background-position: 50%; }
+.product-list-wrap > ul.product-list > li > a:hover { animation: product-ani 0.3s ease-in-out forwards; }
+.product-list-wrap > ul.product-list > li > a > img { width: 308px;height: 396px;vertical-align: top;display: none; }
 .product-list-wrap > div.product-paging-wrap { width: 100%;float: left; }

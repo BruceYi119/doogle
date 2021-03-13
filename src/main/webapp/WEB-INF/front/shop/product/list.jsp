@@ -6,7 +6,7 @@
 		<img src="/static/front/img/shop/product_banner_1.jpg" />
 	</div>
 	<div class="product-list-wrap">
-		<p class="title"><img src="/static/front/img/shop/icon_veggies_active.png" /><span>${category.name}</span></p>
+		<p class="title"><img src="/static/front/img/shop/${icon}" /><span>${category.name}</span></p>
 		<ul class="list">
 			<li><a href="/shop/product/${category.ctno}"<c:if test="${cctno eq null}"> class="active"</c:if>>전체보기</a></li>
 			<c:forEach items="${mlist}" var="dto">
@@ -16,7 +16,7 @@
 		<ul class="product-list">
 			<c:forEach items="${plist}" var="dto">
 				<li>
-					<a href="/shop/product/detail/${dto.pno}"><img src="${dto.jloc}${dto.jname}" /></a>
+					<a href="/shop/product/detail/${dto.pno}" style="background-image: url('${dto.jloc}${dto.jname}');"><img src="${dto.jloc}${dto.jname}" /></a>
 				</li>
 			</c:forEach>
 		</ul>

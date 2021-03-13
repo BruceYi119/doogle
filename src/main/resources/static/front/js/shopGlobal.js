@@ -12,7 +12,7 @@ const setCookie = (name, value, exp) => {
 
 const getCookie = (name) => {
 	const value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-	return value? value[2] : null;
+	return value ? value[2] : null;
 };
 
 const delCookie = (name) => {
@@ -22,9 +22,9 @@ const delCookie = (name) => {
 const showBasket = (msg = '') => {
 	if (basketFlag) {
 		basketFlag = false;
-		$('#btn-basket').attr('data-original-title', msg).tooltip({ update: true, trigger: 'click', delay: { hide : 2000 }}).trigger('click');
+		$('#btn-basket').attr('data-original-title', msg).tooltip({ update: true, trigger: 'click', delay: { hide: 2000 } }).trigger('click');
 	} else {
-		$('#btn-basket').attr('data-original-title', msg).tooltip('toggleEnabled').tooltip({ update: true, trigger: 'click', delay: { hide : 2000 }}).trigger('click');		
+		$('#btn-basket').attr('data-original-title', msg).tooltip('toggleEnabled').tooltip({ update: true, trigger: 'click', delay: { hide: 2000 } }).trigger('click');
 	}
 };
 
@@ -46,12 +46,12 @@ const initLatest = () => {
 
 		if (lis.length > 0) {
 			wrapObj.removeClass('hide');
-	
+
 			if (lis.length === 2)
 				$('div.latest-wrap').css('height', '160px');
 			else if (lis.length > 2)
 				$('div.latest-wrap').css('height', '240px');
-	
+
 			if ($('div.latest-wrap > ul').height() > 240)
 				$('#btn-latest-down').addClass('on');
 		}
@@ -61,15 +61,15 @@ const initLatest = () => {
 const initPopup = () => {
 	if ($('input[name=popup_no]').length > 0) {
 		$('input[name=popup_no]').each(function(index) {
-			var vpuno=$('input[name=popup_no]:eq(' + index + ')').val();
-			var vtitle=$('input[name=popup_title]:eq(' + index + ')').val();
-			var vleft=$('input[name=popup_left]:eq(' + index + ')').val();
-			var vright=$('input[name=popup_top]:eq(' + index + ')').val();
-			var vwidth=$('input[name=popup_width]:eq(' + index + ')').val();
-			var vheight=$('input[name=popup_height]:eq(' + index + ')').val();
-	   		console.log(vpuno);
-	   		console.log(vtitle);
-			window.open("/admin/popup/on?puno="+vpuno, vtitle,"width="+vwidth+", height="+vheight+",left="+vleft+",top="+vright+",resizable=no ,scrollbars=no");
+			var vpuno = $('input[name=popup_no]:eq(' + index + ')').val();
+			var vtitle = $('input[name=popup_title]:eq(' + index + ')').val();
+			var vleft = $('input[name=popup_left]:eq(' + index + ')').val();
+			var vright = $('input[name=popup_top]:eq(' + index + ')').val();
+			var vwidth = $('input[name=popup_width]:eq(' + index + ')').val();
+			var vheight = $('input[name=popup_height]:eq(' + index + ')').val();
+			console.log(vpuno);
+			console.log(vtitle);
+			window.open("/admin/popup/on?puno=" + vpuno, vtitle, "width=" + vwidth + ", height=" + vheight + ",left=" + vleft + ",top=" + vright + ",resizable=no ,scrollbars=no");
 		});
 	}
 };
@@ -83,12 +83,12 @@ const initShop = () => {
 	$('#btn-main-banner-close').bind('click', () => {
 		const obj = $('#main-banner');
 		const qnb = $('#qnb');
-		const top = parseInt(qnb.css('top').replace('px','')) - 42;
+		const top = parseInt(qnb.css('top').replace('px', '')) - 42;
 
 		obj.slideUp();
 
 		if (qnbFlag) {
-			qnbFlag = false;			
+			qnbFlag = false;
 			qnb.animate({ top: `${top}px` }, 100, () => { qnbFlag = true; });
 		}
 	});
@@ -142,7 +142,7 @@ const initShop = () => {
 	$(window).scroll(() => {
 		const obj = $(window);
 		const qnbObj = $('#qnb');
-		const targetObj = $('#btn-page-top'); 
+		const targetObj = $('#btn-page-top');
 		const qnbTopObj = $('#qnb-top');
 		const scrollTop = obj.scrollTop();
 		const showCheck = scrollTop > 1300 ? true : false;
@@ -156,7 +156,7 @@ const initShop = () => {
 		if (scrollTop > 300) {
 			const qnbHeight = qnbObj.height();
 			top = (window.screen.availHeight - qnbHeight) / 2;
-			
+
 		}
 
 		if (qnbFlag) {
@@ -203,7 +203,7 @@ const initShop = () => {
 
 	$('#btn-latest-up').bind('click', () => {
 		const obj = $('div.latest-wrap > ul');
-		const top = parseInt(obj.css('top').replace('px',''));
+		const top = parseInt(obj.css('top').replace('px', ''));
 		const upBtn = $('#btn-latest-up');
 		const downBtn = $('#btn-latest-down');
 		const moveCheck = top < 0 ? true : false;
@@ -219,7 +219,7 @@ const initShop = () => {
 				else
 					upBtn.addClass('on');
 
-				if (Math.abs(obj.height() - 240) <= Math.abs(parseInt(obj.css('top').replace('px',''))))
+				if (Math.abs(obj.height() - 240) <= Math.abs(parseInt(obj.css('top').replace('px', ''))))
 					downBtn.removeClass('on');
 				else
 					downBtn.addClass('on');
@@ -229,10 +229,10 @@ const initShop = () => {
 
 	$('#btn-latest-down').bind('click', () => {
 		const obj = $('div.latest-wrap > ul');
-		const top = parseInt(obj.css('top').replace('px',''));
+		const top = parseInt(obj.css('top').replace('px', ''));
 		const upBtn = $('#btn-latest-up');
 		const downBtn = $('#btn-latest-down');
-		const moveCheck = -(obj.height() - 240) < top &&(obj.height() - 240) > 0 ? true : false;
+		const moveCheck = -(obj.height() - 240) < top && (obj.height() - 240) > 0 ? true : false;
 
 		if (moveCheck && latestFlag) {
 			latestFlag = false;
@@ -245,16 +245,58 @@ const initShop = () => {
 				else
 					upBtn.addClass('on');
 
-				if (Math.abs(obj.height() - 240) <= Math.abs(parseInt(obj.css('top').replace('px',''))))
+				if (Math.abs(obj.height() - 240) <= Math.abs(parseInt(obj.css('top').replace('px', ''))))
 					downBtn.removeClass('on');
 				else
 					downBtn.addClass('on');
-			});			
+			});
 		}
 	});
 
+	$('a.btn-product-category').bind('click', function(e) {
+		e.preventDefault();
+
+		const obj = $(this);
+		const ctno = obj.attr('ctno');
+		const ajax = axios.get(`/shop/product/md/${ctno}`);
+
+		ajax.then((res) => {
+			if (res.data) {
+				const list = JSON.parse(decodeURIComponent(res.data))?.list;
+				const btn = $('#product-slide4 > a.carousel-control-prev');
+				const objs = $('#product-slide4 div.carousel-item');
+
+				$('a.btn-product-category').removeClass('on');
+				obj.addClass('on');
+				btn.trigger('click');
+
+				if (list !== undefined) {
+					let html1 = `<ul class="product-slide-list">`;
+					let html2 = `<ul class="product-slide-list">`;
+
+					list.forEach((o, i) => {
+						let temp = `<li>
+<a href="/shop/product/detail/${o.pno}">
+<img style="background-image: url('${o.jloc}${o.jname}');" class="product-slide-img">
+</a>
+</li>`;
+						if (i < 4)
+							html1 += temp;
+						else
+							html2 += temp;
+					});
+					html1 += `</ul>`;
+					html2 += `</ul>`;
+
+					$(objs[0]).html(html1);
+					$(objs[0]).html(html2);
+				}
+			}
+		}).catch(err => console.log(err));
+	});
+
 	$('#btn-basket').on('shown.bs.tooltip', function () {
-		$('#btn-basket').trigger('click').tooltip('disable');
+								$('#btn-basket').trigger('click').tooltip('disable');
 	});
 
 	initLatest();

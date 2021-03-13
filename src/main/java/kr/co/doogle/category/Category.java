@@ -21,6 +21,7 @@ public class Category {
 	private HashMap<String, String[]> lv0 = new HashMap();
 	private HashMap<String, String[]> lv1 = new HashMap();
 	private HashMap<String, String[]> lv2 = new HashMap();
+	private HashMap<String, String> icons = new HashMap();
 	private int[] lv = { 0, 1, 2, 3 };
 
 	{
@@ -68,7 +69,7 @@ public class Category {
 		lv1.put("가전제품", new String[]{ "주방가전", "생활가전", "계절가전" });
 		lv1.put("베이비·키즈", new String[]{ "분유·간편 이유식", "이유식 재료", "간식·음식·음료", "건강식품", "이유·수유용품", "기저귀·물티슈", "세제·위생용품", "스킨·구강케어", "완구·잡화류" });
 		lv1.put("반려동물", new String[]{ "강아지 간식", "강아지 주식", "고양이 간식", "고양이 주식", "반려동물 용품", "배변·위생", "소용량·샘플" });
-		lv1.put("컬리의 추천", new String[]{ "식단관리", "간편한 아침식사", "재구매 BEST", "3천원의 행복", "컬리마트", "1인 가구", "뚝딱! 간편식", "베이커리 맛집", "반찬가게", "키토제닉", "비건", "지속가능한 상품", "컬리가 만든 상품", "Kurly Only", "KF365", "1% Table" });
+		lv1.put("두글의 추천", new String[]{ "식단관리", "간편한 아침식사", "재구매 BEST", "3천원의 행복", "컬리마트", "1인 가구", "뚝딱! 간편식", "베이커리 맛집", "반찬가게", "키토제닉", "비건", "지속가능한 상품", "Doogle이 만든 상품", "Doogle Only", "KF365", "1% Table" });
 
 		lv2.put("식단관리", new String[]{ "샐러드", "클렌즈 주스", "닭가슴살/달걀", "도시락", "프로틴/보조제", "시리얼/선식/간식", "식단관리 채소" });
 		lv2.put("간편한 아침식사", new String[]{ "베이커리·델리", "우유·커피·주스", "과일", "샐러드·간편식·스프", "선식·시리얼·그래놀라" });
@@ -82,8 +83,27 @@ public class Category {
 		lv2.put("키토제닉", new String[]{ "키토인을 위한 간편식", "요리하는 키토인", "키토인을 위한 간식" });
 		lv2.put("비건", new String[]{ "대체육·간편식", "대체유제품·음료", "샐러드", "시리얼·선식", "간식", "베이커리", "양념·소스", "생활·뷰티" });
 		lv2.put("지속가능한 상품", new String[]{ "친환경", "ASC/MSC/GAP", "공정무역/동물복지" });
-		lv2.put("컬리가 만든 상품", new String[]{ "Kurly`s", "일반 상품" });
-		lv2.put("Kurly Only", new String[]{ "농산", "수산", "정육·계란", "간편식", "유제품", "가공식품", "건강식품", "리빙·펫" });
+		lv2.put("Doogle이 만든 상품", new String[]{ "Doogle`s", "일반 상품" });
+		lv2.put("Doogle Only", new String[]{ "농산", "수산", "정육·계란", "간편식", "유제품", "가공식품", "건강식품", "리빙·펫" });
+
+		icons.put("1", "icon_veggies_active.png");
+		icons.put("10", "icon_fruit_active.png");
+		icons.put("18", "icon_seafood_active.png");
+		icons.put("28", "icon_meat_active.png");
+		icons.put("36", "icon_side_active.png");
+		icons.put("43", "icon_convenient_active.png");
+		icons.put("52", "icon_sauce_active.png");
+		icons.put("60", "icon_snacks_active.png");
+		icons.put("66", "icon_cookie_active.png");
+		icons.put("71", "icon_deli_active.png");
+		icons.put("78", "icon_health_active.png");
+		icons.put("86", "icon_living_active.png");
+		icons.put("93", "icon_beauty_active.png");
+		icons.put("99", "icon_kitchen_active.png");
+		icons.put("106", "icon_electronic_active.png");
+		icons.put("110", "icon_kids_active.png");
+		icons.put("120", "icon_pet_active.png");
+		icons.put("128", "ico_recommend_active.webp");
 	}
 
 	public void initCategory() {
@@ -139,6 +159,10 @@ public class Category {
 
 	public HashMap<String, String> getType() {
 		return type;
+	}
+
+	public HashMap<String, String> getIcons() {
+		return icons;
 	}
 
 }

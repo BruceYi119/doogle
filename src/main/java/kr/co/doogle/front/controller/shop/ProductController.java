@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.doogle.category.Category;
 import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.ProductMapper;
 import kr.co.doogle.paging.Paging;
@@ -21,6 +22,8 @@ public class ProductController {
 	private CategoryMapper categoryMapper;
 	@Autowired
 	private Paging paging;
+	@Autowired
+	private Category category;
 
 	@RequestMapping("/shop/product/{ctno}")
 	public ModelAndView list(ModelAndView mv, @PathVariable("ctno") int ctno, HttpServletRequest request) {
@@ -36,6 +39,7 @@ public class ProductController {
 			mv.addObject("plist", productMapper.getAllFile(paging.getStartRow(), paging.getViewCnt(), "where p.ctno = #{ctno} and p.ctno1 = #{ctno1}", Integer.toString(ctno), cctno, null));						
 		}
 
+		mv.addObject("icon", category.getIcons().get(Integer.toString(ctno)));
 		mv.addObject("cctno", cctno);
 		mv.addObject("paging", paging.getPageHtml());
 		mv.addObject("category", categoryMapper.getOne(ctno));

@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="shortcut icon" href="/static/front/img/favicon.ico" type="image/x-icon" />
-<link rel="icon" href="/static/front/img/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/static/front/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/static/front/img/favicon.ico" type="image/x-icon">
 <title>Doogle admin</title>
 <link rel="stylesheet" href="/static/core/css/bootstrap.min.css">
 <c:if test="${edit eq 'edit'}"><link rel="stylesheet" href="/static/core/css/summernote-bs4.min.css"></c:if>

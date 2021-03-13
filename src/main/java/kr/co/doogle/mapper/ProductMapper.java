@@ -27,8 +27,8 @@ public interface ProductMapper {
 			+ "${where} order by p.writedate desc) t) tt where seq >= #{start}) where rownum <= #{end}"})
 	List<ProductFilesDTO> getAllFile(@Param("start") int start, @Param("end") int end, @Param("where") String where, @Param("ctno") String ctno,  @Param("ctno1") String ctno1, @Param("ctno2") String ctno2);
 
-	@Select("select p.*, f.name jname, f.loc jloc from product SAMPLE(10) p left join files f on p.fno = f.fno where rownum < 17")
-	List<ProductFilesDTO> getSample();
+	@Select("select p.*, f.name jname, f.loc jloc from product SAMPLE(${sample}) p left join files f on p.fno = f.fno ${where}")
+	List<ProductFilesDTO> getSample(@Param("sample") int sample, @Param("where") String where, @Param("rownum") String rownum, @Param("ctno") String ctno);
 
 	@Select("select count(*) from product ${where}")
 	int getTotal(@Param("where") String where, @Param("ctno") String ctno, @Param("ctno1") String ctno1, @Param("ctno2") String ctno2);

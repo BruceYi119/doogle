@@ -98,7 +98,7 @@
 		<ul>
 			<c:set var="i" value="0" />
 			<c:forEach items="${clist}" var="dto">
-				<c:if test="${dto.name ne '컬리의 추천'}"><li><a href="/shop/product/category/${dto.ctno}" class="btn-product-category<c:if test="${i eq 0}"> on</c:if>">${dto.name}</a></li></c:if>
+				<c:if test="${dto.name ne '컬리의 추천'}"><li><a href="/shop/product/category/${dto.ctno}" ctno="${dto.ctno}" class="btn-product-category<c:if test="${i eq 0}"> on</c:if>">${dto.name}</a></li></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
 		</ul>
@@ -106,7 +106,7 @@
 	<div id="product-slide4" class="carousel slide product-slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
 			<c:set var="i" value="1" />
-			<c:forEach items="${slist}" var="dto">
+			<c:forEach items="${mdlist}" var="dto">
 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
 					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
