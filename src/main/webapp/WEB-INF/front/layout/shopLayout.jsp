@@ -60,7 +60,6 @@
 <c:if test="${url eq '/shop/ecoUpdate'}"><script defer type="text/javascript" src="/static/front/js/bulklist.js"></script></c:if>
 <c:if test="${url eq '/shop/ecoWrite'}"><script defer type="text/javascript" src="/static/front/js/propositionWrite.js"></script></c:if>
 <c:if test="${url eq '/shop/ecoUpdate'}"><script defer type="text/javascript" src="/static/front/js/propositionWrite.js"></script></c:if>
-<c:if test="${url eq '/shop/product/detail/'}"><script defer type="text/javascript" src="/static/front/js/productDetail.js"></script></c:if>
 <c:if test="${url eq '/shop/event/basket'}"><script defer type="text/javascript" src="/static/front/js/event_nav.js"></script></c:if>
 <c:if test="${url eq '/shop/event/benefit'}"><script defer type="text/javascript" src="/static/front/js/event_nav.js"></script></c:if>
 <c:if test="${url eq '/shop/event/friend'}"><script defer type="text/javascript" src="/static/front/js/event_nav.js"></script></c:if>

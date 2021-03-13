@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="base_wrap mt20">
 	<div class="detail-wrap">
-		<input type="hidden" name="pno" value="${dto.pno}" />
+		<input type="hidden" id="detail-pno" value="${dto.pno}" />
 		<div class="left">
 			<img src="${dto.jloc}${dto.jname}" />
 		</div>

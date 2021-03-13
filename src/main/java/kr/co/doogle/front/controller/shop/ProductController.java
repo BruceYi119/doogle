@@ -52,7 +52,6 @@ public class ProductController {
 	@RequestMapping("/shop/product/detail/{pno}")
 	public ModelAndView detail(ModelAndView mv, @PathVariable("pno") int pno) {
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
-		mv.addObject("url", "/shop/product/detail/");
 		mv.addObject("dto", productMapper.getDetail(pno));
 		mv.setViewName("/front/shop/product/detail");
 		return mv;

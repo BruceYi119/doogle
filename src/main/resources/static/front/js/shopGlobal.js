@@ -4,6 +4,24 @@ let latestFlag = true;
 let qnbFlag = true;
 let basketFlag = true;
 
+const addLatest = () => {
+	const obj = $('#detail-pno').length === 1 ? $('#detail-pno') : null;
+
+	if (obj === null)
+		return false;
+
+	const pnos = getCookie('doogle-latest');
+	const pno = obj.val();
+	const pnosArr = pnos === null ? null : pnos.split(',');
+
+	if (pnosArr === null) {
+		setCookie('doogle-latest', pno, 1);
+	} else if (pnosArr.indexOf(pno) === -1) {
+		pnosArr.push(pno);
+		setCookie('doogle-latest', pnosArr.join(','), 1);
+	}
+};
+
 const setCookie = (name, value, exp) => {
 	const date = new Date();
 	date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
@@ -298,6 +316,7 @@ const initShop = () => {
 								$('#btn-basket').trigger('click').tooltip('disable');
 	});
 
+	addLatest();
 	initLatest();
 	initPopup();
 };
