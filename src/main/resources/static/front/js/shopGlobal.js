@@ -15,7 +15,7 @@ const getCookie = (name) => {
 	return value? value[2] : null;
 };
 
-const deleteCookie = (name) => {
+const delCookie = (name) => {
 	document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
 }
 
@@ -27,6 +27,36 @@ const showBasket = (msg = '') => {
 		$('#btn-basket').attr('data-original-title', msg).tooltip('toggleEnabled').tooltip({ update: true, trigger: 'click', delay: { hide : 2000 }}).trigger('click');		
 	}
 };
+
+const initLatest = () => {
+	const obj = $('#latest-list');
+	const wrapObj = $('#latest');
+	const pnos = getCookie('doogle-latest');
+
+	if (pnos !== null) {
+		const pno = pnos.split(',');
+		let html = ``;
+		pno.forEach((seq) => {
+			html += `<li><a href="/shop/product/detail/${seq}"><img src="/static/upload/img/shop/product/${seq}.jpg" /></a></li>`;
+		});
+
+		obj.html(html);
+		wrapObj.removeClass('hide');
+		const lis = $('div.latest-wrap > ul > li');
+
+		if (lis.length > 0) {
+			wrapObj.removeClass('hide');
+	
+			if (lis.length === 2)
+				$('div.latest-wrap').css('height', '160px');
+			else if (lis.length > 2)
+				$('div.latest-wrap').css('height', '240px');
+	
+			if ($('div.latest-wrap > ul').height() > 240)
+				$('#btn-latest-down').addClass('on');
+		}
+	}
+}
 
 const initShop = () => {
 
@@ -207,22 +237,11 @@ const initShop = () => {
 		}
 	});
 
-	if ($('div.latest-wrap > ul > li').length > 0) {
-		$('#latest').removeClass('hide');
-
-		if ($('div.latest-wrap > ul > li').length === 2)
-			$('div.latest-wrap').css('height', '160px');
-		else if ($('div.latest-wrap > ul > li').length > 2)
-			$('div.latest-wrap').css('height', '240px');
-
-		if ($('div.latest-wrap > ul').height() > 240)
-			$('#btn-latest-down').addClass('on');
-	}
-
 	$('#btn-basket').on('shown.bs.tooltip', function () {
 		$('#btn-basket').trigger('click').tooltip('disable');
 	});
 
+	initLatest();
 };
 
 initShop();

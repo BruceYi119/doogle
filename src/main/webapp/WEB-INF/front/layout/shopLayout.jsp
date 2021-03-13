@@ -43,6 +43,7 @@
 <c:if test="${url eq '/shop/ecoUpdate'}"><script defer type="text/javascript" src="/static/front/js/bulklist.js"></script></c:if>
 <c:if test="${url eq '/shop/ecoWrite'}"><script defer type="text/javascript" src="/static/front/js/propositionWrite.js"></script></c:if>
 <c:if test="${url eq '/shop/ecoUpdate'}"><script defer type="text/javascript" src="/static/front/js/propositionWrite.js"></script></c:if>
+<c:if test="${url eq '/shop/product/detail/'}"><script defer type="text/javascript" src="/static/front/js/productDetail.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
@@ -198,13 +199,7 @@
 				<button type="button" id="btn-latest-up">최근 본 상품 위로 올리기</button>
 				<strong>최근 본 상품</strong>
 				<div class="latest-wrap">
-					<ul>
-						<li><a href="#"><img src="/static/upload/img/shop/product/감자.jpg" /></a></li>
-						<li><a href="#"><img src="/static/upload/img/shop/product/감자.jpg" /></a></li>
-						<li><a href="#"><img src="/static/upload/img/shop/product/감자.jpg" /></a></li>
-						<li><a href="#"><img src="/static/upload/img/shop/product/버섯.png" /></a></li>
-						<li><a href="#"><img src="/static/upload/img/shop/product/정직한훈제란6구.PNG" /></a></li>
-					</ul>
+					<ul id="latest-list"></ul>
 				</div>
 				<button type="button" id="btn-latest-down">최근 본 상품 아래로 내리기</button>
 			</div>

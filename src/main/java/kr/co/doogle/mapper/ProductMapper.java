@@ -29,6 +29,9 @@ public interface ProductMapper {
 	@Select("select * from product where pno = #{pno}")
 	ProductDTO getOne(@Param("pno") int pno);
 
+	@Select("select p.*, f.name jname, f.loc jloc from product p left join files f on p.fno = f.fno where p.pno = #{pno}")
+	ProductFilesDTO getDetail(@Param("pno") int pno);
+
 	@Insert({"insert into product("
 			+ "pno, brand, name, subject, sel_unit, weight, pack_type, info, price, discount, dis_yn, earn, earn_yn, ctno, ctno1, ctno2, only_yn, od_yn, fno, quantity, sel_yn) "
 			+ "values(s_product.nextval, #{dto.brand}, #{dto.name}, #{dto.subject}, #{dto.sel_unit}, #{dto.weight}, #{dto.pack_type}, #{dto.info}, #{dto.price}, #{dto.discount}, "

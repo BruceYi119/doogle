@@ -75,3 +75,10 @@ div.instar-link > a { font-size: 16px;line-height: 29px;font-family: noto sans;c
 	0% { opacity: 0; }
 	100% { opacity: 1; }
 }
+
+.detail-wrap { width: 100%;font-family: noto sans;float: left;margin-bottom: 120px; }
+.detail-wrap > .left { width: 430px;float: left; }
+.detail-wrap > .left > img { width: 430px;height: 552px; }
+.detail-wrap > .right { width: 560px;float: right; }
+.detail-wrap > .right p.title { color: #333;letter-spacing: -.5px;font-weight: 700;font-size: 24px;line-height: 34px; }
+.detail-wrap > .right p.sub-title { letter-spacing: -.5px;font-size: 14px;color: #999;line-height: 20px; }

@@ -57,7 +57,7 @@
 			<c:set var="i" value="1" />
 			<c:forEach items="${slist}" var="dto">
 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-					<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
@@ -70,9 +70,9 @@
 	<div class="tit-goods"><h3><a href="#">이벤트 소식</a></h3></div>
 	<div class="base_wrap">
 		<ul id="product-slide2" class="product-slide-list">
-			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
-			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
-			<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
 		</ul>
 	</div>
 </div>
@@ -83,7 +83,7 @@
 			<c:set var="i" value="1" />
 			<c:forEach items="${slist}" var="dto">
 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-					<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
@@ -108,7 +108,7 @@
 			<c:set var="i" value="1" />
 			<c:forEach items="${slist}" var="dto">
 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-					<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
@@ -140,7 +140,7 @@
 			<c:set var="i" value="1" />
 			<c:forEach items="${slist}" var="dto">
 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-					<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
@@ -157,7 +157,7 @@
 			<c:set var="i" value="1" />
 				<c:forEach items="${slist}" var="dto">
 					<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-						<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+						<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
 					<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 					<c:set var="i" value="${i + 1}" />
 				</c:forEach>
@@ -182,7 +182,7 @@
 				<c:set var="i" value="1" />
 				<c:forEach items="${slist}" var="dto">
 					<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-						<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+						<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
 					<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 					<c:set var="i" value="${i + 1}" />
 				</c:forEach>
@@ -199,7 +199,7 @@
 			<c:set var="i" value="1" />
 			<c:forEach items="${slist}" var="dto">
 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-					<li><a href="#"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
