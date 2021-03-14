@@ -119,9 +119,9 @@
 					<li>
 						<a href="#" class="before">고객센터</a>
 						<ul class="sub hide">
-							<li><a href="#">공지사항</a></li>
-							<li><a href="#">자주하는 질문</a></li>
-							<li><a href="#">1:1 문의</a></li>
+							<li><a href="/shop/notice">공지사항</a></li>
+							<li><a href="/shop/questionList">자주하는 질문</a></li>
+							<li><a href="/shop/qna">1:1 문의</a></li>
 							<li><a href="/shop/bulkOrder">대량주문 문의</a></li>
 							<li><a href="/shop/propositionList">상품 제안</a></li>
 							<li><a href="/shop/ecoList">에코포장 피드백</a></li>
