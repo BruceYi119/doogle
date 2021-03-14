@@ -11,8 +11,8 @@
 			<form name="fm" id="fm" method="post" action="/shop/qna_register_ok"
 				enctype="multipart/form-data" onsubmit="return chkForm(this)"
 				style="height: 100%;">
-				<input type="hidden" name="name" value="session"> <input
-					type="hidden" name="mno" value="222">
+				<input type="hidden" name="name" value="${dto.name}"> <input
+					type="hidden" name="mno" value="${dto.mno}">
 				<table id="table_after" class="boardWrite2" width="100%">
 					<colgroup>
 						<col width="14%" align="right">
@@ -51,7 +51,7 @@
 						<tr>
 							<th class="input_txt">이메일</th>
 							<td><input type="text" name="email" size="26"
-								class="read_only"> <span class="noline smalle"
+								class="read_only" value="${dto.email}" readonly="readonly"> <span class="noline smalle"
 								style="padding-left: 10px"> <input type="checkbox"
 									id="idemail_yn"> <input type="hidden" name="email_yn"
 									value="n" id="email"> <span style="font-size: 8pt;">답변수신을
@@ -59,7 +59,7 @@
 						</tr>
 						<tr>
 							<th class="input_txt">문자메시지</th>
-							<td><input type="text" name="phone" class="read_only">
+							<td><input type="text" name="phone" class="read_only" value="${dto.phone}" readonly="readonly">
 								<span class="noline smalle" style="padding-left: 10px"> <input
 									type="checkbox" id="idphono_yn"> <input type="hidden"
 									name="phone_yn" value="n" id="phone"> <span

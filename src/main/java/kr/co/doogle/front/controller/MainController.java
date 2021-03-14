@@ -1,6 +1,8 @@
 package kr.co.doogle.front.controller;
 
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -100,6 +102,58 @@ public class MainController {
 		mv.addObject("display", display);
 		mv.setViewName("/front/api/naver/search");
 		return mv;
+	}
+
+	@RequestMapping("/search/more/{page}/{val}/{type}")
+	public void searchMore(PrintWriter out, HttpServletRequest request, @PathVariable("page") String page, @PathVariable("val") String val,
+			@PathVariable("type") String type) throws UnsupportedEncodingException {
+		StringBuilder sb = new StringBuilder();
+		String display = request.getParameter("display") != null ? request.getParameter("display")
+				: search.getDisplay() + "";
+		JSONObject json = new JSONObject(search.search(val, type));
+		String total = !type.equals("ERRATA") ? "(" + json.get("total").toString() + ")" : "";
+		String errata = type.equals("ERRATA") ? json.get("errata").toString() : "";
+		List<JSONObject> list = new ArrayList();
+
+		if (!type.equals("ERRATA")) {
+			JSONArray items = (JSONArray) json.get("items");
+			Iterator it = items.iterator();
+			while (it.hasNext())
+				list.add((JSONObject) it.next());
+		}
+
+		sb.append("{ \"html\": \"");
+		switch (type) {
+		case "BOOK":
+			break;
+		case "MOVIE":
+			break;
+		case "LOCAL":
+			break;
+		case "ERRATA":
+			break;
+		case "IMAGE":
+			for (JSONObject o : list) {
+				sb.append("<li class='image'>");
+				sb.append("<a href='" + o.get("link") + "' link='" + o.get("link") + "'><img src='" + o.get("thumbnail")
+						+ "' /></a>");
+				sb.append("</li>");
+			}
+			break;
+		default:
+			for (JSONObject o : list) {
+				sb.append("<li>");
+				sb.append("<dl>");
+				sb.append("<dt><a href='" + o.get("link") + "' target='_blank'>" + o.get("title") + "</a></dt>");
+				sb.append("<dd>" + o.get("description") + "</dd>");
+				sb.append("</dl>");
+				sb.append("</li>");
+			}
+			break;
+		}
+
+		sb.append("\", \"page\": " + page + " }");
+		out.print(URLEncoder.encode(sb.toString(), "UTF-8"));
 	}
 
 }

@@ -28,7 +28,7 @@ public interface QnaMapper {
 	// 1:1 문의 내용 조회
 	@Select("SELECT qnno,ono,title, content, ctno,name,writedate, (SELECT COUNT(*) AS cnt FROM qna_answer qa WHERE qa.qnno = qna.qnno) count FROM qna")
 	@Result(property = "content", column = "content", jdbcType = JdbcType.CLOB, javaType = String.class)
-	List<QnaDTO> getAll();
+	List<QnaDTO> getAll(@Param("name") String name);
 	
 	// 1:1 문의 삭제
 	@Delete("delete from qna where qnno=#{param1}")
@@ -46,8 +46,9 @@ public interface QnaMapper {
 	// 주문번호 등록을 위한 과거의 결제내역 조회
 	@Select("select o.ono,o.quantity,o.pno,p.payment,p.writedate,d.name "+
 			" from order_list o inner join " +
-			" payment p on (p.ono = o.ono) left outer join " + 
-			" product d on (o.pno = d.pno) and o.mno=#{param1}")
+			" payment p on (p.ono = o.ono) and o.mno=#{param1} "+
+			" left outer join " + 
+			" product d on (o.pno = d.pno)")
 	List<Order_listPaymentProductDTO> qnaOrderList(@Param("mno")int mno);
 	
 	// 관리자 답변 내용 조회

@@ -1,19 +1,20 @@
 package kr.co.doogle.front.controller.shop;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.co.doogle.dto.MemberDTO;
 import kr.co.doogle.dto.Order_listPaymentProductDTO;
 import kr.co.doogle.dto.QnaDTO;
-import kr.co.doogle.dto.Qna_AnswerDTO;
+import kr.co.doogle.mapper.MemberMapper;
 import kr.co.doogle.mapper.QnaMapper;
 
 @Controller
@@ -22,10 +23,15 @@ public class QnaController {
 	@Autowired
 	private QnaMapper qnaMapper;
 	
+	@Autowired
+	private MemberMapper memberMapper;
+	
 //  1:1 문의 list
 	@RequestMapping("/shop/qna")
-	public String qna(Model model) {
-		List<QnaDTO> list = qnaMapper.getAll();
+	public String qna(Model model,HttpSession session) {
+		
+		String name = (String)session.getAttribute("name");
+		List<QnaDTO> list = qnaMapper.getAll(name);
 		model.addAttribute("list",list);
 		model.addAttribute("url","/shop/qna");
 		return "/front/shop/qna/qna";
@@ -46,7 +52,11 @@ public class QnaController {
 	}
 	
 	@RequestMapping("/shop/qna_register")
-	public String qna_register(Model model) {
+	public String qna_register(Model model,HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		MemberDTO dto = memberMapper.getOne(id);
+		System.out.println(dto);
+		model.addAttribute("dto",dto);
 		model.addAttribute("edit","edit");
 		model.addAttribute("url","/qna_register");
 		return "/front/shop/qna/qna_register";
@@ -85,7 +95,7 @@ public class QnaController {
 	
 	@RequestMapping("/shop/qnaOrderList")
 	public String qnaOrderList(int mno,Model model) {
-		List<Order_listPaymentProductDTO> list = qnaMapper.qnaOrderList(111);
+		List<Order_listPaymentProductDTO> list = qnaMapper.qnaOrderList(mno);
 		System.out.println(list);
 		model.addAttribute("list",list);
 		

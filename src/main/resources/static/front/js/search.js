@@ -50,18 +50,10 @@ const searchInit = () => {
 		const pageObj = document.querySelector('input[name=page]');
 		const ul = document.querySelector('ul.list');
 		const page = parseInt(pageObj.value) + 1;
-		const searchTxt = document.querySelector('input[name=searchTxt]').value;
-		const searchType = document.querySelector('input[name=searchType]').value;
+		const val = document.querySelector('input[name=searchTxt]').value;
+		const type = document.querySelector('input[name=searchType]').value;
 		const display = document.querySelector('input[name=display]').value;
-		const params = {
-			params: {
-				page: page,
-				searchTxt: searchTxt,
-				searchType: searchType,
-				display: display
-			}
-		};
-		const ajax = axios.get('/view/api/naver/search_more.jsp', params);
+		const ajax = axios.get(`/search/more/${page}/${val}/${type}`, { display: display});
 
 		ajax.then((res) => {
 			pageObj.value = page;

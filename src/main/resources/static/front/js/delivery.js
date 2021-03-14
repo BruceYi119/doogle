@@ -3,7 +3,6 @@ const jusoPopup = (func = null) => {
 	const popupHeight = 420;
 	const left = Math.ceil((window.screen.width - popupWidth) / 2);
 	const top = Math.ceil((window.screen.height - popupHeight) / 2);
-
 	if (func === 'showUpdateAddrBtns')
 		window.open(`/jusoPopup?func=${func}`, 'pop', `width=${popupWidth},height=${popupHeight}, scrollbars=yes, resizable=yes, left=${left}, top=${top}`);
 	else
@@ -24,7 +23,7 @@ function jusoCallBack(roadAddrPart1, addrDetail, zipNo, func = null) {
 		const zipcode = document.querySelector('input[name=zipcode]');
 		const addr = document.querySelector('input[name=addr]');
 		const addr_detail = document.querySelector('input[name=addr_detail]');
-
+		
 		data1 = zipNo;
 		data2 = roadAddrPart1;
 		data3 = addrDetail;

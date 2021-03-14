@@ -50,7 +50,7 @@
 					</tr>
 					<tr>
 						<td>문의 내용</td>
-						<td><textarea rows="5" cols="30" id="summernote">${dto.content}</textarea></td>
+						<td><textarea rows="5" cols="30" id="dis">${dto.content}</textarea></td>
 					</tr>
 				</tbody>
 				<tr>

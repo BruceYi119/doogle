@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,13 +26,11 @@ public class DeliveryController {
 	private MemberMapper memberMapper;
 	
 	@RequestMapping("/shop/deliveryList")
-	public String deliveryList(Model model) {
-//		int mno=111; //세션변수 id 값으로 구해야함
-		int mno = memberMapper.getId("mk");
+	public String deliveryList(Model model,HttpSession session) {
+		int mno = (int)session.getAttribute("mno");
 		List<DeliveryDTO> list = deliveryMapper.getAll(mno);
 		ArrayList<String> addr = deliveryMapper.getAddr(mno);
 		ArrayList<Integer> addrlist = deliveryMapper.addrRegexp();
-		
 		ArrayList<String> teakbea = new ArrayList<String>();
 		model.addAttribute("teakbea",teakbea);
 		model.addAttribute("list",list);
@@ -40,8 +39,10 @@ public class DeliveryController {
 	}
 	
 	@RequestMapping("/delivery_pop")
-	public String delivery_pop(Model model) {
-		int mno = memberMapper.getId("mk");
+	public String delivery_pop(Model model,HttpSession session) {
+		String id =  (String) session.getAttribute("id");
+		System.out.println(id);
+		int mno = memberMapper.getId(id);
 		model.addAttribute("mno",mno);
 		model.addAttribute("url", "/delivery_pop");
 		return "/front/shop/delivery/delivery_pop";

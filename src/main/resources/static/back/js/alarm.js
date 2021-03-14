@@ -2,6 +2,7 @@ $(function(){
 	$(".email").click(function(){
 		var mno = $(this).parents("tr").find(".mno").text();
 		var pno = $(this).parents("tr").find(".pno").text();
+		alert("재입고 알림 메일 전송 완료")
 	location.href="/admin/alarmMailSend?mno="+mno+"&pno="+pno;
 	});
 	

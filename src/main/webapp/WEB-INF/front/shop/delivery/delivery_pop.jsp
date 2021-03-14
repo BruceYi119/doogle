@@ -32,11 +32,11 @@
 </tr> --%>
 <tr class="info">
 	<td><label for="addr">주소</label></td>
-	<td><input type="text" name="addr" placeholder="주소" class="input" value="${param.roadAddrPart1 }"/></td>
+	<td><input type="text" name="addr" placeholder="주소" class="input" value="${param.roadAddrPart1 }" readonly="readonly"></td>
 </tr>	
 <tr class="info">
 	<td><label for="addr_detail">상세주소</label></td>
-	<td><input type="text" name="addr_detail" placeholder="상세주소" class="input"  value="${param.addrDetail }" /></td>
+	<td><input type="text" name="addr_detail" placeholder="상세주소" class="input"  value="${param.addrDetail }" readonly="readonly"></td>
 </tr>
 <tr class="info">
 	<td> <label for="default_yn">기본배송지로 설정</label></td>

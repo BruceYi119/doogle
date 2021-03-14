@@ -22,6 +22,6 @@ initEdit();
 });
 
 function order_open(){
-	var mno=111;
+	var mno=$('input[name=mno]').val();
 	window.open("/shop/qnaOrderList?mno="+mno,"PopupWin","width=900,height=400,top=300,left=600");
 }

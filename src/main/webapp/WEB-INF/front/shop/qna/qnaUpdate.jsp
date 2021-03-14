@@ -11,8 +11,8 @@
 				enctype="multipart/form-data" onsubmit="return chkForm(this)"
 				style="height: 100%;">
 				<input type="hidden" value="${dto.qnno}" name="qnno">
-				<input type="hidden" name="name" value="session"> <input
-					type="hidden" name="mno" value="222">
+				<input type="hidden" name="name" value="${dto.name}"> <input
+					type="hidden" name="mno" value="${dto.mno}">
 				<table id="table_after" class="boardWrite2" width="100%">
 					<colgroup>
 						<col width="14%" align="right">
@@ -152,37 +152,8 @@
 								<input type="hidden" name="fno" value="1">
 							</td>
 						</tr>
-						<tr>
-							<th class="input_txt">이미지</th>
-							<td>
-								<table width="95%" id="table" cellpadding="0" cellspacing="0"
-									border="0"
-									style="border: solid 1px #f4f4f4; border-collapse: collapse;">
-									<tbody>
-										<tr id="tr_0">
-											<td width="100%"><input type="file" name="file"
-												style="width: 50%" class="linebg"> <a
-												href="javascript:add()"><img
-													src="../static/front/img/upload.jpg" align="absmiddle"></a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-								<table>
-									<tbody>
-										<tr>
-											<td height="2"></td>
-										</tr>
-									</tbody>
-								</table>
-								<div width="100%" style="padding: 5px;" class="stxt">
-									- 파일은 최대 5개까지 업로드가 지원됩니다.<br>
-								</div>
-							</td>
-						</tr>
 					</tbody>
 				</table>
-
 				<table width="100%">
 					<tbody>
 						<tr>
