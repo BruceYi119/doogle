@@ -3,13 +3,23 @@ package kr.co.doogle.front.controller;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.doogle.api.data.Data;
+import kr.co.doogle.api.naver.Search;
 import kr.co.doogle.key.Key;
 
 @Controller
@@ -19,6 +29,8 @@ public class MainController {
 	private Key key;
 	@Autowired
 	private Data data;
+	@Autowired
+	private Search search;
 
 	@RequestMapping("/")
 	public String main(Model model) {
@@ -37,7 +49,7 @@ public class MainController {
 		model.addAttribute("apikey", key.getKeys().get(Key.Kyes.KAKAO_MAP_APPKEY));
 		return "/front/api/kakao/map";
 	}
-	
+
 	@RequestMapping("/covid19")
 	public void covid19(PrintWriter out) {
 		StringBuffer sb = new StringBuffer();
@@ -57,6 +69,37 @@ public class MainController {
 		sb.append(dtf.format(ld));
 
 		out.print(data.getXmlData(sb.toString()));
+	}
+
+	@RequestMapping("/search/{val}/{type}/{title}")
+	public ModelAndView search(ModelAndView mv, HttpServletRequest request, @PathVariable("val") String val,
+			@PathVariable("type") String type, @PathVariable("title") String title) {
+		String page = request.getParameter("page") != null ? request.getParameter("page") : "1";
+		String display = request.getParameter("display") != null ? request.getParameter("display")
+				: search.getDisplay() + "";
+		JSONObject json = new JSONObject(search.search(val, type));
+		String total = !type.equals("ERRATA") ? "(" + json.get("total").toString() + ")" : "";
+		String errata = type.equals("ERRATA") ? json.get("errata").toString() : "";
+		List<JSONObject> list = new ArrayList();
+
+		if (!type.equals("ERRATA")) {
+			JSONArray items = (JSONArray) json.get("items");
+			Iterator it = items.iterator();
+			while (it.hasNext())
+				list.add((JSONObject) it.next());
+		}
+
+		mv.addObject("url", "/search");
+		mv.addObject("val", val);
+		mv.addObject("type", type);
+		mv.addObject("page", page);
+		mv.addObject("list", list);
+		mv.addObject("total", total);
+		mv.addObject("title", title);
+		mv.addObject("errata", errata);
+		mv.addObject("display", display);
+		mv.setViewName("/front/api/naver/search");
+		return mv;
 	}
 
 }

@@ -27,7 +27,7 @@
 	--dark-mode-color: #1e1f21;
 	--dark-mode-button-color: #53575c;
 }
-
+#wrap { min-width: 1500px; }
 header { width: 100%;height: 80px;float: left;background-color: var(--main-color); }
 nav { width: 100%;height: 114px;float: left;background-color: var(--main-nav-color); }
 main { width: 100%;min-height: 1000px;float: left; }

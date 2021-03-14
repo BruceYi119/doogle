@@ -44,14 +44,14 @@ const delCookie = (name) => {
 
 const naverSearch = () => {
 	const search = document.querySelector('#search');
-	const searchType = document.querySelector('#searchType').value;
+	const searchType = encodeURIComponent(document.querySelector('#searchType').value);
 	const searchVal = encodeURIComponent(search.value);
-	const searchTitle = selectTxt[searchType];
+	const searchTitle = encodeURIComponent(selectTxt[searchType]);
 
 	if (searchVal.length < 1)
 		return false;
 
-	location.href = `http://localhost/view/api/naver/search.jsp?search=${searchVal}&searchType=${searchType}&searchTitle=${searchTitle}`;
+	location.href = `/search/${searchVal}/${searchType}/${searchTitle}`;
 };
 
 const setColor = () => {

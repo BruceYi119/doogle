@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <form action="/view/member/update_member.jsp" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="mno" value="${dto.mno}" />
 	<input type="hidden" name="id" value="${dto.id}" />
@@ -42,6 +43,13 @@
 			<span id="infoBirth">${dto.birth}</span>
 			<span class="errMsg"></span>
 			<input type="text" id="updateBirth" class="hide" />
+		</td>
+	</tr>
+	<tr>
+		<th>성별</th>
+		<td>
+			<c:if test="${dto.gender eq 'm'}">남자</c:if>
+			<c:if test="${dto.gender eq 'n'}">여자</c:if>
 		</td>
 	</tr>
 	<tr>

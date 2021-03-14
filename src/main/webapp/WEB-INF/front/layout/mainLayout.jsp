@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="/static/front/css/global.css">
 <link rel="stylesheet" href="/static/front/css/layout.css">
 <link rel="stylesheet" href="/static/front/css/main.css">
+<c:if test="${url eq '/search'}"><link rel="stylesheet" href="/static/front/css/search.css"></c:if>
 <c:if test="${url eq '/map'}"><link rel="stylesheet" href="/static/front/css/kakao_map.css"></c:if>
 <c:if test="${url eq '/calendar'}"><link rel="stylesheet" href="/static/front/css/calendar.css"></c:if>
 <c:if test="${url eq '/terms' || url eq '/join' || url eq '/login' || url eq '/member/info'}"><link rel="stylesheet" href="/static/front/css/member.css"></c:if>
@@ -34,6 +35,7 @@
 <c:if test="${url eq '/login'}"><script defer type="text/javascript" src="/static/front/js/login.js"></script></c:if>
 <c:if test="${url eq '/member/info'}"><script defer type="text/javascript" src="/static/front/js/member_info.js"></script></c:if>
 <c:if test="${url eq '/test/edit'}"><script defer type="text/javascript" src="/static/front/js/test.js"></script></c:if>
+<c:if test="${url eq '/search'}"><script defer type="text/javascript" src="/static/front/js/search.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
@@ -62,16 +64,16 @@
 						<select class="custom-select hide" id="searchType">
 							<option value="NEWS" selected="selected">뉴스</option>
 							<option value="BLOG">블로그</option>
-							<option value="BOOK">책</option>
+<!-- 							<option value="BOOK">책</option> -->
 							<option value="ENCYC">백과사전</option>
-							<option value="MOVIE">영화</option>
+<!-- 							<option value="MOVIE">영화</option> -->
 							<option value="CAFE">카페글</option>
 							<option value="KIN">지식iN</option>
-							<option value="LOCAL">지역</option>
+<!-- 							<option value="LOCAL">지역</option> -->
 							<option value="ERRATA">오타변환</option>
 							<option value="WEBKR">웹문서</option>
 							<option value="IMAGE">이미지</option>
-							<option value="SHOP">쇼핑</option>
+<!-- 							<option value="SHOP">쇼핑</option> -->
 							<option value="DOC">전문자료</option>
 						</select>
 					</div>
@@ -85,13 +87,6 @@
 					<li><a href="/shop">쇼핑</a></li>
 					<li><a href="/map">카카오맵</a></li>
 					<li><a href="/calendar">달력</a></li>
-		<!-- 			<li><a href="/view/wooram/wooramtrans.jsp">번역기</a></li> -->
-		<!-- 			<li><a href="/view/minkyu/minkyu.jsp">금융(투자정보)</a></li> -->
-		<!-- 			<li><a href="/view/heesoo/main/index.jsp">갈비대첩</a></li> -->
-		<!-- 			<li><a href="/view/yongsoon/pcEstimate.jsp">뚝딱조립PC</a></li> -->
-		<!-- 			<li><a href="/view/jiwon/recipe_list.jsp">레시피</a></li> -->
-		<!-- 			<li><a href="/view/wooram/list.jsp">애완동물카페</a></li> -->
-		<!-- 			<li><a href="/view/henry/henry.jsp">핸리</a></li> -->
 				</ul>
 			</div>
 		</nav>
