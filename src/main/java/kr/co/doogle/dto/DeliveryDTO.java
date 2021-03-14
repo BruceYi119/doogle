@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor	
+@AllArgsConstructor
 @NoArgsConstructor
 public class DeliveryDTO {
-	private int dno,mno;
-	private String addr,addr_detail,receive_name,phone,writedate,default_yn,type;
-	private String pickuptype,pickuptype_content,pickuptype_detail,delivery_msg;
+	private int dno, mno;
+	private String addr, addr_detail, receive_name, phone, writedate, default_yn, type;
+	private String pickuptype, pickuptype_content, pickuptype_detail, delivery_msg;
 }

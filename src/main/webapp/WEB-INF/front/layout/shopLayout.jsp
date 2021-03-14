@@ -43,6 +43,8 @@
 <c:if test="${url eq '/shop/end'}"><link rel="stylesheet" href="/static/front/css/orderend.css"></c:if>
 <c:if test="${url eq '/mypage/orderSumm'}"><link rel="stylesheet" href="/static/front/css/orderSumm.css"></c:if>
 <c:if test="${url eq '/mypage/orderSumm_detail'}"><link rel="stylesheet" href="/static/front/css/orderSumm_detail.css"></c:if>
+<c:if test="${url eq '/shop/basket'}"><link rel="stylesheet" href="/static/front/css/basket.css"></c:if>
+<c:if test="${url eq '/shop/living'}"><link rel="stylesheet" href="/static/front/css/living.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
@@ -84,6 +86,8 @@
 <c:if test="${url eq '/questionRegister'}"><script defer type="text/javascript" src="/static/front/js/questionRegister.js"></script></c:if>
 <c:if test="${url eq '/questionUpdate'}"><script defer type="text/javascript" src="/static/front/js/questionUpdate.js"></script></c:if>
 <c:if test="${url eq '/shop/order'}"><script defer type="text/javascript" src="/static/front/js/order.js"></script></c:if>
+<c:if test="${url eq '/shop/basket'}"><script defer type="text/javascript" src="/static/front/js/basket.js"></script></c:if>
+<c:if test="${url eq '/shop/living'}"><script defer type="text/javascript" src="/static/front/js/living.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">

@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BasketDTO {
-	private int bno,mno,pno,pono,quantity;
+public class LivingDTO {
+
+	private int lno,mno,pno;
 	private String writedate;
+
 }
