@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 public class MyCouponCouponDTO {
 	private int cno, mcno, mno, dis_price;
 	private double discount;
-	private String content, srat_expiry, end_expiry, dis_type;
+	private String pno, content, srat_expiry, end_expiry, dis_type;
 }

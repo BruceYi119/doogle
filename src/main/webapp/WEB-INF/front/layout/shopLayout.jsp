@@ -38,6 +38,11 @@
 <c:if test="${url eq '/shop/qna'}"><link rel="stylesheet" href="/static/front/css/qna.css"></c:if>
 <c:if test="${url eq '/shop/qnaUpdate'}"><link rel="stylesheet" href="/static/front/css/qnaUpdate.css"></c:if>
 <c:if test="${url eq '/shop/questionList'}"><link rel="stylesheet" href="/static/front/css/questionList.css"></c:if>
+<c:if test="${url eq '/shop/order'}"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"></c:if>
+<c:if test="${url eq '/shop/order'}"><link rel="stylesheet" href="/static/front/css/order.css"></c:if>
+<c:if test="${url eq '/shop/end'}"><link rel="stylesheet" href="/static/front/css/orderend.css"></c:if>
+<c:if test="${url eq '/mypage/orderSumm'}"><link rel="stylesheet" href="/static/front/css/orderSumm.css"></c:if>
+<c:if test="${url eq '/mypage/orderSumm_detail'}"><link rel="stylesheet" href="/static/front/css/orderSumm_detail.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>
@@ -78,6 +83,7 @@
 <c:if test="${url eq '/qna_register'}"><script defer type="text/javascript" src="/static/front/js/qnaRegister.js"></script></c:if>
 <c:if test="${url eq '/questionRegister'}"><script defer type="text/javascript" src="/static/front/js/questionRegister.js"></script></c:if>
 <c:if test="${url eq '/questionUpdate'}"><script defer type="text/javascript" src="/static/front/js/questionUpdate.js"></script></c:if>
+<c:if test="${url eq '/shop/order'}"><script defer type="text/javascript" src="/static/front/js/order.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">

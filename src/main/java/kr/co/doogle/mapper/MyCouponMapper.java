@@ -1,5 +1,6 @@
 package kr.co.doogle.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -9,7 +10,6 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import kr.co.doogle.dto.CouponDTO;
 import kr.co.doogle.dto.MyCouponCouponDTO;
 import kr.co.doogle.dto.MyCouponDTO;
 
@@ -47,11 +47,24 @@ public interface MyCouponMapper {
 			+ "tt where seq >= #{start}) where rownum <= #{end}"})
 	List<MyCouponCouponDTO> getAllPaging(@Param("start") int start, @Param("end") int end, @Param("mno") int mno);
     
-
 	@Update("")
 	int mod();
 
 	@Delete("delete from my_coupon where cno = #{dto2.cno}")
 	MyCouponDTO getmyDel(@Param("cno") int cno);
-	
+
+	@Select("select * from my_coupon where mno = #{mno}")
+	ArrayList<MyCouponDTO> getMyCoupon(@Param("mno") String mno);
+
+	@Select("select count(*) from my_coupon where mno = #{mno}")
+	int myCouponCnt(@Param("mno") String mno);
+
+	@Select("select mc.mcno mcno, c.pno pno, c.content content, c.discount discount, c.dis_price dis_price, c.dis_type dis_type,"
+			+ " c.srat_expiry srat_expiry, to_char(c.end_expiry,'YYYY-MM-DD') as end_expiry from my_coupon mc"
+			+ " left join coupon c on mc.cno = c.cno where mc.mno = #{mno}")
+	ArrayList<MyCouponCouponDTO> getCouponDetails(@Param("mno") String mno);
+
+	@Delete("delete my_coupon where mno = #{mno} and mcno = #{mcno}")
+	int deleteSelectedCoupon(@Param("mno") String mno,@Param("mcno") String mcno);
+
 }

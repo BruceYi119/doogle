@@ -1,5 +1,6 @@
 package kr.co.doogle.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -51,5 +52,8 @@ public interface CategoryMapper {
 
 	@Delete("delete from category where ctno = #{ctno}")
 	int del(@Param("ctno") int ctno);
+
+	@Select("select * from category where type=#{type}")
+	ArrayList<CategoryDTO> getCards(@Param("type") String type);
 
 }

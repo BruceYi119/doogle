@@ -12,7 +12,6 @@ import org.apache.ibatis.annotations.Update;
 
 import kr.co.doogle.dto.DeliveryDTO;
 import kr.co.doogle.dto.DeliveryMemberDTO;
-import kr.co.doogle.dto.NoticeDTO;
 
 
 @Mapper
@@ -68,4 +67,16 @@ public interface DeliveryMapper {
 	// 기본 배송지 이외 다른 배송지는 기본배송지에서 제외
 	@Update("update delivery set default_yn='n'")
 	void defaultUpdateNo();
+
+	@Select("select * from delivery where mno=${mno} and default_yn ='y'")
+	DeliveryDTO getDefault(@Param("mno") String mno);
+
+	@Update("update delivery set receive_name = #{receive_name}, phone = #{phone},pickuptype =#{pickuptype},"
+			+ "pickuptype_content = #{pickuptype_content},pickuptype_detail = #{pickuptype_detail},delivery_msg = #{delivery_msg}"
+			+ " where mno = #{mno} and default_yn ='y'")
+	int updateAddr(@Param("receive_name") String receive_name,@Param("phone") String phone,
+			@Param("pickuptype") String pickuptype,@Param("pickuptype_content") String pickuptype_content,
+			@Param("pickuptype_detail") String pickuptype_detai,@Param("delivery_msg") String delivery_msg,
+			@Param("mno") String mno);
+
 }

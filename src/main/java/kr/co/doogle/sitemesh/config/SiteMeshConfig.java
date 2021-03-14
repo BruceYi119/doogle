@@ -12,6 +12,7 @@ public class SiteMeshConfig extends ConfigurableSiteMeshFilter {
 		.addDecoratorPath("/deliveryUpdate", null)
 		.addDecoratorPath("/shop/qnaOrderList", null)
 		.addDecoratorPath("/shop/alarmApply", null)
+		.addDecoratorPath("/order/addrUpdate", null)
 		.addDecoratorPath("/admin/popup/on",null)
 		.addDecoratorPath("/admin*", "/WEB-INF/back/layout/adminLayout.jsp")
 		.addDecoratorPath("/shop*", "/WEB-INF/front/layout/shopLayout.jsp")

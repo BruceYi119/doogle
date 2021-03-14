@@ -1,0 +1,424 @@
+*, :after, :before {
+    margin: 0;
+}
+
+body, button, input, select, textarea {
+    font-size: 14px;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+body {
+    color: #333;
+    line-height: 1.5;
+}
+
+.font_normal, .module_address.only_pc .btn,
+.module_address.only_pc .contact, 
+.module_address.only_pc .spot, 
+.only_pc input, 
+.only_pc label, 
+.receive_info.only_pc .info, 
+.receive_info.only_pc .info .field .text_field, 
+.receive_info.only_pc .info_agree, 
+.receive_info.only_pc .label_block, 
+.receive_info.only_pc.reception_info .info.info_same .label_block {
+    font-family: noto sans;
+    font-weight: 400;
+}
+
+label {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+label {
+    position: relative;
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+}
+
+ol, ul {
+    list-style-type: none;
+}
+
+#kMain{
+    position: relative;
+    margin-top: 44px;
+}
+
+#header.only_pc {
+    position: static;
+    height: 82px;
+    margin-top: -44px;
+    padding: 30px 0 0 30px;
+    border-bottom: 0;
+    text-align: left;
+}
+
+.only_pc {
+    overflow: hidden;
+    min-width: 400px;
+}
+
+#header.only_pc .tit_header {
+    float: left;
+    font: normal 24px/32px "Noto Sans Medium";
+}
+
+.receive_info.only_pc * {
+    letter-spacing: -.5px;
+}
+
+
+.receive_info.only_pc.reception_info {
+    overflow: visible;
+    padding: 0;
+}
+
+.label_block{
+    position: absolute;
+    font-size: 15px;
+    right: 50px;
+}
+
+.label_block input{
+    position: absolute;
+    right: 135px;
+    z-index: 1;
+    opacity: 0%;
+    width: 16px;
+    height: 24px;
+}
+
+input[type=checkbox]+.ico {
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    background-image: url(https://res.kurly.com/mobile/service/common/2006/ico_checkbox.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: 50% 50%;
+    vertical-align: -6px;
+}
+
+input[type=checkbox]:checked+.ico {
+    background-image: url(https://res.kurly.com/mobile/service/common/2006/ico_checkbox_checked.svg);
+}
+
+input[type=radio]:checked+.ico,
+input[type=radio]:checked {
+    border: 1px solid #5f0081;
+    background-color: #5f0080;
+}
+
+.only_pc input {
+    height: 24px;
+    padding: 0 14px 1px;
+    font-size: 14px;
+    letter-spacing: -.5px;
+    ime-mode: active;
+}
+
+
+input[type=search],
+input[type=email],
+input[type=password],
+input[type=text],
+input[type=number],
+textarea, .field_address .txt_address, .birth_day {
+    width: 93%;
+    height: 48px;
+    padding: 0 11px 1px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+}
+
+.receive_info.reception_info .info.info_same+.info {
+    padding-top: 0;
+}
+
+.receive_info.only_pc.reception_info .info {
+    padding: 16px 30px 0;
+}
+
+.receive_info.only_pc.reception_info .info .tit {
+    padding-bottom: 10px;
+}
+
+.receive_info.only_pc.reception_info .info .tit label {
+    font-size: 14px;
+}
+
+.receive_info.reception_info .info .tit .ico {
+    color: #ee6a7b;
+}
+
+.receive_info.reception_info .label_block {
+    margin-bottom: 0;
+    padding: 12px 0 9px;
+}
+
+label.label_block {
+    display: block;
+}
+
+.label_block .radioText{
+    font-size: 12px;
+}
+
+.radio-group{
+    width: 100%;
+    height: 44px;
+    margin: 5px 0;
+}
+
+.radio{
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: capitalize;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+.radio + .radio{
+    margin-left: 20px;
+}
+
+.radio + .radio{
+    margin-left: 20px;
+}
+
+.radio.orderMsg + .radio.orderMsg{
+    margin-left: 120px;
+}
+
+
+.radio input[type="radio"]{
+    display: none;
+}
+
+.radio .radioText{
+    padding: 3px 10px;
+}
+
+.radio span{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 3px solid #5f0080;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+.radio span:after{
+    content: "";
+    height: 10px;
+    width: 10px;
+    background: #5f0080;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    border-radius: 50%;
+    transition: 300ms ease-in-out 0s;
+}
+
+.radio input[type="radio"]:checked ~ span:after{
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.only_pc textarea {
+    ime-mode: active;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.receive_info.reception_info .info.place_etc textarea {
+    resize: none;
+    height: 88px;
+    margin-bottom: 8px;
+}
+
+.receive_info.only_pc.reception_info textarea {
+    height: 90px;
+}
+
+.receive_info.reception_info .info textarea {
+    resize: none;
+    height: 83px;
+    padding: 13px 10px;
+    word-break: break-all;
+}
+.receive_info.only_pc.reception_info .info .notcie_field {
+    margin: 10px 0;
+    padding: 15px 16px 14px;
+}
+
+.receive_info .info .notcie_field {
+    margin: 12px 0 10px;
+    padding: 16px;
+    border-radius: 3px;
+    background-color: rgba(95,0,128,.04);
+}
+
+.receive_info.only_pc.reception_info .info .tit_notice {
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+.receive_info .info .notcie_field .tit_notice {
+    display: block;
+    padding: 0 0 0 20px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #5f0080;
+    line-height: 18px;
+    background-image: url(https://res.kurly.com/mobile/ico/2010/ico_info.svg?v=2);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: 0 50%;
+}
+
+.receive_info.only_pc.reception_info .info .menas {
+    padding: 6px 0 0;
+}
+
+.receive_info.only_pc.reception_info .info .menas .notice {
+    padding-bottom: 9px;
+}
+
+.receive_info.only_pc .notice {
+    padding-top: 7px;
+    letter-spacing: -.3px;
+}
+
+.receive_info.reception_info .notice {
+    padding: 7px 0;
+    color: #999;
+}
+
+.receive_info .info .notice {
+    padding-top: 6px;
+    font-size: 12px;
+    color: #666;
+    line-height: 17px;
+}
+
+.receive_info.reception_info .info.place_guard textarea {
+    height: 72px;
+    margin-bottom: 8px;
+}
+
+.receive_info.only_pc.reception_info .info .list_notice {
+    padding-top: 0;
+    padding-left: 2px;
+}
+
+.receive_info.only_pc.reception_info .info .list_notice li {
+    color: #5f0080;
+    position: relative;
+    padding: 4px 0 4px 20px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -.17px;
+}
+
+.receive_info.only_pc.reception_info .info .list_notice li:before {
+    content: "\b7";
+    position: absolute;
+    left: 11px;
+    top: 4px;
+}
+
+.receive_info.only_pc.reception_info .submit {
+    margin: 0 auto;
+    padding: 30px 34px 40px;
+}
+
+.receive_info.only_pc.reception_info .info .subRadio {
+    padding-top: 6px;
+}
+
+
+.only_pc .double {
+    display: block;
+    overflow: hidden;
+}
+
+.only_pc .double .btn:first-child {
+    float: left;
+    margin-right: 0;
+    margin-left: -4px;
+}
+
+.only_pc .double .btn {
+    float: right;
+    width: 50%;
+    margin-right: -4px;
+    font-size: 14px;
+}
+
+.only_pc .btn {
+    height: 44px;
+    line-height: 42px;
+}
+
+.btn.default, .btn.normal {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+}
+
+.btn {
+    width: 100%;
+    height: 48px;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 46px;
+    text-align: center;
+    outline: none;
+}
+
+button {
+    outline: none;
+    border-radius: 0;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+.btn.active {
+    border: 1px solid #5f0081;
+    background-color: #5f0080;
+    color: #fff;
+}

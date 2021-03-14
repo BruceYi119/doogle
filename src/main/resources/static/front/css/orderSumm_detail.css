@@ -1,0 +1,621 @@
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 메인 */
+#main {
+    border-bottom: 1px solid #f7f7f7;
+}
+
+/* 컨텐트 */
+#content {
+    min-width: 1050px;
+    padding-bottom: 120px;
+}
+
+/* 공통 */
+.page_aticle {
+    width: 1050px;
+    margin: 0 auto;
+}
+.page_aticle button, .page_aticle input, .page_aticle select, .page_aticle * {
+    font-family: noto sans;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
+ol, ul {
+    list-style-type: none;
+}
+
+img {
+    border: 0;
+}
+
+img, video, canvas {
+    max-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 마이페이지 탑 */
+.mypage_top {
+    width: 100%;
+    padding: 50px 0;
+    margin-bottom: -20px;
+    background-color: #f7f7f7;
+}
+
+.mypage_top .mypagetop_user {
+    overflow: hidden;
+    width: 1050px;
+    margin: 0 auto;
+}
+
+.mypage_top .inner_mypagetop {
+    overflow: hidden;
+    width: 100%;
+    background: url(https://res.kurly.com/pc/service/common/1904/bg_mypagetop.png) repeat-y 0 0;
+}
+
+/* 등급 부분 */
+.mypage_top .grade_user {
+    float: left;
+    width: 444px;
+    height: 100%;
+    padding: 28px 0 30px 30px;
+    background-color: #fff;
+}
+
+.mypage_top .grade_user .grade {
+    overflow: hidden;
+    width: 100%;
+    padding-right: 26px;
+}
+
+
+.mypage_top .grade_user .ico_grade {
+    float: left;
+    width: 64px;
+    height: 64px;
+    margin: 2px 20px 0 0;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    word-break: break-all;
+}
+
+
+.mypage_top .grade_user .class0 {
+    border: 1px solid #5f0080;
+    background-color: #fff;
+    color: #5f0080;
+}
+
+.mypage_top .grade_user .inner_grade {
+    display: table;
+    width: 100%;
+    height: 64px;
+    padding-bottom: 3px;
+}
+
+.mypage_top .grade_user .in_grade {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+    line-height: 18px;
+    word-break: keep-all;
+}
+
+.mypage_top .grade_bnenfit {
+    overflow: hidden;
+}
+
+.mypage_top .grade_user .user {
+    overflow: hidden;
+    padding: 2px 0 14px;
+}
+
+.mypage_top .name {
+    overflow: hidden;
+    float: left;
+    max-width: 263px;
+    font-weight: 700;
+    font-size: 20px;
+    color: #333;
+    line-height: 28px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mypage_top .txt {
+    float: left;
+    padding-left: 5px;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.mypage_top .grade_user .benefit {
+    padding-top: 2px;
+}
+
+.mypage_top .benefit {
+    font-size: 12px;
+    line-height: 18px;
+    color: #333;
+}
+
+.mypage_top .benefit .tit {
+    color: #5f0080;
+}
+
+.mypage_top .next {
+    overflow: hidden;
+    width: 100%;
+    padding: 22px 0 0 84px;
+}
+
+.mypage_top .next a {
+    float: left;
+    height: 30px;
+    padding-top: 4px;
+    margin-right: 10px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    color: #333;
+    line-height: 18px;
+    text-align: center;
+}
+
+.mypage_top .total_grade {
+    width: 121px;
+}
+
+.mypage_top .next_month {
+    width: 169px;
+}
+
+/* 적릭금, 쿠폰, 컬리패스 부분 */
+.mypage_top .list_mypage {
+    float: right;
+    width: 602px;
+}
+
+.mypage_top .list_mypage li {
+    float: left;
+    width: 198px;
+    margin-right: 4px;
+    background-color: #fff;
+}
+
+.mypage_top .list_mypage .link {
+    float: left;
+    width: 100%;
+    padding: 29px 0 0 30px;
+}
+
+.mypage_top .list_mypage .tit {
+    padding-bottom: 26px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #333;
+}
+
+.mypage_top .list_mypage .info {
+    font-weight: 700;
+    font-size: 20px;
+    color: #5f0080;
+    line-height: 28px;
+}
+
+.mypage_top .list_mypage .info img {
+    width: 28px;
+    height: 28px;
+    margin: 1px 0 0 -4px;
+    vertical-align: top;
+}
+
+.mypage_top .list_mypage .info .date {
+    display: block;
+    padding-top: 12px;
+    font-size: 12px;
+    color: #999;
+    line-height: 16px;
+}
+
+.mypage_top .list_mypage .user_kurlypass {
+    margin-right: 0;
+}
+
+.mypage_top .bnr_event {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+    background-size: 1050px 60px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+/* 마이컬리부분 */
+.page_aticle.aticle_type2 {
+    padding-top: 65px;
+}
+
+/* 마이컬리 왼쪽 네비게이션 */
+#snb {
+    float: left;
+    width: 200px;
+}
+
+#snb .tit_snb {
+    padding: 8px 0 33px 1px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+
+#snb .inner_snb {
+    border: 1px solid #f2f2f2;
+    border-bottom: 0;
+}
+
+#snb .list_menu li {
+    border-bottom: 1px solid #f2f2f2;
+}
+
+#snb .list_menu li.on a, #snb .list_menu li a:hover {
+    background: #fafafa url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11_on.svg) no-repeat 174px 52%;
+    background-size: 6px 11px;
+    font-weight: 700;
+    color: #5f0080;
+}
+
+#snb .list_menu li a {
+    display: block;
+    overflow: hidden;
+    padding: 15px 0 15px 20px;
+    background: #fff url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11.svg) no-repeat 174px 52%;
+    background-size: 6px 11px;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+    letter-spacing: -.3px;
+}
+
+#snb .link_inquire {
+    display: block;
+    overflow: hidden;
+    width: 200px;
+    height: 60px;
+    margin-top: 20px;
+    padding: 9px 0 0 21px;
+    border-radius: 0 100px 100px 0;
+    background: #fafafa url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11_on.svg) no-repeat 174px 25px;
+    background-size: 6px 11px;
+    font-size: 12px;
+    color: #333;
+    line-height: 20px;
+}
+
+#snb .link_inquire .emph {
+    display: block;
+    padding-bottom: 1px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* 마이컬리 오른쪽 뿌려주는 부분 */
+.page_aticle.aticle_type2 .page_section {
+    float: right;
+    width: 820px;
+}
+
+.page_aticle .head_aticle {
+    padding: 5px 0 34px;
+}
+
+.page_aticle .head_aticle .tit {
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+
+.section_orderview .head_section {
+    padding: 63px 0 22px;
+}
+
+.section_orderview .link_type {
+    position: relative;
+    padding: 0 0 21px;
+}
+
+.page_aticle .head_section .tit {
+    font-weight: 700;
+    font-size: 16px;
+    color: gray;
+    line-height: 24px;
+}
+
+.section_orderview .head_section .tit {
+    font-size: 20px;
+    color: #333;
+    letter-spacing: -.4px;
+}
+
+.section_orderview .link_type .link {
+    position: absolute;
+    right: 1px;
+    top: 5px;
+    font-size: 12px;
+    color: #666;
+    text-align: right;
+}
+
+.section_orderview .link_type .link a {
+    padding-right: 11px;
+    background: url(https://res.kurly.com/pc/ico/2011/ico_outlink.svg) no-repeat 100% 50%;
+    background-size: 6px 9px;
+    font-size: 12px;
+    color: #5f0080;
+    line-height: 22px;
+}
+
+.section_orderview .tbl_type1 {
+    border-top: 2px solid #333;
+}
+
+.page_aticle .tbl {
+    width: 100%;
+}
+
+.page_aticle .tbl_type1 tr:first-child td {
+    border-top: 1px solid #333;
+}
+
+.section_orderview .tbl_type1 .thumb {
+    padding: 25px 0 24px;
+}
+
+.page_aticle .tbl_type1 td {
+    border-top: 1px solid #f4f4f4;
+}
+
+.section_orderview .tbl_type1 td {
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.page_aticle .tbl th, .page_aticle .tbl td {
+    word-break: break-all;
+}
+
+.section_orderview .tbl_type1 .thumb a {
+    display: block;
+    overflow: hidden;
+    width: 60px;
+    height: 78px;
+    background-color: #f4f4f4;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.section_orderview .tbl_type1 .info {
+    padding: 20px 0;
+}
+
+.section_orderview .tbl_type1 .name .link {
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+}
+
+.section_orderview .tbl_type1 .name_package .link {
+    font-size: 14px;
+    color: #999;
+    line-height: 22px;
+}
+
+.section_orderview .tbl_type1 .desc {
+    padding-top: 9px;
+    line-height: 20px;
+}
+
+.section_orderview .tbl_type1 .price {
+    padding-right: 5px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333;
+}
+
+.section_orderview .tbl_type1 .cost {
+    padding-right: 8px;
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.section_orderview .tbl_type1 .ea {
+    font-size: 14px;
+    color: #333;
+}
+
+.section_orderview .tbl_type1 .name_package {
+    padding-top: 7px;
+}
+
+.section_orderview .tbl_type1 .ea:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    margin-right: 8px;
+    background-color: #ddd;
+    vertical-align: -2px;
+}
+
+.section_orderview .tbl_type1 .progresss .end, .section_orderview .tbl_type1 .progresss.end {
+    color: #333;
+}
+
+.section_orderview .tbl_type1 .progresss {
+    font-weight: 700;
+    font-size: 16px;
+    color: #5f0080;
+    line-height: 24px;
+    text-align: right;
+}
+
+.section_orderview .tbl_type1 .action {
+    padding-left: 40px;
+}
+
+.section_orderview .tbl_type1 .btn:first-child {
+    margin-top: 0;
+}
+
+
+.section_orderview .tbl_type1 .btn {
+    display: block;
+    width: 96px;
+    height: 36px;
+    margin-top: 8px;
+    border-radius: 3px;
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 32px;
+    text-align: center;
+    padding: 0;
+}
+.section_orderview .tbl_type1 .btn_after {
+    border: 1px solid #512771;
+    background-color: #5f0080;
+    color: #fff;
+}
+
+.section_orderview .tbl_type1 .btn_cart {
+    border: 1px solid #5f0080;
+    color: #5f0080;
+}
+
+/* 버튼 부분 */
+.section_orderview .order_cancel {
+    padding: 40px 0 0;
+    text-align: center;
+}
+
+.section_orderview .order_cancel .inner_cancel {
+    display: inline-block;
+    overflow: hidden;
+    padding-left: 12px;
+}
+
+
+
+.section_orderview .order_cancel .btn {
+    float: left;
+    width: 200px;
+    height: 56px;
+    padding-bottom: 2px;
+    margin-right: 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+}
+
+.section_orderview .order_cancel .btn.off {
+    color: #ddd;
+}
+
+.section_orderview .order_cancel .btn_cart {
+    border: 1px solid #5f0080;
+    background-color: #fff;
+    color: #5f0080;
+}
+
+
+.section_orderview .order_cancel .cancel_notice {
+    padding-top: 39px;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+}
+
+.page_aticle .tbl_type2 {
+    border-top: 2px solid #333;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.section_orderview .tbl_type2 tr:first-child th, .section_orderview .tbl_type2 tr:first-child td {
+    padding-top: 24px;
+}
+
+.section_orderview .tbl_type2 th {
+    padding-bottom: 24px;
+    font-size: 16px;
+    color: #666;
+    line-height: 24px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.section_orderview .tbl_type3 td {
+    text-align: right;
+}
+
+.section_orderview .tbl_type2 td {
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+    vertical-align: top;
+}
+
+#paper_settlement, .section_orderview .tbl_type2 td .emph {
+    font-weight: 700;
+}
+
+.section_orderview .tbl_type2 tr:last-child th, .section_orderview .tbl_type2 tr:last-child td {
+    padding-bottom: 28px;
+}
+
+
+
+
+
+
+
