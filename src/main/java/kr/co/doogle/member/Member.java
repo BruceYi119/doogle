@@ -26,8 +26,9 @@ public class Member {
 		MemberDTO dto = memberMapper.adminLogin(id, pw);
 
 		if (dto != null) {
-			session.setAttribute("admin", dto.getId());
 			session.setAttribute("id", dto.getId());
+			session.setAttribute("mno", dto.getMno());
+			session.setAttribute("admin", dto.getId());
 			session.setAttribute("name", dto.getName());
 			login = true;
 		}
@@ -45,6 +46,7 @@ public class Member {
 
 		if (dto != null) {
 			session.setAttribute("id", dto.getId());
+			session.setAttribute("mno", dto.getMno());
 			session.setAttribute("name", dto.getName());
 			login = true;
 		}
@@ -72,7 +74,9 @@ public class Member {
 
 	public void logout(HttpSession session) {
 		session.removeAttribute("id");
+		session.removeAttribute("mno");
 		session.removeAttribute("name");
+		session.removeAttribute("admin");
 	}
 
 }

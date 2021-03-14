@@ -35,9 +35,9 @@ public interface MemberMapper {
 	@Select("select id from member where id = #{id}")
 	String isDuplicateId(@Param("id") String id);
 
-	@Insert("insert into member(mno, id, pw, name, phone, birth, zipcode, addr, addr_detail, email) "
-			+ "values(s_member.nextval, #{dto.id}, #{dto.pw}, #{dto.name}, #{dto.phone}, #{dto.birth}, #{dto.zipcode}, #{dto.addr}, #{dto.addr_detail}, #{dto.email})")
-	int insert(@Param("dto") MemberDTO dto);
+	@Insert({"insert into member(mno, id, pw, name, phone, birth, gender, zipcode, addr, addr_detail, email) "
+			+ "values(s_member.nextval, #{dto.id}, #{dto.pw}, #{dto.name}, #{dto.phone}, #{dto.birth}, #{dto.gender}, #{dto.zipcode}, #{dto.addr}, #{dto.addr_detail}, #{dto.email})"})
+	int add(@Param("dto") MemberDTO dto);
 
 	@Select("select * from member where id = #{id}")
 	MemberDTO getOne(@Param("id") String id);

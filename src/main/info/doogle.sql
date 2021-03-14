@@ -672,7 +672,7 @@ CREATE SEQUENCE s_qna_answer;
 /* 회원 (이승준) */
 CREATE TABLE member (
 	mno NUMBER NOT NULL, /* 회원번호 */
-	gno NUMBER NOT NULL, /* 등급번호 */
+	gno NUMBER DEFAULT 1 NOT NULL, /* 등급번호 */
 	id VARCHAR2(50) NOT NULL, /* 아이디 */
 	pw CHAR(128) NOT NULL, /* 비밀번호 */
 	name VARCHAR2(30) NOT NULL, /* 이름 */
@@ -740,7 +740,7 @@ ALTER TABLE member
 ALTER TABLE member
 	ADD
 		CONSTRAINT member_mtype_c
-		CHECK (del_yn in ('a','n'));
+		CHECK (mtype in ('a','n'));
 
 ALTER TABLE member
 	ADD

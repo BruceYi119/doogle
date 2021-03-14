@@ -105,12 +105,12 @@ public class MemberController {
 		return "redirect:/";
 	}
 
-	@RequestMapping("/join_ok")
-	public String join_ok(HttpSession session, MemberDTO dto) {
+	@RequestMapping("/join/ok")
+	public String joinOk(HttpSession session, MemberDTO dto) {
 		security.getSha512(dto.getPw());
 		dto.setPw(security.getSha512());
 
-		int r = memberMapper.insert(dto);
+		int r = memberMapper.add(dto);
 		if (r == 1)
 			member.login(session, dto.getId(), dto.getPw());
 		return "redirect:/";
