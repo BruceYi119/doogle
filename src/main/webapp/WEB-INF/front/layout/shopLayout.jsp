@@ -97,7 +97,7 @@
 		<!-- e:팝업 -->
 		<div id="main-banner">
 			<div class="wrap-container">
-				<a href="#">지금 가입하고 인기상품 <b>100원에 받아가세요!</b><img src="/static/front/img/shop/ico_arrow.webp" /></a>
+				<a href="/shop/event/collection">지금 가입하고 인기상품 <b>100원에 받아가세요!</b><img src="/static/front/img/shop/ico_arrow.webp" /></a>
 				<button type="button" id="btn-main-banner-close">가입하고 혜택받기</button>
 			</div>
 		</div>
@@ -142,7 +142,7 @@
 							<li><a href="#">신상품</a></li>
 							<li><a href="#">베스트</a></li>
 							<li><a href="#">알뜰쇼핑</a></li>
-							<li><a href="#">금주혜택</a></li>
+							<li><a href="/shop/event">금주혜택</a></li>
 							<li>
 								<form action="/shop/search" method="post">
 									<input type="text" id="shop-search" name="search" placeholder="내 맘대로 골라담는 식단조절 도시락" />
@@ -238,8 +238,8 @@
 			<div class="pb7">
 				<ul>
 					<li><a href="/">Doogle</a></li>
-					<li><a href="#">등급별 혜택</a></li>
-					<li><a href="#">레시피</a></li>
+					<li><a href="/shop/event/lover">등급별 혜택</a></li>
+					<li><a href="/shop/recipe">레시피</a></li>
 					<li><a href="#">베스트후기</a></li>
 				</ul>
 			</div>

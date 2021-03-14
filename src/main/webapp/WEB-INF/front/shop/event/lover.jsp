@@ -16,7 +16,7 @@
 		</div>
 		<div id="incon" align="left">
 			<div class="event_tit">
-				<h2 class="tit_event">컬리 러버스 혜택</h2>
+				<h2 class="tit_event">두글쇼핑 러버스 혜택</h2>
 				<p class="txt_event">고객님께 받은 사랑을 혜택으로 돌려드려요. 매월 실적에 따라 달라지는
 					실용적이고 다채로운 혜택을 확인해보세요.</p>
 			</div>
