@@ -1657,6 +1657,13 @@ CREATE TABLE payment (
 	type CHAR(1) DEFAULT 'c' NOT NULL, /* 결제방법 */
 	payment NUMBER DEFAULT 0 NOT NULL, /* 결제금액 */
 	saving NUMBER DEFAULT 0 NOT NULL, /* 적립금결제금액 */
+	delivery_price NUMBER DEFAULT 0, /* 배송비 */
+	product_dis_price NUMBER DEFAULT 0, /* 상품할인금액 */
+	coupon_dis_price NUMBER DEFAULT 0, /* 쿠폰할인 */
+	saving_price NUMBER DEFAULT 0, /* 적립예정금액 */
+	product_total_price NUMBER DEFAULT 0, /* 상품금액 */
+	card_name VARCHAR2(300), /* 카드명 */
+	card_month VARCHAR2(300), /* 할부기간 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
 
@@ -1673,6 +1680,20 @@ COMMENT ON COLUMN payment.type IS '결제방법';
 COMMENT ON COLUMN payment.payment IS '결제금액';
 
 COMMENT ON COLUMN payment.saving IS '적립금결제금액';
+
+COMMENT ON COLUMN payment.delivery_price IS '배송비';
+
+COMMENT ON COLUMN payment.product_dis_price IS '상품할인금액';
+
+COMMENT ON COLUMN payment.coupon_dis_price IS '쿠폰할인';
+
+COMMENT ON COLUMN payment.saving_price IS '적립예정금액';
+
+COMMENT ON COLUMN payment.product_total_price IS '상품금액';
+
+COMMENT ON COLUMN payment.card_name IS '카드명';
+
+COMMENT ON COLUMN payment.card_month IS '할부기간';
 
 COMMENT ON COLUMN payment.writedate IS '등록일';
 
