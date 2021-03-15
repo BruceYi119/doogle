@@ -1984,7 +1984,6 @@ CREATE TABLE order_list (
 	ono NUMBER NOT NULL, /* 주문번호 */
 	pno NUMBER NOT NULL, /* 상품번호 */
 	pono NUMBER, /* 상품옵션번호 */
-	credit NUMBER DEFAULT 0 NOT NULL, /* 적립금 */
 	type CHAR(1) DEFAULT 'd' NOT NULL, /* 상태 */
 	quantity NUMBER DEFAULT 0 NOT NULL, /* 수량 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
@@ -2001,8 +2000,6 @@ COMMENT ON COLUMN order_list.ono IS '주문번호';
 COMMENT ON COLUMN order_list.pno IS '상품번호';
 
 COMMENT ON COLUMN order_list.pono IS '상품옵션번호';
-
-COMMENT ON COLUMN order_list.credit IS '적립금';
 
 COMMENT ON COLUMN order_list.type IS '상태';
 
@@ -2037,10 +2034,12 @@ AFTER INSERT ON order_list
 FOR EACH ROW
 DECLARE
 vsvno saving.svno%type;
+vsaving_price payment.saving_price%type;
 BEGIN
   IF INSERTING THEN 
-    select svno into vsvno from saving where mno = :NEW.mno;
-    insert into saving_list(svlno, svno, mno, olno, credit) values (s_saving_list.nextval, vsvno, :NEW.mno, :NEW.olno, :NEW.credit);
+    select svno into vsvno from saving where ono = :NEW.ono;
+    select saving_price into vsaving_price from payment where mno = :NEW.mno
+    insert into saving_list(svlno, svno, mno, olno, credit) values (s_saving_list.nextval, vsvno, :NEW.mno, :NEW.olno, vsaving_price);
   END IF;
 END;
 /
