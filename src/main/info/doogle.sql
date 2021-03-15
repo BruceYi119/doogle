@@ -349,385 +349,385 @@ DROP INDEX files_fno_i;
 
 DROP INDEX qna_answer_qano_p;
 
-/* ê¸°ë³¸ë°°ì†¡ì§€ */
+/* ±âº»¹è¼ÛÁö */
 DROP TRIGGER t_member_delivery;
 
-/* ì ë¦½ê¸ˆ */
+/* Àû¸³±Ý */
 DROP TRIGGER t_member_saving;
 
-/* ì ë¦½ê¸ˆ ëª©ë¡ */
+/* Àû¸³±Ý ¸ñ·Ï */
 DROP TRIGGER t_order_list_saving_list;
 
-/* íšŒì› (ì´ìŠ¹ì¤€) */
+/* È¸¿ø (ÀÌ½ÂÁØ) */
 DROP TABLE member 
 	CASCADE CONSTRAINTS;
 
-/* ìƒí’ˆ(ì´ìŠ¹ì¤€) */
+/* »óÇ°(ÀÌ½ÂÁØ) */
 DROP TABLE product 
 	CASCADE CONSTRAINTS;
 
-/* ì¹´í…Œê³ ë¦¬(ì´ìŠ¹ì¤€) */
+/* Ä«Å×°í¸®(ÀÌ½ÂÁØ) */
 DROP TABLE category 
 	CASCADE CONSTRAINTS;
 
-/* ì£¼ë¬¸(í—¨ë¦¬) */
+/* ÁÖ¹®(Çî¸®) */
 DROP TABLE orders 
 	CASCADE CONSTRAINTS;
 
-/* ìž¥ë°”êµ¬ë‹ˆ(ì •ì§€ì›) */
+/* Àå¹Ù±¸´Ï(Á¤Áö¿ø) */
 DROP TABLE basket 
 	CASCADE CONSTRAINTS;
 
-/* ë“±ê¸‰(ì´ìŠ¹ì¤€) */
+/* µî±Þ(ÀÌ½ÂÁØ) */
 DROP TABLE grade 
 	CASCADE CONSTRAINTS;
 
-/* ë°°ì†¡ì§€(ê°•ë¯¼ê·œ) */
+/* ¹è¼ÛÁö(°­¹Î±Ô) */
 DROP TABLE delivery 
 	CASCADE CONSTRAINTS;
 
-/* ì¿ í°(ë°•ìš©ìˆœ) */
+/* ÄíÆù(¹Ú¿ë¼ø) */
 DROP TABLE coupon 
 	CASCADE CONSTRAINTS;
 
-/* ì ë¦½ê¸ˆ(ë°•ìš©ìˆœ) */
+/* Àû¸³±Ý(¹Ú¿ë¼ø) */
 DROP TABLE saving 
 	CASCADE CONSTRAINTS;
 
-/* ìž¬ìž…ê³ ì•Œë¦¼(ê°•ë¯¼ê·œ) */
+/* ÀçÀÔ°í¾Ë¸²(°­¹Î±Ô) */
 DROP TABLE alarm 
 	CASCADE CONSTRAINTS;
 
-/* ê³µì§€ì‚¬í•­(ê°•ë¯¼ê·œ) */
+/* °øÁö»çÇ×(°­¹Î±Ô) */
 DROP TABLE notice 
 	CASCADE CONSTRAINTS;
 
-/* 1:1ë¬¸ì˜(ê°•ë¯¼ê·œ) */
+/* 1:1¹®ÀÇ(°­¹Î±Ô) */
 DROP TABLE qna 
 	CASCADE CONSTRAINTS;
 
-/* ëŒ€ëŸ‰ì£¼ë¬¸ë¬¸ì˜(ê¹€í¬ìˆ˜) */
+/* ´ë·®ÁÖ¹®¹®ÀÇ(±èÈñ¼ö) */
 DROP TABLE bulk_order 
 	CASCADE CONSTRAINTS;
 
-/* ìƒí’ˆì œì•ˆ(ê¹€í¬ìˆ˜) */
+/* »óÇ°Á¦¾È(±èÈñ¼ö) */
 DROP TABLE proposition 
 	CASCADE CONSTRAINTS;
 
-/* ì—ì½”í¬ìž¥í”¼ë“œë°±(ê¹€í¬ìˆ˜) */
+/* ¿¡ÄÚÆ÷ÀåÇÇµå¹é(±èÈñ¼ö) */
 DROP TABLE eco 
 	CASCADE CONSTRAINTS;
 
-/* ëŠ˜ì‚¬ëŠ”ê²ƒ(ì •ì§€ì›) */
+/* ´Ã»ç´Â°Í(Á¤Áö¿ø) */
 DROP TABLE living 
 	CASCADE CONSTRAINTS;
 
-/* ìƒí’ˆí›„ê¸°(ì´ìŠ¹ì¤€) */
+/* »óÇ°ÈÄ±â(ÀÌ½ÂÁØ) */
 DROP TABLE review 
 	CASCADE CONSTRAINTS;
 
-/* ìƒí’ˆì„¤ëª…(ì´ìŠ¹ì¤€) */
+/* »óÇ°¼³¸í(ÀÌ½ÂÁØ) */
 DROP TABLE product_info 
 	CASCADE CONSTRAINTS;
 
-/* ìƒí’ˆì˜µì…˜(ì´ìŠ¹ì¤€) */
+/* »óÇ°¿É¼Ç(ÀÌ½ÂÁØ) */
 DROP TABLE product_option 
 	CASCADE CONSTRAINTS;
 
-/* ì´ë²¤íŠ¸(ì§„ìš°ëžŒ) */
+/* ÀÌº¥Æ®(Áø¿ì¶÷) */
 DROP TABLE event 
 	CASCADE CONSTRAINTS;
 
-/* ê²°ì œ(í—¨ë¦¬) */
+/* °áÁ¦(Çî¸®) */
 DROP TABLE payment 
 	CASCADE CONSTRAINTS;
 
-/* íŒì—…(ì§„ìš°ëžŒ) */
+/* ÆË¾÷(Áø¿ì¶÷) */
 DROP TABLE popup 
 	CASCADE CONSTRAINTS;
 
-/* ë ˆì‹œí”¼(ì§„ìš°ëžŒ) */
+/* ·¹½ÃÇÇ(Áø¿ì¶÷) */
 DROP TABLE recipe 
 	CASCADE CONSTRAINTS;
 
-/* ìµœê·¼ë³¸ìƒí’ˆ(ì •ì§€ì›) */
+/* ÃÖ±Ùº»»óÇ°(Á¤Áö¿ø) */
 DROP TABLE latest 
 	CASCADE CONSTRAINTS;
 
-/* ìƒí’ˆë¬¸ì˜(ì´ìŠ¹ì¤€) */
+/* »óÇ°¹®ÀÇ(ÀÌ½ÂÁØ) */
 DROP TABLE product_qna 
 	CASCADE CONSTRAINTS;
 
-/* ë‚´ì¿ í°(ë°•ìš©ìˆœ) */
+/* ³»ÄíÆù(¹Ú¿ë¼ø) */
 DROP TABLE my_coupon 
 	CASCADE CONSTRAINTS;
 
-/* ì ë¦½ê¸ˆë‚´ì—­(ë°•ìš©ìˆœ) */
+/* Àû¸³±Ý³»¿ª(¹Ú¿ë¼ø) */
 DROP TABLE saving_list 
 	CASCADE CONSTRAINTS;
 
-/* ì£¼ë¬¸ëª©ë¡(í—¨ë¦¬) */
+/* ÁÖ¹®¸ñ·Ï(Çî¸®) */
 DROP TABLE order_list 
 	CASCADE CONSTRAINTS;
 
-/* ì¶”ì²œ(ì´ìŠ¹ì¤€) */
+/* ÃßÃµ(ÀÌ½ÂÁØ) */
 DROP TABLE recommend 
 	CASCADE CONSTRAINTS;
 
-/* ìžì£¼í•˜ëŠ”ì§ˆë¬¸(ê°•ë¯¼ê·œ) */
+/* ÀÚÁÖÇÏ´ÂÁú¹®(°­¹Î±Ô) */
 DROP TABLE question 
 	CASCADE CONSTRAINTS;
 
-/* íŒŒì¼(ì´ìŠ¹ì¤€) */
+/* ÆÄÀÏ(ÀÌ½ÂÁØ) */
 DROP TABLE files 
 	CASCADE CONSTRAINTS;
 
-/* 1:1ë¬¸ì˜ë‹µë³€ */
+/* 1:1¹®ÀÇ´äº¯ */
 DROP TABLE qna_answer 
 	CASCADE CONSTRAINTS;
 
-/* ìž¥ë°”êµ¬ë‹ˆ */
+/* Àå¹Ù±¸´Ï */
 DROP SEQUENCE s_basket;
 
-/* ìµœê·¼ë³¸ìƒí’ˆ */
+/* ÃÖ±Ùº»»óÇ° */
 DROP SEQUENCE s_latest;
 
-/* ëŠ˜ì‚¬ì¦Œê²ƒ */
+/* ´Ã»çÁð°Í */
 DROP SEQUENCE s_living;
 
-/* ì¿ í° */
+/* ÄíÆù */
 DROP SEQUENCE s_coupon;
 
-/* ì¶”ì²œ */
+/* ÃßÃµ */
 DROP SEQUENCE s_recommend;
 
-/* ì ë¦½ê¸ˆ */
+/* Àû¸³±Ý */
 DROP SEQUENCE s_saving;
 
-/* ì ë¦½ê¸ˆë‚´ì—­ */
+/* Àû¸³±Ý³»¿ª */
 DROP SEQUENCE s_saving_list;
 
-/* ë‚´ì¿ í° */
+/* ³»ÄíÆù */
 DROP SEQUENCE s_my_coupon;
 
-/* ìž¬ìž…ê³ ì•Œë¦¼ */
+/* ÀçÀÔ°í¾Ë¸² */
 DROP SEQUENCE s_alarm;
 
-/* ë°°ì†¡ì§€ */
+/* ¹è¼ÛÁö */
 DROP SEQUENCE s_delivery;
 
-/* ë“±ê¸‰ */
+/* µî±Þ */
 DROP SEQUENCE s_grade;
 
-/* íšŒì› */
+/* È¸¿ø */
 DROP SEQUENCE s_member;
 
-/* ìƒí’ˆì„¤ëª… */
+/* »óÇ°¼³¸í */
 DROP SEQUENCE s_product_info;
 
-/* ìƒí’ˆ */
+/* »óÇ° */
 DROP SEQUENCE s_product;
 
-/* ìƒí’ˆì˜µì…˜ */
+/* »óÇ°¿É¼Ç */
 DROP SEQUENCE s_product_option;
 
-/* ìƒí’ˆë¬¸ì˜ */
+/* »óÇ°¹®ÀÇ */
 DROP SEQUENCE s_product_qna;
 
-/* ê²°ì œ */
+/* °áÁ¦ */
 DROP SEQUENCE s_payment;
 
-/* ì£¼ë¬¸ */
+/* ÁÖ¹® */
 DROP SEQUENCE s_orders;
 
-/* ì£¼ë¬¸ëª©ë¡ */
+/* ÁÖ¹®¸ñ·Ï */
 DROP SEQUENCE s_order_list;
 
-/* íŒŒì¼ */
+/* ÆÄÀÏ */
 DROP SEQUENCE s_files;
 
-/* ë ˆì‹œí”¼ */
+/* ·¹½ÃÇÇ */
 DROP SEQUENCE s_recipe;
 
-/* ê³µì§€ì‚¬í•­ */
+/* °øÁö»çÇ× */
 DROP SEQUENCE s_norice;
 
-/* ìžì£¼í•˜ëŠ”ì§ˆë¬¸ */
+/* ÀÚÁÖÇÏ´ÂÁú¹® */
 DROP SEQUENCE s_question;
 
-/* 1:1ë¬¸ì˜ */
+/* 1:1¹®ÀÇ */
 DROP SEQUENCE s_qna;
 
-/* íŒì—… */
+/* ÆË¾÷ */
 DROP SEQUENCE s_popup;
 
-/* ì´ë²¤íŠ¸ */
+/* ÀÌº¥Æ® */
 DROP SEQUENCE s_event;
 
-/* ëŒ€ëŸ‰ì£¼ë¬¸ë¬¸ì˜ */
+/* ´ë·®ÁÖ¹®¹®ÀÇ */
 DROP SEQUENCE s_bulk_order;
 
-/* ìƒí’ˆì œì•ˆ */
+/* »óÇ°Á¦¾È */
 DROP SEQUENCE s_proposition;
 
-/* ì—ì½”í¬ìž¥í”¼ë“œë°± */
+/* ¿¡ÄÚÆ÷ÀåÇÇµå¹é */
 DROP SEQUENCE s_eco;
 
-/* ì¹´í…Œê³ ë¦¬ */
+/* Ä«Å×°í¸® */
 DROP SEQUENCE s_category;
 
-/* ìƒí’ˆí›„ê¸° */
+/* »óÇ°ÈÄ±â */
 DROP SEQUENCE s_review;
 
-/* 1:1ë¬¸ì˜ë‹µë³€ */
+/* 1:1¹®ÀÇ´äº¯ */
 DROP SEQUENCE s_qna_answer;
 
-/* ìž¥ë°”êµ¬ë‹ˆ */
+/* Àå¹Ù±¸´Ï */
 CREATE SEQUENCE s_basket;
 
-/* ìµœê·¼ë³¸ìƒí’ˆ */
+/* ÃÖ±Ùº»»óÇ° */
 CREATE SEQUENCE s_latest;
 
-/* ëŠ˜ì‚¬ì¦Œê²ƒ */
+/* ´Ã»çÁð°Í */
 CREATE SEQUENCE s_living;
 
-/* ì¿ í° */
+/* ÄíÆù */
 CREATE SEQUENCE s_coupon;
 
-/* ì¶”ì²œ */
+/* ÃßÃµ */
 CREATE SEQUENCE s_recommend;
 
-/* ì ë¦½ê¸ˆ */
+/* Àû¸³±Ý */
 CREATE SEQUENCE s_saving;
 
-/* ì ë¦½ê¸ˆë‚´ì—­ */
+/* Àû¸³±Ý³»¿ª */
 CREATE SEQUENCE s_saving_list;
 
-/* ë‚´ì¿ í° */
+/* ³»ÄíÆù */
 CREATE SEQUENCE s_my_coupon;
 
-/* ìž¬ìž…ê³ ì•Œë¦¼ */
+/* ÀçÀÔ°í¾Ë¸² */
 CREATE SEQUENCE s_alarm;
 
-/* ë°°ì†¡ì§€ */
+/* ¹è¼ÛÁö */
 CREATE SEQUENCE s_delivery;
 
-/* ë“±ê¸‰ */
+/* µî±Þ */
 CREATE SEQUENCE s_grade;
 
-/* íšŒì› */
+/* È¸¿ø */
 CREATE SEQUENCE s_member;
 
-/* ìƒí’ˆì„¤ëª… */
+/* »óÇ°¼³¸í */
 CREATE SEQUENCE s_product_info;
 
-/* ìƒí’ˆ */
+/* »óÇ° */
 CREATE SEQUENCE s_product;
 
-/* ìƒí’ˆì˜µì…˜ */
+/* »óÇ°¿É¼Ç */
 CREATE SEQUENCE s_product_option;
 
-/* ìƒí’ˆë¬¸ì˜ */
+/* »óÇ°¹®ÀÇ */
 CREATE SEQUENCE s_product_qna;
 
-/* ê²°ì œ */
+/* °áÁ¦ */
 CREATE SEQUENCE s_payment;
 
-/* ì£¼ë¬¸ */
+/* ÁÖ¹® */
 CREATE SEQUENCE s_orders;
 
-/* ì£¼ë¬¸ëª©ë¡ */
+/* ÁÖ¹®¸ñ·Ï */
 CREATE SEQUENCE s_order_list;
 
-/* íŒŒì¼ */
+/* ÆÄÀÏ */
 CREATE SEQUENCE s_files;
 
-/* ë ˆì‹œí”¼ */
+/* ·¹½ÃÇÇ */
 CREATE SEQUENCE s_recipe;
 
-/* ê³µì§€ì‚¬í•­ */
+/* °øÁö»çÇ× */
 CREATE SEQUENCE s_norice;
 
-/* ìžì£¼í•˜ëŠ”ì§ˆë¬¸ */
+/* ÀÚÁÖÇÏ´ÂÁú¹® */
 CREATE SEQUENCE s_question;
 
-/* 1:1ë¬¸ì˜ */
+/* 1:1¹®ÀÇ */
 CREATE SEQUENCE s_qna;
 
-/* íŒì—… */
+/* ÆË¾÷ */
 CREATE SEQUENCE s_popup;
 
-/* ì´ë²¤íŠ¸ */
+/* ÀÌº¥Æ® */
 CREATE SEQUENCE s_event;
 
-/* ëŒ€ëŸ‰ì£¼ë¬¸ë¬¸ì˜ */
+/* ´ë·®ÁÖ¹®¹®ÀÇ */
 CREATE SEQUENCE s_bulk_order;
 
-/* ìƒí’ˆì œì•ˆ */
+/* »óÇ°Á¦¾È */
 CREATE SEQUENCE s_proposition;
 
-/* ì—ì½”í¬ìž¥í”¼ë“œë°± */
+/* ¿¡ÄÚÆ÷ÀåÇÇµå¹é */
 CREATE SEQUENCE s_eco;
 
-/* ì¹´í…Œê³ ë¦¬ */
+/* Ä«Å×°í¸® */
 CREATE SEQUENCE s_category;
 
-/* ìƒí’ˆí›„ê¸° */
+/* »óÇ°ÈÄ±â */
 CREATE SEQUENCE s_review;
 
-/* 1:1ë¬¸ì˜ë‹µë³€ */
+/* 1:1¹®ÀÇ´äº¯ */
 CREATE SEQUENCE s_qna_answer;
 
-/* íšŒì› (ì´ìŠ¹ì¤€) */
+/* È¸¿ø (ÀÌ½ÂÁØ) */
 CREATE TABLE member (
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	gno NUMBER DEFAULT 1 NOT NULL, /* ë“±ê¸‰ë²ˆí˜¸ */
-	id VARCHAR2(50) NOT NULL, /* ì•„ì´ë”” */
-	pw CHAR(128) NOT NULL, /* ë¹„ë°€ë²ˆí˜¸ */
-	name VARCHAR2(30) NOT NULL, /* ì´ë¦„ */
-	phone VARCHAR2(20) NOT NULL, /* ì—°ë½ì²˜ */
-	birth VARCHAR2(20) NOT NULL, /* ìƒì¼ */
-	gender CHAR(1) DEFAULT 'm' NOT NULL, /* ì„±ë³„ */
-	zipcode VARCHAR2(20) NOT NULL, /* ìš°íŽ¸ë²ˆí˜¸ */
-	addr VARCHAR2(300) NOT NULL, /* ì£¼ì†Œ */
-	addr_detail VARCHAR2(300) NOT NULL, /* ìƒì„¸ì£¼ì†Œ */
-	email VARCHAR2(30) NOT NULL, /* ì´ë©”ì¼ */
-	mtype CHAR(1) DEFAULT 'n' NOT NULL, /* íšŒì›êµ¬ë¶„ */
-	del_yn CHAR(1) DEFAULT 'y' NOT NULL, /* íƒˆí‡´ì—¬ë¶€ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ê°€ìž…ì¼ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	gno NUMBER DEFAULT 1 NOT NULL, /* µî±Þ¹øÈ£ */
+	id VARCHAR2(50) NOT NULL, /* ¾ÆÀÌµð */
+	pw CHAR(128) NOT NULL, /* ºñ¹Ð¹øÈ£ */
+	name VARCHAR2(30) NOT NULL, /* ÀÌ¸§ */
+	phone VARCHAR2(20) NOT NULL, /* ¿¬¶ôÃ³ */
+	birth VARCHAR2(20) NOT NULL, /* »ýÀÏ */
+	gender CHAR(1) DEFAULT 'm' NOT NULL, /* ¼ºº° */
+	zipcode VARCHAR2(20) NOT NULL, /* ¿ìÆí¹øÈ£ */
+	addr VARCHAR2(300) NOT NULL, /* ÁÖ¼Ò */
+	addr_detail VARCHAR2(300) NOT NULL, /* »ó¼¼ÁÖ¼Ò */
+	email VARCHAR2(30) NOT NULL, /* ÀÌ¸ÞÀÏ */
+	mtype CHAR(1) DEFAULT 'n' NOT NULL, /* È¸¿ø±¸ºÐ */
+	del_yn CHAR(1) DEFAULT 'y' NOT NULL, /* Å»Åð¿©ºÎ */
+	writedate DATE DEFAULT sysdate NOT NULL /* °¡ÀÔÀÏ */
 );
 
-COMMENT ON TABLE member IS 'íšŒì› (ì´ìŠ¹ì¤€)';
+COMMENT ON TABLE member IS 'È¸¿ø (ÀÌ½ÂÁØ)';
 
-COMMENT ON COLUMN member.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN member.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN member.gno IS 'ë“±ê¸‰ë²ˆí˜¸';
+COMMENT ON COLUMN member.gno IS 'µî±Þ¹øÈ£';
 
-COMMENT ON COLUMN member.id IS 'ì•„ì´ë””';
+COMMENT ON COLUMN member.id IS '¾ÆÀÌµð';
 
-COMMENT ON COLUMN member.pw IS 'ë¹„ë°€ë²ˆí˜¸';
+COMMENT ON COLUMN member.pw IS 'ºñ¹Ð¹øÈ£';
 
-COMMENT ON COLUMN member.name IS 'ì´ë¦„';
+COMMENT ON COLUMN member.name IS 'ÀÌ¸§';
 
-COMMENT ON COLUMN member.phone IS 'ì—°ë½ì²˜';
+COMMENT ON COLUMN member.phone IS '¿¬¶ôÃ³';
 
-COMMENT ON COLUMN member.birth IS 'ìƒì¼';
+COMMENT ON COLUMN member.birth IS '»ýÀÏ';
 
-COMMENT ON COLUMN member.gender IS 'ì„±ë³„';
+COMMENT ON COLUMN member.gender IS '¼ºº°';
 
-COMMENT ON COLUMN member.zipcode IS 'ìš°íŽ¸ë²ˆí˜¸';
+COMMENT ON COLUMN member.zipcode IS '¿ìÆí¹øÈ£';
 
-COMMENT ON COLUMN member.addr IS 'ì£¼ì†Œ';
+COMMENT ON COLUMN member.addr IS 'ÁÖ¼Ò';
 
-COMMENT ON COLUMN member.addr_detail IS 'ìƒì„¸ì£¼ì†Œ';
+COMMENT ON COLUMN member.addr_detail IS '»ó¼¼ÁÖ¼Ò';
 
-COMMENT ON COLUMN member.email IS 'ì´ë©”ì¼';
+COMMENT ON COLUMN member.email IS 'ÀÌ¸ÞÀÏ';
 
-COMMENT ON COLUMN member.mtype IS 'íšŒì›êµ¬ë¶„';
+COMMENT ON COLUMN member.mtype IS 'È¸¿ø±¸ºÐ';
 
-COMMENT ON COLUMN member.del_yn IS 'íƒˆí‡´ì—¬ë¶€';
+COMMENT ON COLUMN member.del_yn IS 'Å»Åð¿©ºÎ';
 
-COMMENT ON COLUMN member.writedate IS 'ê°€ìž…ì¼';
+COMMENT ON COLUMN member.writedate IS '°¡ÀÔÀÏ';
 
 CREATE UNIQUE INDEX member_mno_i
 	ON member (
@@ -756,7 +756,7 @@ ALTER TABLE member
 		CONSTRAINT member_gender_c
 		CHECK (gender in ('m','f'));
 
-/* ê¸°ë³¸ë°°ì†¡ì§€ */
+/* ±âº»¹è¼ÛÁö */
 CREATE TRIGGER t_member_delivery
 AFTER INSERT ON member
 FOR EACH ROW
@@ -768,7 +768,7 @@ BEGIN
 END;
 /
 
-/* ì ë¦½ê¸ˆ */
+/* Àû¸³±Ý */
 CREATE TRIGGER t_member_saving
 AFTER INSERT ON member
 FOR EACH ROW
@@ -780,77 +780,77 @@ BEGIN
 END;
 /
 
-/* ìƒí’ˆ(ì´ìŠ¹ì¤€) */
+/* »óÇ°(ÀÌ½ÂÁØ) */
 CREATE TABLE product (
-	pno NUMBER NOT NULL, /* ìƒí’ˆë²ˆí˜¸ */
-	brand VARCHAR2(300), /* ë¸Œëžœë“œëª… */
-	name VARCHAR2(300) NOT NULL, /* ìƒí’ˆëª… */
-	subject VARCHAR2(300), /* ë¶€ì œëª© */
-	sel_unit VARCHAR2(100) DEFAULT '1ê°œ', /* íŒë§¤ë‹¨ìœ„ */
-	weight VARCHAR2(100) DEFAULT '0g', /* ì¤‘ëŸ‰/ìš©ëŸ‰ */
-	pack_type CHAR(1) DEFAULT 'd' NOT NULL, /* í¬ìž¥íƒ€ìž… */
-	info VARCHAR2(500), /* ì•ˆë‚´ì‚¬í•­ */
-	price NUMBER NOT NULL, /* ê°€ê²© */
-	discount NUMBER DEFAULT 0 NOT NULL, /* í• ì¸ìœ¨ */
-	dis_yn CHAR(1) DEFAULT 'n' NOT NULL, /* í• ì¸ì—¬ë¶€ */
-	earn NUMBER DEFAULT 0 NOT NULL, /* ì ë¦½ìœ¨ */
-	earn_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ì ë¦½ì—¬ë¶€ */
-	ctno NUMBER NOT NULL, /* ì¹´í…Œê³ ë¦¬ë²ˆí˜¸(ëŒ€) */
-	ctno1 NUMBER, /* ì¹´í…Œê³ ë¦¬ë²ˆí˜¸(ì¤‘) */
-	ctno2 NUMBER, /* ì¹´í…Œê³ ë¦¬ë²ˆí˜¸(ì†Œ) */
-	only_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ë‘ê¸€ë§ŒíŒœ */
-	od_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ìµœì €ê°€ */
-	fno VARCHAR2(100), /* ìƒí’ˆì´ë¯¸ì§€ */
-	quantity NUMBER DEFAULT 0 NOT NULL, /* ìˆ˜ëŸ‰ */
-	sel_yn CHAR(1) DEFAULT 'y' NOT NULL, /* íŒë§¤ì—¬ë¶€ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	pno NUMBER NOT NULL, /* »óÇ°¹øÈ£ */
+	brand VARCHAR2(300), /* ºê·£µå¸í */
+	name VARCHAR2(300) NOT NULL, /* »óÇ°¸í */
+	subject VARCHAR2(300), /* ºÎÁ¦¸ñ */
+	sel_unit VARCHAR2(100) DEFAULT '1°³', /* ÆÇ¸Å´ÜÀ§ */
+	weight VARCHAR2(100) DEFAULT '0g', /* Áß·®/¿ë·® */
+	pack_type CHAR(1) DEFAULT 'd' NOT NULL, /* Æ÷ÀåÅ¸ÀÔ */
+	info VARCHAR2(500), /* ¾È³»»çÇ× */
+	price NUMBER NOT NULL, /* °¡°Ý */
+	discount NUMBER DEFAULT 0 NOT NULL, /* ÇÒÀÎÀ² */
+	dis_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ÇÒÀÎ¿©ºÎ */
+	earn NUMBER DEFAULT 0 NOT NULL, /* Àû¸³À² */
+	earn_yn CHAR(1) DEFAULT 'n' NOT NULL, /* Àû¸³¿©ºÎ */
+	ctno NUMBER NOT NULL, /* Ä«Å×°í¸®¹øÈ£(´ë) */
+	ctno1 NUMBER, /* Ä«Å×°í¸®¹øÈ£(Áß) */
+	ctno2 NUMBER, /* Ä«Å×°í¸®¹øÈ£(¼Ò) */
+	only_yn CHAR(1) DEFAULT 'n' NOT NULL, /* µÎ±Û¸¸ÆÊ */
+	od_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ÃÖÀú°¡ */
+	fno VARCHAR2(100), /* »óÇ°ÀÌ¹ÌÁö */
+	quantity NUMBER DEFAULT 0 NOT NULL, /* ¼ö·® */
+	sel_yn CHAR(1) DEFAULT 'y' NOT NULL, /* ÆÇ¸Å¿©ºÎ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE product IS 'ìƒí’ˆ(ì´ìŠ¹ì¤€)';
+COMMENT ON TABLE product IS '»óÇ°(ÀÌ½ÂÁØ)';
 
-COMMENT ON COLUMN product.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN product.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN product.brand IS 'ë¸Œëžœë“œëª…';
+COMMENT ON COLUMN product.brand IS 'ºê·£µå¸í';
 
-COMMENT ON COLUMN product.name IS 'ìƒí’ˆëª…';
+COMMENT ON COLUMN product.name IS '»óÇ°¸í';
 
-COMMENT ON COLUMN product.subject IS 'ë¶€ì œëª©';
+COMMENT ON COLUMN product.subject IS 'ºÎÁ¦¸ñ';
 
-COMMENT ON COLUMN product.sel_unit IS 'íŒë§¤ë‹¨ìœ„';
+COMMENT ON COLUMN product.sel_unit IS 'ÆÇ¸Å´ÜÀ§';
 
-COMMENT ON COLUMN product.weight IS 'ì¤‘ëŸ‰/ìš©ëŸ‰';
+COMMENT ON COLUMN product.weight IS 'Áß·®/¿ë·®';
 
-COMMENT ON COLUMN product.pack_type IS 'í¬ìž¥íƒ€ìž…';
+COMMENT ON COLUMN product.pack_type IS 'Æ÷ÀåÅ¸ÀÔ';
 
-COMMENT ON COLUMN product.info IS 'ì•ˆë‚´ì‚¬í•­';
+COMMENT ON COLUMN product.info IS '¾È³»»çÇ×';
 
-COMMENT ON COLUMN product.price IS 'ê°€ê²©';
+COMMENT ON COLUMN product.price IS '°¡°Ý';
 
-COMMENT ON COLUMN product.discount IS 'í• ì¸ìœ¨';
+COMMENT ON COLUMN product.discount IS 'ÇÒÀÎÀ²';
 
-COMMENT ON COLUMN product.dis_yn IS 'í• ì¸ì—¬ë¶€';
+COMMENT ON COLUMN product.dis_yn IS 'ÇÒÀÎ¿©ºÎ';
 
-COMMENT ON COLUMN product.earn IS 'ì ë¦½ìœ¨';
+COMMENT ON COLUMN product.earn IS 'Àû¸³À²';
 
-COMMENT ON COLUMN product.earn_yn IS 'ì ë¦½ì—¬ë¶€';
+COMMENT ON COLUMN product.earn_yn IS 'Àû¸³¿©ºÎ';
 
-COMMENT ON COLUMN product.ctno IS 'ì¹´í…Œê³ ë¦¬ë²ˆí˜¸(ëŒ€)';
+COMMENT ON COLUMN product.ctno IS 'Ä«Å×°í¸®¹øÈ£(´ë)';
 
-COMMENT ON COLUMN product.ctno1 IS 'ì¹´í…Œê³ ë¦¬ë²ˆí˜¸(ì¤‘)';
+COMMENT ON COLUMN product.ctno1 IS 'Ä«Å×°í¸®¹øÈ£(Áß)';
 
-COMMENT ON COLUMN product.ctno2 IS 'ì¹´í…Œê³ ë¦¬ë²ˆí˜¸(ì†Œ)';
+COMMENT ON COLUMN product.ctno2 IS 'Ä«Å×°í¸®¹øÈ£(¼Ò)';
 
-COMMENT ON COLUMN product.only_yn IS 'ë‘ê¸€ë§ŒíŒœ';
+COMMENT ON COLUMN product.only_yn IS 'µÎ±Û¸¸ÆÊ';
 
-COMMENT ON COLUMN product.od_yn IS 'ìµœì €ê°€';
+COMMENT ON COLUMN product.od_yn IS 'ÃÖÀú°¡';
 
-COMMENT ON COLUMN product.fno IS 'ìƒí’ˆì´ë¯¸ì§€';
+COMMENT ON COLUMN product.fno IS '»óÇ°ÀÌ¹ÌÁö';
 
-COMMENT ON COLUMN product.quantity IS 'ìˆ˜ëŸ‰';
+COMMENT ON COLUMN product.quantity IS '¼ö·®';
 
-COMMENT ON COLUMN product.sel_yn IS 'íŒë§¤ì—¬ë¶€';
+COMMENT ON COLUMN product.sel_yn IS 'ÆÇ¸Å¿©ºÎ';
 
-COMMENT ON COLUMN product.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN product.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX product_pno_i
 	ON product (
@@ -894,32 +894,32 @@ ALTER TABLE product
 		CONSTRAINT product_od_yn_c
 		CHECK (od_yn in ('y','n'));
 
-/* ì¹´í…Œê³ ë¦¬(ì´ìŠ¹ì¤€) */
+/* Ä«Å×°í¸®(ÀÌ½ÂÁØ) */
 CREATE TABLE category (
-	ctno NUMBER NOT NULL, /* ì¹´í…Œê³ ë¦¬ë²ˆí˜¸ */
-	name VARCHAR2(100) NOT NULL, /* ì¹´í…Œê³ ë¦¬ëª… */
-	lv NUMBER(1) DEFAULT 0 NOT NULL, /* ì¹´í…Œê³ ë¦¬ë ˆë²¨ */
-	pctno NUMBER, /* ë¶€ëª¨ì¹´í…Œê³ ë¦¬ë²ˆí˜¸ */
-	type CHAR(1) DEFAULT 'p' NOT NULL, /* ì¹´í…Œê³ ë¦¬íƒ€ìž… */
-	idx NUMBER DEFAULT 1 NOT NULL, /* ìˆœì„œ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	ctno NUMBER NOT NULL, /* Ä«Å×°í¸®¹øÈ£ */
+	name VARCHAR2(100) NOT NULL, /* Ä«Å×°í¸®¸í */
+	lv NUMBER(1) DEFAULT 0 NOT NULL, /* Ä«Å×°í¸®·¹º§ */
+	pctno NUMBER, /* ºÎ¸ðÄ«Å×°í¸®¹øÈ£ */
+	type CHAR(1) DEFAULT 'p' NOT NULL, /* Ä«Å×°í¸®Å¸ÀÔ */
+	idx NUMBER DEFAULT 1 NOT NULL, /* ¼ø¼­ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE category IS 'ì¹´í…Œê³ ë¦¬(ì´ìŠ¹ì¤€)';
+COMMENT ON TABLE category IS 'Ä«Å×°í¸®(ÀÌ½ÂÁØ)';
 
-COMMENT ON COLUMN category.ctno IS 'ì¹´í…Œê³ ë¦¬ë²ˆí˜¸';
+COMMENT ON COLUMN category.ctno IS 'Ä«Å×°í¸®¹øÈ£';
 
-COMMENT ON COLUMN category.name IS 'ì¹´í…Œê³ ë¦¬ëª…';
+COMMENT ON COLUMN category.name IS 'Ä«Å×°í¸®¸í';
 
-COMMENT ON COLUMN category.lv IS 'ì¹´í…Œê³ ë¦¬ë ˆë²¨';
+COMMENT ON COLUMN category.lv IS 'Ä«Å×°í¸®·¹º§';
 
-COMMENT ON COLUMN category.pctno IS 'ë¶€ëª¨ì¹´í…Œê³ ë¦¬ë²ˆí˜¸';
+COMMENT ON COLUMN category.pctno IS 'ºÎ¸ðÄ«Å×°í¸®¹øÈ£';
 
-COMMENT ON COLUMN category.type IS 'ì¹´í…Œê³ ë¦¬íƒ€ìž…';
+COMMENT ON COLUMN category.type IS 'Ä«Å×°í¸®Å¸ÀÔ';
 
-COMMENT ON COLUMN category.idx IS 'ìˆœì„œ';
+COMMENT ON COLUMN category.idx IS '¼ø¼­';
 
-COMMENT ON COLUMN category.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN category.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX category_ctno_i
 	ON category (
@@ -938,23 +938,23 @@ ALTER TABLE category
 		CONSTRAINT category_type_c
 		CHECK (type in ('p','o','q','t','f','e','c','d','r'));
 
-/* ì£¼ë¬¸(í—¨ë¦¬) */
+/* ÁÖ¹®(Çî¸®) */
 CREATE TABLE orders (
-	ono NUMBER NOT NULL, /* ì£¼ë¬¸ë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	type CHAR(1) DEFAULT 'o' NOT NULL, /* ì£¼ë¬¸ìƒíƒœ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	ono NUMBER NOT NULL, /* ÁÖ¹®¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	type CHAR(1) DEFAULT 'o' NOT NULL, /* ÁÖ¹®»óÅÂ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE orders IS 'ì£¼ë¬¸(í—¨ë¦¬)';
+COMMENT ON TABLE orders IS 'ÁÖ¹®(Çî¸®)';
 
-COMMENT ON COLUMN orders.ono IS 'ì£¼ë¬¸ë²ˆí˜¸';
+COMMENT ON COLUMN orders.ono IS 'ÁÖ¹®¹øÈ£';
 
-COMMENT ON COLUMN orders.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN orders.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN orders.type IS 'ì£¼ë¬¸ìƒíƒœ';
+COMMENT ON COLUMN orders.type IS 'ÁÖ¹®»óÅÂ';
 
-COMMENT ON COLUMN orders.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN orders.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX orders_ono_i
 	ON orders (
@@ -975,29 +975,29 @@ ALTER TABLE orders
 		CONSTRAINT orders_type_c
 		CHECK (type in ('o','s','c','d'));
 
-/* ìž¥ë°”êµ¬ë‹ˆ(ì •ì§€ì›) */
+/* Àå¹Ù±¸´Ï(Á¤Áö¿ø) */
 CREATE TABLE basket (
-	bno NUMBER NOT NULL, /* ìž¥ë°”êµ¬ë‹ˆë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	pno NUMBER NOT NULL, /* ìƒí’ˆë²ˆí˜¸ */
-	pono NUMBER, /* ìƒí’ˆì˜µì…˜ë²ˆí˜¸ */
-	quantity NUMBER DEFAULT 0 NOT NULL, /* ìˆ˜ëŸ‰ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	bno NUMBER NOT NULL, /* Àå¹Ù±¸´Ï¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	pno NUMBER NOT NULL, /* »óÇ°¹øÈ£ */
+	pono NUMBER, /* »óÇ°¿É¼Ç¹øÈ£ */
+	quantity NUMBER DEFAULT 0 NOT NULL, /* ¼ö·® */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE basket IS 'ìž¥ë°”êµ¬ë‹ˆ(ì •ì§€ì›)';
+COMMENT ON TABLE basket IS 'Àå¹Ù±¸´Ï(Á¤Áö¿ø)';
 
-COMMENT ON COLUMN basket.bno IS 'ìž¥ë°”êµ¬ë‹ˆë²ˆí˜¸';
+COMMENT ON COLUMN basket.bno IS 'Àå¹Ù±¸´Ï¹øÈ£';
 
-COMMENT ON COLUMN basket.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN basket.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN basket.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN basket.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN basket.pono IS 'ìƒí’ˆì˜µì…˜ë²ˆí˜¸';
+COMMENT ON COLUMN basket.pono IS '»óÇ°¿É¼Ç¹øÈ£';
 
-COMMENT ON COLUMN basket.quantity IS 'ìˆ˜ëŸ‰';
+COMMENT ON COLUMN basket.quantity IS '¼ö·®';
 
-COMMENT ON COLUMN basket.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN basket.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX basket_bno_p
 	ON basket (
@@ -1015,26 +1015,26 @@ ALTER TABLE basket
 			pno
 		);
 
-/* ë“±ê¸‰(ì´ìŠ¹ì¤€) */
+/* µî±Þ(ÀÌ½ÂÁØ) */
 CREATE TABLE grade (
-	gno NUMBER NOT NULL, /* ë“±ê¸‰ë²ˆí˜¸ */
-	name VARCHAR2(200) NOT NULL, /* ë“±ê¸‰ëª… */
-	case VARCHAR2(500) NOT NULL, /* ë“±ê¸‰ì¡°ê±´ */
-	earn NUMBER DEFAULT 0 NOT NULL, /* ì ë¦½ìœ¨ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	gno NUMBER NOT NULL, /* µî±Þ¹øÈ£ */
+	name VARCHAR2(200) NOT NULL, /* µî±Þ¸í */
+	case VARCHAR2(500) NOT NULL, /* µî±ÞÁ¶°Ç */
+	earn NUMBER DEFAULT 0 NOT NULL, /* Àû¸³À² */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE grade IS 'ë“±ê¸‰(ì´ìŠ¹ì¤€)';
+COMMENT ON TABLE grade IS 'µî±Þ(ÀÌ½ÂÁØ)';
 
-COMMENT ON COLUMN grade.gno IS 'ë“±ê¸‰ë²ˆí˜¸';
+COMMENT ON COLUMN grade.gno IS 'µî±Þ¹øÈ£';
 
-COMMENT ON COLUMN grade.name IS 'ë“±ê¸‰ëª…';
+COMMENT ON COLUMN grade.name IS 'µî±Þ¸í';
 
-COMMENT ON COLUMN grade.case IS 'ë“±ê¸‰ì¡°ê±´';
+COMMENT ON COLUMN grade.case IS 'µî±ÞÁ¶°Ç';
 
-COMMENT ON COLUMN grade.earn IS 'ì ë¦½ìœ¨';
+COMMENT ON COLUMN grade.earn IS 'Àû¸³À²';
 
-COMMENT ON COLUMN grade.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN grade.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX grade_gno_i
 	ON grade (
@@ -1048,50 +1048,50 @@ ALTER TABLE grade
 			gno
 		);
 
-/* ë°°ì†¡ì§€(ê°•ë¯¼ê·œ) */
+/* ¹è¼ÛÁö(°­¹Î±Ô) */
 CREATE TABLE delivery (
-	dno NUMBER NOT NULL, /* ë°°ì†¡ì§€ë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	addr VARCHAR2(300) NOT NULL, /* ì£¼ì†Œ */
-	addr_detail VARCHAR2(300) NOT NULL, /* ìƒì„¸ì£¼ì†Œ */
-	receive_name VARCHAR2(100) NOT NULL, /* ë°›ìœ¼ì‹œëŠ”ë¶„ */
-	phone VARCHAR2(20) NOT NULL, /* í•¸ë“œí° */
-	type CHAR(1) DEFAULT 't' NOT NULL, /* ë°°ì†¡ìœ í˜• */
-	default_yn CHAR(1) DEFAULT 'y' NOT NULL, /* ê¸°ë³¸ë°°ì†¡ì§€ */
-	pickuptype VARCHAR2(300), /* ìˆ˜ë ¹ì§€ */
-	pickuptype_content VARCHAR2(300), /* ìˆ˜ë ¹ì§€ë‚´ìš© */
-	pickiptype_detail VARCHAR2(300), /* ìˆ˜ë ¹ì§€ì„¸ë¶€ë‚´ìš© */
-	delivery_msg VARCHAR2(300), /* ë°°ì†¡ì™„ë£Œë©”ì„¸ì§€ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	dno NUMBER NOT NULL, /* ¹è¼ÛÁö¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	addr VARCHAR2(300) NOT NULL, /* ÁÖ¼Ò */
+	addr_detail VARCHAR2(300) NOT NULL, /* »ó¼¼ÁÖ¼Ò */
+	receive_name VARCHAR2(100) NOT NULL, /* ¹ÞÀ¸½Ã´ÂºÐ */
+	phone VARCHAR2(20) NOT NULL, /* ÇÚµåÆù */
+	type CHAR(1) DEFAULT 't' NOT NULL, /* ¹è¼ÛÀ¯Çü */
+	default_yn CHAR(1) DEFAULT 'y' NOT NULL, /* ±âº»¹è¼ÛÁö */
+	pickuptype VARCHAR2(300), /* ¼ö·ÉÁö */
+	pickuptype_content VARCHAR2(300), /* ¼ö·ÉÁö³»¿ë */
+	pickiptype_detail VARCHAR2(300), /* ¼ö·ÉÁö¼¼ºÎ³»¿ë */
+	delivery_msg VARCHAR2(300), /* ¹è¼Û¿Ï·á¸Þ¼¼Áö */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE delivery IS 'ë°°ì†¡ì§€(ê°•ë¯¼ê·œ)';
+COMMENT ON TABLE delivery IS '¹è¼ÛÁö(°­¹Î±Ô)';
 
-COMMENT ON COLUMN delivery.dno IS 'ë°°ì†¡ì§€ë²ˆí˜¸';
+COMMENT ON COLUMN delivery.dno IS '¹è¼ÛÁö¹øÈ£';
 
-COMMENT ON COLUMN delivery.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN delivery.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN delivery.addr IS 'ì£¼ì†Œ';
+COMMENT ON COLUMN delivery.addr IS 'ÁÖ¼Ò';
 
-COMMENT ON COLUMN delivery.addr_detail IS 'ìƒì„¸ì£¼ì†Œ';
+COMMENT ON COLUMN delivery.addr_detail IS '»ó¼¼ÁÖ¼Ò';
 
-COMMENT ON COLUMN delivery.receive_name IS 'ë°›ìœ¼ì‹œëŠ”ë¶„';
+COMMENT ON COLUMN delivery.receive_name IS '¹ÞÀ¸½Ã´ÂºÐ';
 
-COMMENT ON COLUMN delivery.phone IS 'í•¸ë“œí°';
+COMMENT ON COLUMN delivery.phone IS 'ÇÚµåÆù';
 
-COMMENT ON COLUMN delivery.type IS 'ë°°ì†¡ìœ í˜•';
+COMMENT ON COLUMN delivery.type IS '¹è¼ÛÀ¯Çü';
 
-COMMENT ON COLUMN delivery.default_yn IS 'ê¸°ë³¸ë°°ì†¡ì§€';
+COMMENT ON COLUMN delivery.default_yn IS '±âº»¹è¼ÛÁö';
 
-COMMENT ON COLUMN delivery.pickuptype IS 'ìˆ˜ë ¹ì§€';
+COMMENT ON COLUMN delivery.pickuptype IS '¼ö·ÉÁö';
 
-COMMENT ON COLUMN delivery.pickuptype_content IS 'ìˆ˜ë ¹ì§€ë‚´ìš©';
+COMMENT ON COLUMN delivery.pickuptype_content IS '¼ö·ÉÁö³»¿ë';
 
-COMMENT ON COLUMN delivery.pickiptype_detail IS 'ìˆ˜ë ¹ì§€ì„¸ë¶€ë‚´ìš©';
+COMMENT ON COLUMN delivery.pickiptype_detail IS '¼ö·ÉÁö¼¼ºÎ³»¿ë';
 
-COMMENT ON COLUMN delivery.delivery_msg IS 'ë°°ì†¡ì™„ë£Œë©”ì„¸ì§€';
+COMMENT ON COLUMN delivery.delivery_msg IS '¹è¼Û¿Ï·á¸Þ¼¼Áö';
 
-COMMENT ON COLUMN delivery.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN delivery.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX delivery_dno_i
 	ON delivery (
@@ -1117,38 +1117,38 @@ ALTER TABLE delivery
 		CONSTRAINT delivery_type_c
 		CHECK (type in ('t','s'));
 
-/* ì¿ í°(ë°•ìš©ìˆœ) */
+/* ÄíÆù(¹Ú¿ë¼ø) */
 CREATE TABLE coupon (
-	cno NUMBER NOT NULL, /* ì¿ í°ë²ˆí˜¸ */
-	pno VARCHAR2(100), /* ìƒí’ˆë²ˆí˜¸ */
-	content CLOB NOT NULL, /* ì¿ í°ë‚´ìš© */
-	discount NUMBER DEFAULT 0 NOT NULL, /* í• ì¸ìœ¨ */
-	dis_price NUMBER DEFAULT 0 NOT NULL, /* í• ì¸ê¸ˆì•¡ */
-	dis_type CHAR(1) DEFAULT 'd' NOT NULL, /* í• ì¸êµ¬ë¶„ */
-	srat_expiry DATE DEFAULT sysdate NOT NULL, /* ìœ íš¨ê¸°ê°„(ì‹œìž‘ì¼) */
-	end_expiry DATE DEFAULT sysdate NOT NULL, /* ìœ íš¨ê¸°ê°„(ë§Œë£Œì¼) */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	cno NUMBER NOT NULL, /* ÄíÆù¹øÈ£ */
+	pno VARCHAR2(100), /* »óÇ°¹øÈ£ */
+	content CLOB NOT NULL, /* ÄíÆù³»¿ë */
+	discount NUMBER DEFAULT 0 NOT NULL, /* ÇÒÀÎÀ² */
+	dis_price NUMBER DEFAULT 0 NOT NULL, /* ÇÒÀÎ±Ý¾× */
+	dis_type CHAR(1) DEFAULT 'd' NOT NULL, /* ÇÒÀÎ±¸ºÐ */
+	srat_expiry DATE DEFAULT sysdate NOT NULL, /* À¯È¿±â°£(½ÃÀÛÀÏ) */
+	end_expiry DATE DEFAULT sysdate NOT NULL, /* À¯È¿±â°£(¸¸·áÀÏ) */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE coupon IS 'ì¿ í°(ë°•ìš©ìˆœ)';
+COMMENT ON TABLE coupon IS 'ÄíÆù(¹Ú¿ë¼ø)';
 
-COMMENT ON COLUMN coupon.cno IS 'ì¿ í°ë²ˆí˜¸';
+COMMENT ON COLUMN coupon.cno IS 'ÄíÆù¹øÈ£';
 
-COMMENT ON COLUMN coupon.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN coupon.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN coupon.content IS 'ì¿ í°ë‚´ìš©';
+COMMENT ON COLUMN coupon.content IS 'ÄíÆù³»¿ë';
 
-COMMENT ON COLUMN coupon.discount IS 'í• ì¸ìœ¨';
+COMMENT ON COLUMN coupon.discount IS 'ÇÒÀÎÀ²';
 
-COMMENT ON COLUMN coupon.dis_price IS 'í• ì¸ê¸ˆì•¡';
+COMMENT ON COLUMN coupon.dis_price IS 'ÇÒÀÎ±Ý¾×';
 
-COMMENT ON COLUMN coupon.dis_type IS 'í• ì¸êµ¬ë¶„';
+COMMENT ON COLUMN coupon.dis_type IS 'ÇÒÀÎ±¸ºÐ';
 
-COMMENT ON COLUMN coupon.srat_expiry IS 'ìœ íš¨ê¸°ê°„(ì‹œìž‘ì¼)';
+COMMENT ON COLUMN coupon.srat_expiry IS 'À¯È¿±â°£(½ÃÀÛÀÏ)';
 
-COMMENT ON COLUMN coupon.end_expiry IS 'ìœ íš¨ê¸°ê°„(ë§Œë£Œì¼)';
+COMMENT ON COLUMN coupon.end_expiry IS 'À¯È¿±â°£(¸¸·áÀÏ)';
 
-COMMENT ON COLUMN coupon.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN coupon.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX coupon_cno_i
 	ON coupon (
@@ -1167,26 +1167,26 @@ ALTER TABLE coupon
 		CONSTRAINT coupon_dis_type_c
 		CHECK (dis_type in ('d','p','a'));
 
-/* ì ë¦½ê¸ˆ(ë°•ìš©ìˆœ) */
+/* Àû¸³±Ý(¹Ú¿ë¼ø) */
 CREATE TABLE saving (
-	svno NUMBER NOT NULL, /* ì ë¦½ê¸ˆë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	credit NUMBER DEFAULT 0 NOT NULL, /* ì ë¦½ê¸ˆ */
-	exp_credit NUMBER DEFAULT 0 NOT NULL, /* ì†Œë©¸ì˜ˆì •ì ë¦½ê¸ˆ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	svno NUMBER NOT NULL, /* Àû¸³±Ý¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	credit NUMBER DEFAULT 0 NOT NULL, /* Àû¸³±Ý */
+	exp_credit NUMBER DEFAULT 0 NOT NULL, /* ¼Ò¸ê¿¹Á¤Àû¸³±Ý */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE saving IS 'ì ë¦½ê¸ˆ(ë°•ìš©ìˆœ)';
+COMMENT ON TABLE saving IS 'Àû¸³±Ý(¹Ú¿ë¼ø)';
 
-COMMENT ON COLUMN saving.svno IS 'ì ë¦½ê¸ˆë²ˆí˜¸';
+COMMENT ON COLUMN saving.svno IS 'Àû¸³±Ý¹øÈ£';
 
-COMMENT ON COLUMN saving.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN saving.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN saving.credit IS 'ì ë¦½ê¸ˆ';
+COMMENT ON COLUMN saving.credit IS 'Àû¸³±Ý';
 
-COMMENT ON COLUMN saving.exp_credit IS 'ì†Œë©¸ì˜ˆì •ì ë¦½ê¸ˆ';
+COMMENT ON COLUMN saving.exp_credit IS '¼Ò¸ê¿¹Á¤Àû¸³±Ý';
 
-COMMENT ON COLUMN saving.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN saving.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX saving_svno_i
 	ON saving (
@@ -1202,23 +1202,23 @@ ALTER TABLE saving
 			mno
 		);
 
-/* ìž¬ìž…ê³ ì•Œë¦¼(ê°•ë¯¼ê·œ) */
+/* ÀçÀÔ°í¾Ë¸²(°­¹Î±Ô) */
 CREATE TABLE alarm (
-	ano NUMBER NOT NULL, /* ìž¬ìž…ê³ ë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	pno NUMBER NOT NULL, /* ìƒí’ˆë²ˆí˜¸ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	ano NUMBER NOT NULL, /* ÀçÀÔ°í¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	pno NUMBER NOT NULL, /* »óÇ°¹øÈ£ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE alarm IS 'ìž¬ìž…ê³ ì•Œë¦¼(ê°•ë¯¼ê·œ)';
+COMMENT ON TABLE alarm IS 'ÀçÀÔ°í¾Ë¸²(°­¹Î±Ô)';
 
-COMMENT ON COLUMN alarm.ano IS 'ìž¬ìž…ê³ ë²ˆí˜¸';
+COMMENT ON COLUMN alarm.ano IS 'ÀçÀÔ°í¹øÈ£';
 
-COMMENT ON COLUMN alarm.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN alarm.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN alarm.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN alarm.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN alarm.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN alarm.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX alarm_ano_i
 	ON alarm (
@@ -1236,35 +1236,35 @@ ALTER TABLE alarm
 			pno
 		);
 
-/* ê³µì§€ì‚¬í•­(ê°•ë¯¼ê·œ) */
+/* °øÁö»çÇ×(°­¹Î±Ô) */
 CREATE TABLE notice (
-	nno NUMBER NOT NULL, /* ê³µì§€ì‚¬í•­ë²ˆí˜¸ */
-	title VARCHAR2(500) NOT NULL, /* ì œëª© */
-	content CLOB NOT NULL, /* ë‚´ìš© */
-	name VARCHAR2(30) DEFAULT 'ê´€ë¦¬ìž' NOT NULL, /* ìž‘ì„±ìž */
-	read_cnt NUMBER DEFAULT 0 NOT NULL, /* ì¡°íšŒìˆ˜ */
-	type CHAR(1) DEFAULT 'y' NOT NULL, /* ë…¸ì¶œì—¬ë¶€ */
-	state NUMBER DEFAULT 0 NOT NULL, /* ìƒíƒœ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	nno NUMBER NOT NULL, /* °øÁö»çÇ×¹øÈ£ */
+	title VARCHAR2(500) NOT NULL, /* Á¦¸ñ */
+	content CLOB NOT NULL, /* ³»¿ë */
+	name VARCHAR2(30) DEFAULT '°ü¸®ÀÚ' NOT NULL, /* ÀÛ¼ºÀÚ */
+	read_cnt NUMBER DEFAULT 0 NOT NULL, /* Á¶È¸¼ö */
+	type CHAR(1) DEFAULT 'y' NOT NULL, /* ³ëÃâ¿©ºÎ */
+	state NUMBER DEFAULT 0 NOT NULL, /* »óÅÂ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE notice IS 'ê³µì§€ì‚¬í•­(ê°•ë¯¼ê·œ)';
+COMMENT ON TABLE notice IS '°øÁö»çÇ×(°­¹Î±Ô)';
 
-COMMENT ON COLUMN notice.nno IS 'ê³µì§€ì‚¬í•­ë²ˆí˜¸';
+COMMENT ON COLUMN notice.nno IS '°øÁö»çÇ×¹øÈ£';
 
-COMMENT ON COLUMN notice.title IS 'ì œëª©';
+COMMENT ON COLUMN notice.title IS 'Á¦¸ñ';
 
-COMMENT ON COLUMN notice.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN notice.content IS '³»¿ë';
 
-COMMENT ON COLUMN notice.name IS 'ìž‘ì„±ìž';
+COMMENT ON COLUMN notice.name IS 'ÀÛ¼ºÀÚ';
 
-COMMENT ON COLUMN notice.read_cnt IS 'ì¡°íšŒìˆ˜';
+COMMENT ON COLUMN notice.read_cnt IS 'Á¶È¸¼ö';
 
-COMMENT ON COLUMN notice.type IS 'ë…¸ì¶œì—¬ë¶€';
+COMMENT ON COLUMN notice.type IS '³ëÃâ¿©ºÎ';
 
-COMMENT ON COLUMN notice.state IS 'ìƒíƒœ';
+COMMENT ON COLUMN notice.state IS '»óÅÂ';
 
-COMMENT ON COLUMN notice.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN notice.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX notice_nno_i
 	ON notice (
@@ -1283,50 +1283,50 @@ ALTER TABLE notice
 		CONSTRAINT notice_type_c
 		CHECK (type in ('y','n'));
 
-/* 1:1ë¬¸ì˜(ê°•ë¯¼ê·œ) */
+/* 1:1¹®ÀÇ(°­¹Î±Ô) */
 CREATE TABLE qna (
-	qnno NUMBER NOT NULL, /* ë¬¸ì˜ë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	ono NUMBER NOT NULL, /* ì£¼ë¬¸ë²ˆí˜¸ */
-	title VARCHAR2(500) NOT NULL, /* ì œëª© */
-	content CLOB NOT NULL, /* ë‚´ìš© */
-	ctno NUMBER NOT NULL, /* ì¹´í…Œê³ ë¦¬ë²ˆí˜¸ */
-	name VARCHAR2(30) NOT NULL, /* ìž‘ì„±ìž */
-	email VARCHAR2(50), /* ì´ë©”ì¼ */
-	email_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ì´ë©”ì¼ìˆ˜ì‹ ì—¬ë¶€ */
-	phone VARCHAR2(30), /* í•¸ë“œí°ë²ˆí˜¸ */
-	phone_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ë¬¸ìžìˆ˜ì‹ ì—¬ë¶€ */
-	fno VARCHAR2(100), /* íŒŒì¼ë²ˆí˜¸ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	qnno NUMBER NOT NULL, /* ¹®ÀÇ¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	ono NUMBER NOT NULL, /* ÁÖ¹®¹øÈ£ */
+	title VARCHAR2(500) NOT NULL, /* Á¦¸ñ */
+	content CLOB NOT NULL, /* ³»¿ë */
+	ctno NUMBER NOT NULL, /* Ä«Å×°í¸®¹øÈ£ */
+	name VARCHAR2(30) NOT NULL, /* ÀÛ¼ºÀÚ */
+	email VARCHAR2(50), /* ÀÌ¸ÞÀÏ */
+	email_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ÀÌ¸ÞÀÏ¼ö½Å¿©ºÎ */
+	phone VARCHAR2(30), /* ÇÚµåÆù¹øÈ£ */
+	phone_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ¹®ÀÚ¼ö½Å¿©ºÎ */
+	fno VARCHAR2(100), /* ÆÄÀÏ¹øÈ£ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE qna IS '1:1ë¬¸ì˜(ê°•ë¯¼ê·œ)';
+COMMENT ON TABLE qna IS '1:1¹®ÀÇ(°­¹Î±Ô)';
 
-COMMENT ON COLUMN qna.qnno IS 'ë¬¸ì˜ë²ˆí˜¸';
+COMMENT ON COLUMN qna.qnno IS '¹®ÀÇ¹øÈ£';
 
-COMMENT ON COLUMN qna.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN qna.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN qna.ono IS 'ì£¼ë¬¸ë²ˆí˜¸';
+COMMENT ON COLUMN qna.ono IS 'ÁÖ¹®¹øÈ£';
 
-COMMENT ON COLUMN qna.title IS 'ì œëª©';
+COMMENT ON COLUMN qna.title IS 'Á¦¸ñ';
 
-COMMENT ON COLUMN qna.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN qna.content IS '³»¿ë';
 
-COMMENT ON COLUMN qna.ctno IS 'ì¹´í…Œê³ ë¦¬ë²ˆí˜¸';
+COMMENT ON COLUMN qna.ctno IS 'Ä«Å×°í¸®¹øÈ£';
 
-COMMENT ON COLUMN qna.name IS 'ìž‘ì„±ìž';
+COMMENT ON COLUMN qna.name IS 'ÀÛ¼ºÀÚ';
 
-COMMENT ON COLUMN qna.email IS 'ì´ë©”ì¼';
+COMMENT ON COLUMN qna.email IS 'ÀÌ¸ÞÀÏ';
 
-COMMENT ON COLUMN qna.email_yn IS 'ì´ë©”ì¼ìˆ˜ì‹ ì—¬ë¶€';
+COMMENT ON COLUMN qna.email_yn IS 'ÀÌ¸ÞÀÏ¼ö½Å¿©ºÎ';
 
-COMMENT ON COLUMN qna.phone IS 'í•¸ë“œí°ë²ˆí˜¸';
+COMMENT ON COLUMN qna.phone IS 'ÇÚµåÆù¹øÈ£';
 
-COMMENT ON COLUMN qna.phone_yn IS 'ë¬¸ìžìˆ˜ì‹ ì—¬ë¶€';
+COMMENT ON COLUMN qna.phone_yn IS '¹®ÀÚ¼ö½Å¿©ºÎ';
 
-COMMENT ON COLUMN qna.fno IS 'íŒŒì¼ë²ˆí˜¸';
+COMMENT ON COLUMN qna.fno IS 'ÆÄÀÏ¹øÈ£';
 
-COMMENT ON COLUMN qna.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN qna.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX qna_qnno_i
 	ON qna (
@@ -1344,35 +1344,35 @@ ALTER TABLE qna
 			ono
 		);
 
-/* ëŒ€ëŸ‰ì£¼ë¬¸ë¬¸ì˜(ê¹€í¬ìˆ˜) */
+/* ´ë·®ÁÖ¹®¹®ÀÇ(±èÈñ¼ö) */
 CREATE TABLE bulk_order (
-	bono NUMBER NOT NULL, /* ëŒ€ëŸ‰ì£¼ë¬¸ë²ˆí˜¸ */
-	name VARCHAR2(30) NOT NULL, /* ì‹ ì²­ìžì´ë¦„ */
-	phone VARCHAR2(20) NOT NULL, /* ì‹ ì²­ìžì—°ë½ì²˜ */
-	email VARCHAR2(30), /* ì‹ ì²­ìžì´ë©”ì¼ */
-	hopedate DATE DEFAULT sysdate NOT NULL, /* ìˆ˜ë ¹í¬ë§ì¼ */
-	type CHAR(1) DEFAULT 'o' NOT NULL, /* ìˆ˜ë ¹ì§€êµ¬ë¶„ */
-	question CLOB, /* ë¬¸ì˜ì‚¬í•­ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	bono NUMBER NOT NULL, /* ´ë·®ÁÖ¹®¹øÈ£ */
+	name VARCHAR2(30) NOT NULL, /* ½ÅÃ»ÀÚÀÌ¸§ */
+	phone VARCHAR2(20) NOT NULL, /* ½ÅÃ»ÀÚ¿¬¶ôÃ³ */
+	email VARCHAR2(30), /* ½ÅÃ»ÀÚÀÌ¸ÞÀÏ */
+	hopedate DATE DEFAULT sysdate NOT NULL, /* ¼ö·ÉÈñ¸ÁÀÏ */
+	type CHAR(1) DEFAULT 'o' NOT NULL, /* ¼ö·ÉÁö±¸ºÐ */
+	question CLOB, /* ¹®ÀÇ»çÇ× */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE bulk_order IS 'ëŒ€ëŸ‰ì£¼ë¬¸ë¬¸ì˜(ê¹€í¬ìˆ˜)';
+COMMENT ON TABLE bulk_order IS '´ë·®ÁÖ¹®¹®ÀÇ(±èÈñ¼ö)';
 
-COMMENT ON COLUMN bulk_order.bono IS 'ëŒ€ëŸ‰ì£¼ë¬¸ë²ˆí˜¸';
+COMMENT ON COLUMN bulk_order.bono IS '´ë·®ÁÖ¹®¹øÈ£';
 
-COMMENT ON COLUMN bulk_order.name IS 'ì‹ ì²­ìžì´ë¦„';
+COMMENT ON COLUMN bulk_order.name IS '½ÅÃ»ÀÚÀÌ¸§';
 
-COMMENT ON COLUMN bulk_order.phone IS 'ì‹ ì²­ìžì—°ë½ì²˜';
+COMMENT ON COLUMN bulk_order.phone IS '½ÅÃ»ÀÚ¿¬¶ôÃ³';
 
-COMMENT ON COLUMN bulk_order.email IS 'ì‹ ì²­ìžì´ë©”ì¼';
+COMMENT ON COLUMN bulk_order.email IS '½ÅÃ»ÀÚÀÌ¸ÞÀÏ';
 
-COMMENT ON COLUMN bulk_order.hopedate IS 'ìˆ˜ë ¹í¬ë§ì¼';
+COMMENT ON COLUMN bulk_order.hopedate IS '¼ö·ÉÈñ¸ÁÀÏ';
 
-COMMENT ON COLUMN bulk_order.type IS 'ìˆ˜ë ¹ì§€êµ¬ë¶„';
+COMMENT ON COLUMN bulk_order.type IS '¼ö·ÉÁö±¸ºÐ';
 
-COMMENT ON COLUMN bulk_order.question IS 'ë¬¸ì˜ì‚¬í•­';
+COMMENT ON COLUMN bulk_order.question IS '¹®ÀÇ»çÇ×';
 
-COMMENT ON COLUMN bulk_order.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN bulk_order.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX bulk_order_bono_i
 	ON bulk_order (
@@ -1391,32 +1391,32 @@ ALTER TABLE bulk_order
 		CONSTRAINT bulk_order_type_c
 		CHECK (type in ('o','m'));
 
-/* ìƒí’ˆì œì•ˆ(ê¹€í¬ìˆ˜) */
+/* »óÇ°Á¦¾È(±èÈñ¼ö) */
 CREATE TABLE proposition (
-	ppno NUMBER NOT NULL, /* ì œì•ˆë²ˆí˜¸ */
-	id VARCHAR2(50), /* ìž‘ì„±ìž */
-	title VARCHAR2(500) NOT NULL, /* ì œëª© */
-	content CLOB NOT NULL, /* ë‚´ìš© */
-	ctno NUMBER NOT NULL, /* ì¹´í…Œê³ ë¦¬ë²ˆí˜¸ */
-	fno VARCHAR2(100), /* íŒŒì¼ë²ˆí˜¸ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	ppno NUMBER NOT NULL, /* Á¦¾È¹øÈ£ */
+	id VARCHAR2(50), /* ÀÛ¼ºÀÚ */
+	title VARCHAR2(500) NOT NULL, /* Á¦¸ñ */
+	content CLOB NOT NULL, /* ³»¿ë */
+	ctno NUMBER NOT NULL, /* Ä«Å×°í¸®¹øÈ£ */
+	fno VARCHAR2(100), /* ÆÄÀÏ¹øÈ£ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE proposition IS 'ìƒí’ˆì œì•ˆ(ê¹€í¬ìˆ˜)';
+COMMENT ON TABLE proposition IS '»óÇ°Á¦¾È(±èÈñ¼ö)';
 
-COMMENT ON COLUMN proposition.ppno IS 'ì œì•ˆë²ˆí˜¸';
+COMMENT ON COLUMN proposition.ppno IS 'Á¦¾È¹øÈ£';
 
-COMMENT ON COLUMN proposition.id IS 'ìž‘ì„±ìž';
+COMMENT ON COLUMN proposition.id IS 'ÀÛ¼ºÀÚ';
 
-COMMENT ON COLUMN proposition.title IS 'ì œëª©';
+COMMENT ON COLUMN proposition.title IS 'Á¦¸ñ';
 
-COMMENT ON COLUMN proposition.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN proposition.content IS '³»¿ë';
 
-COMMENT ON COLUMN proposition.ctno IS 'ì¹´í…Œê³ ë¦¬ë²ˆí˜¸';
+COMMENT ON COLUMN proposition.ctno IS 'Ä«Å×°í¸®¹øÈ£';
 
-COMMENT ON COLUMN proposition.fno IS 'íŒŒì¼ë²ˆí˜¸';
+COMMENT ON COLUMN proposition.fno IS 'ÆÄÀÏ¹øÈ£';
 
-COMMENT ON COLUMN proposition.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN proposition.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX proposition_ppno_i
 	ON proposition (
@@ -1430,35 +1430,35 @@ ALTER TABLE proposition
 			ppno
 		);
 
-/* ì—ì½”í¬ìž¥í”¼ë“œë°±(ê¹€í¬ìˆ˜) */
+/* ¿¡ÄÚÆ÷ÀåÇÇµå¹é(±èÈñ¼ö) */
 CREATE TABLE eco (
-	epno NUMBER NOT NULL, /* í”¼ë“œë°±ë²ˆí˜¸ */
-	id VARCHAR2(50), /* ìž‘ì„±ìž */
-	title VARCHAR2(500) NOT NULL, /* ì œëª© */
-	content CLOB NOT NULL, /* ë‚´ìš© */
-	ctno NUMBER NOT NULL, /* ì¹´í…Œê³ ë¦¬ë²ˆí˜¸ */
-	name VARCHAR2(500) NOT NULL, /* ìƒí’ˆëª… */
-	fno VARCHAR2(100), /* íŒŒì¼ë²ˆí˜¸ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	epno NUMBER NOT NULL, /* ÇÇµå¹é¹øÈ£ */
+	id VARCHAR2(50), /* ÀÛ¼ºÀÚ */
+	title VARCHAR2(500) NOT NULL, /* Á¦¸ñ */
+	content CLOB NOT NULL, /* ³»¿ë */
+	ctno NUMBER NOT NULL, /* Ä«Å×°í¸®¹øÈ£ */
+	name VARCHAR2(500) NOT NULL, /* »óÇ°¸í */
+	fno VARCHAR2(100), /* ÆÄÀÏ¹øÈ£ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE eco IS 'ì—ì½”í¬ìž¥í”¼ë“œë°±(ê¹€í¬ìˆ˜)';
+COMMENT ON TABLE eco IS '¿¡ÄÚÆ÷ÀåÇÇµå¹é(±èÈñ¼ö)';
 
-COMMENT ON COLUMN eco.epno IS 'í”¼ë“œë°±ë²ˆí˜¸';
+COMMENT ON COLUMN eco.epno IS 'ÇÇµå¹é¹øÈ£';
 
-COMMENT ON COLUMN eco.id IS 'ìž‘ì„±ìž';
+COMMENT ON COLUMN eco.id IS 'ÀÛ¼ºÀÚ';
 
-COMMENT ON COLUMN eco.title IS 'ì œëª©';
+COMMENT ON COLUMN eco.title IS 'Á¦¸ñ';
 
-COMMENT ON COLUMN eco.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN eco.content IS '³»¿ë';
 
-COMMENT ON COLUMN eco.ctno IS 'ì¹´í…Œê³ ë¦¬ë²ˆí˜¸';
+COMMENT ON COLUMN eco.ctno IS 'Ä«Å×°í¸®¹øÈ£';
 
-COMMENT ON COLUMN eco.name IS 'ìƒí’ˆëª…';
+COMMENT ON COLUMN eco.name IS '»óÇ°¸í';
 
-COMMENT ON COLUMN eco.fno IS 'íŒŒì¼ë²ˆí˜¸';
+COMMENT ON COLUMN eco.fno IS 'ÆÄÀÏ¹øÈ£';
 
-COMMENT ON COLUMN eco.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN eco.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX eco_epno_i
 	ON eco (
@@ -1472,23 +1472,23 @@ ALTER TABLE eco
 			epno
 		);
 
-/* ëŠ˜ì‚¬ëŠ”ê²ƒ(ì •ì§€ì›) */
+/* ´Ã»ç´Â°Í(Á¤Áö¿ø) */
 CREATE TABLE living (
-	lno NUMBER NOT NULL, /* ëŠ˜ì‚¬ëŠ”ê²ƒë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	pno NUMBER NOT NULL, /* ìƒí’ˆë²ˆí˜¸ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	lno NUMBER NOT NULL, /* ´Ã»ç´Â°Í¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	pno NUMBER NOT NULL, /* »óÇ°¹øÈ£ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE living IS 'ëŠ˜ì‚¬ëŠ”ê²ƒ(ì •ì§€ì›)';
+COMMENT ON TABLE living IS '´Ã»ç´Â°Í(Á¤Áö¿ø)';
 
-COMMENT ON COLUMN living.lno IS 'ëŠ˜ì‚¬ëŠ”ê²ƒë²ˆí˜¸';
+COMMENT ON COLUMN living.lno IS '´Ã»ç´Â°Í¹øÈ£';
 
-COMMENT ON COLUMN living.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN living.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN living.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN living.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN living.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN living.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX living_lno_i
 	ON living (
@@ -1506,29 +1506,29 @@ ALTER TABLE living
 			pno
 		);
 
-/* ìƒí’ˆí›„ê¸°(ì´ìŠ¹ì¤€) */
+/* »óÇ°ÈÄ±â(ÀÌ½ÂÁØ) */
 CREATE TABLE review (
-	rvno NUMBER NOT NULL, /* í›„ê¸°ë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	pno NUMBER NOT NULL, /* ìƒí’ˆë²ˆí˜¸ */
-	title VARCHAR2(500) NOT NULL, /* ì œëª© */
-	content CLOB NOT NULL, /* ë‚´ìš© */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	rvno NUMBER NOT NULL, /* ÈÄ±â¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	pno NUMBER NOT NULL, /* »óÇ°¹øÈ£ */
+	title VARCHAR2(500) NOT NULL, /* Á¦¸ñ */
+	content CLOB NOT NULL, /* ³»¿ë */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE review IS 'ìƒí’ˆí›„ê¸°(ì´ìŠ¹ì¤€)';
+COMMENT ON TABLE review IS '»óÇ°ÈÄ±â(ÀÌ½ÂÁØ)';
 
-COMMENT ON COLUMN review.rvno IS 'í›„ê¸°ë²ˆí˜¸';
+COMMENT ON COLUMN review.rvno IS 'ÈÄ±â¹øÈ£';
 
-COMMENT ON COLUMN review.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN review.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN review.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN review.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN review.title IS 'ì œëª©';
+COMMENT ON COLUMN review.title IS 'Á¦¸ñ';
 
-COMMENT ON COLUMN review.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN review.content IS '³»¿ë';
 
-COMMENT ON COLUMN review.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN review.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX review_rvno_i
 	ON review (
@@ -1546,26 +1546,26 @@ ALTER TABLE review
 			pno
 		);
 
-/* ìƒí’ˆì„¤ëª…(ì´ìŠ¹ì¤€) */
+/* »óÇ°¼³¸í(ÀÌ½ÂÁØ) */
 CREATE TABLE product_info (
-	pino NUMBER NOT NULL, /* ì„¤ëª…ë²ˆí˜¸ */
-	pno NUMBER NOT NULL, /* ìƒí’ˆë²ˆí˜¸ */
-	description CLOB NOT NULL, /* ìƒì„¸ì„¤ëª… */
-	info CLOB NOT NULL, /* ìƒì„¸ì •ë³´ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	pino NUMBER NOT NULL, /* ¼³¸í¹øÈ£ */
+	pno NUMBER NOT NULL, /* »óÇ°¹øÈ£ */
+	description CLOB NOT NULL, /* »ó¼¼¼³¸í */
+	info CLOB NOT NULL, /* »ó¼¼Á¤º¸ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE product_info IS 'ìƒí’ˆì„¤ëª…(ì´ìŠ¹ì¤€)';
+COMMENT ON TABLE product_info IS '»óÇ°¼³¸í(ÀÌ½ÂÁØ)';
 
-COMMENT ON COLUMN product_info.pino IS 'ì„¤ëª…ë²ˆí˜¸';
+COMMENT ON COLUMN product_info.pino IS '¼³¸í¹øÈ£';
 
-COMMENT ON COLUMN product_info.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN product_info.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN product_info.description IS 'ìƒì„¸ì„¤ëª…';
+COMMENT ON COLUMN product_info.description IS '»ó¼¼¼³¸í';
 
-COMMENT ON COLUMN product_info.info IS 'ìƒì„¸ì •ë³´';
+COMMENT ON COLUMN product_info.info IS '»ó¼¼Á¤º¸';
 
-COMMENT ON COLUMN product_info.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN product_info.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX product_info_pino_i
 	ON product_info (
@@ -1581,26 +1581,26 @@ ALTER TABLE product_info
 			pno
 		);
 
-/* ìƒí’ˆì˜µì…˜(ì´ìŠ¹ì¤€) */
+/* »óÇ°¿É¼Ç(ÀÌ½ÂÁØ) */
 CREATE TABLE product_option (
-	pono NUMBER NOT NULL, /* ì˜µì…˜ë²ˆí˜¸ */
-	pno NUMBER NOT NULL, /* ìƒí’ˆë²ˆí˜¸ */
-	price NUMBER DEFAULT 0 NOT NULL, /* ê°€ê²© */
-	name VARCHAR2(300) NOT NULL, /* ì˜µì…˜ëª… */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	pono NUMBER NOT NULL, /* ¿É¼Ç¹øÈ£ */
+	pno NUMBER NOT NULL, /* »óÇ°¹øÈ£ */
+	price NUMBER DEFAULT 0 NOT NULL, /* °¡°Ý */
+	name VARCHAR2(300) NOT NULL, /* ¿É¼Ç¸í */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE product_option IS 'ìƒí’ˆì˜µì…˜(ì´ìŠ¹ì¤€)';
+COMMENT ON TABLE product_option IS '»óÇ°¿É¼Ç(ÀÌ½ÂÁØ)';
 
-COMMENT ON COLUMN product_option.pono IS 'ì˜µì…˜ë²ˆí˜¸';
+COMMENT ON COLUMN product_option.pono IS '¿É¼Ç¹øÈ£';
 
-COMMENT ON COLUMN product_option.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN product_option.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN product_option.price IS 'ê°€ê²©';
+COMMENT ON COLUMN product_option.price IS '°¡°Ý';
 
-COMMENT ON COLUMN product_option.name IS 'ì˜µì…˜ëª…';
+COMMENT ON COLUMN product_option.name IS '¿É¼Ç¸í';
 
-COMMENT ON COLUMN product_option.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN product_option.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX product_option_pono_i
 	ON product_option (
@@ -1616,26 +1616,26 @@ ALTER TABLE product_option
 			pno
 		);
 
-/* ì´ë²¤íŠ¸(ì§„ìš°ëžŒ) */
+/* ÀÌº¥Æ®(Áø¿ì¶÷) */
 CREATE TABLE event (
-	eno NUMBER NOT NULL, /* ì´ë²¤íŠ¸ë²ˆí˜¸ */
-	fno_main NUMBER NOT NULL, /* ë©”ì¸ì´ë¯¸ì§€ */
-	content CLOB, /* ë‚´ìš© */
-	link VARCHAR2(300) NOT NULL, /* ë§í¬ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	eno NUMBER NOT NULL, /* ÀÌº¥Æ®¹øÈ£ */
+	fno_main NUMBER NOT NULL, /* ¸ÞÀÎÀÌ¹ÌÁö */
+	content CLOB, /* ³»¿ë */
+	link VARCHAR2(300) NOT NULL, /* ¸µÅ© */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE event IS 'ì´ë²¤íŠ¸(ì§„ìš°ëžŒ)';
+COMMENT ON TABLE event IS 'ÀÌº¥Æ®(Áø¿ì¶÷)';
 
-COMMENT ON COLUMN event.eno IS 'ì´ë²¤íŠ¸ë²ˆí˜¸';
+COMMENT ON COLUMN event.eno IS 'ÀÌº¥Æ®¹øÈ£';
 
-COMMENT ON COLUMN event.fno_main IS 'ë©”ì¸ì´ë¯¸ì§€';
+COMMENT ON COLUMN event.fno_main IS '¸ÞÀÎÀÌ¹ÌÁö';
 
-COMMENT ON COLUMN event.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN event.content IS '³»¿ë';
 
-COMMENT ON COLUMN event.link IS 'ë§í¬';
+COMMENT ON COLUMN event.link IS '¸µÅ©';
 
-COMMENT ON COLUMN event.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN event.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX event_eno_i
 	ON event (
@@ -1649,32 +1649,32 @@ ALTER TABLE event
 			eno
 		);
 
-/* ê²°ì œ(í—¨ë¦¬) */
+/* °áÁ¦(Çî¸®) */
 CREATE TABLE payment (
-	pmno NUMBER NOT NULL, /* ê²°ì œë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	ono NUMBER NOT NULL, /* ì£¼ë¬¸ë²ˆí˜¸ */
-	type CHAR(1) DEFAULT 'c' NOT NULL, /* ê²°ì œë°©ë²• */
-	payment NUMBER DEFAULT 0 NOT NULL, /* ê²°ì œê¸ˆì•¡ */
-	saving NUMBER DEFAULT 0 NOT NULL, /* ì ë¦½ê¸ˆê²°ì œê¸ˆì•¡ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	pmno NUMBER NOT NULL, /* °áÁ¦¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	ono NUMBER NOT NULL, /* ÁÖ¹®¹øÈ£ */
+	type CHAR(1) DEFAULT 'c' NOT NULL, /* °áÁ¦¹æ¹ý */
+	payment NUMBER DEFAULT 0 NOT NULL, /* °áÁ¦±Ý¾× */
+	saving NUMBER DEFAULT 0 NOT NULL, /* Àû¸³±Ý°áÁ¦±Ý¾× */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE payment IS 'ê²°ì œ(í—¨ë¦¬)';
+COMMENT ON TABLE payment IS '°áÁ¦(Çî¸®)';
 
-COMMENT ON COLUMN payment.pmno IS 'ê²°ì œë²ˆí˜¸';
+COMMENT ON COLUMN payment.pmno IS '°áÁ¦¹øÈ£';
 
-COMMENT ON COLUMN payment.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN payment.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN payment.ono IS 'ì£¼ë¬¸ë²ˆí˜¸';
+COMMENT ON COLUMN payment.ono IS 'ÁÖ¹®¹øÈ£';
 
-COMMENT ON COLUMN payment.type IS 'ê²°ì œë°©ë²•';
+COMMENT ON COLUMN payment.type IS '°áÁ¦¹æ¹ý';
 
-COMMENT ON COLUMN payment.payment IS 'ê²°ì œê¸ˆì•¡';
+COMMENT ON COLUMN payment.payment IS '°áÁ¦±Ý¾×';
 
-COMMENT ON COLUMN payment.saving IS 'ì ë¦½ê¸ˆê²°ì œê¸ˆì•¡';
+COMMENT ON COLUMN payment.saving IS 'Àû¸³±Ý°áÁ¦±Ý¾×';
 
-COMMENT ON COLUMN payment.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN payment.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX payment_pmno_i
 	ON payment (
@@ -1692,50 +1692,50 @@ ALTER TABLE payment
 			ono
 		);
 
-/* íŒì—…(ì§„ìš°ëžŒ) */
+/* ÆË¾÷(Áø¿ì¶÷) */
 CREATE TABLE popup (
-	puno NUMBER NOT NULL, /* íŒì—…ë²ˆí˜¸ */
-	title VARCHAR2(500) NOT NULL, /* ì œëª© */
-	content CLOB NOT NULL, /* ë‚´ìš© */
-	start_date DATE DEFAULT sysdate NOT NULL, /* ì‹œìž‘ì¼ */
-	end_date DATE DEFAULT sysdate NOT NULL, /* ì¢…ë£Œì¼ */
-	top NUMBER DEFAULT 0, /* ìœ„ */
-	bottom NUMBER, /* ì•„ëž˜ */
-	left NUMBER, /* ì˜¤ë¥¸ìª½ */
-	right NUMBER DEFAULT 0, /* ì™¼ìª½ */
-	width VARCHAR2(30) DEFAULT '0', /* ë„ˆë¹„ */
-	height VARCHAR2(30) DEFAULT '0', /* ë†’ì´ */
-	type CHAR(1) DEFAULT 'y' NOT NULL, /* í™œì„±í™”ì—¬ë¶€ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	puno NUMBER NOT NULL, /* ÆË¾÷¹øÈ£ */
+	title VARCHAR2(500) NOT NULL, /* Á¦¸ñ */
+	content CLOB NOT NULL, /* ³»¿ë */
+	start_date DATE DEFAULT sysdate NOT NULL, /* ½ÃÀÛÀÏ */
+	end_date DATE DEFAULT sysdate NOT NULL, /* Á¾·áÀÏ */
+	top NUMBER DEFAULT 0, /* À§ */
+	bottom NUMBER, /* ¾Æ·¡ */
+	left NUMBER, /* ¿À¸¥ÂÊ */
+	right NUMBER DEFAULT 0, /* ¿ÞÂÊ */
+	width VARCHAR2(30) DEFAULT '0', /* ³Êºñ */
+	height VARCHAR2(30) DEFAULT '0', /* ³ôÀÌ */
+	type CHAR(1) DEFAULT 'y' NOT NULL, /* È°¼ºÈ­¿©ºÎ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE popup IS 'íŒì—…(ì§„ìš°ëžŒ)';
+COMMENT ON TABLE popup IS 'ÆË¾÷(Áø¿ì¶÷)';
 
-COMMENT ON COLUMN popup.puno IS 'íŒì—…ë²ˆí˜¸';
+COMMENT ON COLUMN popup.puno IS 'ÆË¾÷¹øÈ£';
 
-COMMENT ON COLUMN popup.title IS 'ì œëª©';
+COMMENT ON COLUMN popup.title IS 'Á¦¸ñ';
 
-COMMENT ON COLUMN popup.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN popup.content IS '³»¿ë';
 
-COMMENT ON COLUMN popup.start_date IS 'ì‹œìž‘ì¼';
+COMMENT ON COLUMN popup.start_date IS '½ÃÀÛÀÏ';
 
-COMMENT ON COLUMN popup.end_date IS 'ì¢…ë£Œì¼';
+COMMENT ON COLUMN popup.end_date IS 'Á¾·áÀÏ';
 
-COMMENT ON COLUMN popup.top IS 'ìœ„';
+COMMENT ON COLUMN popup.top IS 'À§';
 
-COMMENT ON COLUMN popup.bottom IS 'ì•„ëž˜';
+COMMENT ON COLUMN popup.bottom IS '¾Æ·¡';
 
-COMMENT ON COLUMN popup.left IS 'ì˜¤ë¥¸ìª½';
+COMMENT ON COLUMN popup.left IS '¿À¸¥ÂÊ';
 
-COMMENT ON COLUMN popup.right IS 'ì™¼ìª½';
+COMMENT ON COLUMN popup.right IS '¿ÞÂÊ';
 
-COMMENT ON COLUMN popup.width IS 'ë„ˆë¹„';
+COMMENT ON COLUMN popup.width IS '³Êºñ';
 
-COMMENT ON COLUMN popup.height IS 'ë†’ì´';
+COMMENT ON COLUMN popup.height IS '³ôÀÌ';
 
-COMMENT ON COLUMN popup.type IS 'í™œì„±í™”ì—¬ë¶€';
+COMMENT ON COLUMN popup.type IS 'È°¼ºÈ­¿©ºÎ';
 
-COMMENT ON COLUMN popup.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN popup.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX popup_puno_i
 	ON popup (
@@ -1754,35 +1754,35 @@ ALTER TABLE popup
 		CONSTRAINT popup_type_c
 		CHECK (type in ('y','n'));
 
-/* ë ˆì‹œí”¼(ì§„ìš°ëžŒ) */
+/* ·¹½ÃÇÇ(Áø¿ì¶÷) */
 CREATE TABLE recipe (
-	rno NUMBER NOT NULL, /* ë ˆì‹œí”¼ë²ˆí˜¸ */
-	title VARCHAR2(500) NOT NULL, /* ì œëª© */
-	content CLOB NOT NULL, /* ë‚´ìš© */
-	ctno NUMBER NOT NULL, /* ì¹´í…Œê³ ë¦¬ */
-	fno NUMBER NOT NULL, /* ì´ë¯¸ì§€ */
-	name VARCHAR2(30) NOT NULL, /* ìž‘ì„±ìž */
-	read_cnt NUMBER DEFAULT 0 NOT NULL, /* ì¡°íšŒìˆ˜ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	rno NUMBER NOT NULL, /* ·¹½ÃÇÇ¹øÈ£ */
+	title VARCHAR2(500) NOT NULL, /* Á¦¸ñ */
+	content CLOB NOT NULL, /* ³»¿ë */
+	ctno NUMBER NOT NULL, /* Ä«Å×°í¸® */
+	fno NUMBER NOT NULL, /* ÀÌ¹ÌÁö */
+	name VARCHAR2(30) NOT NULL, /* ÀÛ¼ºÀÚ */
+	read_cnt NUMBER DEFAULT 0 NOT NULL, /* Á¶È¸¼ö */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE recipe IS 'ë ˆì‹œí”¼(ì§„ìš°ëžŒ)';
+COMMENT ON TABLE recipe IS '·¹½ÃÇÇ(Áø¿ì¶÷)';
 
-COMMENT ON COLUMN recipe.rno IS 'ë ˆì‹œí”¼ë²ˆí˜¸';
+COMMENT ON COLUMN recipe.rno IS '·¹½ÃÇÇ¹øÈ£';
 
-COMMENT ON COLUMN recipe.title IS 'ì œëª©';
+COMMENT ON COLUMN recipe.title IS 'Á¦¸ñ';
 
-COMMENT ON COLUMN recipe.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN recipe.content IS '³»¿ë';
 
-COMMENT ON COLUMN recipe.ctno IS 'ì¹´í…Œê³ ë¦¬';
+COMMENT ON COLUMN recipe.ctno IS 'Ä«Å×°í¸®';
 
-COMMENT ON COLUMN recipe.fno IS 'ì´ë¯¸ì§€';
+COMMENT ON COLUMN recipe.fno IS 'ÀÌ¹ÌÁö';
 
-COMMENT ON COLUMN recipe.name IS 'ìž‘ì„±ìž';
+COMMENT ON COLUMN recipe.name IS 'ÀÛ¼ºÀÚ';
 
-COMMENT ON COLUMN recipe.read_cnt IS 'ì¡°íšŒìˆ˜';
+COMMENT ON COLUMN recipe.read_cnt IS 'Á¶È¸¼ö';
 
-COMMENT ON COLUMN recipe.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN recipe.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX recipe_rno_i
 	ON recipe (
@@ -1796,23 +1796,23 @@ ALTER TABLE recipe
 			rno
 		);
 
-/* ìµœê·¼ë³¸ìƒí’ˆ(ì •ì§€ì›) */
+/* ÃÖ±Ùº»»óÇ°(Á¤Áö¿ø) */
 CREATE TABLE latest (
-	ltno NUMBER NOT NULL, /* ìµœê·¼ë³¸ìƒí’ˆë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	pno NUMBER NOT NULL, /* ìƒí’ˆë²ˆí˜¸ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	ltno NUMBER NOT NULL, /* ÃÖ±Ùº»»óÇ°¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	pno NUMBER NOT NULL, /* »óÇ°¹øÈ£ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE latest IS 'ìµœê·¼ë³¸ìƒí’ˆ(ì •ì§€ì›)';
+COMMENT ON TABLE latest IS 'ÃÖ±Ùº»»óÇ°(Á¤Áö¿ø)';
 
-COMMENT ON COLUMN latest.ltno IS 'ìµœê·¼ë³¸ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN latest.ltno IS 'ÃÖ±Ùº»»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN latest.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN latest.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN latest.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN latest.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN latest.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN latest.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX latest_ltno_i
 	ON latest (
@@ -1830,38 +1830,38 @@ ALTER TABLE latest
 			pno
 		);
 
-/* ìƒí’ˆë¬¸ì˜(ì´ìŠ¹ì¤€) */
+/* »óÇ°¹®ÀÇ(ÀÌ½ÂÁØ) */
 CREATE TABLE product_qna (
-	pqno NUMBER NOT NULL, /* ìƒí’ˆë¬¸ì˜ë²ˆí˜¸ */
-	pno NUMBER NOT NULL, /* ìƒí’ˆë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	title VARCHAR2(500) NOT NULL, /* ì œëª© */
-	content CLOB NOT NULL, /* ë‚´ìš© */
-	email_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ì´ë©”ì¼ë‹µë³€ì—¬ë¶€ */
-	phone_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ë¬¸ìžë‹µë³€ì—¬ë¶€ */
-	secret_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ë¹„ë°€ê¸€ì—¬ë¶€ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	pqno NUMBER NOT NULL, /* »óÇ°¹®ÀÇ¹øÈ£ */
+	pno NUMBER NOT NULL, /* »óÇ°¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	title VARCHAR2(500) NOT NULL, /* Á¦¸ñ */
+	content CLOB NOT NULL, /* ³»¿ë */
+	email_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ÀÌ¸ÞÀÏ´äº¯¿©ºÎ */
+	phone_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ¹®ÀÚ´äº¯¿©ºÎ */
+	secret_yn CHAR(1) DEFAULT 'n' NOT NULL, /* ºñ¹Ð±Û¿©ºÎ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE product_qna IS 'ìƒí’ˆë¬¸ì˜(ì´ìŠ¹ì¤€)';
+COMMENT ON TABLE product_qna IS '»óÇ°¹®ÀÇ(ÀÌ½ÂÁØ)';
 
-COMMENT ON COLUMN product_qna.pqno IS 'ìƒí’ˆë¬¸ì˜ë²ˆí˜¸';
+COMMENT ON COLUMN product_qna.pqno IS '»óÇ°¹®ÀÇ¹øÈ£';
 
-COMMENT ON COLUMN product_qna.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN product_qna.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN product_qna.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN product_qna.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN product_qna.title IS 'ì œëª©';
+COMMENT ON COLUMN product_qna.title IS 'Á¦¸ñ';
 
-COMMENT ON COLUMN product_qna.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN product_qna.content IS '³»¿ë';
 
-COMMENT ON COLUMN product_qna.email_yn IS 'ì´ë©”ì¼ë‹µë³€ì—¬ë¶€';
+COMMENT ON COLUMN product_qna.email_yn IS 'ÀÌ¸ÞÀÏ´äº¯¿©ºÎ';
 
-COMMENT ON COLUMN product_qna.phone_yn IS 'ë¬¸ìžë‹µë³€ì—¬ë¶€';
+COMMENT ON COLUMN product_qna.phone_yn IS '¹®ÀÚ´äº¯¿©ºÎ';
 
-COMMENT ON COLUMN product_qna.secret_yn IS 'ë¹„ë°€ê¸€ì—¬ë¶€';
+COMMENT ON COLUMN product_qna.secret_yn IS 'ºñ¹Ð±Û¿©ºÎ';
 
-COMMENT ON COLUMN product_qna.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN product_qna.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX product_qna_pqno_i
 	ON product_qna (
@@ -1879,23 +1879,23 @@ ALTER TABLE product_qna
 			mno
 		);
 
-/* ë‚´ì¿ í°(ë°•ìš©ìˆœ) */
+/* ³»ÄíÆù(¹Ú¿ë¼ø) */
 CREATE TABLE my_coupon (
-	mcno NUMBER NOT NULL, /* ë‚´ì¿ í°ë²ˆí˜¸ */
-	cno NUMBER NOT NULL, /* ì¿ í°ë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	mcno NUMBER NOT NULL, /* ³»ÄíÆù¹øÈ£ */
+	cno NUMBER NOT NULL, /* ÄíÆù¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE my_coupon IS 'ë‚´ì¿ í°(ë°•ìš©ìˆœ)';
+COMMENT ON TABLE my_coupon IS '³»ÄíÆù(¹Ú¿ë¼ø)';
 
-COMMENT ON COLUMN my_coupon.mcno IS 'ë‚´ì¿ í°ë²ˆí˜¸';
+COMMENT ON COLUMN my_coupon.mcno IS '³»ÄíÆù¹øÈ£';
 
-COMMENT ON COLUMN my_coupon.cno IS 'ì¿ í°ë²ˆí˜¸';
+COMMENT ON COLUMN my_coupon.cno IS 'ÄíÆù¹øÈ£';
 
-COMMENT ON COLUMN my_coupon.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN my_coupon.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN my_coupon.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN my_coupon.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX my_coupon_mcno_i
 	ON my_coupon (
@@ -1913,32 +1913,32 @@ ALTER TABLE my_coupon
 			mno
 		);
 
-/* ì ë¦½ê¸ˆë‚´ì—­(ë°•ìš©ìˆœ) */
+/* Àû¸³±Ý³»¿ª(¹Ú¿ë¼ø) */
 CREATE TABLE saving_list (
-	svlno NUMBER NOT NULL, /* ì ë¦½ê¸ˆë‚´ì—­ë²ˆí˜¸ */
-	svno NUMBER NOT NULL, /* ì ë¦½ê¸ˆë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	olno NUMBER NOT NULL, /* ì£¼ë¬¸ëª©ë¡ë²ˆí˜¸ */
-	credit NUMBER DEFAULT 0 NOT NULL, /* ê¸ˆì•¡ */
-	expiry DATE DEFAULT add_months(sysdate, +1) NOT NULL, /* ìœ íš¨ê¸°ê°„ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	svlno NUMBER NOT NULL, /* Àû¸³±Ý³»¿ª¹øÈ£ */
+	svno NUMBER NOT NULL, /* Àû¸³±Ý¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	olno NUMBER NOT NULL, /* ÁÖ¹®¸ñ·Ï¹øÈ£ */
+	credit NUMBER DEFAULT 0 NOT NULL, /* ±Ý¾× */
+	expiry DATE DEFAULT add_months(sysdate, +1) NOT NULL, /* À¯È¿±â°£ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE saving_list IS 'ì ë¦½ê¸ˆë‚´ì—­(ë°•ìš©ìˆœ)';
+COMMENT ON TABLE saving_list IS 'Àû¸³±Ý³»¿ª(¹Ú¿ë¼ø)';
 
-COMMENT ON COLUMN saving_list.svlno IS 'ì ë¦½ê¸ˆë‚´ì—­ë²ˆí˜¸';
+COMMENT ON COLUMN saving_list.svlno IS 'Àû¸³±Ý³»¿ª¹øÈ£';
 
-COMMENT ON COLUMN saving_list.svno IS 'ì ë¦½ê¸ˆë²ˆí˜¸';
+COMMENT ON COLUMN saving_list.svno IS 'Àû¸³±Ý¹øÈ£';
 
-COMMENT ON COLUMN saving_list.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN saving_list.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN saving_list.olno IS 'ì£¼ë¬¸ëª©ë¡ë²ˆí˜¸';
+COMMENT ON COLUMN saving_list.olno IS 'ÁÖ¹®¸ñ·Ï¹øÈ£';
 
-COMMENT ON COLUMN saving_list.credit IS 'ê¸ˆì•¡';
+COMMENT ON COLUMN saving_list.credit IS '±Ý¾×';
 
-COMMENT ON COLUMN saving_list.expiry IS 'ìœ íš¨ê¸°ê°„';
+COMMENT ON COLUMN saving_list.expiry IS 'À¯È¿±â°£';
 
-COMMENT ON COLUMN saving_list.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN saving_list.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX saving_list_svlno_i
 	ON saving_list (
@@ -1956,38 +1956,38 @@ ALTER TABLE saving_list
 			mno
 		);
 
-/* ì£¼ë¬¸ëª©ë¡(í—¨ë¦¬) */
+/* ÁÖ¹®¸ñ·Ï(Çî¸®) */
 CREATE TABLE order_list (
-	olno NUMBER NOT NULL, /* ì£¼ë¬¸ëª©ë¡ë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	ono NUMBER NOT NULL, /* ì£¼ë¬¸ë²ˆí˜¸ */
-	pno NUMBER NOT NULL, /* ìƒí’ˆë²ˆí˜¸ */
-	pono NUMBER, /* ìƒí’ˆì˜µì…˜ë²ˆí˜¸ */
-	credit NUMBER DEFAULT 0 NOT NULL, /* ì ë¦½ê¸ˆ */
-	type CHAR(1) DEFAULT 'd' NOT NULL, /* ìƒíƒœ */
-	quantity NUMBER DEFAULT 0 NOT NULL, /* ìˆ˜ëŸ‰ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	olno NUMBER NOT NULL, /* ÁÖ¹®¸ñ·Ï¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	ono NUMBER NOT NULL, /* ÁÖ¹®¹øÈ£ */
+	pno NUMBER NOT NULL, /* »óÇ°¹øÈ£ */
+	pono NUMBER, /* »óÇ°¿É¼Ç¹øÈ£ */
+	credit NUMBER DEFAULT 0 NOT NULL, /* Àû¸³±Ý */
+	type CHAR(1) DEFAULT 'd' NOT NULL, /* »óÅÂ */
+	quantity NUMBER DEFAULT 0 NOT NULL, /* ¼ö·® */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE order_list IS 'ì£¼ë¬¸ëª©ë¡(í—¨ë¦¬)';
+COMMENT ON TABLE order_list IS 'ÁÖ¹®¸ñ·Ï(Çî¸®)';
 
-COMMENT ON COLUMN order_list.olno IS 'ì£¼ë¬¸ëª©ë¡ë²ˆí˜¸';
+COMMENT ON COLUMN order_list.olno IS 'ÁÖ¹®¸ñ·Ï¹øÈ£';
 
-COMMENT ON COLUMN order_list.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN order_list.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN order_list.ono IS 'ì£¼ë¬¸ë²ˆí˜¸';
+COMMENT ON COLUMN order_list.ono IS 'ÁÖ¹®¹øÈ£';
 
-COMMENT ON COLUMN order_list.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN order_list.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN order_list.pono IS 'ìƒí’ˆì˜µì…˜ë²ˆí˜¸';
+COMMENT ON COLUMN order_list.pono IS '»óÇ°¿É¼Ç¹øÈ£';
 
-COMMENT ON COLUMN order_list.credit IS 'ì ë¦½ê¸ˆ';
+COMMENT ON COLUMN order_list.credit IS 'Àû¸³±Ý';
 
-COMMENT ON COLUMN order_list.type IS 'ìƒíƒœ';
+COMMENT ON COLUMN order_list.type IS '»óÅÂ';
 
-COMMENT ON COLUMN order_list.quantity IS 'ìˆ˜ëŸ‰';
+COMMENT ON COLUMN order_list.quantity IS '¼ö·®';
 
-COMMENT ON COLUMN order_list.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN order_list.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX order_list_olno_i
 	ON order_list (
@@ -2010,7 +2010,7 @@ ALTER TABLE order_list
 		CONSTRAINT order_list_type_c
 		CHECK (type in ('d','c'));
 
-/* ì ë¦½ê¸ˆ ëª©ë¡ */
+/* Àû¸³±Ý ¸ñ·Ï */
 CREATE TRIGGER t_order_list_saving_list
 AFTER INSERT ON order_list
 FOR EACH ROW
@@ -2024,23 +2024,23 @@ BEGIN
 END;
 /
 
-/* ì¶”ì²œ(ì´ìŠ¹ì¤€) */
+/* ÃßÃµ(ÀÌ½ÂÁØ) */
 CREATE TABLE recommend (
-	rcno NUMBER NOT NULL, /* ì¶”ì²œë²ˆí˜¸ */
-	mno NUMBER NOT NULL, /* íšŒì›ë²ˆí˜¸ */
-	id VARCHAR2(50) NOT NULL, /* íšŒì›ì•„ì´ë”” */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	rcno NUMBER NOT NULL, /* ÃßÃµ¹øÈ£ */
+	mno NUMBER NOT NULL, /* È¸¿ø¹øÈ£ */
+	id VARCHAR2(50) NOT NULL, /* È¸¿ø¾ÆÀÌµð */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE recommend IS 'ì¶”ì²œ(ì´ìŠ¹ì¤€)';
+COMMENT ON TABLE recommend IS 'ÃßÃµ(ÀÌ½ÂÁØ)';
 
-COMMENT ON COLUMN recommend.rcno IS 'ì¶”ì²œë²ˆí˜¸';
+COMMENT ON COLUMN recommend.rcno IS 'ÃßÃµ¹øÈ£';
 
-COMMENT ON COLUMN recommend.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN recommend.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN recommend.id IS 'íšŒì›ì•„ì´ë””';
+COMMENT ON COLUMN recommend.id IS 'È¸¿ø¾ÆÀÌµð';
 
-COMMENT ON COLUMN recommend.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN recommend.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX recommend_rcno_i
 	ON recommend (
@@ -2054,29 +2054,29 @@ ALTER TABLE recommend
 			rcno
 		);
 
-/* ìžì£¼í•˜ëŠ”ì§ˆë¬¸(ê°•ë¯¼ê·œ) */
+/* ÀÚÁÖÇÏ´ÂÁú¹®(°­¹Î±Ô) */
 CREATE TABLE question (
-	qno NUMBER NOT NULL, /* ìžì£¼í•˜ëŠ”ì§ˆë¬¸ë²ˆí˜¸ */
-	title VARCHAR2(500) NOT NULL, /* ì œëª© */
-	content CLOB NOT NULL, /* ë‚´ìš© */
-	ctno NUMBER NOT NULL, /* ì¹´í…Œê³ ë¦¬ë²ˆí˜¸ */
-	type CHAR(1) DEFAULT 'y' NOT NULL, /* ë…¸ì¶œì—¬ë¶€ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	qno NUMBER NOT NULL, /* ÀÚÁÖÇÏ´ÂÁú¹®¹øÈ£ */
+	title VARCHAR2(500) NOT NULL, /* Á¦¸ñ */
+	content CLOB NOT NULL, /* ³»¿ë */
+	ctno NUMBER NOT NULL, /* Ä«Å×°í¸®¹øÈ£ */
+	type CHAR(1) DEFAULT 'y' NOT NULL, /* ³ëÃâ¿©ºÎ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE question IS 'ìžì£¼í•˜ëŠ”ì§ˆë¬¸(ê°•ë¯¼ê·œ)';
+COMMENT ON TABLE question IS 'ÀÚÁÖÇÏ´ÂÁú¹®(°­¹Î±Ô)';
 
-COMMENT ON COLUMN question.qno IS 'ìžì£¼í•˜ëŠ”ì§ˆë¬¸ë²ˆí˜¸';
+COMMENT ON COLUMN question.qno IS 'ÀÚÁÖÇÏ´ÂÁú¹®¹øÈ£';
 
-COMMENT ON COLUMN question.title IS 'ì œëª©';
+COMMENT ON COLUMN question.title IS 'Á¦¸ñ';
 
-COMMENT ON COLUMN question.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN question.content IS '³»¿ë';
 
-COMMENT ON COLUMN question.ctno IS 'ì¹´í…Œê³ ë¦¬ë²ˆí˜¸';
+COMMENT ON COLUMN question.ctno IS 'Ä«Å×°í¸®¹øÈ£';
 
-COMMENT ON COLUMN question.type IS 'ë…¸ì¶œì—¬ë¶€';
+COMMENT ON COLUMN question.type IS '³ëÃâ¿©ºÎ';
 
-COMMENT ON COLUMN question.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN question.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX question_qno_i
 	ON question (
@@ -2095,35 +2095,35 @@ ALTER TABLE question
 		CONSTRAINT question_type_c
 		CHECK (type in ('y','n'));
 
-/* íŒŒì¼(ì´ìŠ¹ì¤€) */
+/* ÆÄÀÏ(ÀÌ½ÂÁØ) */
 CREATE TABLE files (
-	fno NUMBER NOT NULL, /* íŒŒì¼ë²ˆí˜¸ */
-	mno NUMBER, /* íšŒì›ë²ˆí˜¸ */
-	pno NUMBER, /* ìƒí’ˆë²ˆí˜¸ */
-	name VARCHAR2(200) NOT NULL, /* íŒŒì¼ëª… */
-	real_name VARCHAR2(200) NOT NULL, /* ì‹¤ì œíŒŒì¼ëª… */
-	loc VARCHAR2(500) DEFAULT '/static/upload/img/shop/product/' NOT NULL, /* ê²½ë¡œ */
-	ctno NUMBER NOT NULL, /* ì¹´í…Œê³ ë¦¬ë²ˆí˜¸ */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	fno NUMBER NOT NULL, /* ÆÄÀÏ¹øÈ£ */
+	mno NUMBER, /* È¸¿ø¹øÈ£ */
+	pno NUMBER, /* »óÇ°¹øÈ£ */
+	name VARCHAR2(200) NOT NULL, /* ÆÄÀÏ¸í */
+	real_name VARCHAR2(200) NOT NULL, /* ½ÇÁ¦ÆÄÀÏ¸í */
+	loc VARCHAR2(500) DEFAULT '/static/upload/img/shop/product/' NOT NULL, /* °æ·Î */
+	ctno NUMBER NOT NULL, /* Ä«Å×°í¸®¹øÈ£ */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE files IS 'íŒŒì¼(ì´ìŠ¹ì¤€)';
+COMMENT ON TABLE files IS 'ÆÄÀÏ(ÀÌ½ÂÁØ)';
 
-COMMENT ON COLUMN files.fno IS 'íŒŒì¼ë²ˆí˜¸';
+COMMENT ON COLUMN files.fno IS 'ÆÄÀÏ¹øÈ£';
 
-COMMENT ON COLUMN files.mno IS 'íšŒì›ë²ˆí˜¸';
+COMMENT ON COLUMN files.mno IS 'È¸¿ø¹øÈ£';
 
-COMMENT ON COLUMN files.pno IS 'ìƒí’ˆë²ˆí˜¸';
+COMMENT ON COLUMN files.pno IS '»óÇ°¹øÈ£';
 
-COMMENT ON COLUMN files.name IS 'íŒŒì¼ëª…';
+COMMENT ON COLUMN files.name IS 'ÆÄÀÏ¸í';
 
-COMMENT ON COLUMN files.real_name IS 'ì‹¤ì œíŒŒì¼ëª…';
+COMMENT ON COLUMN files.real_name IS '½ÇÁ¦ÆÄÀÏ¸í';
 
-COMMENT ON COLUMN files.loc IS 'ê²½ë¡œ';
+COMMENT ON COLUMN files.loc IS '°æ·Î';
 
-COMMENT ON COLUMN files.ctno IS 'ì¹´í…Œê³ ë¦¬ë²ˆí˜¸';
+COMMENT ON COLUMN files.ctno IS 'Ä«Å×°í¸®¹øÈ£';
 
-COMMENT ON COLUMN files.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN files.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX files_fno_i
 	ON files (
@@ -2137,26 +2137,26 @@ ALTER TABLE files
 			fno
 		);
 
-/* 1:1ë¬¸ì˜ë‹µë³€ */
+/* 1:1¹®ÀÇ´äº¯ */
 CREATE TABLE qna_answer (
-	qano NUMBER NOT NULL, /* 1:1ë‹µë³€ë²ˆí˜¸ */
-	qnno NUMBER NOT NULL, /* 1:1ë¬¸ì˜ë²ˆí˜¸ */
-	name VARCHAR2(30) NOT NULL, /* ì´ë¦„ */
-	content CLOB NOT NULL, /* ë‚´ìš© */
-	writedate DATE DEFAULT sysdate NOT NULL /* ë“±ë¡ì¼ */
+	qano NUMBER NOT NULL, /* 1:1´äº¯¹øÈ£ */
+	qnno NUMBER NOT NULL, /* 1:1¹®ÀÇ¹øÈ£ */
+	name VARCHAR2(30) NOT NULL, /* ÀÌ¸§ */
+	content CLOB NOT NULL, /* ³»¿ë */
+	writedate DATE DEFAULT sysdate NOT NULL /* µî·ÏÀÏ */
 );
 
-COMMENT ON TABLE qna_answer IS '1:1ë¬¸ì˜ë‹µë³€';
+COMMENT ON TABLE qna_answer IS '1:1¹®ÀÇ´äº¯';
 
-COMMENT ON COLUMN qna_answer.qano IS '1:1ë‹µë³€ë²ˆí˜¸';
+COMMENT ON COLUMN qna_answer.qano IS '1:1´äº¯¹øÈ£';
 
-COMMENT ON COLUMN qna_answer.qnno IS '1:1ë¬¸ì˜ë²ˆí˜¸';
+COMMENT ON COLUMN qna_answer.qnno IS '1:1¹®ÀÇ¹øÈ£';
 
-COMMENT ON COLUMN qna_answer.name IS 'ì´ë¦„';
+COMMENT ON COLUMN qna_answer.name IS 'ÀÌ¸§';
 
-COMMENT ON COLUMN qna_answer.content IS 'ë‚´ìš©';
+COMMENT ON COLUMN qna_answer.content IS '³»¿ë';
 
-COMMENT ON COLUMN qna_answer.writedate IS 'ë“±ë¡ì¼';
+COMMENT ON COLUMN qna_answer.writedate IS 'µî·ÏÀÏ';
 
 CREATE UNIQUE INDEX qna_answer_qano_p
 	ON qna_answer (
