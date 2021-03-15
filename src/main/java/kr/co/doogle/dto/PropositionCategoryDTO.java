@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PropositionCategoryDTO {
 	private int ppno, ctno, lv, pctno, idx;
-	private String title,content,fno,writedate, name, type, jwritedate;
+	private String title,content,fno,writedate, name, type, jwritedate,id;
 }

@@ -44,7 +44,7 @@ public class AdminPropositionController {
 				model.addAttribute("list", propositionMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), "where ctno = #{ctno}", ctno));
 			}
 			model.addAttribute("url", "/admin/proposition");
-			model.addAttribute("list", propositionMapper.getPcategory());
+			model.addAttribute("list", propositionMapper.getAdmin());
 			model.addAttribute("i", paging.getStartRow());
 			model.addAttribute("paging", paging.getPageHtml());
 			return "/back/proposition/list";

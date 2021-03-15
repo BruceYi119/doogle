@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EcoDTO {
 	private int epno,ctno;
-	private String title,content,name,fno,writedate;
+	private String title,content,name,fno,writedated,id;
 }

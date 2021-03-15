@@ -14,6 +14,7 @@
 			<div class="section-wrap">
 			<form method="post" action="ecoUpdateOk" enctype="multipart/form-data" onsubmit="return ecoCheck()">
 			<input type="hidden" name="epno" value="${dto.epno }">
+			<input type="hidden" name="id" value="${id }">
 				<table class="table">
 					<tr>
 						<th>제목</th>

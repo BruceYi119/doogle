@@ -39,7 +39,7 @@ public class AdminEcoController {
 			model.addAttribute("list", ecoMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), "where ctno = #{ctno}", ctno));
 		}
 		model.addAttribute("url", "/admin/eco");
-		model.addAttribute("list", ecoMapper.getPcategory());
+		model.addAttribute("list", ecoMapper.getAdmin());
 		model.addAttribute("i", paging.getStartRow());
 		model.addAttribute("paging", paging.getPageHtml());
 		return "/back/eco/list";

@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EcoCategoryDTO {
 	private int epno,ctno,lv,pctno,idx;
-	private String title,content,name,fno,writedate,cname,type,jwritedate;
+	private String title,content,name,fno,writedate,cname,type,jwritedate,id;
 }

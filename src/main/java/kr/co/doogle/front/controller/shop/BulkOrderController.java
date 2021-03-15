@@ -15,9 +15,9 @@ public class BulkOrderController {
 	@Autowired
 	private BulkOrderMapper bulkOrderMapper;
 	@Autowired
-	private CategoryMapper categoryMapper;
+	private CategoryMapper categoryMapper; 
 
-	@RequestMapping("/shop/bulkOrder")
+	@RequestMapping("/shop/bulkOrder") // 로그인 필요
 	public String bulk_order(Model model) {
 		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		model.addAttribute("edit", "edit");

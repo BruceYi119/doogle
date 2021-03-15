@@ -24,4 +24,4 @@
 #container #incon2 img{float:left;width:86%;height:500px;}
 #container #incon3{	float:left;	width:86%;height:600px;	padding-left:30px;padding-top:80px;}
 #container #incon3 img{	float:left;width:86%;height:400px;}
-#absolute_div{position: absolute;width:100%;height:600px;top:1150px;background: #eae7ee; z-index: 1;}
+#absolute_div{position: absolute;width:100%;height:600px;top:1100px;background: #eae7ee; z-index: 1;}

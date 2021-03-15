@@ -18,5 +18,7 @@ grant connect, resource to doogle;
 --@D:\projectWorkspace\doogle\src\main\info\delete_product.sql
 --@D:\projectWorkspace\doogle\src\main\info\delete_file.sql
 --@D:\projectWorkspace\doogle\src\main\info\question.sql
+--@D:\projectWorkspace\doogle\src\main\info\KimHeeSu_dummy.sql
+--insert into category(ctno,name,lv,type,idx,writedate) values(s_CATEGORY.nextval,'이벤트',0,'f',6,sysdate)
 --delete from category where ctno = 3;
 --commit;

@@ -354,6 +354,15 @@ DROP INDEX files_fno_i;
 
 DROP INDEX qna_answer_qano_p;
 
+/* 기본배송지 */
+DROP TRIGGER t_member_delivery;
+
+/* 적립금 */
+DROP TRIGGER t_member_saving;
+
+/* 적립금 목록 */
+DROP TRIGGER t_order_list_saving_list;
+
 /* 회원 (이승준) */
 DROP TABLE member 
 	CASCADE CONSTRAINTS;
@@ -1720,9 +1729,9 @@ CREATE TABLE popup (
 	start_date DATE DEFAULT sysdate NOT NULL, /* 시작일 */
 	end_date DATE DEFAULT sysdate NOT NULL, /* 종료일 */
 	top NUMBER DEFAULT 0, /* 위 */
-	bottom NUMBER, /* 아래 */
-	left NUMBER, /* 오른쪽 */
-	right NUMBER DEFAULT 0, /* 왼쪽 */
+	bottom NUMBER DEFAULT 0, /* 아래 */
+	left NUMBER DEFAULT 0, /* 왼쪽 */
+	right NUMBER DEFAULT 0, /* 오른쪽 */
 	width VARCHAR2(30) DEFAULT '0', /* 너비 */
 	height VARCHAR2(30) DEFAULT '0', /* 높이 */
 	type CHAR(1) DEFAULT 'y' NOT NULL, /* 활성화여부 */
@@ -1745,9 +1754,9 @@ COMMENT ON COLUMN popup.top IS '위';
 
 COMMENT ON COLUMN popup.bottom IS '아래';
 
-COMMENT ON COLUMN popup.left IS '오른쪽';
+COMMENT ON COLUMN popup.left IS '왼쪽';
 
-COMMENT ON COLUMN popup.right IS '왼쪽';
+COMMENT ON COLUMN popup.right IS '오른쪽';
 
 COMMENT ON COLUMN popup.width IS '너비';
 
@@ -2042,11 +2051,16 @@ FOR EACH ROW
 DECLARE
 vsvno saving.svno%type;
 vsaving_price payment.saving_price%type;
+vproduct_cnt orders.product_cnt%type;
 BEGIN
   IF INSERTING THEN 
-    select svno into vsvno from saving where ono = :NEW.ono;
-    select saving_price into vsaving_price from payment where mno = :NEW.mno
-    insert into saving_list(svlno, svno, mno, olno, credit) values (s_saving_list.nextval, vsvno, :NEW.mno, :NEW.olno, vsaving_price / :NEW.product_cnt);
+    select svno into vsvno from saving where mno = :NEW.mno;
+    select product_cnt into vproduct_cnt from orders where ono = :NEW.ono;
+    select saving_price into vsaving_price from payment where mno = :NEW.mno;
+    update saving
+	set exp_credit = (select sum(credit) from saving_list where to_char(expiry,'yy/mm/dd') = to_char((select min(expiry) from saving_list where mno = :NEW.mno),'yy/mm/dd'))
+	where mno = :NEW.mno;
+    insert into saving_list(svlno, svno, mno, olno, credit) values (s_saving_list.nextval, vsvno, :NEW.mno, :NEW.olno, vsaving_price / vproduct_cnt);
   END IF;
 END;
 /

@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PropositionDTO {
 	private int ppno,ctno;
-	private String title,content,fno,writedate;
+	private String title,content,fno,writedate,id;
 }

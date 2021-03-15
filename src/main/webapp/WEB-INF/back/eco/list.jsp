@@ -26,7 +26,7 @@
 						<td>${dto.epno}</td>
 						<td>[${dto.cname}]</td>
 						<td>${dto.title}</td>
-						<td>작성자</td>
+						<td>${dto.id }</td>
 						<td>${dto.writedate}</td>
 					</tr>
 					<c:set var="i" value="${i + 1}" />

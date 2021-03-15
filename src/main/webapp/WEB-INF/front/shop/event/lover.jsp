@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<div id="absolute_div"></div>
 <div class="base_wrap" align="center">
 	<div id="container">
 		<div id="con_nav">
@@ -84,8 +85,14 @@
 				<li>등급별 할인 쿠폰 혜택은 변경될 수 있습니다.</li>
 			</ul>
 			<div class="event_btn">
+				<c:if test="${id!='' }">
 				<a href="/shop/event/my_benefit"><img
 					src="/static/front/img/shop/event/default/다음달혜택.jpg"></a>
+				</c:if>
+				<c:if test="${id=='' }">
+				<a href="/login" id="to_login"><img
+					src="/static/front/img/shop/event/default/다음달혜택.jpg"></a>
+				</c:if>
 			</div>
 			<div class="event_gift">
 				<img src="/static/front/img/shop/event/default/회원혜택.jpg">

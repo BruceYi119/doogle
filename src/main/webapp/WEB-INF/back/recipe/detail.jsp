@@ -23,16 +23,15 @@
 				</tr>
 				<tr>
 					<td>분류</td>
-					<c:if test="${rdto.ctno==223}">
+					<c:if test="${rdto.ctno==135}">
 					<td>매일밥상</td>
 					</c:if>
-					<c:if test="${rdto.ctno==224}">
+					<c:if test="${rdto.ctno==136}">
 					<td>특별한날</td>
 					</c:if>
-					<c:if test="${rdto.ctno==225}">
+					<c:if test="${rdto.ctno==137}">
 					<td>간단요리</td>
 					</c:if>
-					
 				</tr>
 				<tr>
 					<td>작성일</td>

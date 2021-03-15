@@ -14,9 +14,9 @@
 						<select name="ctno" onchange="if(this.value) location.href=(this.value);">
 							<option value="">- 선택 -</option>
 							<option value="/admin/recipe"> 전체보기 </option>
-							<option value="/admin/recipe?ctno=223"> 매일밥상 </option>
-							<option value="/admin/recipe?ctno=224"> 특별한날 </option>
-							<option value="/admin/recipe?ctno=225"> 간단요리 </option>
+							<option value="/admin/recipe?ctno=135"> 매일밥상 </option>
+							<option value="/admin/recipe?ctno=136"> 특별한날 </option>
+							<option value="/admin/recipe?ctno=137"> 간단요리 </option>
 						</select>
 					</th>
 					<th>제목</th>
@@ -31,13 +31,13 @@
 					<tr onclick="location.href='/admin/recipe/detail?rno=${dto.rno}'" style="cursor: pointer;">
 						<td>${i}</td>
 						<td>${dto.rno}</td>
-						<c:if test="${dto.ctno==223}">
+						<c:if test="${dto.ctno==135}">
 						<td>매일밥상</td>
 						</c:if>
-						<c:if test="${dto.ctno==224}">
+						<c:if test="${dto.ctno==136}">
 						<td>특별한날</td>
 						</c:if>
-						<c:if test="${dto.ctno==225}">
+						<c:if test="${dto.ctno==137}">
 						<td>간단요리</td>
 						</c:if>
 						<td>${dto.title}</td>

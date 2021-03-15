@@ -2,6 +2,8 @@ package kr.co.doogle.mapper;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -18,15 +20,20 @@ import kr.co.doogle.dto.PropositionDTO;
 
 @Mapper
 public interface EcoMapper {
-	@Select("select e.epno,e.title,e.content,e.name,e.ctno,to_char(e.writedate,'YYYY-MM-DD') writedate, c.name cname from eco e left join category c on e.ctno = c.ctno")
+	@Select("select e.epno,e.title,e.id,e.content,e.name,e.ctno,to_char(e.writedate,'YYYY-MM-DD') writedate, c.name cname from eco e left join category c on e.ctno = c.ctno"
+			+ " where e.id=#{id}")
 	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
-	List<EcoCategoryDTO> getPcategory();
+	List<EcoCategoryDTO> getPcategory(String id);
 	
-	@Insert({"insert into eco(epno,title,name,content,ctno,fno,writedate) "
-			+ "values(s_eco.nextval,#{dto.title},#{dto.name},#{dto.content},#{dto.ctno},#{dto.fno},sysdate)"})
+	@Select("select e.epno,e.title,e.id,e.content,e.name,e.ctno,to_char(e.writedate,'YYYY-MM-DD') writedate, c.name cname from eco e left join category c on e.ctno = c.ctno")
+	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
+	List<EcoCategoryDTO> getAdmin();
+	
+	@Insert({"insert into eco(epno,title,name,content,ctno,fno,writedate,id) "
+			+ "values(s_eco.nextval,#{dto.title},#{dto.name},#{dto.content},#{dto.ctno},#{dto.fno},sysdate,#{dto.id})"})
 	void insert(@Param("dto") EcoDTO dto);
 	
-	@Select("select e.epno,e.title,e.name,e.content,e.ctno,to_char(e.writedate,'YYYY-MM-DD') writedate,c.name cname from eco e left join category c on e.ctno = c.ctno "
+	@Select("select e.epno,e.id,e.title,e.name,e.content,e.ctno,to_char(e.writedate,'YYYY-MM-DD') writedate,c.name cname from eco e left join category c on e.ctno = c.ctno "
 			+ "where epno=#{epno} ")
 	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
 	EcoCategoryDTO getContent(int epno);
@@ -41,7 +48,7 @@ public interface EcoMapper {
 	@Select("select count(*) from eco ${where}")
 	int getTotal(@Param("where") String where, @Param("ctno") String ctno);
 	
-	@Select({"select  epno,title,content,name,ctno,fno,writedate from "
+	@Select({"select  epno,id,title,content,name,ctno,fno,writedate from "
 			+ "(select seq, tt.* from (select rownum seq, t.* from "
 			+ "(select * from eco ${where} order by writedate asc, ctno asc, epno asc) t) tt where seq >= #{start}) where rownum <= #{end}"})
 	List<EcoDTO> getAllPaging(@Param("start") int start, @Param("end") int end, @Param("where") String where, @Param("ctno") String ctno);

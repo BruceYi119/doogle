@@ -32,7 +32,7 @@
 						<td>${dto.ppno }</td>
 						<td>[${dto.name}]</td>
 						<td>${dto.title }</td>
-						<td>${c }</td>
+						<td>${dto.id }</td>
 						<td>${dto.writedate }</td>
 					</tr>
 					<tr class="tr-sub" style="display:none;" >

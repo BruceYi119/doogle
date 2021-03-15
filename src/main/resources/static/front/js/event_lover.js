@@ -83,6 +83,9 @@ $(function(){
 		$('.item_on').children().css('display','none');
 		$('#item_img6').css('display','block');
 	})
+	$('#to_login').click(function(){
+		alert("로그인이 필요합니다.")
+	})
 	function change()
 	{
 		var chk=document.documentElement.scrollTop;

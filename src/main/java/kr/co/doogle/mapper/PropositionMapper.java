@@ -19,21 +19,26 @@ import kr.co.doogle.dto.PropositionDTO;
 @Mapper
 public interface PropositionMapper {
 
-	@Select("select ppno,title,ctno,to_char(writedate,'YYYY-MM-DD') as writedate from proposition ")
+	@Select("select ppno,title,ctno,id,to_char(writedate,'YYYY-MM-DD') as writedate from proposition ")
 	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
 	List<PropositionDTO> getAll();
 	   
 //	@select("select * from category")
 //	List<dto> getCategory(@Param("dto") CategoryDTO dto);
-	@Insert("insert into proposition(ppno,title,content,ctno,fno,writedate)"
-			+ " values(s_proposition.nextval,#{dto.title},#{dto.content},#{dto.ctno},#{dto.fno},sysdate)")
+	@Insert("insert into proposition(ppno,title,content,ctno,fno,writedate,id)"
+			+ " values(s_proposition.nextval,#{dto.title},#{dto.content},#{dto.ctno},#{dto.fno},sysdate,#{dto.id})")
 	void insert(@Param("dto") PropositionDTO dto);
 	
-	@Select("select p.ppno,p.title,p.content,p.ctno,to_char(p.writedate,'YYYY-MM-DD') writedate, c.name from proposition p left join category c on p.ctno = c.ctno")
+	@Select("select p.ppno,p.title,p.id,p.content,p.ctno,to_char(p.writedate,'YYYY-MM-DD') writedate, c.name from proposition p left join category c on p.ctno = c.ctno"
+			+ " where p.id=#{id}")
 	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
-	List<PropositionCategoryDTO> getPcategory();
+	List<PropositionCategoryDTO> getPcategory(String id);
 	
-	@Select("select p.ppno,p.title,p.content,p.ctno,to_char(p.writedate,'YYYY-MM-DD') as writedate,c.name from proposition p left join category c on p.ctno = c.ctno "
+	@Select("select p.ppno,p.title,p.id,p.content,p.ctno,to_char(p.writedate,'YYYY-MM-DD') writedate, c.name from proposition p left join category c on p.ctno = c.ctno")
+	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
+	List<PropositionCategoryDTO> getAdmin();
+	
+	@Select("select p.ppno,p.title,p.id,p.content,p.ctno,to_char(p.writedate,'YYYY-MM-DD') as writedate,c.name from proposition p left join category c on p.ctno = c.ctno "
 			+ "where ppno=#{ppno} ")
 	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
 	PropositionCategoryDTO getContent(int ppno);
@@ -48,7 +53,7 @@ public interface PropositionMapper {
 	@Select("select count(*) from proposition ${where}")
 	int getTotal(@Param("where") String where, @Param("ctno") String ctno);
 	
-	@Select({"select  ppno,title,content,ctno,fno,writedate from "
+	@Select({"select  ppno,title,id,content,ctno,fno,writedate from "
 			+ "(select seq, tt.* from (select rownum seq, t.* from "
 			+ "(select * from proposition ${where} order by writedate asc, ctno asc, ppno asc) t) tt where seq >= #{start}) where rownum <= #{end}"})
 	List<PropositionDTO> getAllPaging(@Param("start") int start, @Param("end") int end, @Param("where") String where, @Param("ctno") String ctno);

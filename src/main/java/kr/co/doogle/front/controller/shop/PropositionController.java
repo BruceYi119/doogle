@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,8 +36,9 @@ public class PropositionController {
 	private Paging paging;
 	
 	// 내가 작성한 리스트 보여주기
-	@RequestMapping("/shop/propositionList")
-	public String propositionList(Model model,HttpServletRequest request) {
+	@RequestMapping("/shop/propositionList") // 로그인 필요
+	public String propositionList(Model model,HttpServletRequest request,HttpSession session) {
+		String id= (String) session.getAttribute("id");
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		String ctno = request.getParameter("ctno");
 		if (ctno == null || ctno == "") {
@@ -48,14 +50,14 @@ public class PropositionController {
 		}
 		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		model.addAttribute("url", "/shop/propositionList");
-		model.addAttribute("list", propositionMapper.getPcategory());
+		model.addAttribute("list", propositionMapper.getPcategory(id));
 		model.addAttribute("i", paging.getStartRow());
 		model.addAttribute("paging", paging.getPageHtml());
 		return "/front/shop/proposition/list";
 	}
 	
 	// 문서 작성 폼
-	@RequestMapping("/shop/propositionWrite")
+	@RequestMapping("/shop/propositionWrite") // 로그인 필요
 	public String propositionWrite(Model model) {
 		List<CategoryDTO> category=categoryMapper.getAllSql("select * from category where lv=0 and type='o'");
 		model.addAttribute("url", "/shop/propositionWrite");
@@ -100,7 +102,7 @@ public class PropositionController {
 	}
 	
 	// 문서 업데이트
-	@RequestMapping("/shop/propositionUpdate")
+	@RequestMapping("/shop/propositionUpdate") // 로그인 필요
 	public String propositionUpdate(HttpServletRequest request,Model model) {
 		int ppno = Integer.parseInt(request.getParameter("ppno"));
 		List<CategoryDTO> category=categoryMapper.getAllSql("select * from category where lv=0 and type='o'");

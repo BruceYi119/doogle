@@ -22,7 +22,7 @@
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="name" value=""><td> <!-- value 로그인 아이디 -->
+					<td><input type="text" name="name" value="DoogleShopping"readonly="readonly" style="background:none;border: none;color:black;"><td> <!-- value 로그인 아이디 -->
 				</tr>
 				<tr>
 					<td>내용<p>(내용사진과<p>대표사진은<p>별개)</td> <!-- summer 붙이기 -->

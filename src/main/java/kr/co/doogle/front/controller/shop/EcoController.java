@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,8 +35,9 @@ public class EcoController {
 	@Autowired
 	private FileMapper fileMapper;
 
-	@RequestMapping("/shop/ecoList")
-	public String propositionList(Model model, HttpServletRequest request) {
+	@RequestMapping("/shop/ecoList") // 로그인 필요
+	public String propositionList(Model model, HttpServletRequest request,HttpSession session) {
+		String id= (String) session.getAttribute("id");
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		String ctno = request.getParameter("ctno");
 		if (ctno == null || ctno == "") {
@@ -47,14 +49,15 @@ public class EcoController {
 		}
 		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		model.addAttribute("url", "/shop/ecoList");
-		model.addAttribute("list", ecoMapper.getPcategory());
+		model.addAttribute("list", ecoMapper.getPcategory(id));
 		model.addAttribute("i", paging.getStartRow());
 		model.addAttribute("paging", paging.getPageHtml());
 		return "/front/shop/eco/list";
 	}
 
-	@RequestMapping("/shop/ecoWrite")
-	public String propositionWrite(Model model) {
+	@RequestMapping("/shop/ecoWrite") //로그인 필요
+	public String propositionWrite(Model model,HttpSession session) {
+		String id= (String) session.getAttribute("id");
 		List<CategoryDTO> category=categoryMapper.getAllSql("select * from category where lv=0 and type='e'");
 		model.addAttribute("url", "/shop/ecoWrite");
 		model.addAttribute("edit", "edit");

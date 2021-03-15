@@ -24,6 +24,10 @@
 				<td>${dto. name}</td>
 			</tr>
 			<tr>
+				<th scope="row">작성자</th>
+				<td>${dto.id }</td>
+			</tr>
+			<tr>
 				<th scope="row">내용</th>
 				<td>${dto.content }</td>
 			</tr>

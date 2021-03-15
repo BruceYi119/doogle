@@ -22,7 +22,7 @@ import kr.co.doogle.paging.Paging;
 
 @Controller
 public class AdminEventController {
-	
+
 	@Autowired
 	private File file;
 	@Autowired
@@ -33,47 +33,45 @@ public class AdminEventController {
 	private CategoryMapper categoryMapper;
 	@Autowired
 	private EventMapper eventMapper;
-	
-	
+
 	@RequestMapping("/admin/event")
-	public ModelAndView event(ModelAndView mv, HttpServletRequest request,EventDTO edto) {
+	public ModelAndView event(ModelAndView mv, HttpServletRequest request, EventDTO edto) {
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		paging.setPaging(page, eventMapper.getTotal(null, null), "/admin/event");
 		mv.addObject("list", eventMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), null, null));
-		
+
 		mv.addObject("i", paging.getStartRow());
 		mv.addObject("url", "/admin/event");
 		mv.addObject("paging", paging.getPageHtml());
 		mv.setViewName("/back/event/list");
-		
+
 		return mv;
 	}
-	
-	
+
 	@RequestMapping("/admin/event/detail")
 	public ModelAndView event_detail(ModelAndView mv, @RequestParam("eno") int eno) {
-		EventDTO edto=eventMapper.getOne(eno);
+		EventDTO edto = eventMapper.getOne(eno);
 		mv.addObject("edto", edto);
 		mv.addObject("fdto", fileMapper.getOne("where fno=#{fno}", Integer.toString(edto.getFno_main())));
 		mv.setViewName("/back/event/detail");
 		return mv;
 	}
-	
+
 	@RequestMapping("/admin/event/mod")
 	public ModelAndView recipe_mod(ModelAndView mv, @RequestParam("eno") int eno) {
 		EventDTO edto = eventMapper.getOne(eno);
 		mv.addObject("edto", edto);
-		mv.addObject("fdto", fileMapper.getOne("where fno=#{fno}", Integer.toString(edto.getFno_main())));		
+		mv.addObject("fdto", fileMapper.getOne("where fno=#{fno}", Integer.toString(edto.getFno_main())));
 		mv.addObject("edit", "edit");
-		mv.addObject("url","/admin/event/add");
+		mv.addObject("url", "/admin/event/add");
 		mv.setViewName("/back/event/mod");
-		//System.out.println(edto.getFno_main());
+		// System.out.println(edto.getFno_main());
 		return mv;
 	}
-	
+
 	@RequestMapping("/admin/event/mod/ok")
 	@Transactional(timeout = 10)
-	public String event_modOk(@RequestParam("files") MultipartFile[] files,EventDTO edto) {
+	public String event_modOk(@RequestParam("files") MultipartFile[] files, EventDTO edto) {
 		FileDTO fdto = null;
 		ArrayList<String> flist = null;
 		int ctno = 0;
@@ -106,25 +104,25 @@ public class AdminEventController {
 		file.fileUpload(files);
 
 		// 새로운 사진을 넣었으면 새로운사진으로, 안넣었으면 원래 사진으로
-		if(fdto.getFno()!=0)
+		if (fdto.getFno() != 0)
 			edto.setFno_main(fdto.getFno());
-		
-		eventMapper.mod(edto,"where eno=#{eno}",edto.getEno());
-		
+
+		eventMapper.mod(edto, "where eno=#{eno}", edto.getEno());
+
 		return "redirect:/admin/event/detail?eno=" + edto.getEno();
 	}
 
 	@RequestMapping("/admin/event/add")
 	public ModelAndView add(ModelAndView mv) {
 		mv.addObject("edit", "edit");
-		mv.addObject("url","/admin/event/add");
+		mv.addObject("url", "/admin/event/add");
 		mv.setViewName("/back/event/add");
 		return mv;
 	}
-	
+
 	@RequestMapping("/admin/event/add/ok")
 	@Transactional(timeout = 10)
-	public String event_addOk(@RequestParam("files") MultipartFile[] files,EventDTO edto) {
+	public String event_addOk(@RequestParam("files") MultipartFile[] files, EventDTO edto) {
 		FileDTO fdto = null;
 		ArrayList<String> flist = null;
 		int ctno = 0;
@@ -156,16 +154,16 @@ public class AdminEventController {
 
 		// insert한 이미지파일fno productDTO에 등록
 		edto.setFno_main(fdto.getFno());
-		
+
 		eventMapper.insert(edto);
-		
+
 		return "redirect:/admin/event";
 	}
-	
+
 	@RequestMapping("admin/event/delete")
 	public String event_del(@RequestParam("eno") int eno) {
 		eventMapper.del(eno);
-		
+
 		return "redirect:../";
 	}
 
