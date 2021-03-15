@@ -14,6 +14,7 @@
 			</c:forEach>
 		</ul>
 		<ul class="product-list">
+			<c:if test="${plist.size() eq 0}"><li class="no-list">등록된 상품이 없습니다.</li></c:if>
 			<c:forEach items="${plist}" var="dto">
 				<li>
 					<a href="/shop/product/detail/${dto.pno}" style="background-image: url('${dto.jloc}${dto.jname}');"><img src="${dto.jloc}${dto.jname}" /></a>

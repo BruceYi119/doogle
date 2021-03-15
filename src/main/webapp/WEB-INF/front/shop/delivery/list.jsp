@@ -28,6 +28,7 @@
 		<tr class="dno">
 			<td class="checkBox">
 				<input type="hidden" value="${list.dno}" class="dno1">
+				<input type="hidden" value="${mno}" class="session">
 				<input type="radio" name="default" value="${list.default_yn}" class="checkbox_class" onclick="update()">
 			</td>
 			<td>
