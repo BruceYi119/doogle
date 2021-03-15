@@ -83,6 +83,11 @@ ALTER TABLE popup
 		CONSTRAINT popup_type_c
 		CASCADE;
 
+ALTER TABLE saving_list
+	DROP
+		CONSTRAINT saving_list_type_c
+		CASCADE;
+
 ALTER TABLE order_list
 	DROP
 		CONSTRAINT order_list_type_c
@@ -348,15 +353,6 @@ DROP INDEX question_qno_i;
 DROP INDEX files_fno_i;
 
 DROP INDEX qna_answer_qano_p;
-
-/* 기본배송지 */
-DROP TRIGGER t_member_delivery;
-
-/* 적립금 */
-DROP TRIGGER t_member_saving;
-
-/* 적립금 목록 */
-DROP TRIGGER t_order_list_saving_list;
 
 /* 회원 (이승준) */
 DROP TABLE member 
@@ -943,6 +939,7 @@ CREATE TABLE orders (
 	ono NUMBER NOT NULL, /* 주문번호 */
 	mno NUMBER NOT NULL, /* 회원번호 */
 	type CHAR(1) DEFAULT 'o' NOT NULL, /* 주문상태 */
+	product_cnt NUMBER DEFAULT 0 NOT NULL, /* 총상품수 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
 
@@ -953,6 +950,8 @@ COMMENT ON COLUMN orders.ono IS '주문번호';
 COMMENT ON COLUMN orders.mno IS '회원번호';
 
 COMMENT ON COLUMN orders.type IS '주문상태';
+
+COMMENT ON COLUMN orders.product_cnt IS '총상품수';
 
 COMMENT ON COLUMN orders.writedate IS '등록일';
 
@@ -1942,6 +1941,7 @@ CREATE TABLE saving_list (
 	olno NUMBER NOT NULL, /* 주문목록번호 */
 	credit NUMBER DEFAULT 0 NOT NULL, /* 금액 */
 	expiry DATE DEFAULT add_months(sysdate, +1) NOT NULL, /* 유효기간 */
+	type CHAR(1) DEFAULT 'p' NOT NULL, /* 구분 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
 
@@ -1958,6 +1958,8 @@ COMMENT ON COLUMN saving_list.olno IS '주문목록번호';
 COMMENT ON COLUMN saving_list.credit IS '금액';
 
 COMMENT ON COLUMN saving_list.expiry IS '유효기간';
+
+COMMENT ON COLUMN saving_list.type IS '구분';
 
 COMMENT ON COLUMN saving_list.writedate IS '등록일';
 
@@ -1976,6 +1978,11 @@ ALTER TABLE saving_list
 			svno,
 			mno
 		);
+
+ALTER TABLE saving_list
+	ADD
+		CONSTRAINT saving_list_type_c
+		CHECK (type in ('p','m'));
 
 /* 주문목록(헨리) */
 CREATE TABLE order_list (
@@ -2039,7 +2046,7 @@ BEGIN
   IF INSERTING THEN 
     select svno into vsvno from saving where ono = :NEW.ono;
     select saving_price into vsaving_price from payment where mno = :NEW.mno
-    insert into saving_list(svlno, svno, mno, olno, credit) values (s_saving_list.nextval, vsvno, :NEW.mno, :NEW.olno, vsaving_price);
+    insert into saving_list(svlno, svno, mno, olno, credit) values (s_saving_list.nextval, vsvno, :NEW.mno, :NEW.olno, vsaving_price / :NEW.product_cnt);
   END IF;
 END;
 /
