@@ -349,6 +349,15 @@ DROP INDEX files_fno_i;
 
 DROP INDEX qna_answer_qano_p;
 
+/* 기본배송지 */
+DROP TRIGGER t_member_delivery;
+
+/* 적립금 */
+DROP TRIGGER t_member_saving;
+
+/* 적립금 목록 */
+DROP TRIGGER t_order_list_saving_list;
+
 /* 회원 (이승준) */
 DROP TABLE member 
 	CASCADE CONSTRAINTS;
@@ -746,6 +755,30 @@ ALTER TABLE member
 	ADD
 		CONSTRAINT member_gender_c
 		CHECK (gender in ('m','f'));
+
+/* 기본배송지 */
+CREATE TRIGGER t_member_delivery
+AFTER INSERT ON member
+FOR EACH ROW
+DECLARE
+BEGIN
+  IF INSERTING THEN 
+    insert into delivery(dno, mno, addr, addr_detail, receive_name, phone) values (s_delivery.nextval, :NEW.mno, :NEW.addr, :NEW.addr_detail, :NEW.name, :NEW.phone);
+  END IF;
+END;
+/
+
+/* 적립금 */
+CREATE TRIGGER t_member_saving
+AFTER INSERT ON member
+FOR EACH ROW
+DECLARE
+BEGIN
+  IF INSERTING THEN 
+    insert into saving(svno, mno) values (s_saving.nextval, :NEW.mno);
+  END IF;
+END;
+/
 
 /* 상품(이승준) */
 CREATE TABLE product (
@@ -1918,6 +1951,7 @@ CREATE TABLE order_list (
 	ono NUMBER NOT NULL, /* 주문번호 */
 	pno NUMBER NOT NULL, /* 상품번호 */
 	pono NUMBER, /* 상품옵션번호 */
+	credit NUMBER DEFAULT 0 NOT NULL, /* 적립금 */
 	type CHAR(1) DEFAULT 'd' NOT NULL, /* 상태 */
 	quantity NUMBER DEFAULT 0 NOT NULL, /* 수량 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
@@ -1934,6 +1968,8 @@ COMMENT ON COLUMN order_list.ono IS '주문번호';
 COMMENT ON COLUMN order_list.pno IS '상품번호';
 
 COMMENT ON COLUMN order_list.pono IS '상품옵션번호';
+
+COMMENT ON COLUMN order_list.credit IS '적립금';
 
 COMMENT ON COLUMN order_list.type IS '상태';
 
@@ -1961,6 +1997,20 @@ ALTER TABLE order_list
 	ADD
 		CONSTRAINT order_list_type_c
 		CHECK (type in ('d','c'));
+
+/* 적립금 목록 */
+CREATE TRIGGER t_order_list_saving_list
+AFTER INSERT ON order_list
+FOR EACH ROW
+DECLARE
+vsvno saving.svno%type;
+BEGIN
+  IF INSERTING THEN 
+    select svno into vsvno from saving where mno = :NEW.mno;
+    insert into saving_list(svlno, svno, mno, olno, credit) values (s_saving_list.nextval, vsvno, :NEW.mno, :NEW.olno, :NEW.credit);
+  END IF;
+END;
+/
 
 /* 추천(이승준) */
 CREATE TABLE recommend (
