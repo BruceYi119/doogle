@@ -15,7 +15,7 @@ public class BulkOrderController {
 	@Autowired
 	private BulkOrderMapper bulkOrderMapper;
 	@Autowired
-	private CategoryMapper categoryMapper; 
+	private CategoryMapper categoryMapper;
 
 	@RequestMapping("/shop/bulkOrder")
 	public String bulk_order(Model model) {

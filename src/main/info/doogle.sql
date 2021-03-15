@@ -1349,6 +1349,7 @@ ALTER TABLE bulk_order
 /* 상품제안(김희수) */
 CREATE TABLE proposition (
 	ppno NUMBER NOT NULL, /* 제안번호 */
+	id VARCHAR2(50), /* 작성자 */
 	title VARCHAR2(500) NOT NULL, /* 제목 */
 	content CLOB NOT NULL, /* 내용 */
 	ctno NUMBER NOT NULL, /* 카테고리번호 */
@@ -1359,6 +1360,8 @@ CREATE TABLE proposition (
 COMMENT ON TABLE proposition IS '상품제안(김희수)';
 
 COMMENT ON COLUMN proposition.ppno IS '제안번호';
+
+COMMENT ON COLUMN proposition.id IS '작성자';
 
 COMMENT ON COLUMN proposition.title IS '제목';
 
@@ -1385,6 +1388,7 @@ ALTER TABLE proposition
 /* 에코포장피드백(김희수) */
 CREATE TABLE eco (
 	epno NUMBER NOT NULL, /* 피드백번호 */
+	id VARCHAR2(50), /* 작성자 */
 	title VARCHAR2(500) NOT NULL, /* 제목 */
 	content CLOB NOT NULL, /* 내용 */
 	ctno NUMBER NOT NULL, /* 카테고리번호 */
@@ -1396,6 +1400,8 @@ CREATE TABLE eco (
 COMMENT ON TABLE eco IS '에코포장피드백(김희수)';
 
 COMMENT ON COLUMN eco.epno IS '피드백번호';
+
+COMMENT ON COLUMN eco.id IS '작성자';
 
 COMMENT ON COLUMN eco.title IS '제목';
 

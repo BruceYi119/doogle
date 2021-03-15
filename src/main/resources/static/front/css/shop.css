@@ -98,4 +98,4 @@ div.instar-link > a { font-size: 16px;line-height: 29px;font-family: noto sans;c
 .product-list-wrap > ul.product-list > li > a { display: inline-block;width: 308px;height: 396px;color: #4c4c4c;font-size: 12px;font-family: noto sans;font-weight: 400;background-size: 100%;background-position: 50%; }
 .product-list-wrap > ul.product-list > li > a:hover { animation: product-ani 0.3s ease-in-out forwards; }
 .product-list-wrap > ul.product-list > li > a > img { width: 308px;height: 396px;vertical-align: top;display: none; }
-.product-list-wrap > div.product-paging-wrap { width: 100%;float: left; }
+.product-list-wrap > div.product-paging-wrap { width: 100%;float: left;margin-top: 20px; }

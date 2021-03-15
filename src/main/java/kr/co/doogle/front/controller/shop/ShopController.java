@@ -45,9 +45,11 @@ public class ShopController {
 	}
 
 	@RequestMapping("/shop/product/category/{ctno}")
-	public void shopAjaxProductCategory(PrintWriter out, @PathVariable("ctno") String ctno) throws UnsupportedEncodingException {
+	public void shopAjaxProductCategory(PrintWriter out, @PathVariable("ctno") String ctno)
+			throws UnsupportedEncodingException {
 		JSONObject json = new JSONObject();
-		json.put("list", categoryMapper.getAll("where type = #{type} and lv = #{lv} and pctno = #{pctno}", "p", "1", ctno));
+		json.put("list",
+				categoryMapper.getAll("where type = #{type} and lv = #{lv} and pctno = #{pctno}", "p", "1", ctno));
 		out.print(URLEncoder.encode(json.toString(), "UTF-8"));
 	}
 
