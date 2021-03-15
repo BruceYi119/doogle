@@ -30,8 +30,8 @@ public class QnaController {
 	@RequestMapping("/shop/qna")
 	public String qna(Model model,HttpSession session) {
 		
-		String name = (String)session.getAttribute("name");
-		List<QnaDTO> list = qnaMapper.getAll(name);
+		int mno = (int) session.getAttribute("mno");
+		List<QnaDTO> list = qnaMapper.getAll(mno);
 		model.addAttribute("list",list);
 		model.addAttribute("url","/shop/qna");
 		return "/front/shop/qna/qna";

@@ -26,9 +26,9 @@ public interface QnaMapper {
 	int insert(@Param("dto") QnaDTO dto);
 	
 	// 1:1 문의 내용 조회
-	@Select("SELECT qnno,ono,title, content, ctno,name,writedate, (SELECT COUNT(*) AS cnt FROM qna_answer qa WHERE qa.qnno = qna.qnno) count FROM qna")
+	@Select("SELECT qnno,ono,title, content, ctno,name,writedate, (SELECT COUNT(*) AS cnt FROM qna_answer qa WHERE qa.qnno = qna.qnno) count FROM qna where mno= #{param1}")
 	@Result(property = "content", column = "content", jdbcType = JdbcType.CLOB, javaType = String.class)
-	List<QnaDTO> getAll(@Param("name") String name);
+	List<QnaDTO> getAll(@Param("mno") int mno);
 	
 	// 1:1 문의 삭제
 	@Delete("delete from qna where qnno=#{param1}")
