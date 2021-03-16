@@ -23,7 +23,7 @@ public interface EcoMapper {
 	@Select("select e.epno,e.title,e.id,e.content,e.name,e.ctno,to_char(e.writedate,'YYYY-MM-DD') writedate, c.name cname from eco e left join category c on e.ctno = c.ctno"
 			+ " where e.id=#{id}")
 	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
-	List<EcoCategoryDTO> getPcategory(String id);
+	List<EcoCategoryDTO> getPcategory(@Param("id") String id);
 	
 	@Select("select e.epno,e.title,e.id,e.content,e.name,e.ctno,to_char(e.writedate,'YYYY-MM-DD') writedate, c.name cname from eco e left join category c on e.ctno = c.ctno")
 	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
@@ -38,7 +38,7 @@ public interface EcoMapper {
 	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
 	EcoCategoryDTO getContent(int epno);
 	
-	@Update("update eco set ctno=#{dto.ctno},title=#{dto.title},content=#{dto.content},pname=#{dto.name} where epno=#{dto.epno}")
+	@Update("update eco set ctno=#{dto.ctno},title=#{dto.title},content=#{dto.content},name=#{dto.name} where epno=#{dto.epno}")
 	@Result(property = "question", column = "question", jdbcType = JdbcType.CLOB, javaType = String.class)
 	void update(@Param("dto") EcoDTO dto);
 	

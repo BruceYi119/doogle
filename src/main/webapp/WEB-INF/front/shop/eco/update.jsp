@@ -35,7 +35,7 @@
 					</tr>
 					<tr>
 						<th>상품명</th>
-						<td><input type="text" name="pname" value="${dto.name }"></td>
+						<td><input type="text" name="name" value="${dto.name }"></td>
 					</tr>
 					<tr>
 						<th>내용</th>

@@ -2,18 +2,15 @@ package kr.co.doogle.back.controller;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.doogle.api.data.AlarmMailSend;
-import kr.co.doogle.api.data.CoolSms;
 import kr.co.doogle.dto.QnaDTO;
 import kr.co.doogle.dto.Qna_AnswerDTO;
 import kr.co.doogle.mapper.QnaAnswerMapper;
@@ -107,34 +104,34 @@ public class AdminQnaAnswerController {
         String api_secret = "VPH2JCRGDCSM6JQWL5EMPZ5PFSWQMFL9";  
         int qnno = Integer.parseInt(request.getParameter("qnno"));
         
-        String customerPhone = request.getParameter("phone");
-        CoolSms coolSms = new CoolSms(api_key, api_secret);
-        
-        HashMap<String, String> set = new HashMap<String, String>();
-        set.put("to", customerPhone);
-        
-        set.put("from", "01091401058"); // 발신번호
-        set.put("text", "[Doogle]문의주신 내용에 대한 답변이 완료되었습니다."); // 문자내용
-        set.put("type", "sms");
-        
-        System.out.println(set);
-        JSONObject result = coolSms.send(set);
-        out.print("success");
-        qnaAnswerMapper.phoneOk(qnno);
-        if ((boolean)result.get("status") == true) {
-          // 메시지 보내기 성공 및 전송결과 출력
-          System.out.println("성공");
-          System.out.println(result.get("group_id")); // 그룹아이디
-          System.out.println(result.get("result_code")); // 결과코드
-          System.out.println(result.get("result_message")); // 결과 메시지
-          System.out.println(result.get("success_count")); // 메시지아이디
-          System.out.println(result.get("error_count")); // 여러개 보낼시 오류난 메시지 수
-        } else {
-          // 메시지 보내기 실패
-          System.out.println("실패");
-          System.out.println(result.get("code")); // REST API 에러코드
-          System.out.println(result.get("message")); // 에러메시지
-        }
+//        String customerPhone = request.getParameter("phone");
+//        CoolSms coolSms = new CoolSms(api_key, api_secret);
+//        
+//        HashMap<String, String> set = new HashMap<String, String>();
+//        set.put("to", customerPhone);
+//        
+//        set.put("from", "01091401058"); // 발신번호
+//        set.put("text", "[Doogle]문의주신 내용에 대한 답변이 완료되었습니다."); // 문자내용
+//        set.put("type", "sms");
+//        
+//        System.out.println(set);
+//        JSONObject result = coolSms.send(set);
+//        out.print("success");
+//        qnaAnswerMapper.phoneOk(qnno);
+//        if ((boolean)result.get("status") == true) {
+//          // 메시지 보내기 성공 및 전송결과 출력
+//          System.out.println("성공");
+//          System.out.println(result.get("group_id")); // 그룹아이디
+//          System.out.println(result.get("result_code")); // 결과코드
+//          System.out.println(result.get("result_message")); // 결과 메시지
+//          System.out.println(result.get("success_count")); // 메시지아이디
+//          System.out.println(result.get("error_count")); // 여러개 보낼시 오류난 메시지 수
+//        } else {
+//          // 메시지 보내기 실패
+//          System.out.println("실패");
+//          System.out.println(result.get("code")); // REST API 에러코드
+//          System.out.println(result.get("message")); // 에러메시지
+//        }
 	}
 }
 

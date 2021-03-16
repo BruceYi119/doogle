@@ -34,4 +34,5 @@ public interface AlarmMapper {
 	//상품명 조회
 	@Select("select name from product where pno=#{pno}")
 	String productName(int pno);
+
 }

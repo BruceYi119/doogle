@@ -39,7 +39,8 @@ function updatePop() {
 
 	$(".dno").click(function() {
 		var dno = $(this).find(".dno1").val();
-		window.open("/deliveryUpdate?dno=" + dno, "주소수정", "width=500, height=500");
+		var mno = $(".session").val();
+		window.open("/deliveryUpdate?dno=" + dno + "&mno="+mno, "주소수정", "width=500, height=500");
 	})
 }
 
@@ -70,11 +71,12 @@ function update() {
 	$(".dno").click(function() {
 		var default_yn = $(this).find(".checkbox_class").val();
 		var dno = $(this).find(".dno1").val();
+		var mno = $(".session").val();
+		
 		$.ajax({
-			url: "/delivery_defaultUpdate?dno=" + dno,
-			type: "post",
+			url: "/delivery_defaultUpdate?dno=" + dno +"&mno="+mno,
+			type: "get",
 			data: {
-				default_yn: default_yn,
 			},
 			dataType: "text",
 			success: function() {

@@ -14,6 +14,7 @@
 			<div class="section-wrap">
 			<form method="post" action="propositionUpdateOk" onsubmit="return propositionCheck()">
 			<input type="hidden" name="ppno" value="${dto.ppno }" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="${id }">
 				<table class="table">
 					<tr>
 						<th>제목</th>

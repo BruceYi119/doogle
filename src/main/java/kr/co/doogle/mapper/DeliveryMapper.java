@@ -54,7 +54,7 @@ public interface DeliveryMapper {
 
 	// 배송지 삭제
 	@Delete("delete from delivery where dno=#{param1}")
-	int delete(@Param("dno") String dno);
+	int delete(int dno);
 	
 	// 샛별배송 / 택배 배송 / 구분
 	@Select("select dno from delivery where REGEXP_LIKE (addr,'^[서울,인천,경기]{2}')")
@@ -62,11 +62,11 @@ public interface DeliveryMapper {
 	
 	// 기본 배송지로 설정 수정
 	@Update("update delivery set default_yn='y' where dno=#{param1}")
-	void defaultUpdate(String dno);
+	void defaultUpdate(int dno);
 	
 	// 기본 배송지 이외 다른 배송지는 기본배송지에서 제외
-	@Update("update delivery set default_yn='n'")
-	void defaultUpdateNo();
+	@Update("update delivery set default_yn='n' where mno=#{param1}")
+	void defaultUpdateNo(int mno);
 
 	@Select("select * from delivery where mno=${mno} and default_yn ='y'")
 	DeliveryDTO getDefault(@Param("mno") String mno);

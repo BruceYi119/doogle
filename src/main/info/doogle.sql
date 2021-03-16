@@ -2055,12 +2055,13 @@ vproduct_cnt orders.product_cnt%type;
 BEGIN
   IF INSERTING THEN 
     select svno into vsvno from saving where mno = :NEW.mno;
-    select product_cnt into vproduct_cnt from orders where ono = :NEW.ono;
-    select saving_price into vsaving_price from payment where mno = :NEW.mno;
-    update saving
-	set exp_credit = (select sum(credit) from saving_list where to_char(expiry,'yy/mm/dd') = to_char((select min(expiry) from saving_list where mno = :NEW.mno),'yy/mm/dd'))
-	where mno = :NEW.mno;
+    select product_cnt into vproduct_cnt from orders where ono = :NEW.ono and mno = :NEW.mno;
+    select saving_price into vsaving_price from payment where ono = :NEW.ono and mno = :NEW.mno;
     insert into saving_list(svlno, svno, mno, olno, credit) values (s_saving_list.nextval, vsvno, :NEW.mno, :NEW.olno, vsaving_price / vproduct_cnt);
+   update saving
+   set credit = (select sum(credit) from saving_list where mno = :NEW.mno),
+        exp_credit = (select sum(credit) from saving_list where to_char(expiry,'yy/mm/dd') = to_char((select min(expiry) from saving_list where mno = :NEW.mno),'yy/mm/dd') and mno = :NEW.mno)
+   where mno = :NEW.mno;
   END IF;
 END;
 /

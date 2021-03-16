@@ -13,6 +13,7 @@
 			</ul>
 			<div class="section-wrap">
 			<form method="post" action="propositionWriteOk" enctype="multipart/form-data" onsubmit="return propositionCheck()">
+			<input type="hidden" name="id" value="${id }">
 				<table class="table">
 					<tr>
 						<th>제목</th>
