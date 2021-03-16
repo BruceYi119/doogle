@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.doogle.dto.DeliveryDTO;
+import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.DeliveryMapper;
 import kr.co.doogle.mapper.MemberMapper;
 import kr.co.doogle.member.Member;
@@ -22,7 +23,8 @@ import kr.co.doogle.member.Member;
 public class DeliveryController {
 	@Autowired
 	private DeliveryMapper deliveryMapper;
-
+	@Autowired
+	private CategoryMapper categoryMapper;
 	@Autowired
 	private MemberMapper memberMapper;
 	@Autowired
@@ -41,6 +43,7 @@ public class DeliveryController {
 		model.addAttribute("teakbea", teakbea);
 		model.addAttribute("list", list);
 		model.addAttribute("url", "/shop/deliveryList");
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/delivery/list";
 	}
 
@@ -51,6 +54,7 @@ public class DeliveryController {
 		int mno = memberMapper.getId(id);
 		model.addAttribute("mno", mno);
 		model.addAttribute("url", "/delivery_pop");
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/delivery/delivery_pop";
 	}
 
@@ -67,7 +71,7 @@ public class DeliveryController {
 		String addr_detail = deliveryMapper.updateGet2(dno);
 		model.addAttribute("addr", addr);
 		model.addAttribute("addr_detail", addr_detail);
-		System.out.println(addr);
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/delivery/deliveryUpdate";
 	}
 

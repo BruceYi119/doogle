@@ -19,7 +19,6 @@ public interface CouponMapper {
 	@Select("select cno, pno, content, discount, dis_price, dis_type, srat_expiry, end_expiry, writedate from coupon")
 	List<CouponDTO> getAll();
 
-	
 	// 특정 cno와 일치하는 쿠폰 하나의 정보 조회
 	@Select("select * from coupon where cno = #{cno}")
 	CouponDTO getOne(@Param("cno") int cno);
@@ -34,7 +33,6 @@ public interface CouponMapper {
 			+ "(select * from coupon ${where} order by cno asc) t) tt where seq >= #{start}) where rownum <= #{end}"})
 	List<CouponDTO> getAllPaging(@Param("start") int start, @Param("end") int end, @Param("where") String where, @Param("cno") String cno);
 
-	
 	// 특정 cno와 일치하는 쿠폰이 존재하는지 카운팅
 	@Select("select count(*) from coupon where cno = #{cno}")
 	int getCheck(@Param("cno") int cno);

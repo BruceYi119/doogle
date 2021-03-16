@@ -24,7 +24,6 @@ public class QnaController {
 
 	@Autowired
 	private QnaMapper qnaMapper;
-
 	@Autowired
 	private MemberMapper memberMapper;
 	@Autowired
@@ -68,6 +67,7 @@ public class QnaController {
 		model.addAttribute("dto", dto);
 		model.addAttribute("edit", "edit");
 		model.addAttribute("url", "/qna_register");
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/qna/qna_register";
 	}
 
@@ -93,6 +93,7 @@ public class QnaController {
 		model.addAttribute("edit", "edit");
 		model.addAttribute("url", "/qnaUpdate");
 		model.addAttribute("url", "/shop/qnaUpdate");
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/qna/qnaUpdate";
 	}
 
@@ -105,9 +106,8 @@ public class QnaController {
 	@RequestMapping("/shop/qnaOrderList")
 	public String qnaOrderList(int mno, Model model) {
 		List<Order_listPaymentProductDTO> list = qnaMapper.qnaOrderList(mno);
-		System.out.println(list);
 		model.addAttribute("list", list);
-
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/qna/qnaOrderList";
 	}
 }

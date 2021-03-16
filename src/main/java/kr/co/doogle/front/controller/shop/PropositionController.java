@@ -34,19 +34,22 @@ public class PropositionController {
 	private File file;
 	@Autowired
 	private Paging paging;
-	
+
 	// 내가 작성한 리스트 보여주기
 	@RequestMapping("/shop/propositionList") // 로그인 필요
-	public String propositionList(Model model,HttpServletRequest request,HttpSession session) {
-		String id= (String) session.getAttribute("id");
+	public String propositionList(Model model, HttpServletRequest request, HttpSession session) {
+		String id = (String) session.getAttribute("id");
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		String ctno = request.getParameter("ctno");
 		if (ctno == null || ctno == "") {
 			paging.setPaging(page, propositionMapper.getTotal(null, null), "/shop/propositionList");
-			model.addAttribute("list", propositionMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), null, null));
+			model.addAttribute("list",
+					propositionMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), null, null));
 		} else {
-			paging.setPaging(page, propositionMapper.getTotal("where type = #{type}", ctno), "/shop/propositionList?ctno=" + ctno);
-			model.addAttribute("list", propositionMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), "where ctno = #{ctno}", ctno));
+			paging.setPaging(page, propositionMapper.getTotal("where type = #{type}", ctno),
+					"/shop/propositionList?ctno=" + ctno);
+			model.addAttribute("list", propositionMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(),
+					"where ctno = #{ctno}", ctno));
 		}
 		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		model.addAttribute("url", "/shop/propositionList");
@@ -55,20 +58,20 @@ public class PropositionController {
 		model.addAttribute("paging", paging.getPageHtml());
 		return "/front/shop/proposition/list";
 	}
-	
+
 	// 문서 작성 폼
 	@RequestMapping("/shop/propositionWrite") // 로그인 필요
 	public String propositionWrite(Model model) {
-		List<CategoryDTO> category=categoryMapper.getAllSql("select * from category where lv=0 and type='o'");
+		List<CategoryDTO> category = categoryMapper.getAllSql("select * from category where lv=0 and type='o'");
 		model.addAttribute("url", "/shop/propositionWrite");
 		model.addAttribute("edit", "edit");
 		model.addAttribute("category", category);
 		return "/front/shop/proposition/write";
 	}
-	
+
 	// 문서 작성 후 insert
 	@RequestMapping("/shop/propositionWriteOk")
-	public String propositionWriteOk(PropositionDTO dto,@RequestParam("files") MultipartFile[] files) {
+	public String propositionWriteOk(PropositionDTO dto, @RequestParam("files") MultipartFile[] files) {
 		FileDTO fdto = null; // 파일에 넣을 DTO
 		ArrayList<String> flist = null; // 넘어온 files을 받을 배열. fno값이 들어감. ,로 연결
 		int ctno = 0; // 대분류 값
@@ -100,12 +103,12 @@ public class PropositionController {
 		propositionMapper.insert(dto);
 		return "redirect:/shop/propositionList";
 	}
-	
+
 	// 문서 업데이트
 	@RequestMapping("/shop/propositionUpdate") // 로그인 필요
-	public String propositionUpdate(HttpServletRequest request,Model model) {
+	public String propositionUpdate(HttpServletRequest request, Model model) {
 		int ppno = Integer.parseInt(request.getParameter("ppno"));
-		List<CategoryDTO> category=categoryMapper.getAllSql("select * from category where lv=0 and type='o'");
+		List<CategoryDTO> category = categoryMapper.getAllSql("select * from category where lv=0 and type='o'");
 		model.addAttribute("url", "/shop/propositionWrite");
 		model.addAttribute("edit", "edit");
 		model.addAttribute("dto", propositionMapper.getContent(ppno));
@@ -113,13 +116,14 @@ public class PropositionController {
 		// 조회
 		return "/front/shop/proposition/update";
 	}
-	
-	// 
+
+	//
 	@RequestMapping("/shop/propositionUpdateOk")
 	public String propositionUpdateOk(PropositionDTO dto) {
 		propositionMapper.update(dto);
 		return "redirect:/shop/propositionList";
 	}
+
 	@RequestMapping("/shop/propositionDelete")
 	public String propositionDelete(HttpServletRequest request) {
 		int ppno = Integer.parseInt(request.getParameter("ppno"));

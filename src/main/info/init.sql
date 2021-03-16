@@ -10,6 +10,7 @@ grant connect, resource to doogle;
 -- 프로젝트 데이터 생성
 --@D:\projectWorkspace\doogle\src\main\info\doogle.sql
 --PURGE RECYCLEBIN;
+--관리자페이지 에서 카테고리 등록
 --@D:\projectWorkspace\doogle\src\main\info\admin.sql
 --@D:\projectWorkspace\doogle\src\main\info\product.sql
 --@D:\projectWorkspace\doogle\src\main\info\grade.sql

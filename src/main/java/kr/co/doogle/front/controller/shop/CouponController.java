@@ -14,10 +14,10 @@ public class CouponController {
 
 	@Autowired
 	private MyCouponMapper myCouponMapper;
-	
+
 	@RequestMapping("/shop/coupon/test")
 	public void test(PrintWriter out) {
 //		out.print(myCouponMapper.getAll().toString());
 	}
-	
+
 }

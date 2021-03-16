@@ -36,8 +36,8 @@ public class EcoController {
 	private FileMapper fileMapper;
 
 	@RequestMapping("/shop/ecoList") // 로그인 필요
-	public String propositionList(Model model, HttpServletRequest request,HttpSession session) {
-		String id= (String) session.getAttribute("id");
+	public String propositionList(Model model, HttpServletRequest request, HttpSession session) {
+		String id = (String) session.getAttribute("id");
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		String ctno = request.getParameter("ctno");
 		if (ctno == null || ctno == "") {
@@ -45,7 +45,8 @@ public class EcoController {
 			model.addAttribute("list", ecoMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), null, null));
 		} else {
 			paging.setPaging(page, ecoMapper.getTotal("where type = #{type}", ctno), "/shop/ecoList?ctno=" + ctno);
-			model.addAttribute("list", ecoMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), "where ctno = #{ctno}", ctno));
+			model.addAttribute("list",
+					ecoMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), "where ctno = #{ctno}", ctno));
 		}
 		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		model.addAttribute("url", "/shop/ecoList");
@@ -55,15 +56,17 @@ public class EcoController {
 		return "/front/shop/eco/list";
 	}
 
-	@RequestMapping("/shop/ecoWrite") //로그인 필요
-	public String propositionWrite(Model model,HttpSession session) {
-		String id= (String) session.getAttribute("id");
-		List<CategoryDTO> category=categoryMapper.getAllSql("select * from category where lv=0 and type='e'");
+	@RequestMapping("/shop/ecoWrite") // 로그인 필요
+	public String propositionWrite(Model model, HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		List<CategoryDTO> category = categoryMapper.getAllSql("select * from category where lv=0 and type='e'");
 		model.addAttribute("url", "/shop/ecoWrite");
 		model.addAttribute("edit", "edit");
 		model.addAttribute("category", category);
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/eco/write";
 	}
+
 	@RequestMapping("/shop/ecoWriteOk")
 //	@Transactional(timeout = 10)
 	public String propositionWriteOk(@RequestParam("files") MultipartFile[] files, EcoDTO dto) {
@@ -99,10 +102,11 @@ public class EcoController {
 		ecoMapper.insert(dto);
 		return "redirect:/shop/ecoList";
 	}
+
 	@RequestMapping("/shop/ecoUpdate")
-	public String propositionUpdate(HttpServletRequest request,Model model) {
+	public String propositionUpdate(HttpServletRequest request, Model model) {
 		int epno = Integer.parseInt(request.getParameter("epno"));
-		List<CategoryDTO> category=categoryMapper.getAllSql("select * from category where lv=0 and type='e'");
+		List<CategoryDTO> category = categoryMapper.getAllSql("select * from category where lv=0 and type='e'");
 		model.addAttribute("url", "/shop/ecoWrite");
 		model.addAttribute("edit", "edit");
 		model.addAttribute("dto", ecoMapper.getContent(epno));
@@ -110,11 +114,13 @@ public class EcoController {
 		// 조회
 		return "/front/shop/eco/update";
 	}
+
 	@RequestMapping("/shop/ecoUpdateOk")
 	public String propositionUpdateOk(EcoDTO dto) {
 		ecoMapper.update(dto);
 		return "redirect:/shop/ecoList";
 	}
+
 	@RequestMapping("/shop/ecoDelete")
 	public String propositionDelete(HttpServletRequest request) {
 		int epno = Integer.parseInt(request.getParameter("epno"));

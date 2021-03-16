@@ -42,8 +42,9 @@ public class MemberController {
 
 	@RequestMapping("/member/info")
 	public String info(Model model, HttpSession session) {
-		if (member.isLogin(session) == false)
+		if (!member.isLogin(session))
 			return "redirect:/login";
+
 		model.addAttribute("dto", memberMapper.getOne(session.getAttribute("id").toString()));
 		model.addAttribute("url", "/member/info");
 		return "/front/member/info";
@@ -99,7 +100,7 @@ public class MemberController {
 		String pw = request.getParameter("pw") != null ? request.getParameter("pw") : "";
 		boolean login = member.login(session, id, pw);
 
-		if (login == false) {
+		if (!login) {
 			return "redirect:/login?login=false";
 		}
 		return "redirect:/";

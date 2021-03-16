@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.doogle.dto.FileDTO;
 import kr.co.doogle.dto.RecipeDTO;
+import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.FileMapper;
 import kr.co.doogle.mapper.RecipeMapper;
 import kr.co.doogle.paging.Paging;
@@ -27,6 +28,8 @@ public class RecipeController {
 	private RecipeMapper recipeMapper;
 	@Autowired
 	private Paging paging;
+	@Autowired
+	private CategoryMapper categoryMapper;
 
 	@RequestMapping("/shop/recipe")
 	public ModelAndView recipe(ModelAndView mv, HttpServletRequest request, RecipeDTO rdto) {
@@ -82,6 +85,7 @@ public class RecipeController {
 		mv.addObject("ctno", rdto.getCtno() != null ? rdto.getCtno() : "");
 		mv.addObject("url", "/shop/recipe");
 		mv.addObject("paging", paging.getPageHtml());
+		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		mv.setViewName("/front/shop/recipe/recipe_list");
 		return mv;
 	}
@@ -99,6 +103,7 @@ public class RecipeController {
 		model.addAttribute("rdto", rdto);
 		model.addAttribute("npdto", npdto);
 		model.addAttribute("url", "/shop/recipe/content");
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/recipe/recipe_content";
 	}
 

@@ -32,11 +32,15 @@ public class ProductController {
 		paging.setViewCnt(30);
 
 		if (cctno == null) {
-			paging.setPaging(page, productMapper.getTotal("where ctno = #{ctno}", Integer.toString(ctno), null, null), "/shop/product/" + ctno);
-			mv.addObject("plist", productMapper.getAllFile(paging.getStartRow(), paging.getViewCnt(), "where p.ctno = #{ctno}", Integer.toString(ctno), null, null));			
+			paging.setPaging(page, productMapper.getTotal("where ctno = #{ctno}", Integer.toString(ctno), null, null),
+					"/shop/product/" + ctno);
+			mv.addObject("plist", productMapper.getAllFile(paging.getStartRow(), paging.getViewCnt(),
+					"where p.ctno = #{ctno}", Integer.toString(ctno), null, null));
 		} else {
-			paging.setPaging(page, productMapper.getTotal("where ctno = #{ctno} and ctno1 = #{ctno1}", Integer.toString(ctno), cctno, null), "/shop/product/" + ctno + "?cctno=" + cctno);
-			mv.addObject("plist", productMapper.getAllFile(paging.getStartRow(), paging.getViewCnt(), "where p.ctno = #{ctno} and p.ctno1 = #{ctno1}", Integer.toString(ctno), cctno, null));						
+			paging.setPaging(page, productMapper.getTotal("where ctno = #{ctno} and ctno1 = #{ctno1}",
+					Integer.toString(ctno), cctno, null), "/shop/product/" + ctno + "?cctno=" + cctno);
+			mv.addObject("plist", productMapper.getAllFile(paging.getStartRow(), paging.getViewCnt(),
+					"where p.ctno = #{ctno} and p.ctno1 = #{ctno1}", Integer.toString(ctno), cctno, null));
 		}
 
 		mv.addObject("icon", category.getIcons().get(Integer.toString(ctno)));
@@ -44,7 +48,8 @@ public class ProductController {
 		mv.addObject("paging", paging.getPageHtml());
 		mv.addObject("category", categoryMapper.getOne(ctno));
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
-		mv.addObject("mlist", categoryMapper.getAll("where type = #{type} and lv = #{lv} and pctno = #{pctno}", "p", "1", Integer.toString(ctno)));
+		mv.addObject("mlist", categoryMapper.getAll("where type = #{type} and lv = #{lv} and pctno = #{pctno}", "p",
+				"1", Integer.toString(ctno)));
 		mv.setViewName("/front/shop/product/list");
 		return mv;
 	}

@@ -555,7 +555,7 @@ DROP SEQUENCE s_files;
 DROP SEQUENCE s_recipe;
 
 /* 공지사항 */
-DROP SEQUENCE s_norice;
+DROP SEQUENCE s_notice;
 
 /* 자주하는질문 */
 DROP SEQUENCE s_question;
@@ -651,7 +651,7 @@ CREATE SEQUENCE s_files;
 CREATE SEQUENCE s_recipe;
 
 /* 공지사항 */
-CREATE SEQUENCE s_norice;
+CREATE SEQUENCE s_notice;
 
 /* 자주하는질문 */
 CREATE SEQUENCE s_question;
@@ -698,7 +698,7 @@ CREATE TABLE member (
 	addr_detail VARCHAR2(300) NOT NULL, /* 상세주소 */
 	email VARCHAR2(30) NOT NULL, /* 이메일 */
 	mtype CHAR(1) DEFAULT 'n' NOT NULL, /* 회원구분 */
-	del_yn CHAR(1) DEFAULT 'y' NOT NULL, /* 탈퇴여부 */
+	del_yn CHAR(1) DEFAULT 'n' NOT NULL, /* 탈퇴여부 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 가입일 */
 );
 

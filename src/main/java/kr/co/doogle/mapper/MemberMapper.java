@@ -29,7 +29,7 @@ public interface MemberMapper {
 	@Select("select * from member where id = #{id} and pw = #{pw} and mtype = 'a'")
 	MemberDTO adminLogin(@Param("id") String id, @Param("pw") String pw);
 
-	@Select("select * from member where id = #{id} and pw = #{pw} and mtype = 'n'")
+	@Select("select * from member where id = #{id} and pw = #{pw} and del_yn = 'n'")
 	MemberDTO login(@Param("id") String id, @Param("pw") String pw);
 
 	@Select("select id from member where id = #{id}")

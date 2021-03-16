@@ -31,10 +31,6 @@ public interface MyCouponMapper {
 	// mno 와 일치하는 my_coupon테이블의 모든 데이터 조회
 	@Select("select m.mcno, m.cno, m.mno, c.content, c.srat_expiry, c.end_expiry, c.discount, c.dis_price, c.dis_type from my_coupon m left join coupon c on m.cno = c.cno where m.mno = #{mno}")
 	List<MyCouponCouponDTO> getAll(@Param("mno") int mno);
-	
-	// mno 와 일치하는 my_coupon테이블의 쿠폰갯수 조회
-	@Select("select count(m.cno) from my_coupon m left join coupon c on m.cno = c.cno where m.mno = #{mno}")
-	int getCouponCount(@Param("mno") int mno);
 
 	// shop/mypage/mycoupon 페이징 처리용
 	@Select("select count(*) from my_coupon ${where}")
@@ -47,9 +43,10 @@ public interface MyCouponMapper {
 			+ "tt where seq >= #{start}) where rownum <= #{end}"})
 	List<MyCouponCouponDTO> getAllPaging(@Param("start") int start, @Param("end") int end, @Param("mno") int mno);
     
-	@Update("")
-	int mod();
-
+	// shop/mypage/mycoupon 페이징 처리용3, mno 와 일치하는 my_coupon테이블의 쿠폰갯수 조회
+	@Select("select count(m.cno) from my_coupon m left join coupon c on m.cno = c.cno where m.mno = #{mno}")
+	int getCouponCount(@Param("mno") int mno);
+	
 	@Delete("delete from my_coupon where cno = #{dto2.cno}")
 	MyCouponDTO getmyDel(@Param("cno") int cno);
 

@@ -95,8 +95,15 @@ div.instar-link > a { font-size: 16px;line-height: 29px;font-family: noto sans;c
 .product-list-wrap > ul.list > li > a:hover { color: var(--main-color); }
 .product-list-wrap > ul.product-list { width: 100%;float: left; }
 .product-list-wrap > ul.product-list > li { float: left;width: 336px;height: 643px;padding: 25px 28px 0 0; }
-.product-list-wrap > ul.product-list > li > a { display: inline-block;width: 308px;height: 396px;color: #4c4c4c;font-size: 12px;font-family: noto sans;font-weight: 400;background-size: 100%;background-position: 50%; }
-.product-list-wrap > ul.product-list > li > a:hover { animation: product-ani 0.3s ease-in-out forwards; }
-.product-list-wrap > ul.product-list > li > a > img { width: 308px;height: 396px;vertical-align: top;display: none; }
+.product-list-wrap > ul.product-list > li > a.img { display: inline-block;width: 308px;height: 396px;color: #4c4c4c;font-size: 12px;font-family: noto sans;font-weight: 400;background-size: 100%;background-position: 50%; }
+.product-list-wrap > ul.product-list > li > a.img:hover { animation: product-ani 0.3s ease-in-out forwards; }
+.product-list-wrap > ul.product-list > li > a.img > img { width: 308px;height: 396px;vertical-align: top;display: none; }
 .product-list-wrap > ul.product-list > li.no-list { width: 100%;height: auto;text-align: center;padding-right: 29px; }
+.product-list-wrap > ul.product-list > li > a.info > span { display: block; }
+.product-list-wrap > ul.product-list > li > a.info > span.name { letter-spacing: -2px;font-weight: bold;font-size: 18px;color: #333;line-height: 29px; }
+.product-list-wrap > ul.product-list > li > a.info > span.dis, .product-list-wrap > ul.product-list > li > a.info > span.price { display: inline-block; }
+.product-list-wrap > ul.product-list > li > a.info > span.dis { font-size: 18px;line-height: 29px;font-weight: 800;color: #fa622f; }
+.product-list-wrap > ul.product-list > li > a.info > span.price { font-size: 18px;line-height: 29px;font-weight: 800;color: #333; }
+.product-list-wrap > ul.product-list > li > a.info > span.dis-price { line-height: 29px;font-weight: 400;font-size: 16px;color: #999;text-decoration: line-through; }
+.product-list-wrap > ul.product-list > li > a.info > span.subject { font-weight: 400;padding-top: 8px;font-size: 13px;color: #999;line-height: 19px; }
 .product-list-wrap > div.product-paging-wrap { width: 100%;float: left;margin-top: 20px;padding-right: 29px; }

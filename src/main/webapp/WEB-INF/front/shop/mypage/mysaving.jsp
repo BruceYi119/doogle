@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="/static/front/css/mycoupon.css">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
-<link rel="stylesheet" href="/static/front/css/mycoupon.css">
-
+<div id="main">
+<div id="content">
 <div id="qnb" class="quick-navigation" style="top: 70px;">
 <div class="bnr_qnb" id="brnQuick"><a href="/shop/board/view.php?id=notice&amp;no=64" id="brnQuickObj">
     <img class="thumb" src="https://res.kurly.com/pc/service/main/1904/bnr_quick_20190403.png" alt="퀄리티있게 샛별배송">
 </a>
 </div>
+
 
 <div class="side_menu">
 <a href="/shop/main/html.php?htmid=event/kurly.htm&amp;name=lovers" class="link_menu ">등급별 혜택</a>
@@ -47,8 +49,8 @@
 <li class="user_reserve">
 <div class="link">
 <div class="tit">적립금</div> 
-<a href="/shop/mypage/mysaving" class="info">${saving.credit} 원<img src="https://res.kurly.com/pc/service/common/1905/ico_arrow_56x56.png" alt="자세히 보기"> 
-<span class="date"> 소멸예정 ${saving.exp_credit} 원</span></a></div>
+<a href="/shop/mypage/mysaving" class="info"> ${saving.credit} 원<img src="https://res.kurly.com/pc/service/common/1905/ico_arrow_56x56.png" alt="자세히 보기"> 
+<span class="date">소멸예정 ${saving.exp_credit} 원</span></a></div>
 </li> 
 
 <li class="user_coupon">
@@ -67,108 +69,93 @@
 </div>
 </div>
 
-<!--  쿠폰 리스트 나타내는란 -->
+<div class="bg_loading" id="bgLoading" style="display: none;">
+<div class="loading_show"></div>
+</div>
 <div class="page_aticle aticle_type2">
-	<div id="snb" class="snb_my">
-		<h2 class="tit_snb">마이컬리</h2>
-		<div class="inner_snb">
-			<ul class="list_menu">
-				<li><a href="">주문 내역</a></li>
-				<li><a href="#none"
-					onclick="KurlyTracker.setAction('select_shipping_address_list').sendData();location.href = '/shop/mypage/destination/list.php';">배송지
-						관리</a></li>
-				<li><a href="">늘 사는 것</a></li>
-				<li><a href="">상품 후기</a></li>
-				<li><a href="/shop/mypage/mysaving">적립금</a></li>
-				<li class="on"><a href="/shop/mypage/mycoupon">쿠폰</a></li>
-				<li><a href="">개인 정보 수정</a></li>
-			</ul>
-		</div>
-		<a href="/shop/mypage/mypage_qna_register.php?mode=add_qna"
-			class="link_inquire"><span class="emph">도움이 필요하신가요 ?</span> 1:1
-			문의하기</a>
-	</div>
-	<div class="page_section section_coupon">
-		<div class="head_aticle">
-			<h2 class="tit">쿠폰</h2>
-		</div>
+<div id="snb" class="snb_my">
+<h2 class="tit_snb">마이컬리</h2>
+<div class="inner_snb">
+<ul class="list_menu">
+	<li><a href="/shop/mypage/mypage_orderlist.php">주문 내역</a></li>
+	<li><a href="#none">배송지 관리</a></li>
+	<li><a href="">늘 사는 것</a></li>
+	<li><a href="">상품 후기</a></li>
+	<li class="on"><a href="/shop/mypage/mysaving">적립금</a></li>
+	<li><a href="/shop/mypage/mycoupon">쿠폰</a></li>
+	<li><a href="">개인 정보 수정</a></li>
+</ul>
+</div>
+<a href="/shop/mypage/mypage_qna_register.php?mode=add_qna" class="link_inquire"><span class="emph">도움이 필요하신가요 ?</span> 1:1 문의하기</a>
+</div>
+<div class="page_section section_point">
+<div class="head_aticle">
+<h2 class="tit">적립금 <span class="tit_sub">보유하고 계신 적립금의 내역을 한 눈에 확인 하실 수 있습니다.</span></h2>
+</div>
+<div id="viewPointList">
 
-		<div class="coupon_reg">
-			<form method="post" action="/shop/mypage/mycoupon/add">
-				<fieldset>
-					<!-- 쿠폰 등록 란 -->
-					<legend>쿠폰 등록 폼</legend>
-					<div class="reg">
-						<input type="text" name="cno" label="쿠폰번호" class="inp" placeholder="쿠폰을 입력해주세요">
-						<button type="submit" class="btn">쿠폰 등록</button>
-					</div>
-					<p class="notice">쿠폰에 하이픈("-")이 포함되어 있을경우 하이픈("-")을 반드시 입력해주세요.</p>
-				</fieldset>
-			</form>
-		</div>
-
-		<!-- 보유쿠폰 나타내기 -->
-		<div class="coupon_count">
-			<span class="ico"></span>
-			<p class="txt">쿠폰은 적용 가능한 상품이 따로 적용되어 있는 경우 해당 상품 구매 시에만 사용이
-				가능합니다.</p>
-			<p class="count">
-				<span class="tit">사용가능쿠폰</span> : ${count} 개
-			</p>
-		</div>
-
-		<!--  보유쿠폰 리스트 -->
-		<table class="tbl tbl_type1">
-			<caption>적립 사용 내역 상세보기</caption>
-			<colgroup>
-				<col style="width: 250px;">
-				<col style="width: 58px;">
-				<col style="width: 150px;">
-				<col style="width: 120px;">
-				<col style="width: 101px;">
-			</colgroup>
+<div class="point_header">
+<div class="point_view"><h3 class="tit">현재 적립금</h3> 
+<strong class="point">${saving.credit}<span class="won"> 원</span></strong></div> 
+<span class="disappear">
+	<span class="subject">소멸예정 적립금 
+		<span class="date">${exp}</span>
+	</span> 
+	<span class="num">${saving.exp_credit} 원</span>
+</span>
+</div>
+ 
+<table class="tbl tbl_type1">
+<caption style="display: none;">적립 사용 내역 상세보기</caption> 
+<colgroup>
+<col style="width: 120px;"> 
+<col style="width: auto;"> 
+<col style="width: 122px;"> 
+<col style="width: 140px;">
+</colgroup> 
+<tbody>
+<tr></tr> 
+</tbody>
+<!--  적립금액 상세 리스트 -->
+			<caption>적립금등록 내역 상세보기</caption>
 			<thead>
 				<tr>
-					<th class="name">쿠폰명</th>
-					<th>기능</th>
-					<th>할인/적립</th>
-					<th>등록일</th>
-					<th>만료일</th>
+					<th>날짜</th>
+					<th class="info">내용</th>
+					<th>유효기간</th>
+					<th>금액</th>
 				</tr>
 			</thead>
 			
-			<!-- 내 쿠폰 리스트 출력 -->
+			<!-- saving_list 리스트 출력 -->
 			<tbody>
 			<c:forEach var="dto" items="${list}">
 				<tr>
-					<td class="name">${dto.content}</td>
-					<td class="name">할인</td>
-					<td class="name">
-						<c:if test="${dto.dis_type eq 'd'}">${dto.discount}%</c:if>
-						<c:if test="${dto.dis_type eq 'p'}">${dto.dis_price}원</c:if>
-						<c:if test="${dto.dis_type eq 'a'}">${dto.discount}%/${dto.dis_price}원</c:if>
+					<td><fmt:parseDate value="${dto.writedate}" var="writedate" pattern="yyyy-MM-dd" />
+						<fmt:formatDate value="${writedate}" pattern="yyyy.MM.dd" />
+					</td>
+					<td class="info">
+					[적립금] ${dto.credit} 원 적립되었습니다.
 					</td>
 					<td>
-						<fmt:parseDate value="${dto.srat_expiry}" var="srat_expiry" pattern="yyyy-MM-dd" />
-						<fmt:formatDate value="${srat_expiry}" pattern="yyyy.MM.dd" />
+						<fmt:parseDate value="${dto.expiry}" var="expiry" pattern="yyyy-MM-dd" />
+						<fmt:formatDate value="${expiry}" pattern="yyyy.MM.dd" />
 					</td>
-					<td>
-						<fmt:parseDate value="${dto.end_expiry}" var="end_expiry" pattern="yyyy-MM-dd" />
-						<fmt:formatDate value="${end_expiry}" pattern="yyyy.MM.dd" />
-					</td>
+					<td class="point">${dto.credit} 원</td>
 				</tr>
 	        </c:forEach>
 		    </tbody>
-		    <tfoot>
+ 		    <tfoot>
 				<tr>					
 					<td colspan="24" class="text-center">
 						<ul class="pagination justify-content-center" id="pageWrap">${paging}</ul>
 					</td>
 				</tr>
 			</tfoot>
-		</table>
-	</div>
-</div>
-<p></p>
-<p></p>
 
+		</table>
+</div>
+</div>
+</div>
+</div>
+</div>
