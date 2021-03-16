@@ -117,7 +117,7 @@ public class AdminQnaAnswerController {
 //        System.out.println(set);
 //        JSONObject result = coolSms.send(set);
 //        out.print("success");
-//        qnaAnswerMapper.phoneOk(qnno);
+        qnaAnswerMapper.phoneOk(qnno);
 //        if ((boolean)result.get("status") == true) {
 //          // 메시지 보내기 성공 및 전송결과 출력
 //          System.out.println("성공");

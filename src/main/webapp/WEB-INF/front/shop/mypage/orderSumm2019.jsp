@@ -44,8 +44,8 @@ function hide(n)
                                 </div>
                             </div>
                             <div class="next">
-                                <a href="/shop/event/lovers/lovers.php" class="total_grade">전체등급 보기</a>
-                                <a href="/shop/proc/my_benefit.php?id=benefit" class="next_month">다음 달 예상등급 보기</a>
+                                <a href="/shop/event/lover" class="total_grade">전체등급 보기</a>
+                                <a href="/shop/event/my_benefit" class="next_month">다음 달 예상등급 보기</a>
                             </div>
                             
                         </div>
@@ -55,7 +55,7 @@ function hide(n)
                                     <div class="tit">적립금
                                         <!---->
                                     </div>
-                                    <a href="#" class="info"><fmt:formatNumber value="${sDTO.credit }" pattern="#,###"/> 원
+                                    <a href="/shop/mypage/mysaving" class="info"><fmt:formatNumber value="${sDTO.credit }" pattern="#,###"/> 원
                                         <img src="https://res.kurly.com/pc/service/common/1905/ico_arrow_56x56.png" alt="자세히 보기">
                                         <span class="date">소멸 예정 <fmt:formatNumber value="${sDTO.exp_credit }" pattern="#,###"/> 원</span>
                                     </a>
@@ -65,7 +65,7 @@ function hide(n)
                                 <div class="link">
                                     <div class="tit">쿠폰
                                         <!---->
-                                    </div> <a href="#" class="info">${couponCnt } 개 <img
+                                    </div> <a href="/shop/mypage/mycoupon" class="info">${couponCnt } 개 <img
                                             src="https://res.kurly.com/pc/service/common/1905/ico_arrow_56x56.png" alt="자세히 보기"></a>
                                 </div>
                             </li>
@@ -95,19 +95,19 @@ function hide(n)
                                 <a href="/shop/deliveryList" >배송지 관리</a>
                             </li>
                             <li>
-                                <a href="/shop/mypage/mypage_wishlist.php">늘 사는 것</a>
+                                <a href="/shop/living">늘 사는 것</a>
                             </li>
                             <li>
-                                <a href="/shop/mypage/mypage_review.php">상품 후기</a>
+                                <a>상품 후기</a>
                             </li>
                             <li>
-                                <a href="/shop/mypage/mypage_emoney.php">적립금</a>
+                                <a href="/shop/mypage/mysaving">적립금</a>
                             </li>
                             <li>
-                                <a href="/shop/mypage/mypage_coupon.php">쿠폰</a>
+                                <a href="/shop/mypage/mycoupon">쿠폰</a>
                             </li>
                             <li>
-                                <a href="/shop/member/myinfo.php">개인 정보 수정</a>
+                                <a href="/member/info">개인 정보 수정</a>
                             </li>
                         </ul>
                     </div>
@@ -126,7 +126,7 @@ function hide(n)
                     <input id="searchDateHiddenId" type="hidden">
                     <div class="search_date">
                         <ul class="layer_search">
-                            <li class="dateSearch" onclick="view()"><a class="on" href="#" >기간선택</a></li>
+                            <li class="dateSearch" onclick="view()"><a class="on">기간선택</a></li>
                             <li class="dateSearch" onclick="hide(1)"><a href="/shop/mypage/orderSumm" >전체기간</a></li>
                             <li class="dateSearch" onclick="hide(1)"><a href="/shop/mypage/orderSumm2021" >2021 년</a></li>
                             <li class="dateSearch" onclick="hide(2)"><a href="/shop/mypage/orderSumm2020" >2020 년</a></li>
@@ -146,8 +146,9 @@ function hide(n)
                             <div class="order_goods">
                                 <div class="name"><a href="/shop/mypage/orderSumm_detail?ono=${ordersArr[i].ono }">${firstName[i]} 외 ${ordersSize[i]-1 }건</a></div>
                                 <div class="order_info">
-                                    <div class="thumb"><img src="https://img-cf.kurly.com/shop/data/goods/1600317579240s0.jpg"
-                                            alt="해당 주문 대표 상품 이미지"></div>
+                                    <div class="thumb">
+                                    	<img src="${floc[i]}${fname[i]}" alt="해당 주문 대표 상품 이미지">
+                                   	</div>
                                     <div class="desc">
                                         <dl>
                                             <dt>주문번호</dt>

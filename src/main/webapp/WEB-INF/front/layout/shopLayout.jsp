@@ -163,7 +163,7 @@
 								</form>
 							</li>
 							<li class="pl20 pr20"><a href="#"><img src="/static/front/img/shop/ico_delivery_setting.svg" /></a></li>
-							<li class="pr20"><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="" id="btn-basket"><img src="/static/front/img/shop/ico_cart.svg" /></a></li>
+							<li class="pr20"><a href="/shop/basket" data-toggle="tooltip" data-placement="bottom" data-original-title="" id="btn-basket"><img src="/static/front/img/shop/ico_cart.svg" /></a></li>
 						</ul>
 					</div>
 				</nav>

@@ -98,12 +98,21 @@ public class MemberController {
 	public String login_ok(HttpServletRequest request, HttpSession session) {
 		String id = request.getParameter("id") != null ? request.getParameter("id") : "";
 		String pw = request.getParameter("pw") != null ? request.getParameter("pw") : "";
-		boolean login = member.login(session, id, pw);
+		String admin = request.getParameter("admin");
+		boolean login = false;
+		String redic = "redirect:/";
 
-		if (!login) {
-			return "redirect:/login?login=false";
+		if (admin != null) {
+			login = member.adminLogin(session, id, pw);
+			redic = "redirect:/admin";
+		} else {
+			login = member.login(session, id, pw);
 		}
-		return "redirect:/";
+
+		if (!login)
+			return "redirect:/login?login=false";
+
+		return redic;
 	}
 
 	@RequestMapping("/join/ok")

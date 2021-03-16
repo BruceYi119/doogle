@@ -9,6 +9,11 @@ a {
   color: inherit;
 }
 
+a:hover{
+	text-decoration: none;
+	color: black;
+}
+
 ul {
   list-style: none;
 }
@@ -1127,7 +1132,7 @@ textarea {
 }
 
 .data_method .goodsinfo_table .txt_notice li {
-  font-size: 12px;
+  font-size: 11px;
   color: #666;
   line-height: 22px;
   letter-spacing: -0.2px;

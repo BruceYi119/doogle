@@ -21,6 +21,7 @@ grant connect, resource to doogle;
 --@D:\projectWorkspace\doogle\src\main\info\question.sql
 --@D:\projectWorkspace\doogle\src\main\info\notice.sql
 --@D:\projectWorkspace\doogle\src\main\info\kimheesu.sql
+--@D:\projectWorkspace\doogle\src\main\info\qna.sql
 --insert into category(ctno,name,lv,type,idx,writedate) values(s_CATEGORY.nextval,'이벤트',0,'f',6,sysdate);
 --delete from category where ctno in (3,128);
 --commit;

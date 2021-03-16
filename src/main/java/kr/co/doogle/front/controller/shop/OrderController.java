@@ -52,6 +52,8 @@ public class OrderController {
 	@Autowired
 	private SavingMapper savingMapper;
 	@Autowired
+	private SavingListMapper savingListMapper;
+	@Autowired
 	private OrdersMapper ordersMapper;
 	@Autowired
 	private OrderListMapper orderListMapper;
@@ -60,26 +62,22 @@ public class OrderController {
 	@Autowired
 	private GradeMapper gradeMapper;
 	@Autowired
-	private SavingListMapper savingListMapper;
-	@Autowired
 	private Member member;
 
 	@RequestMapping("/shop/order")
-	public String order(Model model, HttpServletRequest request, PrintWriter out, HttpSession session) {
-		if (!member.isLogin(session))
+	public String order(Model model, HttpServletRequest request, HttpSession session) {
+		if (member.isLogin(session) == false)
 			return "redirect:/login";
+		String id = session.getAttribute("id").toString();
+		String mno = session.getAttribute("mno").toString();
 
-		String id = "henry";
+		String[] bnos = request.getParameterValues("bno");
+		String jbno = "'" + String.join("','", bnos) + "'";
 
-		// String[] bno = {"41","51","52"}; //,"16","17","19","20"
-		// 상품 출력 부분
-
-//		int bnos = Integer.parseInt(String.join(",", bno));
-//		int bnos = 41,51,52;
-		String mno = "1";
-		ArrayList<BasketProductProdctOptionFileDTO> basketArr = basketMapper.getBasketJoin("1", mno);
+		ArrayList<BasketProductProdctOptionFileDTO> basketArr = basketMapper.getBasketJoin(jbno, mno);
 		model.addAttribute("basketArr", basketArr);
 		model.addAttribute("url", "/shop/order");
+		System.out.println("mno = " + mno);
 
 		// 가격 출력
 		double pprice = 0;
@@ -132,15 +130,22 @@ public class OrderController {
 		// 회원별 적립률 가져와서 계산하기
 		GradeMemberDTO mDTOEarn = gradeMapper.getEarn(id);
 		int calcEarn = 0;
+
+		// 만약에 상품 합계 금액과 할인적용 금액이 같으면 할인이 없기 때문에...
 		if (totalPrice == totalPriceWithDiscount) {
+			// 적립율을 가져와서 상품합계 금액과 할인율과 계산
 			double earn = mDTOEarn.getEarn();
 			calcEarn = (int) Math.round(totalPrice * (earn / 100));
-		} else if (totalPrice != totalPriceWithDiscount) {
+		}
+		// 만약에 할인적용금액과 합계 금액이 같지 않으면 할인이 있기 때문에
+		else if (totalPrice != totalPriceWithDiscount) {
+			// 적립률 가져와서 할인이 적용된 값과 할인율을 적용해서 계산
 			double earn = mDTOEarn.getEarn();
 			calcEarn = (int) Math.round(totalPriceWithDiscount * (earn / 100));
 		}
+		// 계산된 적립금액 보내주기
 		model.addAttribute("calcEarn", calcEarn);
-		model.addAttribute("calcEarn", calcEarn);
+		// 적립율 값 보내주기
 		model.addAttribute("mDTOEarn", mDTOEarn);
 
 		// 주문자 정보 가져오기
@@ -150,25 +155,22 @@ public class OrderController {
 		// 기본 배송지 가져오기
 		DeliveryDTO ddto = deliveryMapper.getDefault(mno);
 		model.addAttribute("ddto", ddto);
-//		
-//		
+
 		// 쿠폰 정보 가져오기
 		// 나의 쿠폰에서 필요한 정보 가져오기
 		ArrayList<MyCouponCouponDTO> myCouponArr = myCouponMapper.getCouponDetails(mno);
 		// 상품에 대한 할인 조건이 있는 mcno를 저장할 수 있는 Set 생성
-		Set<Integer> mcnoProductOkSet = new TreeSet();
+		Set<Integer> mcnoProductOkSet = new TreeSet<>();
 		// 모든 상품에 대한 할인 조건이 있는 mcno를 저장할 수 있는 Set 생성
-		Set<Integer> mcnoAllOkSet = new TreeSet();
+		Set<Integer> mcnoAllOkSet = new TreeSet<>();
 		// 적용할 수 있는 쿠폰의 mcno를 저장할 수 있는 Set 생성
-		Set<Integer> mccSetNA = new TreeSet();
+		Set<Integer> mccSetNA = new TreeSet<>();
 		// 적용할 수 있는 쿠폰의 mcno를 저장할 수 있는 Set 생성
-		Set<Integer> pnoSet = new TreeSet();
+		Set<Integer> pnoSet = new TreeSet<>();
 		// 적용 가능한 pno만 추가할 수 있는 ArrayList
 		ArrayList<String> pnoAppArr = new ArrayList<>();
 
 		// 마이쿠폰에 존재하는 모든 쿠폰 가져와서 for문으로 확인
-		for (int s = 0; s < myCouponArr.size(); s++) {
-		}
 		for (int i = 0; i < myCouponArr.size(); i++) {
 			// 마이쿠폰의 pno 컬럼에 데이터가 있는지 없는지 확인 번호 가져오기
 			String pnoColumn = myCouponArr.get(i).getPno();
@@ -184,7 +186,6 @@ public class OrderController {
 				// ArrayList를 List로 만들어주고
 				List<String> pnoList = Arrays.asList(pnoArr); // List
 				// 장바구니에 있는 pno 갯수 만큼 for문을 통해 확인
-
 				for (int j = 0; j < basketArr.size(); j++) {
 					// 만약에 쿠폰에서 가져온 pnoList 값들이 장바구니 pno 번호와 동일 하다면
 					if (pnoList.contains(Integer.toString(basketArr.get(j).getPno()))) {
@@ -274,12 +275,6 @@ public class OrderController {
 		List<Integer> mcnoProductList = new ArrayList<>(mcnoProductOkSet);
 		// [특정 상품에만 적용 가능 쿠폰] DTO를 담을 ArrayList 만들기
 		ArrayList<MyCouponCouponDTO> productOkCoupon = new ArrayList<>();
-		// [특정 상품에만 적용 가능 쿠폰] mcno데이터가 담긴 mccOkSet을 List로 변환
-		List<Integer> couponDiscountTotal = new ArrayList<>();
-		// 적용된 상품의 할인값을 저장할 공간
-		int opriceDiscountAmount = 0;
-		int ppriceDiscountAmount = 0;
-
 		// 마이쿠폰에 있는 모든 쿠폰 가져와서 확인
 		for (int m = 0; m < myCouponArr.size(); m++) {
 			// [특정 상품에만 적용가능한 쿠폰] mcnoProductList 데이터의 갯수 만큼 for문 실행하면서
@@ -364,7 +359,7 @@ public class OrderController {
 				}
 			}
 		}
-
+		// 사용 불가능한 쿠폰 보내주기
 		model.addAttribute("naCoupon", naCoupon);
 
 		// 사용 가능한 쿠폰 갯수 구하기
@@ -387,51 +382,65 @@ public class OrderController {
 		String typed = "d";
 		ArrayList<CategoryDTO> mtFiveCards = categoryMapper.getCards(typed);
 		model.addAttribute("mtFiveCards", mtFiveCards);
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 
 		return "/front/shop/order/order";
 	}
 
 	@RequestMapping("/order/addrUpdate")
 	public String addrUpdate(Model model, HttpSession session) {
-		if (!member.isLogin(session))
+		if (member.isLogin(session) == false)
 			return "redirect:/login";
+		String mno = session.getAttribute("mno").toString();
 		// 기본 배송지 가져오기
-		String mno = "21";
 		DeliveryDTO ddto = deliveryMapper.getDefault(mno);
 		model.addAttribute("ddto", ddto);
 		model.addAttribute("url", "/shop/order/btnUpdateSubAddress");
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
-		return "/front/shop/order/addrUpdate";
+		return "front/shop/order/addrUpdate";
 	}
 
 	@RequestMapping("/order/addrUpdate/ok")
-	public String addrUpdateok(Model model, PrintWriter out, HttpServletRequest request) {
-		String mno = "21";
-
-		String receive_name = request.getParameter("receive_name"); // 이름 가져오기
-		String phone = request.getParameter("phone"); // 전화번호 가져오기
-		String pickUpType = request.getParameter("pickUpType"); // 받으실 장소 가져오기
+	public String addrUpdateok(Model model, HttpServletRequest request, HttpSession session) {
+		String mno = session.getAttribute("mno").toString();
+		String receive_name = request.getParameter("receive_name") != null ? request.getParameter("receive_name") : ""; // 이름
+																														// 가져오기
+		String phone = request.getParameter("phone") != null ? request.getParameter("phone") : ""; // 전화번호 가져오기
+		String pickUpType = request.getParameter("pickUpType") != null ? request.getParameter("pickUpType") : ""; // 받으실
+																													// 장소
+																													// 가져오기
 		// 받으실 장소 분류
 
-		String meansType = request.getParameter("meansType"); // 문앞 선택시 옵션
+		String meansType = request.getParameter("meansType") != null ? request.getParameter("meansType") : ""; // 문앞 선택시
+																												// 옵션
 		// 문앞 선택시 분류
 
-		String doorPin = request.getParameter("doorPinDoorstepDoor"); // 현관문 비밀번호 가져오기
-		String doorMeans = request.getParameter("means"); // 기타선택시 내용 가져오기
+		String doorPin = request.getParameter("doorPinDoorstepDoor") != null
+				? request.getParameter("doorPinDoorstepDoor")
+				: ""; // 현관문 비밀번호 가져오기
+		String doorMeans = request.getParameter("means") != null ? request.getParameter("means") : ""; // 기타선택시 내용 가져오기
 
-		String pickUpDetailSec = request.getParameter("pickUpDetailSec"); // 경비실 선택시
-		String pickUpDetailPost = request.getParameter("pickUpDetailPost"); // 택배함 택배함 정보
-		String pickUpDetailOther = request.getParameter("pickUpDetailOther"); // 기타장소 선택시
+		String pickUpDetailSec = request.getParameter("pickUpDetailSec") != null
+				? request.getParameter("pickUpDetailSec")
+				: ""; // 경비실 선택시
+		String pickUpDetailPost = request.getParameter("pickUpDetailPost") != null
+				? request.getParameter("pickUpDetailPost")
+				: ""; // 택배함 택배함 정보
+		String pickUpDetailOther = request.getParameter("pickUpDetailOther") != null
+				? request.getParameter("pickUpDetailOther")
+				: ""; // 기타장소 선택시
 
 		// 택배함 선택시
-		String meansTypePost = request.getParameter("meansTypePost");
+		String meansTypePost = request.getParameter("meansTypePost") != null ? request.getParameter("meansTypePost")
+				: "";
 
-		String doorPinPost = request.getParameter("doorPinDoorstepPost"); // 비밀번호
-		String meansPost = request.getParameter("meansPost"); // 내용
+		String doorPinPost = request.getParameter("doorPinDoorstepPost") != null
+				? request.getParameter("doorPinDoorstepPost")
+				: ""; // 비밀번호
+		String meansPost = request.getParameter("meansPost") != null ? request.getParameter("meansPost") : ""; // 내용
 
 		// 배송메시지
-		String deliveryMsg = request.getParameter("deliveryMessageSendAt");
+		String deliveryMsg = request.getParameter("deliveryMessageSendAt") != null
+				? request.getParameter("deliveryMessageSendAt")
+				: "";
 		if (deliveryMsg.equals("1")) {
 			deliveryMsg = "배송직후";
 		}
@@ -495,70 +504,51 @@ public class OrderController {
 		}
 		if (pickUpType.equals("4")) {
 			pickUpType = "기타장소";
-			pickUpTypeContent = "";
+			pickUpTypeContent = pickUpDetailOther;
 			pickUpTypeDetail = pickUpDetailOther;
 			model.addAttribute("pickUpTypeView", pickUpTypeDetail);
 		}
 		deliveryMapper.updateAddr(receive_name, phone, pickUpType, pickUpTypeContent, pickUpTypeDetail, deliveryMsg,
 				mno);
 		model.addAttribute("pickUpType", pickUpType);
+		model.addAttribute("pickUpTypeContent", pickUpTypeContent);
 		model.addAttribute("deliveryMsg", deliveryMsg);
 		model.addAttribute("receive_name", receive_name);
 		model.addAttribute("phone", phone);
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 
 		return "/front/shop/order/order";
 	}
 
 	@RequestMapping("/shop/order/ok")
 	@Transactional(timeout = 10)
-	public String orderOk(PrintWriter out, Model model, HttpServletRequest request) {
-		String id = "henry";
+	public String orderOk(Model model, HttpServletRequest request, HttpSession session) {
+		if (member.isLogin(session) == false)
+			return "redirect:/login";
+		String id = session.getAttribute("id").toString();
+		String mno = session.getAttribute("mno").toString();
+
 		MemberDTO mdto = memberMapper.getOne(id);
 		GradeMemberDTO gDTO = gradeMapper.getOne(id);
 
-		String mno = "1";
+		String[] bnos = request.getParameterValues("bno");
+		String jbno = "'" + String.join("','", bnos) + "'";
+
+		// 주문한 장바구니의 내용을 가져와 주문목록 테이블에 삽입
+		ArrayList<BasketProductProdctOptionFileDTO> basketArr = basketMapper.getBasketJoin(jbno, mno);
+		int count = basketArr.size();
+
 		// 시퀀스 조회 변수에 할당
 		int ono = ordersMapper.getSeq();
 
 		// 결제가 완료되면 주문 테이블 정보 입력
-		ordersMapper.insertOrders(ono, mno);
-
-		// 주문한 장바구니의 내용을 가져와 주문목록 테이블에 삽입
-		ArrayList<BasketProductProdctOptionFileDTO> basketArr = basketMapper.getBasketJoin("1", mno);
-		for (int i = 0; i < basketArr.size(); i++) {
-			// 만약에 상품의 옵션이 없다면 pno 번호를 가져와 정보 입력 * 삭제
-			if (basketArr.get(i).getPono() == 0) {
-				int pno = basketArr.get(i).getPno();
-				int quantity = basketArr.get(i).getQuantity();
-
-				// 주문 목록에 정보 삽입
-				orderListMapper.insertProductOrderList(mno, ono, pno, quantity);
-				// 장바구니에서 결제한 상품들 지워주기
-//				basketMapper.deleteProductOrders(pno, mno);
-			}
-			// 만약에 상품의 옵션이 있다면 pono 번호를 가져와 정보 입력 * 삭제
-			else if (basketArr.get(i).getPono() > 0) {
-				int pno = basketArr.get(i).getPno();
-				int pono = basketArr.get(i).getPono();
-				int quantity = basketArr.get(i).getQuantity();
-				// 주문 목록에 정보 삽입
-				orderListMapper.insertOptionOrderList(mno, ono, pno, pono, quantity);
-				// 장바구니에서 결제한 상품들 지워주기
-//				basketMapper.deleteOptionOrders(pono, mno);
-			}
-		}
+		ordersMapper.insertOrders(ono, mno, count);
 
 		// 적립률 계산 이후 적립금 가져오기
-		String creditEarned = request.getParameter("calc_earn");
-
-		// 적립할 적립금을 가져와서 saving & saving_list 테이블 업데이트
-		int svno = savingMapper.getSvno(mno); // saving 테이블에서 svno 번호 가지고 오기
-		savingListMapper.insertOne(svno, mno, creditEarned); //
-		savingMapper.creditAdd(creditEarned);
+		String creditEarned = request.getParameter("calc_earn") != null ? request.getParameter("calc_earn") : "";
 
 		// 주문이 완료되면 결제 테이블에 정보 삽입
-		String type = request.getParameter("settlekind"); // 결제 방법 가져오기
+		String type = request.getParameter("settlekind") != null ? request.getParameter("settlekind") : ""; // 결제 방법
+																											// 가져오기
 		if (type.equals("card")) {
 			type = "c";
 		}
@@ -582,23 +572,62 @@ public class OrderController {
 		}
 		String payment = request.getParameter("payment"); // 최종 결제금액 가져오기
 		String creditUsed = request.getParameter("saving"); // 사용한 적립금 가져오기
+		if (payment == null) {
+			payment = "0";
+		}
 		if (creditUsed == null) {
 			creditUsed = "0";
 		}
-		String productTotalPrice = request.getParameter("product_total_price"); // 상품금액 가져오기
-		String deliveryPrice = request.getParameter("delivery_price"); // 배송비 가져오기
-		String productDisPrice = request.getParameter("product_dis_price"); // 상품할인금액 가져오기
-		String couponDisPrice = request.getParameter("coupon_dis_price"); // 쿠폰할인금액 가져오기
-		String cardName = request.getParameter("cardName"); // 카드이름 가져오기
-		String cardMonth = request.getParameter("month"); // 할부기간 가져오기
+		String productTotalPrice = request.getParameter("product_total_price") != null
+				? request.getParameter("product_total_price")
+				: ""; // 상품금액 가져오기
+		String deliveryPrice = request.getParameter("delivery_price") != null ? request.getParameter("delivery_price")
+				: ""; // 배송비 가져오기
+		String productDisPrice = request.getParameter("product_dis_price") != null
+				? request.getParameter("product_dis_price")
+				: ""; // 상품할인금액 가져오기
+		String couponDisPrice = request.getParameter("coupon_dis_price") != null
+				? request.getParameter("coupon_dis_price")
+				: ""; // 쿠폰할인금액 가져오기
+		String cardName = request.getParameter("cardName") != null ? request.getParameter("cardName") : ""; // 카드이름 가져오기
+		String cardMonth = request.getParameter("month") != null ? request.getParameter("month") : ""; // 할부기간 가져오기
 
+//		savingMapper.creditSub(creditUsed, mno);
+		savingListMapper.insertCreditUsed(mno, creditUsed);
 		// 결제 테이블에 내용 삽입
 		paymentMapper.insertPayment(mno, ono, type, payment, creditUsed, productTotalPrice, deliveryPrice,
 				productDisPrice, couponDisPrice, creditEarned, cardName, cardMonth);
+
+		for (int i = 0; i < basketArr.size(); i++) {
+			// 만약에 상품의 옵션이 없다면 pno 번호를 가져와 정보 입력 * 삭제
+			if (basketArr.get(i).getPono() == 0) {
+				int pno = basketArr.get(i).getPno();
+				int quantity = basketArr.get(i).getQuantity();
+
+				// 주문 목록에 정보 삽입
+				orderListMapper.insertProductOrderList(mno, ono, pno, quantity);
+				// 장바구니에서 결제한 상품들 지워주기
+				basketMapper.deleteProductOrders(pno, mno);
+			}
+			// 만약에 상품의 옵션이 있다면 pono 번호를 가져와 정보 입력 * 삭제
+			else if (basketArr.get(i).getPono() > 0) {
+				int pno = basketArr.get(i).getPno();
+				int pono = basketArr.get(i).getPono();
+				int quantity = basketArr.get(i).getQuantity();
+				// 주문 목록에 정보 삽입
+				orderListMapper.insertOptionOrderList(mno, ono, pno, pono, quantity);
+				// 장바구니에서 결제한 상품들 지워주기
+				basketMapper.deleteOptionOrders(pono, mno);
+			}
+		}
+
 		// 사용한 적립금 나의 적립금 테이블에서 빼주기
-		savingMapper.creditSub(creditUsed);
+		String creditExpUsed = creditUsed;
+//		savingMapper.creditSub(creditUsed,creditExpUsed,mno);
 		// 선택된 쿠폰번호 마이쿠폰에서 지워주기
-		String mcno = request.getParameter("mcnoSelected");
+		System.out.println("creditExpUsed = " + creditExpUsed);
+		System.out.println("creditUsed = " + creditUsed);
+		String mcno = request.getParameter("mcnoSelected") != null ? request.getParameter("mcnoSelected") : "";
 		myCouponMapper.deleteSelectedCoupon(mno, mcno);
 
 		// 페이지로 넘어갈 값 보내주기
@@ -607,34 +636,34 @@ public class OrderController {
 		model.addAttribute("creditEarned", creditEarned);
 		model.addAttribute("gDTO", gDTO);
 		model.addAttribute("url", "/shop/end");
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 
 		return "/front/shop/order/end";
 	}
 
 	@RequestMapping("/shop/order/end")
-	public String end(Model model, HttpServletRequest request) {
+	public String end(Model model, HttpSession session) {
+		if (member.isLogin(session) == false)
+			return "redirect:/login";
 		model.addAttribute("url", "/shop/end");
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/order/end";
 	}
 
-	@RequestMapping("/order/test")
-	public void addrUpdate(PrintWriter out) {
-		String id = "henry";
-		String mno = "1";
-		GradeMemberDTO mDTOEarn = gradeMapper.getEarn(id);
-		out.print(mDTOEarn.toString());
+	@RequestMapping("/shop/order/test_one")
+	public String test_one() {
+
+		return "/front/shop/order/test_one";
+	}
+
+	@RequestMapping("/shop/order/test_two")
+	public void test_two(HttpServletRequest request, PrintWriter out, HttpSession session) {
+		String mno = session.getAttribute("mno").toString();
+//		String[] bnos = request.getParameterValues("bno");
+//		String jbno = "'" + String.join("','", bnos) + "'";
+//		ArrayList<BasketProductProdctOptionFileDTO> basketArr = basketMapper.getBasketJoin(jbno,mno);
+//		out.print(basketArr.toString());
+//		out.print("\n");
+//		out.print("jbno = "+jbno);
 		out.print("\n");
-
-		SavingDTO sdto = savingMapper.getCredit(mno);
-		if (sdto == null) {
-			out.print("null");
-			out.print("\n");
-		}
-
-		int svno = savingMapper.getSvno(mno); // saving 테이블에서 svno 번호 가지고 오기
-		out.print(svno);
-
+		out.print("mno = " + mno);
 	}
 }

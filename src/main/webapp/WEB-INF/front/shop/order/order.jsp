@@ -30,7 +30,7 @@
 				<c:forEach items="${basketArr}" var="dto">
 				<div class="info_product">
 					<c:if test="${dto.pono gt 0}">
-					<div class="short_info">${dto.oname} 상품을 주문합니다.</div>
+					<div class="short_info">${dto.brand}${dto.oname} 상품을 주문합니다.</div>
 					</c:if>
 					<c:if test="${dto.pono eq 0}">
 					<div class="short_info">${dto.brand}${dto.pname} 상품을 주문합니다.</div>
@@ -44,49 +44,40 @@
 				<div class="info_product">
 					<c:if test="${dto.pono gt 0}">
 					<div class="short_info">
-					${dto.oname}외 
-					<span class="num">${fn:length(basketArr)}개</span>의 상품을 주문합니다.</div>
+					${dto.brand}${dto.oname}외 
+					<span class="num">${fn:length(basketArr)-1}개</span>의 상품을 주문합니다.</div>
 					</c:if>
 					<c:if test="${dto.pono eq 0}">
 					<div class="short_info">
-					${dto.pname}외 
-					<span class="num">${fn:length(basketArr)}개</span>의 상품을 주문합니다.</div>
+					${dto.brand}${dto.pname}외 
+					<span class="num">${fn:length(basketArr)-1}개</span>의 상품을 주문합니다.</div>
 					</c:if>
-
 				</div>
 				</c:forEach>
 				</c:if>
-				
-<!-- 				<div class="info_product"> -->
-<!-- 					<div class="short_info">[법성포참맛] 대용량 영광굴비 1.4kg(20마리)(냉동)상품을 -->
-<!-- 						주문합니다.</div> -->
-<!-- 				</div> -->
-				
 				<!-- 자세한 구매 상품 정보 -->
 				<c:forEach items="${basketArr}" var="dto">
 				<ul class="list_product">
 					<li>
 						<div class="thumb">
-							<img src="/static/front/img/shop/product/${dto.fname }" alt="상품이미지">
+							<img src="${dto.loc}${dto.fname }" alt="상품이미지">
 						</div>
 						<div class="name">
 							<div class="inner_name">
 								<!-- 옵션 상품이 없다면 -->
 								<c:if test="${dto.pono eq 0}">
-								${dto.pname}
+								${dto.brand}${dto.pname}
 								</c:if>
 								<!-- 옵션 상품이 있다면 -->
 								<c:if test="${dto.pono gt 0}">
 								${dto.oname}
-								<strong class="package">${dto.pname}</strong>
+								<strong class="package">${dto.brand}${dto.pname}</strong>
 								</c:if>
 							</div>
 						</div>
 						<!-- 장바구니 수량 -->
 						<div class="ea">${dto.quantity}개</div>
 						<div class="info_price">
-							
-							
 							<!-- 할인이 없을때 -->
 							<c:if test="${dto.discount eq 0}">
 								<!-- 옵션이 없을때 -->
@@ -112,7 +103,6 @@
 								<span class="cost"><fmt:formatNumber value="${dto.oprice*dto.quantity}" pattern="#,###"/>원</span></span>
 								</c:if>
 							</c:if>
-							
 						</div>
 					</li>
 				</ul>
@@ -120,8 +110,10 @@
 			</div>
 			
 			<form id="form" name="frmOrder" action="/shop/order/ok" method="post" class="order_view" onsubmit="return validate()">
+				<c:forEach items="${basketArr }" var="basketDTO">
+				<input type="hidden" name="bno" value="${basketDTO.bno}">
+				</c:forEach>
 				<input type="hidden" id="mcnoHidden" name="mcnoSelected" value="0">
-				
 				<h2 class="tit_section" id="titFocusOrderer">주문자 정보</h2>
 				<div class="order_section data_orderer">
 					<table class="goodsinfo_table ">
@@ -180,28 +172,31 @@
 					<div class="section_full">
 
 						<div class="receiving" id="receiverInfo">
-							${ddto.receive_name },${ddto.phone }
+							${ddto.receive_name },${ddto.phone}
 						</div>
-						<c:if test="${ddto.pickuptype eq null }">
+						<c:if test="${ddto.pickuptype eq null}">
 						<div class="way" id="wayPlace">
+							<span class="place" id="areaInfo"></span>
 							<span class="txt off" id="meanType">받으실 장소를 입력해 주세요</span>
+							<div class="message" id="deliveryMessage">
+								<span class="place" id="deliveryMessageTitle"></span> 
+								<span class="txt off" id="deliveryMessageDetail"></span>
+							</div>
 						</div>
-						<button type="button" id="btnUpdateSubAddress" data-address-no="" class="btn default">
-							<a href="/order/addrUpdate" onclick="centeredPopup(this.href,'myWindow','550','700','yes');return false">수정</a>
+						<button type="button" id="btnUpdateSubAddress" data-address-no="" class="btn default" onclick="centeredPopup()">수정
 						</button>
 						</c:if>
 						<c:if test="${ddto.pickuptype ne null}">
 						<div class="way" id="wayPlace">
-							<span class="place" id="areaInfo">${pickuptype }택배함</span>
-							<span class="txt" id="meanType">문앞</span>
+							<span class="place" id="areaInfo">${ddto.pickuptype}</span>
+							<span class="txt" id="meanType">${ddto.pickuptype_content}</span>
 							<div class="message" id="deliveryMessage">
 								<span class="place" id="deliveryMessageTitle">배송완료 메시지</span> 
-								<span class="txt" id="deliveryMessageDetail">오전 7시</span>
+								<span class="txt" id="deliveryMessageDetail">${ddto.delivery_msg}</span>
 							</div>
 						</div>
-						<a href="/order/addrUpdate" onclick="centeredPopup(this.href,'myWindow','550','700','yes');return false">
-						<button type="button" id="btnUpdateSubAddress" data-address-no="" class="btn default">수정</button>
-						</a>
+						<button type="button" id="btnUpdateSubAddress" data-address-no="" class="btn default" onclick="centeredPopup()">수정
+						</button>
 						</c:if>
 						
 
@@ -312,7 +307,7 @@
 							<p class="reserve" style="display: block;">
 								<span class="ico">적립</span>
 								구매 시 <span class="emph">
-								<span id="expectAmount">${calcEarn }</span> 원 ( <span class="ratio">${mDTOEarn.earn }</span> %) 적립</span>
+								<span id="expectAmount"><fmt:formatNumber value="${calcEarn }" pattern="##,###"/></span> 원 ( <span class="ratio">${mDTOEarn.earn }</span> %) 적립</span>
 								<input type="hidden" id="calcEarn" name="calc_earn" value="${calcEarn }">
 							</p>
 						</div>
@@ -327,7 +322,7 @@
 							<tr>
 								<th>쿠폰 적용</th>
 								<td>
-									<div class="view_popselbox">
+									<div id="view_popselbox" class="view_popselbox">
 										<!-- 쿠폰이 없을때 -->
 										<c:if test="${myCouponCnt eq 0}">
 										<div id="popselboxView" class="select_box off">
@@ -353,7 +348,7 @@
 														<span class="txt_tit default">쿠폰 적용 안 함</span>
 													</div>
 												</li>
-												<!-- 모두 적용 가능한 상품 출력 -->
+												<!-- 모두 적용 가능한 쿠폰 출력 -->
 												<c:if test="${fn:length(allOkCoupon) gt 0 }">
 												<c:forEach items="${allOkCoupon }" var="allOkCoupon">
 												<li class="fst" >
@@ -402,28 +397,7 @@
 												</li>
 												</c:forEach>
 												</c:if>
-												<input type="hidden" class="discountPrice" name="allDiscount" value="0">
-												<c:if test="${fn:length(allOkCouponDiscount) gt 0 }">
-												<c:forEach items="${allOkCouponDiscount }" var="allOkCouponDiscount">
-													<input type="hidden" class="discountPrice" name="allDiscount" value="${allOkCouponDiscount }">
-												</c:forEach>
-												</c:if>
-												<c:if test="${fn:length(pnoAppDiscountPriceArr) gt 0 }">
-												<c:forEach items="${pnoAppDiscountPriceArr }" var="pnoAppDiscountPriceArr">
-												<input type="hidden" class="discountPrice" name="productDiscount" value="${pnoAppDiscountPriceArr }">
-												</c:forEach>
-												</c:if>
-												<input type="hidden" class="getMcno" value="0">
-												<c:if test="${fn:length(allOkCoupon) gt 0 }">
-												<c:forEach items="${allOkCoupon }" var="allOkCoupon">
-												<input type="hidden" class="getMcno" value="${allOkCoupon.mcno }">
-												</c:forEach>
-												</c:if>
-												<c:if test="${fn:length(productOkCoupon) gt 0 }">
-												<c:forEach items="${productOkCoupon }" var="productOkCoupon">
-												<input type="hidden" class="getMcno" value="${productOkCoupon.mcno }">
-												</c:forEach>
-												</c:if>
+												
 												
 												
 												<!-- 사용 불가능한 쿠폰 출력 -->
@@ -450,12 +424,35 @@
 												</li>
 												</c:forEach>
 												</c:if>
+												<input type="hidden" class="discountPrice" name="allDiscount" value="0">
+												<c:if test="${fn:length(allOkCouponDiscount) gt 0 }">
+												<c:forEach items="${allOkCouponDiscount }" var="allOkCouponDiscount">
+													<input type="hidden" class="discountPrice" name="allDiscount" value="${allOkCouponDiscount }">
+												</c:forEach>
+												</c:if>
+												<c:if test="${fn:length(pnoAppDiscountPriceArr) gt 0 }">
+												<c:forEach items="${pnoAppDiscountPriceArr }" var="pnoAppDiscountPriceArr">
+												<input type="hidden" class="discountPrice" name="productDiscount" value="${pnoAppDiscountPriceArr }">
+												</c:forEach>
+												</c:if>
+												<c:forEach begin="1" end="${fn:length(naCoupon)}">
+												<input type="hidden" class="discountPrice" name="productDiscount" value="0">
+												</c:forEach>
+												<input type="hidden" class="getMcno" value="0">
+												<c:if test="${fn:length(allOkCoupon) gt 0 }">
+												<c:forEach items="${allOkCoupon }" var="allOkCoupon">
+												<input type="hidden" class="getMcno" value="${allOkCoupon.mcno }">
+												</c:forEach>
+												</c:if>
+												<c:if test="${fn:length(productOkCoupon) gt 0 }">
+												<c:forEach items="${productOkCoupon }" var="productOkCoupon">
+												<input type="hidden" class="getMcno" value="${productOkCoupon.mcno }">
+												</c:forEach>
+												</c:if>
 											</ul>
 										</div>
 										</c:if>
 									</div>
-									<div id="notavailableMsg" class="txt_notavailable"
-										style="display: none;"></div>
 									<p class="txt_inquiry">
 										<a href="https://accounts.kakao.com/login?continue=https%3A%2F%2Fbizmessage.kakao.com%2Fchat%2F9rqXqh1Em2nHAlJZgAVJYAf8qH_smEtv_c_acLTkgmU%3Frf%3Dhttps%3A%2F%2Fapi.happytalk.io%2F" class="link" id="happyTalk">쿠폰사용문의(카카오톡)</a>
 									</p>
@@ -466,15 +463,16 @@
 								<td>
 									<div id="ondealCheck">
 										<div class="emoney_reg">
-											<c:if test="${sdto.credit lt 1000 }">
+											
+											<c:if test="${sdto.credit lt 1000 && sdto.credit ge 1 }">
 											<input type="text" name="saving" id="emoney" class="number_only" placeholder="적립금은 1,000원 이상부터 사용 가능합니다." disabled>
 											</c:if>
 											<c:if test="${sdto.credit gt 1000 }">
 											<input type="text" name="saving" id="emoney" class="number_only"  value="0">
 											</c:if>
 										</div>
-										<c:if test="${sdto.credit eq null }">
-										<p class="possess">보유 적립금 : <strong class="emph">0</strong>원
+										<c:if test="${sdto.credit lt 1000 && sdto.credit ge 1}">
+										<p class="possess">보유 적립금 : <strong class="emph"><fmt:formatNumber value="${sdto.credit }" pattern="#,###"/></strong>원
 										<input type="hidden" id="emoney_hidden" name="emoney_max" value="${sdto.credit }">
 										</p>
 										</c:if>
@@ -483,15 +481,18 @@
 										<input type="hidden" id="emoney_hidden" name="emoney_max" value="${sdto.credit }">
 										</p>
 										</c:if>
+										<c:if test="${sdto.credit eq 0 }">
+										<p class="possess">사용 가능한 적립금이 없습니다.
+										<input type="hidden" id="emoney_hidden" name="emoney_max" value="0">
+										</p>
+										</c:if>
 										<ul class="list_notice">
 										<li>· 보유 적립금 1천원 이상부터 사용가능</li>
 										<li>· 적립금 내역: 마이컬리 &gt; 적립금</li>
 										</ul>
 									</div>
 								</td>
-								<c:if test="${sdto.credit lt 1 }">
-								<td>사용 가능한 적립금이 없습니다.</td>
-								</c:if>
+								
 							</tr>
 						</table>
 					</div>
@@ -528,7 +529,7 @@
 											</div>
 											<div class="select_box">
 												<select id="months" name="month" class="list">
-													<option value="미선택">할부기간을 선택해주세요</option>
+													<option value="">할부기간을 선택해주세요</option>
 												</select>
 											</div>
 											</c:if>
@@ -539,7 +540,7 @@
 												<select id="cardsSelector" name="cardName" class="list" onchange="cardMonthChange(this);">
 													<option value="">카드를 선택해주세요</option>
 													<c:forEach items="${mtFiveCards }" var="mtFiveCards">
-													<option value="${mtFiveCards.ctno }">${mtFiveCards.name }</option>
+													<option value="${mtFiveCards.name}">${mtFiveCards.name }</option>
 													</c:forEach>
 												</select>
 											</div>
@@ -561,8 +562,8 @@
 												<div>
 													<strong class="emph">· 삼성 앱카드</strong>
 													6만원 이상 결제 시 3천원
-													청구할인, 2/15 0시 ~ 2/18 24시, 기간 내 1회, 선착순<br>&nbsp;
-													&nbsp;삼성 &gt; 앱카드 선택하여 결제 시 적용
+													청구할인, 2/15 0시 ~ 2/18 24시, 기간 내 1회, 선착순<br>&nbsp;&nbsp;
+													삼성 &gt; 앱카드 선택하여 결제 시 적용
 												</div>
 											</div>
 										</div>
@@ -706,7 +707,7 @@
 													있어요. 신선함을 지키는 보냉력과 내구성은 그대로! 다른 어떤 소재보다도 재활용성이 우수하니까! 폐기해도
 													빠르게 분해되니까!</p>
 											</div>
-											<button type="submit" class="btn_ok">확인</button>
+											<button type="button" class="btn_ok">확인</button>
 										</div>
 									</div>
 								</div>
@@ -746,9 +747,14 @@
     </div>
 </div>
 <script>
+var areaInfo = document.getElementById("areaInfo").textContent;
+if(areaInfo == '')
+{
 	opener.document.getElementById("areaInfo").innerText="${pickUpType}";
+	opener.document.getElementById("deliveryMessageTitle").innerText="배송완료 메시지";
 	opener.document.getElementById("deliveryMessageDetail").innerText="${deliveryMsg}";
 	opener.document.getElementById("meanType").innerText="${pickUpTypeView}";
 	opener.document.getElementById("receiverInfo").innerText="${receive_name},${phone}";
 	close();
+}
 </script>

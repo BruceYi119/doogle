@@ -82,4 +82,11 @@ public interface BasketMapper {
 			+ " left join product p on b.pno = p.pno left join files f on p.fno = f.fno "
 			+ "where b.bno in(${bno}) and b.mno = #{mno} order by b.bno")
 	ArrayList<BasketProductProdctOptionFileDTO> getBasketJoin(@Param("bno") String bno, @Param("mno") String mno);
+
+	@Delete("delete from basket where pno = #{pno} and mno = #{mno}")
+	int deleteProductOrders(@Param("pno") int pno, @Param("mno") String mno);
+
+	@Delete("delete from basket where pono = #{pono} and mno = #{mno}")
+	int deleteOptionOrders(@Param("pono") int pono, @Param("mno") String mno);
+
 }

@@ -1,7 +1,5 @@
 package kr.co.doogle.mapper;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -9,9 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 //import org.junit.runners.Parameterized.Parameters;
 
-import kr.co.doogle.dto.MyCouponCouponDTO;
 import kr.co.doogle.dto.SavingDTO;
-import kr.co.doogle.dto.SavingListDTO;
 
 @Mapper
 public interface SavingMapper {
@@ -20,8 +16,7 @@ public interface SavingMapper {
 	@Select("select * from saving where mno = #{mno}")
 	SavingDTO getOne(@Param("mno") int mno);
 
-	@Update("update saving "
-			+ "set credit = (select sum(credit) from saving_list where mno = #{mno} ) "
+	@Update("update saving " + "set credit = (select sum(credit) from saving_list where mno = #{mno} ) "
 			+ "where mno = #{mno} ")
 	SavingDTO mod(@Param("mno") int mno, SavingDTO dto);
 
@@ -39,5 +34,8 @@ public interface SavingMapper {
 
 	@Select("select svno from saving where mno = #{mno}")
 	int getSvno(@Param("mno") String mno);
-	
+
+//	@Update("update saving set credit = credit - #{creditUsed}, exp_credit = exp_credit - #{creditUsed}, writedate = sysdate where mno = #{mno}")
+//	int creditSub(@Param("creditUsed") String creditUsed, @Param("mno") String mno);
+
 }

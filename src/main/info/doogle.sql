@@ -1068,7 +1068,7 @@ CREATE TABLE delivery (
 	default_yn CHAR(1) DEFAULT 'y' NOT NULL, /* 기본배송지 */
 	pickuptype VARCHAR2(300), /* 수령지 */
 	pickuptype_content VARCHAR2(300), /* 수령지내용 */
-	pickiptype_detail VARCHAR2(300), /* 수령지세부내용 */
+	pickuptype_detail VARCHAR2(300), /* 수령지세부내용 */
 	delivery_msg VARCHAR2(300), /* 배송완료메세지 */
 	writedate DATE DEFAULT sysdate NOT NULL /* 등록일 */
 );
@@ -1095,7 +1095,7 @@ COMMENT ON COLUMN delivery.pickuptype IS '수령지';
 
 COMMENT ON COLUMN delivery.pickuptype_content IS '수령지내용';
 
-COMMENT ON COLUMN delivery.pickiptype_detail IS '수령지세부내용';
+COMMENT ON COLUMN delivery.pickuptype_detail IS '수령지세부내용';
 
 COMMENT ON COLUMN delivery.delivery_msg IS '배송완료메세지';
 

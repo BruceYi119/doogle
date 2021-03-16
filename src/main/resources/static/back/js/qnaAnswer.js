@@ -12,6 +12,7 @@ $(function(){
 	
 	})
 	$(".emailSend").click(function(){
+			$(this).attr("id","emailSend");
 			var addr = $(this).parent().find(".emailAddr").val();
 			var title = $(this).parents("tr").find(".title").text();
 			var qnno = $(this).parents("tr").find(".qnno").text();
@@ -26,9 +27,9 @@ $(function(){
 						  qnno:qnno,
 						},
 					success:function(){
-						$("#emailDone").attr("class","btn btn-warning").text("메일전송 완료");
+						$("#emailSend").attr("class","btn btn-warning").text("메일전송 완료");
 						alert("메일 전송 완료");
-						$("#emailDone").prop('disabled',true);
+						$("#emailSend").prop('disabled',true);
 					}
 					})
 		
@@ -41,6 +42,7 @@ $(function(){
 		})
 		
 	$(".phoneSend").click(function(){
+			$(this).attr("id","phoneSend");
 			var phone = $(this).parent().find(".phoneNum").val();
 			var qnno = $(this).parents("tr").find(".qnno").text();
 		$.ajax({
@@ -50,9 +52,9 @@ $(function(){
 						phone:phone,
 						},
 				success:function(){
-					$("#phoneDone").attr("class","btn btn-warning").text("문자전송 완료");
+					$("#phoneSend").attr("class","btn btn-warning").text("문자전송 완료");
 					alert("문자 전송 완료");
-					$("#phoneDone").prop('disabled',true);
+					$("#phoneSend").prop('disabled',true);
 				}
 				})
 		

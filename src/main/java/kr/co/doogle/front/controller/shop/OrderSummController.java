@@ -20,7 +20,6 @@ import kr.co.doogle.dto.OrdersDTO;
 import kr.co.doogle.dto.OrdersPaymentDTO;
 import kr.co.doogle.dto.PaymentDTO;
 import kr.co.doogle.dto.SavingDTO;
-import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.DeliveryMapper;
 import kr.co.doogle.mapper.GradeMapper;
 import kr.co.doogle.mapper.MemberMapper;
@@ -33,13 +32,13 @@ import kr.co.doogle.member.Member;
 
 @Controller
 public class OrderSummController {
-
+	
 	@Autowired
 	private MemberMapper memberMapper;
 	@Autowired
 	private GradeMapper gradeMapper;
 	@Autowired
-	private SavingMapper savingMapper;
+	private SavingMapper savingMapper; 
 	@Autowired
 	private MyCouponMapper myCouponMapper;
 	@Autowired
@@ -52,299 +51,351 @@ public class OrderSummController {
 	private DeliveryMapper deliveryMapper;
 	@Autowired
 	private Member member;
-	@Autowired
-	private CategoryMapper categoryMapper;
-
+	
+	
 	@RequestMapping("/shop/mypage/orderSumm")
-	public String orderSumm(Model model, HttpSession session) {
-		if (!member.isLogin(session))
+	public String orderSumm(Model model, HttpSession session) 
+	{
+		if (member.isLogin(session) == false)
 			return "redirect:/login";
-
-		String id = "henry";
-		String mno = "1";
-		model.addAttribute("url", "/mypage/orderSumm");
-
-		// 사용자 정보 가져오기
+		String id = session.getAttribute("id").toString();
+		String mno = session.getAttribute("mno").toString();
+		model.addAttribute("url","/mypage/orderSumm");
+		System.out.println("mno ="+mno);
+		
+		//사용자 정보 가져오기
 		MemberDTO mdto = memberMapper.getOne(id);
-		model.addAttribute("mdto", mdto);
-
-		// 사용자 적립율 가져오기
+		model.addAttribute("mdto",mdto);
+		
+		//사용자 적립율 가져오기
 		GradeMemberDTO gmDTO = gradeMapper.getEarn(id);
-		model.addAttribute("gmDTO", gmDTO);
-
-		// 사용자 적립금 내용 가져오기
+		model.addAttribute("gmDTO",gmDTO);
+		
+		//사용자 적립금 내용 가져오기
 		SavingDTO sDTO = savingMapper.getOne(Integer.parseInt(mno));
-		model.addAttribute("sDTO", sDTO);
-
-		// 사용자 쿠폰 내용 가져오기
+		model.addAttribute("sDTO",sDTO);
+		
+		//사용자 쿠폰 내용 가져오기
 		int couponCnt = myCouponMapper.myCouponCnt(mno);
-		model.addAttribute("couponCnt", couponCnt);
-
-		// 주문 내역 가져오기
+		model.addAttribute("couponCnt",couponCnt);
+		
+		//주문 내역 가져오기
 		ArrayList<OrdersPaymentDTO> ordersPaymentArr = ordersMapper.getSumm(mno);
-		model.addAttribute("ordersArr", ordersPaymentArr);
-
-		// 각각의 주문번호에 해당하는 주문목록의 갯수를 가져오기
+		model.addAttribute("ordersArr",ordersPaymentArr);
+		
+		//각각의 주문번호에 해당하는 주문목록의 갯수를 가져오기
 		List<Integer> orderListSizeList = new ArrayList<>();
-		// 해당 주문번호의 첫 번쨰 상품 이룸 가지고 오기
+		//해당 주문번호의 첫 번쨰 상품 이룸 가지고 오기
 		List<String> orderProductNamesList = new ArrayList<>();
-
-		// 중복 없이 해당 회원의 주문번호 모두 가져오기
-
-		for (int i = 0; i < ordersPaymentArr.size(); i++) {
+		//해당 주문번호의 상품 이미지 이룸 & 경로 가지고 오기
+		List<String> orderProductSrcNameList = new ArrayList<>();
+		List<String> orderProductSrcLocList = new ArrayList<>();
+		
+		
+		//중복 없이 해당 회원의 주문번호 모두 가져오기
+		
+		
+		for(int i =0;i<ordersPaymentArr.size();i++) 
+		{
 			int ono = ordersPaymentArr.get(i).getOno();
-			// 첫 추문 내용 가지고 오기
+			//첫 추문 내용 가지고 오기
 			ArrayList<OrderListProductProductOptionDTO> olpoArr = orderListMapper.getSumm(mno, ono);
 			orderListSizeList.add(olpoArr.size());
-			if (olpoArr.get(0).getPono() != 0) {
+			if(olpoArr.get(0).getPono() != 0) 
+			{
 				orderProductNamesList.add(olpoArr.get(0).getPoname());
-			} else {
+				orderProductSrcNameList.add(olpoArr.get(0).getFname().toString());
+				orderProductSrcLocList.add(olpoArr.get(0).getFloc().toString());
+			}
+			else 
+			{
 				orderProductNamesList.add(olpoArr.get(0).getPname());
+				orderProductSrcNameList.add(olpoArr.get(0).getFname().toString());
+				orderProductSrcLocList.add(olpoArr.get(0).getFloc().toString());
 			}
 			olpoArr.clear();
 		}
-		model.addAttribute("ordersSize", orderListSizeList);
-		model.addAttribute("firstName", orderProductNamesList);
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
+		model.addAttribute("ordersSize",orderListSizeList);
+		model.addAttribute("firstName",orderProductNamesList);
+		model.addAttribute("fname",orderProductSrcNameList);
+		model.addAttribute("floc",orderProductSrcLocList);
 
+		
 		return "/front/shop/mypage/orderSumm";
 	}
-
+	
+	
 	@RequestMapping("/shop/mypage/orderSumm2021")
-	public String orderSumm2021(Model model, HttpSession session) {
-		if (!member.isLogin(session))
+	public String orderSumm2021(Model model, HttpSession session) 
+	{
+		if (member.isLogin(session) == false)
 			return "redirect:/login";
-
-		String id = "henry";
-		String mno = "1";
-		model.addAttribute("url", "/mypage/orderSumm");
-
-		// 사용자 정보 가져오기
+		String id = session.getAttribute("id").toString();
+		String mno = session.getAttribute("mno").toString();
+		model.addAttribute("url","/mypage/orderSumm");
+		
+		//사용자 정보 가져오기
 		MemberDTO mdto = memberMapper.getOne(id);
-		model.addAttribute("mdto", mdto);
-
-		// 사용자 적립율 가져오기
+		model.addAttribute("mdto",mdto);
+		
+		//사용자 적립율 가져오기
 		GradeMemberDTO gmDTO = gradeMapper.getEarn(id);
-		model.addAttribute("gmDTO", gmDTO);
-
-		// 사용자 적립금 내용 가져오기
+		model.addAttribute("gmDTO",gmDTO);
+		
+		//사용자 적립금 내용 가져오기
 		SavingDTO sDTO = savingMapper.getOne(Integer.parseInt(mno));
-		model.addAttribute("sDTO", sDTO);
-
-		// 사용자 쿠폰 내용 가져오기
+		model.addAttribute("sDTO",sDTO);
+		
+		//사용자 쿠폰 내용 가져오기
 		int couponCnt = myCouponMapper.myCouponCnt(mno);
-		model.addAttribute("couponCnt", couponCnt);
-
-		// 주문 내역 가져오기
+		model.addAttribute("couponCnt",couponCnt);
+		
+		//주문 내역 가져오기
 		ArrayList<OrdersPaymentDTO> ordersPaymentArr = ordersMapper.getSumm2021(mno);
-		model.addAttribute("ordersArr", ordersPaymentArr);
-
-		// 각각의 주문번호에 해당하는 주문목록의 갯수를 가져오기
+		model.addAttribute("ordersArr",ordersPaymentArr);
+		
+		//각각의 주문번호에 해당하는 주문목록의 갯수를 가져오기
 		List<Integer> orderListSizeList = new ArrayList<>();
-		// 해당 주문번호의 첫 번쨰 상품 이룸 가지고 오기
+		//해당 주문번호의 첫 번쨰 상품 이룸 가지고 오기
 		List<String> orderProductNamesList = new ArrayList<>();
 
-		// 중복 없이 해당 회원의 주문번호 모두 가져오기
-
-		for (int i = 0; i < ordersPaymentArr.size(); i++) {
+		//해당 주문번호의 상품 이미지 이룸 & 경로 가지고 오기
+		List<String> orderProductSrcNameList = new ArrayList<>();
+		List<String> orderProductSrcLocList = new ArrayList<>();
+		
+		
+		//중복 없이 해당 회원의 주문번호 모두 가져오기
+		
+		
+		for(int i =0;i<ordersPaymentArr.size();i++) 
+		{
 			int ono = ordersPaymentArr.get(i).getOno();
-			// 첫 추문 내용 가지고 오기
+			//첫 추문 내용 가지고 오기
 			ArrayList<OrderListProductProductOptionDTO> olpoArr = orderListMapper.getSumm2021(mno, ono);
 			orderListSizeList.add(olpoArr.size());
-			if (olpoArr.get(0).getPono() != 0) {
+			if(olpoArr.get(0).getPono() != 0) 
+			{
 				orderProductNamesList.add(olpoArr.get(0).getPoname());
-			} else {
+				orderProductSrcNameList.add(olpoArr.get(0).getFname().toString());
+				orderProductSrcLocList.add(olpoArr.get(0).getFloc().toString());
+			}
+			else 
+			{
 				orderProductNamesList.add(olpoArr.get(0).getPname());
+				orderProductSrcNameList.add(olpoArr.get(0).getFname().toString());
+				orderProductSrcLocList.add(olpoArr.get(0).getFloc().toString());
 			}
 			olpoArr.clear();
 		}
-		model.addAttribute("ordersSize", orderListSizeList);
-		model.addAttribute("firstName", orderProductNamesList);
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
-
+		model.addAttribute("ordersSize",orderListSizeList);
+		model.addAttribute("firstName",orderProductNamesList);
+		model.addAttribute("fname",orderProductSrcNameList);
+		model.addAttribute("floc",orderProductSrcLocList);
+		
 		return "/front/shop/mypage/orderSumm2021";
 	}
-
+	
 	@RequestMapping("/shop/mypage/orderSumm2020")
-	public String orderSumm2020(Model model, HttpSession session) {
-		if (!member.isLogin(session))
+	public String orderSumm2020(Model model, HttpSession session) 
+	{
+		if (member.isLogin(session) == false)
 			return "redirect:/login";
-
-		String id = "henry";
-		String mno = "1";
-		model.addAttribute("url", "/mypage/orderSumm");
-
-		// 사용자 정보 가져오기
+		String id = session.getAttribute("id").toString();
+		String mno = session.getAttribute("mno").toString();
+		model.addAttribute("url","/mypage/orderSumm");
+		
+		//사용자 정보 가져오기
 		MemberDTO mdto = memberMapper.getOne(id);
-		model.addAttribute("mdto", mdto);
-
-		// 사용자 적립율 가져오기
+		model.addAttribute("mdto",mdto);
+		
+		//사용자 적립율 가져오기
 		GradeMemberDTO gmDTO = gradeMapper.getEarn(id);
-		model.addAttribute("gmDTO", gmDTO);
-
-		// 사용자 적립금 내용 가져오기
+		model.addAttribute("gmDTO",gmDTO);
+		
+		//사용자 적립금 내용 가져오기
 		SavingDTO sDTO = savingMapper.getOne(Integer.parseInt(mno));
-		model.addAttribute("sDTO", sDTO);
-
-		// 사용자 쿠폰 내용 가져오기
+		model.addAttribute("sDTO",sDTO);
+		
+		//사용자 쿠폰 내용 가져오기
 		int couponCnt = myCouponMapper.myCouponCnt(mno);
-		model.addAttribute("couponCnt", couponCnt);
-
-		// 주문 내역 가져오기
+		model.addAttribute("couponCnt",couponCnt);
+		
+		//주문 내역 가져오기
 		ArrayList<OrdersPaymentDTO> ordersPaymentArr = ordersMapper.getSumm2020(mno);
-		model.addAttribute("ordersArr", ordersPaymentArr);
-
-		// 각각의 주문번호에 해당하는 주문목록의 갯수를 가져오기
+		model.addAttribute("ordersArr",ordersPaymentArr);
+		
+		//각각의 주문번호에 해당하는 주문목록의 갯수를 가져오기
 		List<Integer> orderListSizeList = new ArrayList<>();
-		// 해당 주문번호의 첫 번쨰 상품 이룸 가지고 오기
+		//해당 주문번호의 첫 번쨰 상품 이룸 가지고 오기
 		List<String> orderProductNamesList = new ArrayList<>();
-
-		// 중복 없이 해당 회원의 주문번호 모두 가져오기
-
-		for (int i = 0; i < ordersPaymentArr.size(); i++) {
+		
+		
+		//해당 주문번호의 상품 이미지 이룸 & 경로 가지고 오기
+		List<String> orderProductSrcNameList = new ArrayList<>();
+		List<String> orderProductSrcLocList = new ArrayList<>();
+		
+		
+		//중복 없이 해당 회원의 주문번호 모두 가져오기
+		
+		
+		for(int i =0;i<ordersPaymentArr.size();i++) 
+		{
 			int ono = ordersPaymentArr.get(i).getOno();
-			// 첫 추문 내용 가지고 오기
+			//첫 추문 내용 가지고 오기
 			ArrayList<OrderListProductProductOptionDTO> olpoArr = orderListMapper.getSumm2020(mno, ono);
 			orderListSizeList.add(olpoArr.size());
-			if (olpoArr.get(0).getPono() != 0) {
+			if(olpoArr.get(0).getPono() != 0) 
+			{
 				orderProductNamesList.add(olpoArr.get(0).getPoname());
-			} else {
+				orderProductSrcNameList.add(olpoArr.get(0).getFname().toString());
+				orderProductSrcLocList.add(olpoArr.get(0).getFloc().toString());
+			}
+			else 
+			{
 				orderProductNamesList.add(olpoArr.get(0).getPname());
+				orderProductSrcNameList.add(olpoArr.get(0).getFname().toString());
+				orderProductSrcLocList.add(olpoArr.get(0).getFloc().toString());
 			}
 			olpoArr.clear();
 		}
-		model.addAttribute("ordersSize", orderListSizeList);
-		model.addAttribute("firstName", orderProductNamesList);
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
+		model.addAttribute("ordersSize",orderListSizeList);
+		model.addAttribute("firstName",orderProductNamesList);
+		model.addAttribute("fname",orderProductSrcNameList);
+		model.addAttribute("floc",orderProductSrcLocList);
 
+		
 		return "/front/shop/mypage/orderSumm2020";
 	}
-
+	
 	@RequestMapping("/shop/mypage/orderSumm2019")
-	public String orderSumm2019(Model model, HttpSession session) {
-		if (!member.isLogin(session))
+	public String orderSumm2019(Model model, HttpSession session) 
+	{
+		if (member.isLogin(session) == false)
 			return "redirect:/login";
-
-		String id = "henry";
-		String mno = "1";
-		model.addAttribute("url", "/mypage/orderSumm");
-
-		// 사용자 정보 가져오기
+		String id = session.getAttribute("id").toString();
+		String mno = session.getAttribute("mno").toString();
+		model.addAttribute("url","/mypage/orderSumm");
+		
+		//사용자 정보 가져오기
 		MemberDTO mdto = memberMapper.getOne(id);
-		model.addAttribute("mdto", mdto);
-
-		// 사용자 적립율 가져오기
+		model.addAttribute("mdto",mdto);
+		
+		//사용자 적립율 가져오기
 		GradeMemberDTO gmDTO = gradeMapper.getEarn(id);
-		model.addAttribute("gmDTO", gmDTO);
-
-		// 사용자 적립금 내용 가져오기
+		model.addAttribute("gmDTO",gmDTO);
+		
+		//사용자 적립금 내용 가져오기
 		SavingDTO sDTO = savingMapper.getOne(Integer.parseInt(mno));
-		model.addAttribute("sDTO", sDTO);
-
-		// 사용자 쿠폰 내용 가져오기
+		model.addAttribute("sDTO",sDTO);
+		
+		//사용자 쿠폰 내용 가져오기
 		int couponCnt = myCouponMapper.myCouponCnt(mno);
-		model.addAttribute("couponCnt", couponCnt);
-
-		// 주문 내역 가져오기
+		model.addAttribute("couponCnt",couponCnt);
+		
+		//주문 내역 가져오기
 		ArrayList<OrdersPaymentDTO> ordersPaymentArr = ordersMapper.getSumm2019(mno);
-		model.addAttribute("ordersArr", ordersPaymentArr);
-
-		// 각각의 주문번호에 해당하는 주문목록의 갯수를 가져오기
+		model.addAttribute("ordersArr",ordersPaymentArr);
+		
+		//각각의 주문번호에 해당하는 주문목록의 갯수를 가져오기
 		List<Integer> orderListSizeList = new ArrayList<>();
-		// 해당 주문번호의 첫 번쨰 상품 이룸 가지고 오기
+		//해당 주문번호의 첫 번쨰 상품 이룸 가지고 오기
 		List<String> orderProductNamesList = new ArrayList<>();
-
-		// 중복 없이 해당 회원의 주문번호 모두 가져오기
-
-		for (int i = 0; i < ordersPaymentArr.size(); i++) {
+		
+		
+		//중복 없이 해당 회원의 주문번호 모두 가져오기
+		
+		
+		List<String> orderProductSrcNameList = new ArrayList<>();
+		List<String> orderProductSrcLocList = new ArrayList<>();
+		
+		
+		//중복 없이 해당 회원의 주문번호 모두 가져오기
+		
+		
+		for(int i =0;i<ordersPaymentArr.size();i++) 
+		{
 			int ono = ordersPaymentArr.get(i).getOno();
-			// 첫 추문 내용 가지고 오기
+			//첫 추문 내용 가지고 오기
 			ArrayList<OrderListProductProductOptionDTO> olpoArr = orderListMapper.getSumm2019(mno, ono);
 			orderListSizeList.add(olpoArr.size());
-			if (olpoArr.get(0).getPono() != 0) {
+			if(olpoArr.get(0).getPono() != 0) 
+			{
 				orderProductNamesList.add(olpoArr.get(0).getPoname());
-			} else {
+				orderProductSrcNameList.add(olpoArr.get(0).getFname().toString());
+				orderProductSrcLocList.add(olpoArr.get(0).getFloc().toString());
+			}
+			else 
+			{
 				orderProductNamesList.add(olpoArr.get(0).getPname());
+				orderProductSrcNameList.add(olpoArr.get(0).getFname().toString());
+				orderProductSrcLocList.add(olpoArr.get(0).getFloc().toString());
 			}
 			olpoArr.clear();
 		}
-		model.addAttribute("ordersSize", orderListSizeList);
-		model.addAttribute("firstName", orderProductNamesList);
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
+		model.addAttribute("ordersSize",orderListSizeList);
+		model.addAttribute("firstName",orderProductNamesList);
+		model.addAttribute("fname",orderProductSrcNameList);
+		model.addAttribute("floc",orderProductSrcLocList);
 
+		
 		return "/front/shop/mypage/orderSumm2019";
 	}
-
+	
 	@RequestMapping("/shop/mypage/orderSumm_detail")
-	public String orderSumm_detail(Model model, HttpServletRequest request, HttpSession session) {
-		if (!member.isLogin(session))
+	public String orderSumm_detail(Model model, HttpServletRequest request, HttpSession session) 
+	{
+		if (member.isLogin(session) == false)
 			return "redirect:/login";
-
-		String id = "henry";
-		String mno = "1";
+		String id = session.getAttribute("id").toString();
+		String mno = session.getAttribute("mno").toString();
 		String ono = request.getParameter("ono");
-
-		model.addAttribute("url", "/mypage/orderSumm_detail");
-
-		// 사용자 정보 가져오기
+		
+		model.addAttribute("url","/mypage/orderSumm_detail");
+		
+		//사용자 정보 가져오기
 		MemberDTO mdto = memberMapper.getOne(id);
-		model.addAttribute("mdto", mdto);
-
-		// 사용자 적립율 가져오기
+		model.addAttribute("mdto",mdto);
+		
+		//사용자 적립율 가져오기
 		GradeMemberDTO gmDTO = gradeMapper.getEarn(id);
-		model.addAttribute("gmDTO", gmDTO);
-
-		// 사용자 적립금 내용 가져오기
+		model.addAttribute("gmDTO",gmDTO);
+		
+		//사용자 적립금 내용 가져오기
 		SavingDTO sDTO = savingMapper.getOne(Integer.parseInt(mno));
-		model.addAttribute("sDTO", sDTO);
-
-		// 사용자 쿠폰 내용 가져오기
+		model.addAttribute("sDTO",sDTO);
+		
+		//사용자 쿠폰 내용 가져오기
 		int couponCnt = myCouponMapper.myCouponCnt(mno);
-		model.addAttribute("couponCnt", couponCnt);
-
-		// 배송 메세지 가져오기
-		OrdersDTO oDTO = ordersMapper.getOne(mno, ono);
-		model.addAttribute("oDTO", oDTO);
-
-		// 각 상품의 가격과 이름 가져오기
+		model.addAttribute("couponCnt",couponCnt);
+		
+		//배송 메세지 가져오기
+		OrdersDTO oDTO = ordersMapper.getOne(mno,ono);
+		model.addAttribute("oDTO",oDTO);
+		
+		//각 상품의 가격과 이름 가져오기
 		ArrayList<OrderListProductProductOptionDTO> summDetailArr = orderListMapper.getSummDetail(mno, ono);
-		model.addAttribute("summDetailArr", summDetailArr);
-
-		// 상세내역 가져오기
+		model.addAttribute("summDetailArr",summDetailArr);
+		
+		//상세내역 가져오기
 		PaymentDTO pDTO = paymentMapper.getOne(mno, ono);
-		model.addAttribute("pDTO", pDTO);
-
-		// 보내는분 내용 가져오기
+		model.addAttribute("pDTO",pDTO);
+		
+		//보내는분 내용 가져오기
 		DeliveryDTO dvDTO = deliveryMapper.getDefault(mno);
-		model.addAttribute("dvDTO", dvDTO);
-
-		model.addAttribute("ono", ono);
-		model.addAttribute("mno", mno);
-		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
-
-		return "/front/shop/mypage/orderSumm_detail";
+		model.addAttribute("dvDTO",dvDTO);
+		
+		model.addAttribute("ono",ono);
+		model.addAttribute("mno",mno);
+		
+		return"/front/shop/mypage/orderSumm_detail";
 	}
-
+	
 	@RequestMapping("/shop/mypage/orderSummDetails/cancel")
-	public void orderCancel(HttpServletRequest request, PrintWriter out) {
+	public void orderCancel(HttpServletRequest request, PrintWriter out) 
+	{
 		String ono = request.getParameter("ono");
 		String mno = request.getParameter("mno");
-		ordersMapper.cancelOrder(ono, mno);
+		ordersMapper.cancelOrder(ono,mno);
 		out.print("1");
 	}
-
-	@RequestMapping("/shop/order/test")
-	public void test(HttpServletRequest request, PrintWriter out) {
-		String ono = request.getParameter("ono");
-		out.print(ono);
-		out.print("\n");
-		ono = "8";
-		String mno = "1";
-		ArrayList<OrderListProductProductOptionDTO> summDetailArr = orderListMapper.getSummDetail(mno, ono);
-		for (int i = 0; i < summDetailArr.size(); i++) {
-			out.print(summDetailArr.get(i).toString());
-			out.print("\n");
-		}
-	}
-
 }

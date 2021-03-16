@@ -11,6 +11,6 @@ public class OrderListProductProductOptionDTO {
 	
 	private int pno, pono, pprice, poprice, quantity;
 	private double discount;
-	private String pname, poname;
+	private String pname, poname, fname, floc;
 
 }

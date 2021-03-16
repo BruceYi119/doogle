@@ -16,15 +16,21 @@ import kr.co.doogle.dto.BasketDTO;
 import kr.co.doogle.dto.BasketDeliveryDTO;
 import kr.co.doogle.dto.BasketProductProdctOptionFileDTO;
 import kr.co.doogle.mapper.BasketMapper;
+import kr.co.doogle.member.Member;
 
 @Controller
 public class BasketController {
 
 	@Autowired
 	private BasketMapper basketMapper;
+	@Autowired
+	private Member member;
 
 	@RequestMapping("/shop/basket")
 	public String basket(Model model,HttpSession session) {
+		if (!member.isLogin(session))
+			return "redirect:/login";
+		
 		//int mno = 1;
 		int mno = Integer.parseInt(session.getAttribute("mno").toString());
 		ArrayList<BasketProductProdctOptionFileDTO> list = basketMapper.getAllSellProduct(mno);

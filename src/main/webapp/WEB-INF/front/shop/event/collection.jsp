@@ -29,14 +29,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="wellcome_goods" id="w_goods2" onclick="location.href='/shop/event/product?eno=1'">
+			<div class="wellcome_goods" id="w_goods2" onclick="location.href='/shop/product/detail/1052'">
 				<div data-aos="fade-right" data-aos-duration="1500">
 					<div class="example">
 						<span>→</span><strong>1000원</strong>
 					</div>
 				</div>
 			</div>
-			<div class="wellcome_goods" id="w_goods3" onclick="location.href='/shop/event/product?eno=1'">
+			<div class="wellcome_goods" id="w_goods3" onclick="location.href='/shop/product/detail/3968'">
 				<div data-aos="fade-right" data-aos-duration="1500">
 					<div class="example">
 						<span>→</span><strong>100원</strong>
@@ -46,21 +46,21 @@
 		</div>
 		<div class="clear_div"></div>
 		<div class="wellcome">
-			<div class="wellcome_goods" id="w_goods4" onclick="location.href='/shop/event/product?eno=1'">
+			<div class="wellcome_goods" id="w_goods4" onclick="location.href='/shop/product/detail/3517'">
 				<div data-aos="fade-right" data-aos-duration="1500">
 					<div class="example">
 						<span>→</span><strong>100원</strong>
 					</div>
 				</div>
 			</div>
-			<div class="wellcome_goods" id="w_goods5" onclick="location.href='/shop/event/product?eno=1'">
+			<div class="wellcome_goods" id="w_goods5" onclick="location.href='/shop/product/detail/390'">
 				<div data-aos="fade-right" data-aos-duration="1500">
 					<div class="example">
 						<span>→</span><strong>100원</strong>
 					</div>
 				</div>
 			</div>
-			<div class="wellcome_goods" id="w_goods6" onclick="location.href='/shop/event/product?eno=1'">
+			<div class="wellcome_goods" id="w_goods6" onclick="location.href='/shop/product/detail/6364'">
 				<div data-aos="fade-right" data-aos-duration="1500">
 					<div class="example">
 						<span>→</span><strong>100원</strong>
@@ -82,24 +82,24 @@
 			두글쇼핑이 처음인 당신을 위한 <strong>BEST 추천상품</strong>
 		</h1>
 		<div class="best_div">
-			<div class="best_goods" id="b_goods1" onclick="location.href='/shop/product/detail/5732'"></div>
-			<div class="best_goods" id="b_goods2" onclick="location.href='/shop/product/detail/3278'"></div>
-			<div class="best_goods" id="b_goods3" onclick="location.href='/shop/product/detail/5862'"></div>
-			<div class="best_goods" id="b_goods4" onclick="location.href='/shop/product/detail/3300'"></div>
-			<div class="best_goods" id="b_goods5" onclick="location.href='/shop/event/product?eno=1'"></div>
+			<div class="best_goods" id="b_goods1" onclick="location.href='/shop/event/product?eno=1'"></div>
+			<div class="best_goods" id="b_goods2" onclick="location.href='/shop/product/detail/3276'"></div>
+			<div class="best_goods" id="b_goods3" onclick="location.href='/shop/product/detail/5854'"></div>
+			<div class="best_goods" id="b_goods4" onclick="location.href='/shop/product/detail/3281'"></div>
+			<div class="best_goods" id="b_goods5" onclick="location.href='/shop/product/detail/3963'"></div>
 		</div>
 		<div class="clear_div"></div>
 		<div class="best_div">
 			<div class="best_goods" id="b_goods6" onclick="location.href='/shop/event/product?eno=1'"></div>
 			<div class="best_goods" id="b_goods7" onclick="location.href='/shop/event/product?eno=1'"></div>
-			<div class="best_goods" id="b_goods8" onclick="location.href='/shop/product/detail/1810'"></div>
-			<div class="best_goods" id="b_goods9" onclick="location.href='/shop/event/product?eno=1'"></div>
-			<div class="best_goods" id="b_goods10" onclick="location.href='/shop/event/product?eno=1'"></div>
+			<div class="best_goods" id="b_goods8" onclick="location.href='/shop/event/product?eno=1'"></div>
+			<div class="best_goods" id="b_goods9" onclick="location.href='/shop/product/detail/390'"></div>
+			<div class="best_goods" id="b_goods10" onclick="location.href='/shop/product/detail/6364'"></div>
 		</div>
 		<div class="clear_div"></div>
 		<div class="select_div" align="center">
 			<div class="select_div2">
-				<a href=# class="btn_link">
+				<a href="/shop/event/product?eno=2&brand=rrrrr" class="btn_link">
 					<div class="box_btn" id="white_btn">
 						<strong>추천상품</strong> 더 보러가기 >
 					</div>

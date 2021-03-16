@@ -15,32 +15,7 @@
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
   crossorigin="anonymous"></script>
 <script defer type="text/javascript" src="/static/front/js/addrUpdate.js"></script>
-<script>
-$(function(){
-    var name='${ddto.receive_name}';
-    var phone = '${ddto.phone}';
-    //받으실 분 | 휴대폰 번호가 변경되었을때 checked = false
-    $('#receiverName').keydown(function() {
-        document.getElementById("putUserInfo").checked=false;
-    });
-    $('input[name=receiverPhoneNumber]').keydown(function() {
-        document.getElementById("putUserInfo").checked=false;
-    });
 
-    //
-    $("input:checkbox[name='putUserInfo']").change(function () {
-        if ($(this).prop("checked")) {
-            document.getElementById("receiverName").value=name;
-            document.getElementById("receiverPhoneNumber").value=phone;
-        } else {
-            $('input[name=receiverName]').attr('value','');
-            $('input[name=receiverPhoneNumber]').attr('value','');
-            $('input[name=receiverName]').attr('placeholder', '이름을 입력해 주세요');
-            $('input[name=receiverPhoneNumber]').attr('placeholder', '숫자만 입력해주세요');
-        }
-    }); 
-});
-</script>
 </head>
 <body>
 	<section id="kAticle">
@@ -71,7 +46,7 @@ $(function(){
 								</label>
 							</h3>
 							<div class="field">
-								<input type="text" name="phone" id="receiverPhoneNumber" class="inp" maxlength="11" placeholder="숫자만 입력해주세요" value="${ddto.phone}">
+								<input type="text" name="phone" id="receiverPhoneNumber" class="inp" maxlength="13" placeholder="숫자만 입력해주세요" value="${ddto.phone}">
 							</div>
 						</div>
 						<div class="info info_place">
@@ -320,5 +295,40 @@ $(function(){
 			</div>
 		</div>
 	</section>
+<script>
+$(function(){
+    var name='${ddto.receive_name}';
+    var phone = '${ddto.phone}';
+    //받으실 분 | 휴대폰 번호가 변경되었을때 checked = false
+    $('#receiverName').keydown(function() {
+        document.getElementById("putUserInfo").checked=false;
+    });
+    $('#receiverPhoneNumber').keydown(function() {
+        document.getElementById("putUserInfo").checked=false;
+    });
+
+    //
+    $("input:checkbox[name='putUserInfo']").change(function () {
+        if ($(this).prop("checked")) {
+            document.getElementById("receiverName").value=name;
+            document.getElementById("receiverPhoneNumber").value=phone;
+        } else {
+            $('input[name=receiverName]').attr('value','');
+            $('input[name=receiverPhoneNumber]').attr('value','');
+            $('input[name=receiverName]').attr('placeholder', '이름을 입력해 주세요');
+            $('input[name=receiverPhoneNumber]').attr('placeholder', '숫자만 입력해주세요');
+        }
+    }); 
+});
+
+$(function(){
+	$("#receiverPhoneNumber").on({
+		keyup: function(){
+			this.value=this.value.replace(/[^0-9]/g,""); //숫자만 입력할 수 있게 설정
+		}
+	});
+});
+</script>
 </body>
+
 </html>

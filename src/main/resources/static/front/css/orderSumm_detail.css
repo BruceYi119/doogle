@@ -390,6 +390,11 @@ img, video, canvas {
     line-height: 22px;
 }
 
+.tbl .thumb img{
+	width: 60px;
+    height: auto;
+}
+
 .section_orderview .tbl_type1 {
     border-top: 2px solid #333;
 }

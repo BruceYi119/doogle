@@ -18,7 +18,7 @@
                         <strong class="tit">결제금액</strong>
                         <div class="money_point">
                             <strong class="money"><fmt:formatNumber value="${payment}" pattern="#,###"/> <span class="won">원</span></strong>
-                            <a class="point" href="https://www.kurly.com/shop/main/html.php?htmid=event/kurly.htm&name=lovers">
+                            <a class="point" href="/shop/mypage/mysaving">
                                 <strong class="amount"><fmt:formatNumber value="${creditEarned}" pattern="#,###"/> 원 적립*</strong>
                                 <span class="grade">(${gDTO.name } ${gDTO.earn }%)</span>
                             </a>
@@ -27,7 +27,7 @@
                             * 적립금은 배송당일에 적립됩니다.
                         </p>
                         <a class="btn btn_positive" href="/shop">홈으로 이동</a>
-                        <a href=""
+                        <a href="/shop/mypage/orderSumm"
                             class="btn btn_orderlist">주문내역 상세보기</a>
                         <p class="txt_cancel">
                             <strong class="emph">‘입금확인’</strong> 상태일 때는 주문내역 상세 페이지에서 직접 주문 취소가 가능합니다.

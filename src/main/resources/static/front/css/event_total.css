@@ -19,6 +19,7 @@
 #container #incon .item a p{letter-spacing: -.05em;font-family: Noto Sans;line-height: 1.5;box-sizing: border-box;padding: 0;word-break: break-all;margin: 1px 0 0 3px;font-size: 14px;color: #875eb3;}
 #container #incon .item .tit_total{font-family: Noto Sans;word-break: break-all;line-height: 1.5;box-sizing: border-box;margin: 0;padding: 0;display: block;font-weight: 600;font-size: 27px;letter-spacing: -1px;color: #282828;}
 #container #incon .item .tit_benefit{line-height: 1;font-family: Noto Sans;word-break: break-all;box-sizing: border-box;margin: 0;padding: 0;float: left;width: 260px;font-weight: 600;font-size: 28px;letter-spacing: -1px;color: #282828;}
+#container #incon .item .txt_info img{width:550px;}
 
 #container #incon .item .img_con{ margin-bottom:12px;width:600px;margin-left:0;}
 #container #incon .img_con img{	width:850px;height:90px;}

@@ -55,8 +55,8 @@ function cancelAll()
                                 </div>
                             </div>
                             <div class="next">
-                                <a href="#" class="total_grade">전체등급 보기</a>
-                                <a href="#" class="next_month">다음 달 예상등급 보기</a>
+                                <a href="/shop/event/lover" class="total_grade">전체등급 보기</a>
+                                <a href="/shop/event/my_benefit" class="next_month">다음 달 예상등급 보기</a>
                             </div>
                             
                         </div>
@@ -66,7 +66,7 @@ function cancelAll()
                                     <div class="tit">적립금
                                         <!---->
                                     </div>
-                                    <a href="#" class="info"><fmt:formatNumber value="${sDTO.credit }" pattern="#,###"/> 원
+                                    <a href="/shop/mypage/mysaving" class="info"><fmt:formatNumber value="${sDTO.credit }" pattern="#,###"/> 원
                                         <img src="https://res.kurly.com/pc/service/common/1905/ico_arrow_56x56.png" alt="자세히 보기">
                                         <span class="date">소멸 예정<fmt:formatNumber value="${sDTO.exp_credit }" pattern="#,###"/> 원</span>
                                     </a>
@@ -76,7 +76,7 @@ function cancelAll()
                                 <div class="link">
                                     <div class="tit">쿠폰
                                         <!---->
-                                    </div> <a href="#" class="info">${couponCnt } 개 <img
+                                    </div> <a href="/shop/mypage/mycoupon" class="info">${couponCnt } 개 <img
                                             src="https://res.kurly.com/pc/service/common/1905/ico_arrow_56x56.png" alt="자세히 보기"></a>
                                 </div>
                             </li>
@@ -103,26 +103,26 @@ function cancelAll()
                                 <a href="/shop/mypage/orderSumm">주문 내역</a>
                             </li>
                             <li>
-                                <a href="#">배송지 관리</a>
+                                <a href="/shop/deliveryList">배송지 관리</a>
                             </li>
                             <li>
-                                <a href="#">늘 사는 것</a>
+                                <a href="/shop/living">늘 사는 것</a>
                             </li>
                             <li>
-                                <a href="#">상품 후기</a>
+                                <a >상품 후기</a>
                             </li>
                             <li>
-                                <a href="#">적립금</a>
+                                <a href="/shop/mypage/mysaving">적립금</a>
                             </li>
                             <li>
-                                <a href="#">쿠폰</a>
+                                <a href="/shop/mypage/mycoupon">쿠폰</a>
                             </li>
                             <li>
-                                <a href="#">개인 정보 수정</a>
+                                <a href="/member/info">개인 정보 수정</a>
                             </li>
                         </ul>
                     </div>
-                    <a href="/shop/mypage/mypage_qna_register.php?mode=add_qna" class="link_inquire">
+                    <a href="/shop/qna_register" class="link_inquire">
                         <span class="emph">도움이 필요하신가요 ?</span>
                         1:1 문의하기
                     </a>
@@ -153,8 +153,7 @@ function cancelAll()
                             <c:forEach items="${summDetailArr }" var="olDTO">
                             <tr>
                                 <td class="thumb">
-                                    <a href="/shop/goods/goods_view.php?&amp;goodsno=58732"
-                                        style="background-image:url()"></a>
+                                    <img src="${olDTO.floc }${olDTO.fname }" alt="해당 주문 대표 상품 이미지">
                                 </td>
                                 <td class="info">
                                 	<c:if test="${olDTO.pono lt 1}">

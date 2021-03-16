@@ -1,14 +1,3 @@
-//$(function(){
-//	var value = $('input:radio[name="pickUpType"]:checked').val();
-////	alert(value);
-//	if(value == 1) 
-//	{
-////		alert("Hello");
-//	}
-	
-	
-//});
-
 
 //화면이 load되었을때 숨겨질 내용과 보여질 내용 
 $(document).ready(function () {
@@ -262,13 +251,7 @@ function validate()
     }
 }
 
-$(function(){
-	$("#receiverPhoneNumber").on({
-		keyup: function(){
-			this.value=this.value.replace(/[^0-9]/g,""); //숫자만 입력할 수 있게 설정
-		}
-	});
-});
+
 
 
 

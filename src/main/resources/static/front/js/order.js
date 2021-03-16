@@ -1,6 +1,7 @@
 $(function()
 {
 	
+	
     //주문상품 자세히 보기 & 간략하게 보기
     $("#upDown").click(function()
     {
@@ -43,77 +44,80 @@ $(function()
 		})
 	}
 	
+	var view_popselbox = document.getElementById("view_popselbox");
+	var nodelist = view_popselbox.getElementsByTagName("div");
 	//쿠폰적용안함 부분
-	var addpopSelListFst = document.getElementById("addpopSelList").getElementsByClassName("fst");
-	$(addpopSelListFst).on({
-		//마우스 올라가면 배경색 변경
-		mouseenter: function()
-		{
-			$(this).css("background-color","#FAFAFA");
-		},
-		mouseleave: function()
-		{
-			$(this).css("background-color","#fff");
-		},
-		
-		//쿠폰 또는 선택안함을 선택하면 쿠폰창 숨김
-		click: function()
-		{
-			var indexNum = $(this).index(); //인덱스 번호 가져오기
-						
-			$("#popSelbox").css("display","none"); //클릭하면 쿠폰 창 닫기
-			//클릭을 하면 체크 사진이 왼쪽에 생기게 하는 스크립트
-			for(i=0;i<addpopSelListFst.length;i++)
+	if(nodelist.length > 1)
+	{
+		var addpopSelListFst = document.getElementById("addpopSelList").getElementsByClassName("fst");
+		$(addpopSelListFst).on({
+			//마우스 올라가면 배경색 변경
+			mouseenter: function()
 			{
-				$(addpopSelListFst).removeClass("checked");
-			}			
-			$(this).addClass("checked");
-			
-			var discountPrice = document.getElementsByClassName("discountPrice"); //쿠폰 할인 값이 저장되어 있는 class 배열 가져오기
-			var valueofdiscountPrice = $(discountPrice).eq(indexNum).val(); //클릭하는 배열의 순서의 할인 값을 가져오기
-			var getMcnoArr = document.getElementsByClassName("getMcno"); //쿠폰 mcno 번호를 가져올 수 있는 배열 가져오기
-			var getMcno = $(getMcnoArr).eq(indexNum).val();
-			$("#mcnoHidden").val(getMcno); //mcno를 가져와서 hidden 값에 저장
-			$("#apr_coupon_data").text(valueofdiscountPrice); //쿠폰의 할인 값을 추가
-			$("#coupon_hidden").val(valueofdiscountPrice); //쿠폰 할인 값이 숨겨져 있는 곳에 추가
-			$("#apr_coupon_data").digits(); //쿠폰 할인의 값을 가져와 콤마 추가
-			
-			var paper_settlement_hidden = $("#paper_settlement_hidden").val(); //상품의 최종 계산된 가격 가져오기
-			var credit = $("#credit_hidden").val(); //적립금 할인이 적용된 값 가져오기
-			var couponDiscountPrice = $("#coupon_hidden").val(); //쿠폰이 적용된 할인의 값 가져오기
-			var paperSettlementNum = Number(paper_settlement_hidden); //숫자로 형변환
-			var creditNum = Number(credit); //숫자로 형변환
-			var couponDiscountPriceNum = Number(couponDiscountPrice); //숫자로 형변환
-			
-			//쿠폰이 선택되었을때 할인금액 & 적립금 금액 & 최종금액을 가져와서 계산
-			var totalFinal= paperSettlementNum - couponDiscountPriceNum - creditNum;
-			if(totalFinal < 0)
+				$(this).css("background-color","#FAFAFA");
+			},
+			mouseleave: function()
 			{
-				totalFinal=0
+				$(this).css("background-color","#fff");
+			},
+			
+			//쿠폰 또는 선택안함을 선택하면 쿠폰창 숨김
+			click: function()
+			{
+				var indexNum = $(this).index(); //인덱스 번호 가져오기
+							
+				$("#popSelbox").css("display","none"); //클릭하면 쿠폰 창 닫기
+				//클릭을 하면 체크 사진이 왼쪽에 생기게 하는 스크립트
+				for(i=0;i<addpopSelListFst.length;i++)
+				{
+					$(addpopSelListFst).removeClass("checked");
+				}			
+				$(this).addClass("checked");
+				
+				var discountPrice = document.getElementsByClassName("discountPrice"); //쿠폰 할인 값이 저장되어 있는 class 배열 가져오기
+				var valueofdiscountPrice = $(discountPrice).eq(indexNum).val(); //클릭하는 배열의 순서의 할인 값을 가져오기
+				var getMcnoArr = document.getElementsByClassName("getMcno"); //쿠폰 mcno 번호를 가져올 수 있는 배열 가져오기
+				var getMcno = $(getMcnoArr).eq(indexNum).val();
+				$("#mcnoHidden").val(getMcno); //mcno를 가져와서 hidden 값에 저장
+				$("#apr_coupon_data").text(valueofdiscountPrice); //쿠폰의 할인 값을 추가
+				$("#coupon_hidden").val(valueofdiscountPrice); //쿠폰 할인 값이 숨겨져 있는 곳에 추가
+				$("#apr_coupon_data").digits(); //쿠폰 할인의 값을 가져와 콤마 추가
+				
+				var paper_settlement_hidden = $("#paper_settlement_hidden").val(); //상품의 최종 계산된 가격 가져오기
+				var credit = $("#credit_hidden").val(); //적립금 할인이 적용된 값 가져오기
+				var couponDiscountPrice = $("#coupon_hidden").val(); //쿠폰이 적용된 할인의 값 가져오기
+				var paperSettlementNum = Number(paper_settlement_hidden); //숫자로 형변환
+				var creditNum = Number(credit); //숫자로 형변환
+				var couponDiscountPriceNum = Number(couponDiscountPrice); //숫자로 형변환
+				
+				//쿠폰이 선택되었을때 할인금액 & 적립금 금액 & 최종금액을 가져와서 계산
+				var totalFinal= paperSettlementNum - couponDiscountPriceNum - creditNum;
+				if(totalFinal < 0)
+				{
+					totalFinal=0
+				}
+				
+				$("#paper_settlement").text(totalFinal); //최종 결제금액 삽입
+				$("#paper_settlement").digits(); //콤마 삽입
+				$("#totalFinal").val(totalFinal); //최종 결제금액 hidden 값에 삽입
+				
+				//적립률 계산
+				var totalForGrade = $("#totalFinal").val();
+				var earn = $(".ratio").text();
+				var totalForGradeNum = Number(totalForGrade);
+				var earnNum = Number(earn);
+				var calcEarn = parseInt(totalForGradeNum*(earnNum/100));
+				$("#expectAmount").text(calcEarn);
+				$("#expectAmount").digits();
+				$("#calcEarn").val(calcEarn);
 			}
-//			alert(totalCouponSettlement);
-//			alert(typeof(totalCouponSettlement));
-			
-			$("#paper_settlement").text(totalFinal); //최종 결제금액 삽입
-			$("#paper_settlement").digits(); //콤마 삽입
-			$("#totalFinal").val(totalFinal); //최종 결제금액 hidden 값에 삽입
-			
-			//적립률 계산
-			var totalForGrade = $("#totalFinal").val();
-			var earn = $(".ratio").text();
-			var totalForGradeNum = Number(totalForGrade);
-			var earnNum = Number(earn);
-			var calcEarn = parseInt(totalForGradeNum*(earnNum/100));
-			$("#expectAmount").text(calcEarn);
-			$("#calcEarn").val(calcEarn);
-		}
-	});
+		});
+	}
 	
 	//적립금 가져오기
 	$("#emoney").on({
 		keyup: function(){
-          if(event.keyCode != 8)
-          { 
+          
 			this.value=this.value.replace(/[^0-9]/g,""); //숫자만 입력할 수 있게 설정
 			
 			//0.5초 이후 값이 입력되게 설정
@@ -157,11 +161,11 @@ $(function()
 					var earnNum = Number(earn);
 					var calcEarn = parseInt(totalForGradeNum*(earnNum/100));
 					$("#expectAmount").text(calcEarn);
+					$("#expectAmount").digits();
 					$("#calcEarn").val(calcEarn);
 					
 				}
 			},500);
-		  }
 		}
 	});
 	
@@ -215,12 +219,13 @@ $(function()
 
 //배송지 수정 부분 창 띄우기
 var popupWindow = null;
-function centeredPopup(url, winName, w, h, scroll) {
-    LeftPosition = (screen.width) ? (screen.width - w) / 2 : 0;
-    TopPosition = (screen.height) ? (screen.height - h) / 2 : 0;
+function centeredPopup() {
+	var winName = '배송정보 수정';
+    LeftPosition = (screen.width) ? (screen.width - 550) / 2 : 0;
+    TopPosition = (screen.height) ? (screen.height - 700) / 2 : 0;
     settings =
-        'height=' + h + ',width=' + w + ',top=' + TopPosition + ',left=' + LeftPosition + ',scrollbars=' + scroll + ',resizable'
-    popupWindow = window.open(url, winName, settings)
+        'height=700' + ',width=550' + ',top=' + TopPosition + ',left=' + LeftPosition + ',scrollbars=yes' + ',resizable'
+    popupWindow = window.open('/order/addrUpdate', winName, settings)
 }
 
 //카드사 & 할부 기간 선택 5만원 이하
@@ -540,20 +545,48 @@ window.onclick = function(event){
     }
 }
 
+
 function validate(){
-	var ordAgree = document.frmOrder.ordAgree;
+	
+	var areaInfo = document.getElementById("areaInfo").textContent;
+	if(areaInfo == '')
+	{
+		alert("배송 상세정보를 입력 바랍니다.")
+		return false;
+	}
+	
+	var ordAgree = document.frmOrder.ordAgree; 
+	var cardSelect = $('#cardsSelector').val(); 
+	var cardMonth = $('#months').val(); 
+	
+	
 	if(ordAgree.checked == false){
 		alert("결제 진행 필수 동의 내용에 동의하셔야 결제가 가능합니다.");
 		return false;
 	}
-	else{
-		return true;
+	
+	var settlekind = document.getElementsByName("settlekind");
+	if(settlekind[0].checked == true)
+	{
+		if(cardSelect === '미선택')
+		{
+			alert("카드를 선택해주세요.");
+			return false;
+		}
+		else if(cardMonth === '미선택')
+		{
+			alert("할부기간을 선택해주세요.");
+			
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 }
+	
+	
 
-
-
-    
 
 
 

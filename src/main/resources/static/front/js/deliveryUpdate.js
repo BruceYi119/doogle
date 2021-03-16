@@ -9,9 +9,8 @@ function update(){
 				receive_name:receive_name,
 				phone:phone,
 				dno:dno,
-				mno:mno,
 				};
-	$.get("deliveryUpdateOk?dno="+dno+"&mno="+mno,data,function(){
+	$.get("deliveryUpdateOk?dno="+dno,data,function(){
 		alert("배송지 수정 완료");
 		window.close();
 		opener.location.href = '/shop/deliveryList';

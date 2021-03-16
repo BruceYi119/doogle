@@ -11,16 +11,16 @@
 #container #con_nav a:after{margin-left:4px;content: "·";}
 #container #con_nav #con_nav2{margin-top:150px;margin-left:0;}
 
-#container #incon{ width:86%;height:800px;float:left;}
+#container #incon{ width:86%;height:850px;float:left;}
 /*여기까지*/
 #container #incon .event_tit{line-height: 1;letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;word-break: break-all;position: relative;padding: 65px 0 45px;}
 #container #incon .event_tit > img{width:80%;}
 #container #incon .event_info{line-height: 1;letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;word-break: break-all;padding: 60px 0 70px;}
 #container #incon .cont_info img{width:80%;}
-#container #incon .event_btn{line-height: 1;letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;padding-left: 120px;word-break: break-all;cursor: pointer;}
-#container #incon .event_btn img{width:70%;height:85px;margin:auto;}
+#container #incon .event_btn{line-height: 1;letter-spacing: -.05em;font-size: 12px;font-family: Noto Sans;color: #666;box-sizing: border-box;margin: 0;padding-left: 120px;word-break: break-all;}
+#container #incon .event_btn img{width:70%;height:90px;margin:auto;cursor: pointer;}
 
-#container #incon2{	float:left;	width:86%; height:700px;padding-left: 30px;padding-top: 150px;/*background-color: #eae7ef;*/}
+#container #incon2{	float:left;	width:86%; height:700px;padding-left: 30px;padding-top: 100px;/*background-color: #eae7ef;*/}
 #container #incon2 img{float:left;width:86%;height:500px;}
 #container #incon3{	float:left;	width:86%;height:600px;	padding-left:30px;padding-top:80px;}
 #container #incon3 img{	float:left;width:86%;height:400px;}

@@ -10,6 +10,7 @@
 	<h3>재입고알림</h3>
 	<div>
 	<button class="btn btn-info" id="send">문자 전송</button>
+	<a href="/admin/photo">문자내역 확인하기</a>
 	</div>
 </div>
 <table class="table">

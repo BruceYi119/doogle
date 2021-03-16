@@ -10,6 +10,7 @@
 </a>
 </div>
 
+
 <div class="side_menu">
 <a href="/shop/main/html.php?htmid=event/kurly.htm&amp;name=lovers" class="link_menu ">등급별 혜택</a>
 <a href="/shop/board/list.php?id=recipe" class="link_menu ">레시피</a>
@@ -121,10 +122,10 @@
 		<table class="tbl tbl_type1">
 			<caption>적립 사용 내역 상세보기</caption>
 			<colgroup>
-				<col style="width: 250px;">
+				<col style="width: auto;">
 				<col style="width: 58px;">
-				<col style="width: 150px;">
-				<col style="width: 120px;">
+				<col style="width: 101px;">
+				<col style="width: 139px;">
 				<col style="width: 101px;">
 			</colgroup>
 			<thead>
@@ -148,14 +149,8 @@
 						<c:if test="${dto.dis_type eq 'p'}">${dto.dis_price}원</c:if>
 						<c:if test="${dto.dis_type eq 'a'}">${dto.discount}%/${dto.dis_price}원</c:if>
 					</td>
-					<td>
-						<fmt:parseDate value="${dto.srat_expiry}" var="srat_expiry" pattern="yyyy-MM-dd" />
-						<fmt:formatDate value="${srat_expiry}" pattern="yyyy.MM.dd" />
-					</td>
-					<td>
-						<fmt:parseDate value="${dto.end_expiry}" var="end_expiry" pattern="yyyy-MM-dd" />
-						<fmt:formatDate value="${end_expiry}" pattern="yyyy.MM.dd" />
-					</td>
+					<td class="name">${dto.srat_expiry}</td>
+					<td class="name">${dto.end_expiry}</td>
 				</tr>
 	        </c:forEach>
 		    </tbody>
