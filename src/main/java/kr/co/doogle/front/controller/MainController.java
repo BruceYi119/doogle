@@ -105,8 +105,8 @@ public class MainController {
 	}
 
 	@RequestMapping("/search/more/{page}/{val}/{type}")
-	public void searchMore(PrintWriter out, HttpServletRequest request, @PathVariable("page") String page, @PathVariable("val") String val,
-			@PathVariable("type") String type) throws UnsupportedEncodingException {
+	public void searchMore(PrintWriter out, HttpServletRequest request, @PathVariable("page") String page,
+			@PathVariable("val") String val, @PathVariable("type") String type) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
 		String display = request.getParameter("display") != null ? request.getParameter("display")
 				: search.getDisplay() + "";
