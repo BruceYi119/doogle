@@ -142,6 +142,7 @@ public class ProductController {
 		mv.addObject("grageName", grageName);
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		mv.addObject("dto", product.convert(productMapper.getDetail(pno)));
+		mv.addObject("url", "/shop/product/detail");
 		mv.setViewName("/front/shop/product/detail");
 		return mv;
 	}

@@ -4,7 +4,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="base_wrap mt20">
 	<div class="detail-wrap">
-		<input type="hidden" id="detail-pno" value="${dto.pno}" />
+		<input type="hidden" name="price" value="${dto.price}" />		
+		<input type="hidden" name="cnt" value="0" />
+		<input type="hidden" name="total-price" value="${dto.price}" />
+		<input type="hidden" id="earn" value="${earn}" />
 		<div class="left">
 			<img src="${dto.jloc}${dto.jname}" />
 		</div>
@@ -21,12 +24,12 @@
 			<p class="info bottom"><span>배송구분</span><span>샛별배송/택배배송</span></p>
 			<p class="info bottom"><span>포장타입</span><span>${dto.cpack_type}</span><span>택배배송은 에코포장이 스티로폼으로 대체됩니다.	</span></p>
 			<p class="info bottom"><span>알레르기정보</span><span></span></p>
-			<p class="info bottom">
+			<p class="info bottom cnt">
 				<span>구매수량</span>
 				<span class="count">
-					<button type="button" class="btn down on">수량내리기</button>
-					<input type="number" readonly="readonly" />
-					<button type="button" class="btn up on">수량올리기</button>
+					<button type="button" class="btn-down">수량내리기</button>
+					<input type="number" readonly="readonly" value="1" name="dsp-cnt" />
+					<button type="button" class="btn-up">수량올리기</button>
 				</span>
 			</p>
 		</div>

@@ -90,6 +90,7 @@
 <c:if test="${url eq '/shop/order'}"><script defer type="text/javascript" src="/static/front/js/order.js"></script></c:if>
 <c:if test="${url eq '/shop/basket'}"><script defer type="text/javascript" src="/static/front/js/basket.js"></script></c:if>
 <c:if test="${url eq '/shop/living'}"><script defer type="text/javascript" src="/static/front/js/living.js"></script></c:if>
+<c:if test="${url eq '/shop/product/detail'}"><script defer type="text/javascript" src="/static/front/js/productDetail.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">
@@ -118,12 +119,29 @@
 				<div id="top-banner"><a href="#"><img src="/static/front/img/shop/img_courier.webp" alt="서울, 경기, 인천 샛별배송, 수도권 이외 지역 택배배송" /></a></div>
 				<h1 id="home"><a href="/shop"><img src="/static/front/img/shop/doogle_shopping.png" /></a></h1>
 				<ul id="member-menu">
-					<li><a href="/terms">회원가입</a></li>
+					<c:if test="${not empty id}">
+						<li class="main">
+							<a href="#">${name} 님</a>
+							<ul class="sub hide">
+								<li><a href="/shop/mypage/orderSumm">주문내역</a></li>
+								<li><a href="/shop/deliveryList">배송지 관리</a></li>
+								<li><a href="/shop/living">늘 사는것</a></li>
+								<li><a href="#">상품 후기</a></li>
+								<li><a href="/shop/propositionList">적립금</a></li>
+								<li><a href="/shop/mypage/mycoupon">쿠폰</a></li>
+								<li><a href="/member/info">개인 정보 수정</a></li>
+								<li><a href="/logout">로그아웃</a></li>
+							</ul>
+						</li>
+					</c:if>
+					<c:if test="${empty id}">
+						<li><a href="/terms">회원가입</a></li>
+						<li></li>
+						<li><a href="/login">로그인</a></li>
+					</c:if>
 					<li></li>
-					<li><a href="/login">로그인</a></li>
-					<li></li>
-					<li>
-						<a href="#" class="before">고객센터</a>
+					<li class="main">
+						<a href="/shop/notice" class="before">고객센터</a>
 						<ul class="sub hide">
 							<li><a href="/shop/notice">공지사항</a></li>
 							<li><a href="/shop/questionList">자주하는 질문</a></li>

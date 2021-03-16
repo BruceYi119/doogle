@@ -189,14 +189,14 @@ const initShop = () => {
 		}
 	});
 
-	$('#member-menu > li:last-child').bind('mouseenter', () => {
-		const obj = $('#member-menu > li > ul.sub');
+	$('#member-menu > li.main').bind('mouseenter', function() {
+		const obj = $(this).find('ul.sub');
 
 		obj.removeClass('hide');
 	});
 
-	$('#member-menu > li:last-child').bind('mouseleave', () => {
-		const obj = $('#member-menu > li > ul.sub');
+	$('#member-menu > li.main').bind('mouseleave', function() {
+		const obj = $(this).find('ul.sub');
 
 		obj.addClass('hide');
 	});

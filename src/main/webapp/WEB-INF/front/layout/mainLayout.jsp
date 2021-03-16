@@ -83,7 +83,6 @@
 		<nav>
 			<div class="base_wrap">
 				<ul id="menu">
-					<li><a href="/admin">관리자</a></li>
 					<li><a href="/shop">쇼핑</a></li>
 					<li><a href="/map">카카오맵</a></li>
 					<li><a href="/calendar">달력</a></li>

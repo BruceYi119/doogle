@@ -104,6 +104,13 @@ div.instar-link > a { font-size: 16px;line-height: 29px;font-family: noto sans;c
 .detail-wrap > .right p.info > span:nth-child(3) { display: block;padding: 4px 0 0 150px; }
 .detail-wrap > .right p.top { border-top: 1px solid #f4f4f4; }
 .detail-wrap > .right p.bottom { border-bottom: 1px solid #f4f4f4; }
+.detail-wrap > .right p.cnt > span { display: inline-block;height: 30px; }
+.detail-wrap > .right p.cnt > span.count { display: inline-block;color: #333;width: 88px;height: 30px;border: 1px solid #dddfe1;border-radius: 3px; }
+.detail-wrap > .right p.cnt > span.count > button { width: 28px;height: 28px;text-indent: -9999px;background: #fff url('/static/front/img/shop/ico_minus.svg') no-repeat 50% 50%;background-size: 30px 30px;border: none;outline: none;float: left; }
+.detail-wrap > .right p.cnt > span.count > button:hover { background-image: url('/static/front/img/shop/ico_minus_on.svg'); }
+.detail-wrap > .right p.cnt > span.count > button.btn-up { background-image: url('/static/front/img/shop/ico_plus.svg'); }
+.detail-wrap > .right p.cnt > span.count > button.btn-up:hover { background-image: url('/static/front/img/shop/ico_plus_on.svg'); }
+.detail-wrap > .right p.cnt > span.count > input[type=number] { display:inline-block;width: 30px;height: 30px;margin-right: -1px;padding: 0 0 4px;border: 0;background-color: #fff;font-size: 14px;color: #000;line-height: 18px;text-align: center;border: none;outline: none;float: left; }
 
 .product-banner { margin: 26px 0 20px; }
 .product-list-wrap { width: 100%;padding: 0 0 0 29px;margin: 0 0 120px;font-family: noto sans;float: left; }
