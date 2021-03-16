@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GradeDTO {
 	
-	private int gno;
-	private double earn;
+	private int gno, earn;
 	private String name,casee;
 
 }

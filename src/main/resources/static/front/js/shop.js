@@ -8,8 +8,8 @@ const initShopMain = () => {
 	$('#product-slide4').carousel({ pause: true, wrap: false });
 	$('#product-slide5').carousel({ pause: true, wrap: false });
 	$('#product-slide6').carousel({ pause: true, wrap: false });
-	$('#product-slide7').carousel({ pause: true, wrap: false });
-	$('#product-slide8').carousel({ pause: true, wrap: false });
+//	$('#product-slide7').carousel({ pause: true, wrap: false });
+//	$('#product-slide8').carousel({ pause: true, wrap: false });
 	$('#product-slide9').carousel({ pause: true, wrap: false });
 	$('#product-slide10').carousel({ pause: true, wrap: false });
 

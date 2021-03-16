@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import kr.co.doogle.dto.ProductDTO;
+import kr.co.doogle.dto.ProductFilesDTO;
 
 @Service
 public class Product {
@@ -36,6 +37,17 @@ public class Product {
 
 	public ProductDTO convert(ProductDTO dto) {
 		ProductDTO row = dto;
+		dto.setCpack_type(convertPackType(dto.getPack_type()));
+		dto.setCdis_yn(convertDisYn(dto.getDis_yn()));
+		dto.setCearn_yn(convertEarnYn(dto.getEarn_yn()));
+		dto.setConly_yn(convertOnlyYn(dto.getOnly_yn()));
+		dto.setCod_yn(convertOdYn(dto.getOd_yn()));
+		dto.setCsel_yn(convertSelYn(dto.getSel_yn()));
+		return row;
+	}
+
+	public ProductFilesDTO convert(ProductFilesDTO dto) {
+		ProductFilesDTO row = dto;
 		dto.setCpack_type(convertPackType(dto.getPack_type()));
 		dto.setCdis_yn(convertDisYn(dto.getDis_yn()));
 		dto.setCearn_yn(convertEarnYn(dto.getEarn_yn()));

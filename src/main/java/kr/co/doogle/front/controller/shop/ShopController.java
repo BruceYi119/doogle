@@ -31,6 +31,9 @@ public class ShopController {
 		mv.addObject("pulist", popupMapper.getAll());
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		mv.addObject("slist", productMapper.getSample(10, "where rownum < #{rownum}", "17", null));
+		mv.addObject("nlist", productMapper.getAllFileBestNew(1, 8, "where new_yn = 'y'"));
+		mv.addObject("dlist", productMapper.getAllFileBestNew(1, 8, "where discount > 10"));
+		mv.addObject("blist", productMapper.getAllFileBestNew(1, 8, "where best_yn = 'y'"));
 		mv.addObject("mdlist", productMapper.getSample(10, "where rownum < #{rownum} and p.ctno = #{ctno}", "9", "1"));
 		mv.addObject("url", "main");
 		mv.setViewName("/front/shop/shop");

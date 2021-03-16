@@ -31,6 +31,25 @@ public interface ProductMapper {
 	List<ProductFilesDTO> getAllFile(@Param("start") int start, @Param("end") int end, @Param("where") String where,
 			@Param("ctno") String ctno, @Param("ctno1") String ctno1, @Param("ctno2") String ctno2);
 
+	@Select({
+			"select pno, price, discount, earn, ctno, ctno1, ctno2, quantity, name, brand, subject, sel_unit, weight, pack_type, info, "
+					+ "dis_yn, earn_yn, only_yn, od_yn, fno, sel_yn, writedate, jname, jloc from "
+					+ "(select seq, tt.* from (select rownum seq, t.* from "
+					+ "(select p.*, f.name jname, f.loc jloc from product p left join files f on REGEXP_SUBSTR(p.fno, '[^,]+', 1, 1) = f.fno "
+					+ "${where} order by p.writedate desc) t) tt where seq >= #{start}) where rownum <= #{end}" })
+	List<ProductFilesDTO> getAllFileBestNew(@Param("start") int start, @Param("end") int end, @Param("where") String where);
+
+	@Select("select count(*) from product where brand like '%'||#{search}||'%' or name like '%'||#{search}||'%'")
+	int getSearchTotal(@Param("search") String search);
+	
+	@Select({
+		"select pno, price, discount, earn, ctno, ctno1, ctno2, quantity, name, brand, subject, sel_unit, weight, pack_type, info, "
+				+ "dis_yn, earn_yn, only_yn, od_yn, fno, sel_yn, writedate, jname, jloc from "
+				+ "(select seq, tt.* from (select rownum seq, t.* from "
+				+ "(select p.*, f.name jname, f.loc jloc from product p left join files f on REGEXP_SUBSTR(p.fno, '[^,]+', 1, 1) = f.fno "
+				+ "where p.brand like '%'||#{search}||'%' or p.name like '%'||#{search}||'%' order by p.writedate desc) t) tt where seq >= #{start}) where rownum <= #{end}" })
+	List<ProductFilesDTO> getAllSearch(@Param("start") int start, @Param("end") int end, @Param("search") String search);
+
 	@Select("select p.*, f.name jname, f.loc jloc from product SAMPLE(${sample}) p left join files f on p.fno = f.fno ${where}")
 	List<ProductFilesDTO> getSample(@Param("sample") int sample, @Param("where") String where,
 			@Param("rownum") String rownum, @Param("ctno") String ctno);

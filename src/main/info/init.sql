@@ -24,4 +24,8 @@ grant connect, resource to doogle;
 --@D:\projectWorkspace\doogle\src\main\info\qna.sql
 --insert into category(ctno,name,lv,type,idx,writedate) values(s_CATEGORY.nextval,'이벤트',0,'f',6,sysdate);
 --delete from category where ctno in (3,128);
+--alter table product add best_yn char(1) default 'n';
+--alter table product add new_yn char(1) default 'n';
+--UPDATE product a SET (a.best_yn) = 'y' WHERE EXISTS (SELECT 0 FROM (select * from (select * from product order by DBMS_RANDOM.RANDOM) where rownum < 51) b where b.pno = a.pno);
+--UPDATE product a SET (a.new_yn) = 'y' WHERE EXISTS (SELECT 0 FROM (select * from (select * from product order by DBMS_RANDOM.RANDOM) where rownum < 51) b where b.pno = a.pno);
 --commit;

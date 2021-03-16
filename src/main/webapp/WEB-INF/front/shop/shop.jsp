@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <input type="hidden" id="qnb-top" value="638" />
 <div id="main-slide" class="carousel slide" data-ride="carousel">
 	<ul class="carousel-indicators">
@@ -57,7 +58,14 @@
 			<c:set var="i" value="1" />
 			<c:forEach items="${slist}" var="dto">
 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<li>
+						<a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a>
+						<a href="/shop/product/detail/${dto.pno}" class="info">
+							<span class="name">${dto.brand} ${dto.name}</span>
+							<c:if test="${dto.discount > 0}"><span class="dis">${dto.discount}%</span></c:if> <span class="price"><fmt:formatNumber type="number" value="${dto.price}" />원</span>
+							<c:if test="${dto.discount > 0}"><span class="dis-price"><fmt:formatNumber type="number" value="${Math.ceil(dto.price - (dto.price * (dto.discount * 0.01)))}" />원</span></c:if>
+						</a>
+					</li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
@@ -67,7 +75,7 @@
 	</div>
 </div>
 <div class="main-bg">
-	<div class="tit-goods"><h3><a href="#">이벤트 소식</a></h3></div>
+	<div class="tit-goods"><h3><a href="/shop/event">이벤트 소식</a></h3></div>
 	<div class="base_wrap">
 		<ul id="product-slide2" class="product-slide-list">
 			<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
@@ -76,14 +84,21 @@
 		</ul>
 	</div>
 </div>
-<div class="tit-goods"><h3><a href="#">알뜰상품</a></h3></div>
+<div class="tit-goods"><h3><a href="/shop/product/dis">알뜰상품</a></h3></div>
 <div class="base_wrap">
 	<div id="product-slide3" class="carousel slide product-slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
 			<c:set var="i" value="1" />
-			<c:forEach items="${slist}" var="dto">
+			<c:forEach items="${dlist}" var="dto">
 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<li>
+						<a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a>
+						<a href="/shop/product/detail/${dto.pno}" class="info">
+							<span class="name">${dto.brand} ${dto.name}</span>
+							<c:if test="${dto.discount > 0}"><span class="dis">${dto.discount}%</span></c:if> <span class="price"><fmt:formatNumber type="number" value="${dto.price}" />원</span>
+							<c:if test="${dto.discount > 0}"><span class="dis-price"><fmt:formatNumber type="number" value="${Math.ceil(dto.price - (dto.price * (dto.discount * 0.01)))}" />원</span></c:if>
+						</a>
+					</li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
@@ -98,7 +113,7 @@
 		<ul>
 			<c:set var="i" value="0" />
 			<c:forEach items="${clist}" var="dto">
-				<c:if test="${dto.name ne '컬리의 추천'}"><li><a href="/shop/product/category/${dto.ctno}" ctno="${dto.ctno}" class="btn-product-category<c:if test="${i eq 0}"> on</c:if>">${dto.name}</a></li></c:if>
+				<c:if test="${dto.name ne '컬리의 추천'}"><li><a href="/shop/product/category/${dto.ctno}" ctno="${dto.ctno}" name="${dto.name}" class="btn-product-category<c:if test="${i eq 0}"> on</c:if>">${dto.name}</a></li></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
 		</ul>
@@ -108,7 +123,14 @@
 			<c:set var="i" value="1" />
 			<c:forEach items="${mdlist}" var="dto">
 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"<c:if test='${i == 1}'> id="md1"</c:if><c:if test='${i == 5}'> id="md2"</c:if>></c:if>
-					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<li>
+						<a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a>
+						<a href="/shop/product/detail/${dto.pno}" class="info">
+							<span class="name">${dto.brand} ${dto.name}</span>
+							<c:if test="${dto.discount > 0}"><span class="dis">${dto.discount}%</span></c:if> <span class="price"><fmt:formatNumber type="number" value="${dto.price}" />원</span>
+							<c:if test="${dto.discount > 0}"><span class="dis-price"><fmt:formatNumber type="number" value="${Math.ceil(dto.price - (dto.price * (dto.discount * 0.01)))}" />원</span></c:if>
+						</a>
+					</li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
@@ -116,7 +138,7 @@
 		<a class="carousel-control-prev hide" href="#product-slide4" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
 		<a class="carousel-control-next" href="#product-slide4" data-slide="next"><span class="carousel-control-next-icon"></span></a>
 	</div>
-	<p class="btn-product-category-wrap"><a href="/shop/product/category/${clist[0].ctno}" class="btn-product-category"><span>${clist[0].name} 전체보기</span></a></p>
+	<p class="btn-product-category-wrap"><a href="/shop/product/${clist[0].ctno}" class="link"><span>${clist[0].name} 전체보기</span></a></p>
 </div>
 <div class="wrap-container">
 	<div class="bnr_main">
@@ -128,7 +150,7 @@
 </div>
 <div class="tit-goods">
 	<h3>
-		<a href="#" class="no-icon">
+		<a href="/shop/product/new" class="no-icon">
 			<span class="title">오늘의 신상품</span>
 			<span class="desc">매일 정오, 컬리의 새로운 상품을 만나보세요</span>
 		</a>
@@ -138,9 +160,16 @@
 	<div id="product-slide5" class="carousel slide product-slide" data-bs-ride="carousel">
 		<div class="carousel-inner">
 			<c:set var="i" value="1" />
-			<c:forEach items="${slist}" var="dto">
+			<c:forEach items="${nlist}" var="dto">
 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+					<li>
+						<a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a>
+						<a href="/shop/product/detail/${dto.pno}" class="info">
+							<span class="name">${dto.brand} ${dto.name}</span>
+							<c:if test="${dto.discount > 0}"><span class="dis">${dto.discount}%</span></c:if> <span class="price"><fmt:formatNumber type="number" value="${dto.price}" />원</span>
+							<c:if test="${dto.discount > 0}"><span class="dis-price"><fmt:formatNumber type="number" value="${Math.ceil(dto.price - (dto.price * (dto.discount * 0.01)))}" />원</span></c:if>
+						</a>
+					</li>
 				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 				<c:set var="i" value="${i + 1}" />
 			</c:forEach>
@@ -150,14 +179,21 @@
 	</div>
 </div>
 <div class="main-bg">
-	<div class="tit-goods"><h3><a href="#">지금 가장 핫한 상품</a></h3></div>
+	<div class="tit-goods"><h3><a href="/shop/product/best">지금 가장 핫한 상품</a></h3></div>
 	<div class="base_wrap">
 		<div id="product-slide6" class="carousel slide product-slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
 			<c:set var="i" value="1" />
-				<c:forEach items="${slist}" var="dto">
+				<c:forEach items="${blist}" var="dto">
 					<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-						<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
+						<li>
+							<a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a>
+							<a href="/shop/product/detail/${dto.pno}" class="info">
+								<span class="name">${dto.brand} ${dto.name}</span>
+								<c:if test="${dto.discount > 0}"><span class="dis">${dto.discount}%</span></c:if> <span class="price"><fmt:formatNumber type="number" value="${dto.price}" />원</span>
+								<c:if test="${dto.discount > 0}"><span class="dis-price"><fmt:formatNumber type="number" value="${Math.ceil(dto.price - (dto.price * (dto.discount * 0.01)))}" />원</span></c:if>
+							</a>
+						</li>
 					<c:if test="${i % 4 eq 0}"></ul></div></c:if>
 					<c:set var="i" value="${i + 1}" />
 				</c:forEach>
@@ -167,47 +203,47 @@
 		</div>
 	</div>
 </div>
-<div class="main-bg">
-	<div class="tit-goods">
-		<h3>
-			<a href="#" class="no-icon">
-				<span class="title">늘 기분 좋은 가격</span>
-				<span class="desc">가격부터 늘 기분 좋은 두글 장바구니 필수템</span>
-			</a>
-		</h3>
-	</div>
-	<div class="base_wrap">
-		<div id="product-slide7" class="carousel slide product-slide" data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<c:set var="i" value="1" />
-				<c:forEach items="${slist}" var="dto">
-					<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-						<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
-					<c:if test="${i % 4 eq 0}"></ul></div></c:if>
-					<c:set var="i" value="${i + 1}" />
-				</c:forEach>
-			</div>
-			<a class="carousel-control-prev hide" href="#product-slide7" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
-			<a class="carousel-control-next" href="#product-slide7" data-slide="next"><span class="carousel-control-next-icon"></span></a>
-		</div>
-	</div>
-</div>
-<div class="tit-goods"><h3><a href="#">두글이 만든 상품</a></h3></div>
-<div class="base_wrap">
-	<div id="product-slide8" class="carousel slide product-slide" data-bs-ride="carousel">
-		<div class="carousel-inner">
-			<c:set var="i" value="1" />
-			<c:forEach items="${slist}" var="dto">
-				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if>
-					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li>
-				<c:if test="${i % 4 eq 0}"></ul></div></c:if>
-				<c:set var="i" value="${i + 1}" />
-			</c:forEach>
-		</div>
-		<a class="carousel-control-prev hide" href="#product-slide8" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
-		<a class="carousel-control-next" href="#product-slide8" data-slide="next"><span class="carousel-control-next-icon"></span></a>
-	</div>
-</div>
+<!-- <div class="main-bg"> -->
+<!-- 	<div class="tit-goods"> -->
+<!-- 		<h3> -->
+<!-- 			<a href="#" class="no-icon"> -->
+<!-- 				<span class="title">늘 기분 좋은 가격</span> -->
+<!-- 				<span class="desc">가격부터 늘 기분 좋은 두글 장바구니 필수템</span> -->
+<!-- 			</a> -->
+<!-- 		</h3> -->
+<!-- 	</div> -->
+<!-- 	<div class="base_wrap"> -->
+<!-- 		<div id="product-slide7" class="carousel slide product-slide" data-bs-ride="carousel"> -->
+<!-- 			<div class="carousel-inner"> -->
+<%-- 				<c:set var="i" value="1" /> --%>
+<%-- 				<c:forEach items="${slist}" var="dto"> --%>
+<%-- 					<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if> --%>
+<%-- 						<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li> --%>
+<%-- 					<c:if test="${i % 4 eq 0}"></ul></div></c:if> --%>
+<%-- 					<c:set var="i" value="${i + 1}" /> --%>
+<%-- 				</c:forEach> --%>
+<!-- 			</div> -->
+<!-- 			<a class="carousel-control-prev hide" href="#product-slide7" data-slide="prev"><span class="carousel-control-prev-icon"></span></a> -->
+<!-- 			<a class="carousel-control-next" href="#product-slide7" data-slide="next"><span class="carousel-control-next-icon"></span></a> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
+<!-- <div class="tit-goods"><h3><a href="#">두글이 만든 상품</a></h3></div> -->
+<!-- <div class="base_wrap"> -->
+<!-- 	<div id="product-slide8" class="carousel slide product-slide" data-bs-ride="carousel"> -->
+<!-- 		<div class="carousel-inner"> -->
+<%-- 			<c:set var="i" value="1" /> --%>
+<%-- 			<c:forEach items="${slist}" var="dto"> --%>
+<%-- 				<c:if test="${i % 4 eq 1 || i == 1}"><div class="carousel-item<c:if test='${i == 1}'> active</c:if>"><ul class="product-slide-list"></c:if> --%>
+<%-- 					<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('${dto.jloc}${dto.jname}');" class="product-slide-img" /></a></li> --%>
+<%-- 				<c:if test="${i % 4 eq 0}"></ul></div></c:if> --%>
+<%-- 				<c:set var="i" value="${i + 1}" /> --%>
+<%-- 			</c:forEach> --%>
+<!-- 		</div> -->
+<!-- 		<a class="carousel-control-prev hide" href="#product-slide8" data-slide="prev"><span class="carousel-control-prev-icon"></span></a> -->
+<!-- 		<a class="carousel-control-next" href="#product-slide8" data-slide="next"><span class="carousel-control-next-icon"></span></a> -->
+<!-- 	</div> -->
+<!-- </div> -->
 <div class="tit-goods"><h3><a href="#">두글의 레시피</a></h3></div>
 <div class="base_wrap">
 	<div id="product-slide9" class="carousel slide product-slide" data-bs-ride="carousel">

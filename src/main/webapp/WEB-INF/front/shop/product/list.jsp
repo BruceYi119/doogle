@@ -22,7 +22,7 @@
 					<a href="/shop/product/detail/${dto.pno}" class="info">
 						<span class="name">${dto.brand} ${dto.name}</span>
 						<c:if test="${dto.discount > 0}"><span class="dis">${dto.discount}%</span></c:if> <span class="price"><fmt:formatNumber type="number" value="${dto.price}" />원</span>
-						<c:if test="${dto.discount > 0}"><span class="dis-price"><fmt:formatNumber type="number" value="${dto.price - (dto.price * (dto.discount * 0.01))}" />원</span></c:if>
+						<c:if test="${dto.discount > 0}"><span class="dis-price"><fmt:formatNumber type="number" value="${Math.ceil(dto.price - (dto.price * (dto.discount * 0.01)))}" />원</span></c:if>
 						<span class="subject">${dto.subject}</span>
 					</a>
 				</li>

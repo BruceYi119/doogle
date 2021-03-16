@@ -276,7 +276,10 @@ const initShop = () => {
 
 		const obj = $(this);
 		const ctno = obj.attr('ctno');
+		const name = obj.attr('name');
 		const ajax = axios.get(`/shop/product/md/${ctno}`);
+		const a = $('p.btn-product-category-wrap > a.link');
+		const span = $('p.btn-product-category-wrap > a.link > span');
 
 		ajax.then((res) => {
 			if (res.data) {
@@ -304,6 +307,9 @@ const initShop = () => {
 					});
 					html1 += `</ul>`;
 					html2 += `</ul>`;
+
+					a.attr('href', `/shop/product/${ctno}`);
+					span.text(`${name} 전체보기`);
 
 					ul1.html(html1);
 					ul2.html(html2);

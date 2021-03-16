@@ -170,7 +170,7 @@
 						</ul>
 						<ul class="nav nav-pills" id="adminLoginInfo">
 							<li class="nav-item"><a class="nav-link text-white" href="#">${name}님 환엽합니다!</a></li>
-							<li class="nav-item"><a class="nav-link text-white" href="#">로그아웃</a></li>
+							<li class="nav-item"><a class="nav-link text-white" href="/logout">로그아웃</a></li>
 		<!-- 					<li class="nav-item"><a class="nav-link active disabled" href="#">Disabled</a></li> -->
 						</ul>
 					</div>

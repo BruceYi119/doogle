@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.doogle.dto.EventDTO;
 import kr.co.doogle.dto.FileDTO;
+import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.EventMapper;
 import kr.co.doogle.mapper.FileMapper;
 import kr.co.doogle.mapper.GradeMapper;
@@ -29,6 +30,8 @@ public class EventController {
 	private FileMapper fileMapper;
 	@Autowired
 	private Paging paging;
+	@Autowired
+	private CategoryMapper categoryMapper;
 
 	/* nextgrade추가 */
 	@Autowired
@@ -55,6 +58,7 @@ public class EventController {
 		mv.addObject("flist", flist);
 //		System.out.println(rdto.getHd());
 		mv.addObject("i", paging.getStartRow());
+		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return mv;
 	}
 
@@ -65,6 +69,7 @@ public class EventController {
 		model.addAttribute("list", gradeMapper.getNext(id));
 //		model.addAttribute("list", gradeMapper.getNext("efg"));
 		model.addAttribute("url", "/shop/event/my_benefit");
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/event/my_benefit";
 	}
 
@@ -74,18 +79,21 @@ public class EventController {
 //		System.out.println(id);
 		model.addAttribute("id", id);
 		model.addAttribute("url", "/shop/event/lover");
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/event/lover";
 	}
 
 	@RequestMapping("/shop/event/collection")
 	public String event_collection(Model model) {
 		model.addAttribute("url", "/shop/event/collection");
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/event/collection";
 	}
 
 	@RequestMapping("/shop/event/total")
 	public String event_total(Model model) {
 		model.addAttribute("url", "/shop/event/total");
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/event/total";
 	}
 
@@ -98,6 +106,7 @@ public class EventController {
 	@RequestMapping("/shop/event/basket")
 	public String event_basket(Model model) {
 		model.addAttribute("url", "/shop/event/basket");
+		model.addAttribute("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		return "/front/shop/event/basket";
 	}
 
@@ -124,6 +133,7 @@ public class EventController {
 		mv.addObject("url", "/shop/event/product");
 		mv.addObject("i", paging.getStartRow());
 		mv.addObject("paging", paging.getPageHtml());
+		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
 		mv.setViewName("/front/shop/event/event_product");
 		return mv;
 	}

@@ -151,18 +151,18 @@
 									</li>
 								</ul>
 							</li>
-							<li><a href="#">신상품</a></li>
-							<li><a href="#">베스트</a></li>
-							<li><a href="#">알뜰쇼핑</a></li>
+							<li><a href="/shop/product/new">신상품</a></li>
+							<li><a href="/shop/product/best">베스트</a></li>
+							<li><a href="/shop/product/dis">알뜰쇼핑</a></li>
 							<li><a href="/shop/event">금주혜택</a></li>
 							<li>
-								<form action="/shop/search" method="post">
+								<form action="/shop/product/search" method="post">
 									<input type="text" id="shop-search" name="search" placeholder="내 맘대로 골라담는 식단조절 도시락" />
 									<button type="submit" id="btn-shop-search"></button>
 									<button type="button" id="btn-shop-search-del" class="hide"></button>
 								</form>
 							</li>
-							<li class="pl20 pr20"><a href="#"><img src="/static/front/img/shop/ico_delivery_setting.svg" /></a></li>
+							<li class="pl20 pr20"><a href="/shop/deliveryList"><img src="/static/front/img/shop/ico_delivery_setting.svg" /></a></li>
 							<li class="pr20"><a href="/shop/basket" data-toggle="tooltip" data-placement="bottom" data-original-title="" id="btn-basket"><img src="/static/front/img/shop/ico_cart.svg" /></a></li>
 						</ul>
 					</div>
