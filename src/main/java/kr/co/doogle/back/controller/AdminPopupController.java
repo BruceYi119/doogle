@@ -55,6 +55,7 @@ public class AdminPopupController {
 	public ModelAndView popup_detail(ModelAndView mv, int puno) {
 		PopupDTO pudto = popupMapper.getOne(puno);
 		mv.addObject("dto", pudto);
+		mv.addObject("url", "/admin/popup/detail");
 		mv.setViewName("back/popup/detail");
 		return mv;
 	}

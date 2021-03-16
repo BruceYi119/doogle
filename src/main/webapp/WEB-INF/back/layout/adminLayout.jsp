@@ -38,6 +38,7 @@
 <c:if test="${url eq '/admin/qnaAnswer'}"><script defer type="text/javascript" src="/static/back/js/qnaAnswer.js"></script></c:if>
 <c:if test="${url eq '/admin/qnaAnswerWrite'}"><script defer type="text/javascript" src="/static/back/js/qnaAnswerWrite.js"></script></c:if>
 <c:if test="${url eq '/admin/quaAnswerView'}"><script defer type="text/javascript" src="/static/back/js/qnaAnswerWrite.js"></script></c:if>
+<c:if test="${url eq '/admin/popup/detail'}"><script defer type="text/javascript" src="/static/back/js/popupDetail.js"></script></c:if>
 <sitemesh:write property="head" /></head>
 <body>
 	<div id="wrap">

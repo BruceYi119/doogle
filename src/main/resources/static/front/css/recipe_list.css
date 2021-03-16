@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-.base_wrap{	padding-left:50px; width:100%;}
-.base_wrap #container{margin:auto;width: 60%;}
+.base_wrap{width:100%}
+.base_wrap #container{margin:auto;width: 100%;margin-top:10px;}
 .base_wrap #container #con_nav{	height:50px;}
 .base_wrap #container h6{	font-weight: 900;}
 .base_wrap #container #con_nav a div{ float:left; width: 80px; border-bottom: 1px solid #cccccc; font-size: 15px; text-align: center; color: black; font-weight: 500;}

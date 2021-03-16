@@ -45,6 +45,7 @@
 <c:if test="${url eq '/mypage/orderSumm_detail'}"><link rel="stylesheet" href="/static/front/css/orderSumm_detail.css"></c:if>
 <c:if test="${url eq '/shop/basket'}"><link rel="stylesheet" href="/static/front/css/basket.css"></c:if>
 <c:if test="${url eq '/shop/living'}"><link rel="stylesheet" href="/static/front/css/living.css"></c:if>
+<c:if test="${url eq '/shop/event/product'}"><link rel="stylesheet" href="/static/front/css/event_product.css"></c:if>
 <script defer type="text/javascript" src="/static/core/js/jquery-3.5.1.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script defer type="text/javascript" src="/static/core/js/bootstrap.min.js"></script>

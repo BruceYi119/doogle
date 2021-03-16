@@ -39,7 +39,7 @@ public interface PopupMapper {
 	@Update({"update popup set top=#{pudto.top}, bottom=#{pudto.bottom}, "
 			+ "left=#{pudto.left}, right=#{pudto.right}, width=#{pudto.width}, "
 			+ "height=#{pudto.height},title=#{pudto.title},content=#{pudto.content}, "
-			+ "start_date=#{pudto.start_date},end_date=#{pudto.end_date} ${where} "})
+			+ "start_date=#{pudto.start_date},end_date=#{pudto.end_date},type=#{pudto.type} ${where} "})
 	int mod(@Param("pudto") PopupDTO pudto, @Param("where") String where, @Param("puno") Integer puno);
 
 	@Delete("delete from popup where puno=#{puno}")

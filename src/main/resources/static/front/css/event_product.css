@@ -1,0 +1,33 @@
+.product-paging-wrap{
+width:800px;
+height:30px;
+}
+
+.base_wrap{
+	width:100%;
+}
+
+.product-list-wrap{
+	width:1200px;
+}
+
+.product-banner{
+	padding-left:30px;
+}
+
+.product-list-wrap .list_nav{
+	padding: 0 13px 7px 12px;
+    color: #5f0080;
+    border-bottom: 1px solid #5f0080;
+    line-height: 20px;
+    font-size: 12px;
+    letter-spacing: -.3px;
+    cursor: pointer;
+    font-weight: 700;
+    float:left;
+}
+
+.clear_div{
+	clear: both;
+
+}

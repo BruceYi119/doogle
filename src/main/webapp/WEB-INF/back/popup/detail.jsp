@@ -2,18 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-<script>
-$(function(){
-	var vpuno=$('input[name=puno]').val();
-	var vtitle=$('input[name=title]').val();
-	var vleft=$('input[name=left]').val();
-	var vright=$('input[name=top]').val();
-
-	//alert(title+puno+left+right)
-	window.open("/admin/popup/on?puno="+vpuno, vtitle,"width=455, height=555,resizable=no,left="+vleft+",top="+vright+",scrollbars=no,innerWidth=450,innerHeight=550,location=no");
-})
-</script>
 <input type="hidden" id="active" value="6" />
 <div class="w3-white w3-padding notranslate fix mt-3">
 	<h3>팝업세부정보</h3>
@@ -24,6 +12,8 @@ $(function(){
 		<input type="hidden" name="title" value="${dto.title}"/>
 		<input type="hidden" name="left" value="${dto.left}"/>
 		<input type="hidden" name="top" value="${dto.top}"/>
+		<input type="hidden" name="width" value="${dto.width}"/>
+		<input type="hidden" name="height" value="${dto.height}"/>
 		<table class="table product-mod">
 			<tbody>
 				<tr>
@@ -32,7 +22,7 @@ $(function(){
 				</tr>
 				<tr>
 					<td>창띄우기</td>
-					<td><button type="button" class="btn btn-warning" onclick="window.open('/admin/popup/on?puno=${dto.puno}', '${dto.title}','width=450, height=550,left=${dto.left},top=${dto.top },scrollbars=no'); return false" style="cursor: pointer;">창띄우기</button></td>
+					<td><button type="button" class="btn btn-warning" onclick="window.open('/admin/popup/on?puno=${dto.puno}', '${dto.title}','width=${dto.width}, height=${dto.height},left=${dto.left},top=${dto.top },scrollbars=no'); return false" style="cursor: pointer;">창띄우기</button></td>
 				</tr>
 				<tr>
 					<td>시작일</td>
@@ -61,6 +51,14 @@ $(function(){
 				<tr>
 					<td>bottom</td>
 					<td>${dto.bottom}</td>
+				</tr>
+				<tr>
+					<td>width</td>
+					<td>${dto.width}</td>
+				</tr>
+				<tr>
+					<td>height</td>
+					<td>${dto.height}</td>
 				</tr>
 				<tr>
 					<td>활성화여부</td>

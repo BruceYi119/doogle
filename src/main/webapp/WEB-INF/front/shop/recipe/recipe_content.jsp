@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="base_wrap" align="center">
 	<div id="container">
 		<div id="recipe_title">
@@ -19,16 +20,14 @@
 				</tr>
 				<tr>
 					<th>작성일</th>
-					<td style="width: 200px;">${rdto.writedate }</td>
+					<td style="width: 200px;">
+					<fmt:parseDate value="${rdto.writedate}" pattern="yyyy-MM-dd" var="writedate" />
+					<fmt:formatDate value="${writedate}" pattern="yyyy-MM-dd"/></td>
 					<th>조회수</th>
 					<td style="width: 500px;">${rdto.read_cnt }</td>
 				</tr>
 				<tr>
 					<td colspan="4" align="center">${rdto.content }</td>
-				</tr>
-				<tr>
-					<td>RECIPE ITEMS</td>
-					<td></td>
 				</tr>
 				<tr>
 					<td colspan="4" align="right" id="re_td">

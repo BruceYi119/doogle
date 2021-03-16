@@ -7,9 +7,9 @@
 		<input type="hidden" name="hd" id="hd" value="${hd}" />
 		<div id="con_nav">
 			<a href="/shop/recipe?&hd=1"><div>전체보기</div></a> 
-			<a href="/shop/recipe?ctno=223&hd=2"><div>매일밥상</div></a> 
-			<a href="/shop/recipe?ctno=224&hd=3"><div>특별한날</div></a> 
-			<a href="/shop/recipe?ctno=225&hd=4"><div>간단요리</div></a>
+			<a href="/shop/recipe?ctno=135&hd=2"><div>매일밥상</div></a> 
+			<a href="/shop/recipe?ctno=136&hd=3"><div>특별한날</div></a> 
+			<a href="/shop/recipe?ctno=137&hd=4"><div>간단요리</div></a>
 		</div>
 
 		<div id="incontainer" align="left">
