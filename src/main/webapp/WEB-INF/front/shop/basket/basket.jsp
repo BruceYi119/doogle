@@ -4,8 +4,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script defer type="text/javascript" src="/static/front/js/delivery.js"></script>
 <div class="base wrap">
-	<form action="" method="post">
+	<form action="/shop/order" method="post">
 	<div id="cartItemList" class="only_pc">
 		<div class="tit-page">
 			<h2 class="tit">장바구니</h2>
@@ -15,7 +16,7 @@
 				<div class="cart-select">
 					<div class="inner_select">
 						<label class="check"><input type="checkbox" class="check-all" name="check-all" checked>
-							<span class="ico"></span>전체선택(<span class="check-num">${sellableSize }</span>/${sellableSize })
+							<span class="ico"></span>전체선택(<span class="check-num">${sellableSize }</span>/<span class="all-num">${sellableSize }</span>)
 						</label>
 						<input type="button" class="btn-delete" value="선택삭제"/>
 					</div>
@@ -39,39 +40,50 @@
 								<div class="name">
 									<div class="inner_name">
 									<c:if test="${bdto.pono ne 0 }">
-										<a href="../product/product?pno=${bdto.pno }" class="package ">[${bdto.brand }] ${bdto.oname }</a>
-										<a href="../product/product?pno=${bdto.pno }" class="product ">[${bdto.brand }] ${bdto.pname }</a>
+										<a href="/shop/product/detail/${bdto.pno }" class="package ">${bdto.brand } ${bdto.oname }</a>
+										<a href="/shop/product/detail/${bdto.pno }" class="product ">${bdto.brand } ${bdto.pname }</a>
 									</c:if>
 									<c:if test="${bdto.pono eq 0 }">
-										<a href="../product/product?pno=${bdto.pno }" class="package ">[${bdto.brand }] ${bdto.pname }</a>
+										<a href="/shop/product/detail/${bdto.pno }" class="package ">${bdto.brand } ${bdto.pname }</a>
 									</c:if>
 										<div class="info"></div>
 									</div>
 								</div>
 								<div class="goods">
-									<a href="#" class="thumb "
-									style="background-image: url('/static/upload/img/shop/product/${bdto.fname}');">상품이미지</a>
+									<a href="/shop/product/detail/${bdto.pno }" class="thumb " style="background-image: url('${bdto.loc}${bdto.fname}');">상품이미지</a>
 									<div class="price">
 										<div class="in-price">
 										<!-- 상품옵션 있을때 -->
 										<c:if test="${bdto.pono ne 0 }">
-										
-										 <c:if test="${bdto.dis_not eq 'y' }">
+										<input type="hidden" class="onePrice" value="${bdto.oprice }" >
+										<input type="hidden" class="totalPrice" value="${bdto.oprice*bdto.quantity }" >
+										<input type="hidden" class="discount" value="${bdto.discount }" >
+										<input type="hidden" class="totalDiscount" value="" >
+										<input type="hidden" class="earn" value="${bdto.earn }" >
+										<input type="hidden" class="totalEarn" value="" >
+										<input type="hidden" class="quantity" value="${bdto.quantity }" >
+										 <c:if test="${bdto.dis_yn eq 'y' }">
 											<span class="selling"><fmt:formatNumber value="${bdto.oprice*bdto.quantity*(1-bdto.discount/100) }" type="number"/><span class="won">원</span></span>
 											<span class="cost"><fmt:formatNumber value="${bdto.oprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
-										 <c:if test="${bdto.dis_not ne 'y'}">
-											<span class="selling"><fmt:formatNumber value="${bdto.pprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
+										 <c:if test="${bdto.dis_yn ne 'y'}">
+											<span class="selling"><fmt:formatNumber value="${bdto.oprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
 										</c:if>
 										<!-- 상품옵션 없을때 -->
 										<c:if test="${bdto.pono eq 0 }">
-										
-										 <c:if test="${bdto.dis_not eq 'y' }">
+										<input type="hidden" class="onePrice" value="${bdto.pprice }" >
+										<input type="hidden" class="totalPrice" value="${bdto.pprice*bdto.quantity }" >
+										<input type="hidden" class="discount" value="${bdto.discount }" >
+										<input type="hidden" class="totalDiscount" value="" >
+										<input type="hidden" class="earn" value="${bdto.earn }" >
+										<input type="hidden" class="totalEarn" value="" >
+										<input type="hidden" class="quantity" value="${bdto.quantity }" >
+										 <c:if test="${bdto.dis_yn eq 'y' }">
 											<span class="selling"><fmt:formatNumber value="${bdto.pprice*bdto.quantity*(1-bdto.discount/100) }" type="number"/><span class="won">원</span></span>
 											<span class="cost"><fmt:formatNumber value="${bdto.pprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
-										 <c:if test="${bdto.dis_not ne 'y'}">
+										 <c:if test="${bdto.dis_yn ne 'y'}">
 											<span class="selling"><fmt:formatNumber value="${bdto.pprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
 										</c:if>
@@ -110,48 +122,59 @@
 								<div class="name">
 									<div class="inner_name">
 									<c:if test="${bdto.pono ne 0 }">
-										<a href="../product/product?pno=${bdto.pno }" class="package ">[${bdto.brand }] ${bdto.oname }</a>
-										<a href="../product/product?pno=${bdto.pno }" class="product ">[${bdto.brand }] ${bdto.pname }</a>
+										<a href="/shop/product/detail/${bdto.pno }" class="package ">${bdto.brand } ${bdto.oname }</a>
+										<a href="/shop/product/detail/${bdto.pno }" class="product ">${bdto.brand } ${bdto.pname }</a>
 									</c:if>
 									<c:if test="${bdto.pono eq 0 }">
-										<a href="../product/product?pno=${bdto.pno }" class="package ">[${bdto.brand }] ${bdto.pname }</a>
+										<a href="/shop/product/detail/${bdto.pno }" class="package ">${bdto.brand } ${bdto.pname }</a>
 									</c:if>
 										<div class="info"></div>
 									</div>
 								</div>
 								<div class="goods">
-									<a href="#" class="thumb "
-									style="background-image: url('/static/upload/img/shop/product/${bdto.fname}');">상품이미지</a>
+									<a href="/shop/product/detail/${bdto.pno }" class="thumb " style="background-image: url('${bdto.loc}${bdto.fname}');">상품이미지</a>
 									<div class="price">
 										<div class="in-price">
 										<!-- 상품옵션 있을때 -->
 										<c:if test="${bdto.pono ne 0 }">
-										
-										 <c:if test="${bdto.dis_not eq 'y' }">
+										<input type="hidden" class="onePrice" value="${bdto.oprice }" >
+										<input type="hidden" class="totalPrice" value="${bdto.oprice*bdto.quantity }" >
+										<input type="hidden" class="discount" value="${bdto.discount }" >
+										<input type="hidden" class="totalDiscount" value="" >
+										<input type="hidden" class="earn" value="${bdto.earn }" >
+										<input type="hidden" class="totalEarn" value="" >
+										<input type="hidden" class="quantity" value="${bdto.quantity }" >
+										 <c:if test="${bdto.dis_yn eq 'y' }">
 											<span class="selling"><fmt:formatNumber value="${bdto.oprice*bdto.quantity*(1-bdto.discount/100) }" type="number"/><span class="won">원</span></span>
 											<span class="cost"><fmt:formatNumber value="${bdto.oprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
-										 <c:if test="${bdto.dis_not ne 'y'}">
-											<span class="selling"><fmt:formatNumber value="${bdto.pprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
+										 <c:if test="${bdto.dis_yn ne 'y'}">
+											<span class="selling"><fmt:formatNumber value="${bdto.oprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
 										</c:if>
 										<!-- 상품옵션 없을때 -->
 										<c:if test="${bdto.pono eq 0 }">
-										
-										 <c:if test="${bdto.dis_not eq 'y' }">
+										<input type="hidden" class="onePrice" value="${bdto.pprice }" >
+										<input type="hidden" class="totalPrice" value="${bdto.pprice*bdto.quantity }" >
+										<input type="hidden" class="discount" value="${bdto.discount }" >
+										<input type="hidden" class="totalDiscount" value="" >
+										<input type="hidden" class="earn" value="${bdto.earn }" >
+										<input type="hidden" class="totalEarn" value="" >
+										<input type="hidden" class="quantity" value="${bdto.quantity }" >
+										 <c:if test="${bdto.dis_yn eq 'y' }">
 											<span class="selling"><fmt:formatNumber value="${bdto.pprice*bdto.quantity*(1-bdto.discount/100) }" type="number"/><span class="won">원</span></span>
 											<span class="cost"><fmt:formatNumber value="${bdto.pprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
-										 <c:if test="${bdto.dis_not ne 'y'}">
+										 <c:if test="${bdto.dis_yn ne 'y'}">
 											<span class="selling"><fmt:formatNumber value="${bdto.pprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
 										</c:if>
 										</div>
 										<div class="stamper count">
 											<input type="hidden" name="stock" value="${btdo.stock }" class="stock">
-											<button type="button" class="btn minus off" data-option="decrease" data-item-id="${bdto.bno }"> - </button>
+											<button type="button" class="btn minus off" data-option="decrease" data-item-id="${bdto.bno }" data-item-value="${bdto.quantity}"> - </button>
 											<input type="number" id="stepperCounter" class="num" readonly="" value="${bdto.quantity}">
-											<button type="button" class="btn plus" data-option="increase" data-item-id="${bdto.bno }"> + </button>
+											<button type="button" class="btn plus" data-option="increase" data-item-id="${bdto.bno }" data-item-value="${bdto.quantity}"> + </button>
 										</div>
 									</div>
 								</div>
@@ -181,48 +204,59 @@
 								<div class="name">
 									<div class="inner_name">
 									<c:if test="${bdto.pono ne 0 }">
-										<a href="../product/product?pno=${bdto.pno }" class="package ">[${bdto.brand }] ${bdto.oname }</a>
-										<a href="../product/product?pno=${bdto.pno }" class="product ">[${bdto.brand }] ${bdto.pname }</a>
+										<a href="/shop/product/detail/${bdto.pno }" class="package ">${bdto.brand } ${bdto.oname }</a>
+										<a href="/shop/product/detail/${bdto.pno }" class="product ">${bdto.brand } ${bdto.pname }</a>
 									</c:if>
 									<c:if test="${bdto.pono eq 0 }">
-										<a href="../product/product?pno=${bdto.pno }" class="package ">[${bdto.brand }] ${bdto.pname }</a>
+										<a href="/shop/product/detail/${bdto.pno }" class="package ">${bdto.brand } ${bdto.pname }</a>
 									</c:if>
 										<div class="info"></div>
 									</div>
 								</div>
 								<div class="goods">
-									<a href="#" class="thumb "
-									style="background-image: url('/static/upload/img/shop/product/${bdto.fname}');">상품이미지</a>
+									<a href="/shop/product/detail/${bdto.pno }" class="thumb " style="background-image: url('${bdto.loc}${bdto.fname}');">상품이미지</a>
 									<div class="price">
 										<div class="in-price">
 										<!-- 상품옵션 있을때 -->
 										<c:if test="${bdto.pono ne 0 }">
-										
-										 <c:if test="${bdto.dis_not eq 'y' }">
+										<input type="hidden" class="onePrice" value="${bdto.oprice }" >
+										<input type="hidden" class="totalPrice" value="${bdto.oprice*bdto.quantity }" >
+										<input type="hidden" class="discount" value="${bdto.discount }" >
+										<input type="hidden" class="totalDiscount" value="" >
+										<input type="hidden" class="earn" value="${bdto.earn }" >
+										<input type="hidden" class="totalEarn" value="" >
+										<input type="hidden" class="quantity" value="${bdto.quantity }" >
+										 <c:if test="${bdto.dis_yn eq 'y' }">
 											<span class="selling"><fmt:formatNumber value="${bdto.oprice*bdto.quantity*(1-bdto.discount/100) }" type="number"/><span class="won">원</span></span>
 											<span class="cost"><fmt:formatNumber value="${bdto.oprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
-										 <c:if test="${bdto.dis_not ne 'y'}">
-											<span class="selling"><fmt:formatNumber value="${bdto.pprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
+										 <c:if test="${bdto.dis_yn ne 'y'}">
+											<span class="selling"><fmt:formatNumber value="${bdto.oprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
 										</c:if>
 										<!-- 상품옵션 없을때 -->
 										<c:if test="${bdto.pono eq 0 }">
-										
-										 <c:if test="${bdto.dis_not eq 'y' }">
+										<input type="hidden" class="onePrice" value="${bdto.pprice }" >
+										<input type="hidden" class="totalPrice" value="${bdto.pprice*bdto.quantity }" >
+										<input type="hidden" class="discount" value="${bdto.discount }" >
+										<input type="hidden" class="totalDiscount" value="" >
+										<input type="hidden" class="earn" value="${bdto.earn }" >
+										<input type="hidden" class="totalEarn" value="" >
+										<input type="hidden" class="quantity" value="${bdto.quantity }" >
+										 <c:if test="${bdto.dis_yn eq 'y' }">
 											<span class="selling"><fmt:formatNumber value="${bdto.pprice*bdto.quantity*(1-bdto.discount/100) }" type="number"/><span class="won">원</span></span>
 											<span class="cost"><fmt:formatNumber value="${bdto.pprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
-										 <c:if test="${bdto.dis_not ne 'y'}">
+										 <c:if test="${bdto.dis_yn ne 'y'}">
 											<span class="selling"><fmt:formatNumber value="${bdto.pprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
 										 </c:if>
 										</c:if>
 										</div>
 										<div class="stamper count">
 											<input type="hidden" name="stock" value="${btdo.stock }" class="stock">
-											<button type="button" class="btn minus off" data-option="decrease" data-item-id="${bdto.bno }"> - </button>
+											<button type="button" class="btn minus off" data-option="decrease" data-item-id="${bdto.bno }" data-item-value="${bdto.quantity}"> - </button>
 											<input type="number" id="stepperCounter" class="num" readonly="" value="${bdto.quantity}">
-											<button type="button" class="btn plus" data-option="increase" data-item-id="${bdto.bno }"> + </button>
+											<button type="button" class="btn plus" data-option="increase" data-item-id="${bdto.bno }" data-item-value="${bdto.quantity}"> + </button>
 										</div>
 									</div>
 								</div>
@@ -248,17 +282,18 @@
 									<div class="inner_name">
 									<c:if test="${bdto.pono ne 0 }">
 										<a href="#none" class="package none">
-											<c:if test="${bdto.stock eq 0}">(품절)</c:if>[${bdto.brand }] ${bdto.oname }</a>
-										<a href="#none" class="product none">[${bdto.brand }] ${bdto.pname }</a>
+											<c:if test="${bdto.stock eq 0}">(품절)</c:if>${bdto.brand } ${bdto.oname }</a>
+										<a href="#none" class="product none">${bdto.brand } ${bdto.pname }</a>
 									</c:if>
 									<c:if test="${bdto.pono eq 0 }">
 										<a href="#none" class="package none">
-											<c:if test="${bdto.stock eq 0}">(품절)</c:if>[${bdto.brand }] ${bdto.pname }</a>
+											<c:if test="${bdto.stock eq 0}">(품절)</c:if>${bdto.brand } ${bdto.pname }</a>
 									</c:if>
 										<div class="info"></div>
 									</div>
 								</div>
 								<div class="goods">
+									<a href="/shop/product/detail/${bdto.pno }" class="thumb " style="background-image: url('${bdto.loc}${bdto.fname}');">상품이미지</a>
 									<div class="price">
 										<div class="in-price">
 											<span class="selling"><fmt:formatNumber value="${bdto.pprice*bdto.quantity }" type="number"/><span class="won">원</span></span>
@@ -270,7 +305,7 @@
 											<button type="button" class="btn plus" data-option="increase" data-item-id="${bdto.bno }"> + </button>
 										</div>
 									</div>
-									<c:if test="${bdto.sel_not eq 'n'}">
+									<c:if test="${bdto.sel_yn eq 'n'}">
 									<p class="msg">배송불가 또는 판매종료 상품</p>
 									</c:if>
 								</div>
@@ -300,7 +335,7 @@
 						<c:if test="${ddto.default_yn eq null }">
 						<div class="no_address">
 						<span class="emph">배송지를 입력</span>하고<br>배송유형을 확인해 보세요!
-						<a href="#" class="btn default"><span class="ico"></span>주소 검색</a>
+						<button type="button" id="newAddressAdd" onclick="jusoPopup()" class="btn default"><span class="ico"></span>주소 검색</button>
 						</div>
 						</c:if>
 						<c:if test="${ddto.default_yn eq 'y'}">
@@ -310,7 +345,7 @@
 								<c:if test="${ddto.type eq 't'}">택배배송</c:if>
 								<c:if test="${ddto.type eq 's'}">샛별배송</c:if>
 							</span>
-							<a href="#" class="btn default">배송지 변경</a>
+							<a href="/shop/deliveryList" class="btn default">배송지 변경</a>
 						</div>
 						</c:if>
 					</div>
@@ -318,57 +353,48 @@
 						<dl class="amount">
 							<dt class="tit">상품금액</dt>
 							<dd class="price">
-								<span class="num"><fmt:formatNumber value="${totalPrice }" type="number"/></span><span class="won">원</span>
+								<span class="total"><fmt:formatNumber value="${totalPrice }" type="number"/></span><span class="won">원</span>
 							</dd>
 						</dl>
 						<dl class="amount">
 							<dt class="tit">상품할인금액</dt>
 							<dd class="price">
-								<span class="num minus"><fmt:formatNumber value="${totalDisPrice }" type="number"/></span><span class="won">원</span>
+								<span class="totalDisPrice"><fmt:formatNumber value="${totalDisPrice }" type="number"/></span><span class="won">원</span>
 							</dd>
 						</dl>
-						<c:if test="${mno eq null }"><!-- 로그아웃 -->
-						<div class="no_sale">로그인 후 할인 금액 적용</div>
-						</c:if>
-						<c:if test="${totalPrice<40000}">
+						<c:if test="${payment>=40000}">
 						<dl class="amount">
 							<dt class="tit">배송비</dt>
 							<dd class="price">
-								<span class="num">+<fmt:formatNumber value="3000" type="number"/></span><span class="won">원</span>
+								<span class="fee"><fmt:formatNumber value="0" type="number"/></span><span class="won">원</span>
 							</dd>
 						</dl>
-						<!-- 로그인 -->
+						<dl class="amount lst">
+							<dt class="tit">결제예정금액</dt>
+							<dd class="price">
+								<span class="payment"><fmt:formatNumber value="${payment }" type="number"/></span><span class="won">원</span>
+							</dd>
+						</dl>
+						</c:if>
+						<c:if test="${payment<40000}">
+						<dl class="amount">
+							<dt class="tit">배송비</dt>
+							<dd class="price">
+								<span class="fee">+<fmt:formatNumber value="3000" type="number"/></span><span class="won">원</span>
+							</dd>
+						</dl>
 						<p class="free-limit"><fmt:formatNumber value="${40000-totalPrice }" type="number"/>원 추가주문 시, <strong>무료배송</strong></p>
-						<!--  -->
 						<dl class="amount lst">
 							<dt class="tit">결제예정금액</dt>
 							<dd class="price">
-								<span class="num"><fmt:formatNumber value="${payment+3000 }" type="number"/></span><span class="won">원</span>
-							</dd>
-						</dl>
-						</c:if>
-						<c:if test="${totalPrice>=40000}">
-						<dl class="amount">
-							<dt class="tit">배송비</dt>
-							<dd class="price">
-								<span class="num"><fmt:formatNumber value="0" type="number"/></span><span class="won">원</span>
-							</dd>
-						</dl>
-						<dl class="amount lst">
-							<dt class="tit">결제예정금액</dt>
-							<dd class="price">
-								<span class="num"><fmt:formatNumber value="${payment }" type="number"/></span><span class="won">원</span>
+								<span class="payment"><fmt:formatNumber value="${payment+3000 }" type="number"/></span><span class="won">원</span>
 							</dd>
 						</dl>
 						</c:if>
 						<div class="reserve">
+							<input type="hidden" id="totalEarn" value=${totalEarn } />
 							<span class="bage">적립</span>
-							<c:if test="${mno eq null}">		<!-- 로그아웃상태 -->
-							로그인 후 회원등급에 따라 적립
-							</c:if>
-							<c:if test="${mno ne null}">
-							구매 시 <span class="emph"><fmt:formatNumber value="${totalDisPrice*earn/100 }" type="number"/>원 적립</span>
-							</c:if>
+							구매 시 <span class="emph"><span class="totalEarn"><fmt:formatNumber value="${totalEarn }" type="number"/></span>원 적립</span>
 						</div>
 						
 					</div>

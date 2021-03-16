@@ -77,7 +77,7 @@ public class OrderController {
 //		int bnos = Integer.parseInt(String.join(",", bno));
 //		int bnos = 41,51,52;
 		String mno = "1";
-		ArrayList<BasketProductProdctOptionFileDTO> basketArr = basketMapper.getBasketJoin(mno);
+		ArrayList<BasketProductProdctOptionFileDTO> basketArr = basketMapper.getBasketJoin("1", mno);
 		model.addAttribute("basketArr", basketArr);
 		model.addAttribute("url", "/shop/order");
 
@@ -525,7 +525,7 @@ public class OrderController {
 		ordersMapper.insertOrders(ono, mno);
 
 		// 주문한 장바구니의 내용을 가져와 주문목록 테이블에 삽입
-		ArrayList<BasketProductProdctOptionFileDTO> basketArr = basketMapper.getBasketJoin(mno);
+		ArrayList<BasketProductProdctOptionFileDTO> basketArr = basketMapper.getBasketJoin("1", mno);
 		for (int i = 0; i < basketArr.size(); i++) {
 			// 만약에 상품의 옵션이 없다면 pno 번호를 가져와 정보 입력 * 삭제
 			if (basketArr.get(i).getPono() == 0) {
@@ -535,7 +535,7 @@ public class OrderController {
 				// 주문 목록에 정보 삽입
 				orderListMapper.insertProductOrderList(mno, ono, pno, quantity);
 				// 장바구니에서 결제한 상품들 지워주기
-				basketMapper.deleteProductOrders(pno, mno);
+//				basketMapper.deleteProductOrders(pno, mno);
 			}
 			// 만약에 상품의 옵션이 있다면 pono 번호를 가져와 정보 입력 * 삭제
 			else if (basketArr.get(i).getPono() > 0) {
@@ -545,7 +545,7 @@ public class OrderController {
 				// 주문 목록에 정보 삽입
 				orderListMapper.insertOptionOrderList(mno, ono, pno, pono, quantity);
 				// 장바구니에서 결제한 상품들 지워주기
-				basketMapper.deleteOptionOrders(pono, mno);
+//				basketMapper.deleteOptionOrders(pono, mno);
 			}
 		}
 

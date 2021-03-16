@@ -12,8 +12,12 @@ public class LivingProductProductOptionFileDTO {
 	private int lno,mno,pno;
 	private String writedate;
 	/*상품*/
-	private int price;
-	private String brand,pname;
+	private int quantity;
+	private String brand,pname,dis_yn,earn_yn,sel_yn;
+	private Double discount,pprice,earn;
+	/*상품옵션*/
+	private int pono,oprice;
+	private String oname;
 	/*이미지파일*/
 	private int fno;
 	private String fname,loc;
