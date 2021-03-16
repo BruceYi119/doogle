@@ -3,6 +3,7 @@ package kr.co.doogle.back.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.doogle.dto.BulkOrderDTO;
 import kr.co.doogle.mapper.BulkOrderMapper;
+import kr.co.doogle.member.Member;
 import kr.co.doogle.paging.Paging;
 
 @Controller
@@ -20,16 +22,25 @@ public class AdminBulkOrderController {
 	private BulkOrderMapper bulkOrderMapper;
 	@Autowired
 	private Paging paging;
+	@Autowired
+	private Member member;
 
 	@RequestMapping("/admin/bulkOrder")
-	public String bulk_order(Model model,HttpServletRequest request) {
+	public String bulk_order(Model model, HttpServletRequest request, HttpSession session) {
+		if (!member.isAdminLogin(session))
+			return "redirect:/login";
+
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		paging.setPaging(page, bulkOrderMapper.getTotal(null, null), "/admin/bulkOrder");
-		List<BulkOrderDTO> dto=bulkOrderMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), null, null);
-		for(BulkOrderDTO d: dto) {
-			switch(d.getType()){
-				case "m" : d.setKtype("여러곳");break;
-				case "o" : d.setKtype("한곳");break;
+		List<BulkOrderDTO> dto = bulkOrderMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), null, null);
+		for (BulkOrderDTO d : dto) {
+			switch (d.getType()) {
+			case "m":
+				d.setKtype("여러곳");
+				break;
+			case "o":
+				d.setKtype("한곳");
+				break;
 			}
 		}
 		model.addAttribute("list", dto);
@@ -40,13 +51,17 @@ public class AdminBulkOrderController {
 		model.addAttribute("url", "/admin/bulkOrder");
 		return "/back/bulkOrder/list";
 	}
+
 	@RequestMapping("/admin/bulkOrder/detail")
-	public String propositionUpdate(HttpServletRequest request,Model model) {
+	public String propositionUpdate(HttpServletRequest request, Model model, HttpSession session) {
+		if (!member.isAdminLogin(session))
+			return "redirect:/login";
+
 		int bono = Integer.parseInt(request.getParameter("bono"));
-		BulkOrderDTO dto=bulkOrderMapper.getContent(bono);
-		if(dto.getType()=="m") {
+		BulkOrderDTO dto = bulkOrderMapper.getContent(bono);
+		if (dto.getType() == "m") {
 			dto.setType("다중배송");
-		}else {
+		} else {
 			dto.setType("단일배송");
 		}
 		model.addAttribute("url", "/admin/bulkOrder/detail");

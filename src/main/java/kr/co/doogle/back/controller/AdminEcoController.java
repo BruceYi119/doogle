@@ -1,17 +1,18 @@
 package kr.co.doogle.back.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.doogle.dto.EcoDTO;
 import kr.co.doogle.file.File;
 import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.EcoMapper;
 import kr.co.doogle.mapper.FileMapper;
+import kr.co.doogle.member.Member;
 import kr.co.doogle.paging.Paging;
 
 @Controller
@@ -26,9 +27,14 @@ public class AdminEcoController {
 	private File file;
 	@Autowired
 	private Paging paging;
-	
+	@Autowired
+	private Member member;
+
 	@RequestMapping("/admin/eco")
-	public String propositionList(Model model,HttpServletRequest request) {
+	public String propositionList(Model model, HttpServletRequest request, HttpSession session) {
+		if (!member.isAdminLogin(session))
+			return "redirect:/login";
+
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		String ctno = request.getParameter("ctno");
 		if (ctno == null || ctno == "") {
@@ -36,7 +42,8 @@ public class AdminEcoController {
 			model.addAttribute("list", ecoMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), null, null));
 		} else {
 			paging.setPaging(page, ecoMapper.getTotal("where ctno = #{ctno}", ctno), "/admin/eco?ctno=" + ctno);
-			model.addAttribute("list", ecoMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), "where ctno = #{ctno}", ctno));
+			model.addAttribute("list",
+					ecoMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), "where ctno = #{ctno}", ctno));
 		}
 		model.addAttribute("url", "/admin/eco");
 		model.addAttribute("list", ecoMapper.getAdmin());
@@ -44,8 +51,12 @@ public class AdminEcoController {
 		model.addAttribute("paging", paging.getPageHtml());
 		return "/back/eco/list";
 	}
+
 	@RequestMapping("/admin/eco/detail")
-	public String propositionUpdate(HttpServletRequest request,Model model) {
+	public String propositionUpdate(HttpServletRequest request, Model model, HttpSession session) {
+		if (!member.isAdminLogin(session))
+			return "redirect:/login";
+
 		int epno = Integer.parseInt(request.getParameter("epno"));
 		model.addAttribute("url", "/admin/eco/detail");
 		model.addAttribute("edit", "edit");
