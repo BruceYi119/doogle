@@ -4,6 +4,7 @@ const calc = (t = '+') => {
 		const priceObj = $('input[name=price]');
 		const earnObj = $('input[name=earn]');
 		const cntObj = $('input[name=cnt]');
+		const totalDspPriceObj = $('span.total-price');
 		const totalPriceObj = $('input[name=total-price]');
 		const dspCntObj = $('input[name=dsp-cnt]');
 		let price = parseInt(priceObj.val());
@@ -18,6 +19,8 @@ const calc = (t = '+') => {
 
 		cntObj.val(cnt);
 		dspCntObj.val(dspCnt);
+		totalPriceObj.val(totalDspPriceObj);
+		totalDspPriceObj.text(new Intl.NumberFormat().format(totalPrice));
 };
 
 const initProductDetail = () => {

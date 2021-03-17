@@ -6,7 +6,7 @@
 	<div class="detail-wrap">
 		<input type="hidden" id="detail-pno" value="${dto.pno}" />
 		<input type="hidden" name="price" value="${dto.price}" />		
-		<input type="hidden" name="cnt" value="0" />
+		<input type="hidden" name="cnt" value="1" />
 		<input type="hidden" name="total-price" value="${dto.price}" />
 		<input type="hidden" id="earn" value="${earn}" />
 		<div class="left">
@@ -29,9 +29,16 @@
 				<span>구매수량</span>
 				<span class="count">
 					<button type="button" class="btn-down">수량내리기</button>
-					<input type="number" readonly="readonly" value="0" name="dsp-cnt" />
+					<input type="number" readonly="readonly" value="1" name="dsp-cnt" />
 					<button type="button" class="btn-up">수량올리기</button>
 				</span>
+			</p>
+			<p>총 상품금액: <span class="total-price"><fmt:formatNumber type="number" value="${dto.price}" /></span>원</p>
+			<p>로그인 후, 적립혜택 제공</p>
+			<p>
+				<button class="btn-alram">재입고 알림</button>
+				<button class="btn-living">늘 사는것</button>
+				<button class="btn-basket">장바구니 담기</button>
 			</p>
 		</div>
 	</div>
