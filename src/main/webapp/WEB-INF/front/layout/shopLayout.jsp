@@ -127,7 +127,7 @@
 								<li><a href="/shop/deliveryList">배송지 관리</a></li>
 								<li><a href="/shop/living">늘 사는것</a></li>
 								<li><a href="#">상품 후기</a></li>
-								<li><a href="/shop/propositionList">적립금</a></li>
+								<li><a href="/shop/mypage/mysaving">적립금</a></li>
 								<li><a href="/shop/mypage/mycoupon">쿠폰</a></li>
 								<li><a href="/member/info">개인 정보 수정</a></li>
 								<li><a href="/logout">로그아웃</a></li>

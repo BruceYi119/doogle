@@ -32,7 +32,7 @@
 <div class="grade"><span class="screen_out">등급</span> <span class="ico_grade class6">
 <span class="inner_grade"><span class="in_grade">웰컴</span></span></span>
 <div class="grade_bnenfit">
-<div class="user"><strong class="name">${mno}</strong> <span class="txt">번 고객님</span></div> <!----> 
+<div class="user"><strong class="name">${name}</strong> <span class="txt"> 고객님</span></div> <!----> 
 <div class="benefit"><strong class="tit"></strong>적립 5%</div> 
 <div class="benefit"><strong class="tit"></strong>최초 1회 무료배송</div> 
 <div class="benefit"></div>

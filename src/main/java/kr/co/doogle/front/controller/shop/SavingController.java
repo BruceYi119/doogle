@@ -37,10 +37,6 @@ public class SavingController {
 		if (!member.isLogin(session))
 			return "redirect:/login";
 
-//		session.setAttribute("mno", "1");  	// 1번 mno로 강제 로그인
-		session.setAttribute("mno", "2"); // 2번 mno로 강제 로그인
-//		session.setAttribute("mno", "150"); // 150번 mno로 강제 로그인
-
 		// mno 형변환
 		int mno = Integer.parseInt(session.getAttribute("mno").toString());
 

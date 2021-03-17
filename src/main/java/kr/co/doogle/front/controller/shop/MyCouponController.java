@@ -38,10 +38,6 @@ public class MyCouponController {
 		if (!member.isLogin(session))
 			return "redirect:/login";
 
-//		session.setAttribute("mno", "1");  	// 1번 mno로 강제 로그인
-		session.setAttribute("mno", "2"); // 2번 mno로 강제 로그인
-//		session.setAttribute("mno", "150"); // 150번 mno로 강제 로그인
-
 		// mno 형변환
 		int mno = Integer.parseInt(session.getAttribute("mno").toString());
 
@@ -65,10 +61,6 @@ public class MyCouponController {
 	// 쿠폰페이지에서 새로운 쿠폰 등록하기
 	@RequestMapping("/shop/mypage/mycoupon/add")
 	public String add(HttpSession session, MyCouponDTO dto) {
-//		session.setAttribute("mno", "1");  	// 1번 mno로 강제 로그인
-		session.setAttribute("mno", "2"); // 2번 mno로 강제 로그인
-//		session.setAttribute("mno", "150"); // 150번 mno로 강제 로그인
-
 		int cno = couponMapper.getCheck(dto.getCno()); // coupon 테이블에 입력한 쿠폰의 종류가 있는지 확인
 
 		if (cno == 0) { // 없을경우
