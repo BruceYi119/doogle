@@ -39,8 +39,8 @@
 </div>
 </div> 
 <div class="next">
-<a href="/shop/event/lovers/lovers.php" class="total_grade">전체등급 보기</a> 
-<a href="/shop/proc/my_benefit.php?id=benefit" class="next_month">다음 달 예상등급 보기</a>
+<a href="/shop/event/lover" class="total_grade">전체등급 보기</a> 
+<a href="/shop/event/my_benefit" class="next_month">다음 달 예상등급 보기</a>
 </div>
 </div> 
 <ul class="list_mypage">
@@ -74,15 +74,13 @@
 		<h2 class="tit_snb">마이컬리</h2>
 		<div class="inner_snb">
 			<ul class="list_menu">
-				<li><a href="">주문 내역</a></li>
-				<li><a href="#none"
-					onclick="KurlyTracker.setAction('select_shipping_address_list').sendData();location.href = '/shop/mypage/destination/list.php';">배송지
-						관리</a></li>
-				<li><a href="">늘 사는 것</a></li>
-				<li><a href="">상품 후기</a></li>
+				<li><a href="/shop/mypage/orderSumm">주문 내역</a></li>
+				<li><a href="/shop/deliveryList" >배송지관리</a></li>
+				<li><a href="/shop/living">늘 사는 것</a></li>
+				<li><a href="#">상품 후기</a></li>
 				<li><a href="/shop/mypage/mysaving">적립금</a></li>
 				<li class="on"><a href="/shop/mypage/mycoupon">쿠폰</a></li>
-				<li><a href="">개인 정보 수정</a></li>
+				<li><a href="/member/info">개인 정보 수정</a></li>
 			</ul>
 		</div>
 		<a href="/shop/mypage/mypage_qna_register.php?mode=add_qna"

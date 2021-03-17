@@ -177,10 +177,10 @@
 						<c:if test="${ddto.pickuptype eq null}">
 						<div class="way" id="wayPlace">
 							<span class="place" id="areaInfo"></span>
-							<span class="txt off" id="meanType">받으실 장소를 입력해 주세요</span>
+							<span class="txt" id="meanType">받으실 장소를 입력해 주세요</span>
 							<div class="message" id="deliveryMessage">
 								<span class="place" id="deliveryMessageTitle"></span> 
-								<span class="txt off" id="deliveryMessageDetail"></span>
+								<span class="txt" id="deliveryMessageDetail"></span>
 							</div>
 						</div>
 						<button type="button" id="btnUpdateSubAddress" data-address-no="" class="btn default" onclick="centeredPopup()">수정

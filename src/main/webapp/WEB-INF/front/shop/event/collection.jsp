@@ -99,7 +99,7 @@
 		<div class="clear_div"></div>
 		<div class="select_div" align="center">
 			<div class="select_div2">
-				<a href="/shop/event/product?eno=2&brand=rrrrr" class="btn_link">
+				<a href="/shop/product/best" class="btn_link">
 					<div class="box_btn" id="white_btn">
 						<strong>추천상품</strong> 더 보러가기 >
 					</div>
