@@ -4,11 +4,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="base_wrap mt20">
 	<div class="detail-wrap">
+		<input type="hidden" id="quantity" value="${dto.quantity}" />
 		<input type="hidden" id="detail-pno" value="${dto.pno}" />
 		<input type="hidden" name="price" value="${dto.price}" />		
 		<input type="hidden" name="cnt" value="1" />
 		<input type="hidden" name="total-price" value="${dto.price}" />
-		<input type="hidden" id="earn" value="${earn}" />
+		<input type="hidden" name="discount" value="${dto.discount}" />
+		<input type="hidden" name="earn" value="${earn}" />
 		<div class="left">
 			<img src="${dto.jloc}${dto.jname}" />
 		</div>
@@ -33,7 +35,7 @@
 					<button type="button" class="btn-up">수량올리기</button>
 				</span>
 			</p>
-			<p>총 상품금액: <span class="total-price"><fmt:formatNumber type="number" value="${dto.price}" /></span>원</p>
+			<p>총 상품금액: <span class="total-price"><fmt:formatNumber type="number" value="${dto.discount > 0 ? Math.floor(dto.price - (dto.price * (dto.discount * 0.01))) : dto.price}" /></span>원</p>
 			<p>로그인 후, 적립혜택 제공</p>
 			<p>
 				<button class="btn-alram">재입고 알림</button>

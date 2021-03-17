@@ -106,8 +106,7 @@ public class BasketController {
 	@RequestMapping("/shop/addBasket")
 	@Transactional(timeout = 10)
 	public void addBasket(HttpSession session,BasketDTO bdto, PrintWriter out) {
-		//int mno = 1;
-		int mno = Integer.parseInt(session.getAttribute("mno").toString());
+		int mno = session.getAttribute("mno") != null ? Integer.parseInt(session.getAttribute("mno").toString()) : 0;
 		int count = basketMapper.dupChkBasket(bdto);
 		out.print(count);
 

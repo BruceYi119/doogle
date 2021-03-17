@@ -77,16 +77,16 @@ public class LivingController {
 	/* 모달로 늘사는것 리스트 추가 ---상품상세페이지 */
 	@RequestMapping("/shop/putOnLiving")
 	@Transactional(timeout = 10)
-	public void putOnLiving(HttpServletRequest request, PrintWriter out) {
-		int mno = 1;
-		// int mno = Integer.parseInt(session.getAttribute("mno").toString());
+	public void putOnLiving(HttpServletRequest request, PrintWriter out, HttpSession session) {
+		int mno = session.getAttribute("mno") != null ? Integer.parseInt(session.getAttribute("mno").toString()) : 0;
 		int pno = Integer.parseInt(request.getParameter("pno"));
 		int countNum = livingMapper.isOnTheList(mno, pno);
-		if (countNum == 0) {
-			livingMapper.addLiving(mno, pno);
-			out.print(countNum);
+		
+		if (mno == 0) {
+			out.print("false");
 		} else {
-			out.print(countNum);
+			livingMapper.addLiving(mno, pno);
+			out.print("true");			
 		}
 	}
 }
