@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.doogle.dto.BasketDTO;
 import kr.co.doogle.dto.BasketDeliveryDTO;
@@ -107,16 +108,22 @@ public class BasketController {
 	@Transactional(timeout = 10)
 	public void addBasket(HttpSession session,BasketDTO bdto, PrintWriter out) {
 		int mno = session.getAttribute("mno") != null ? Integer.parseInt(session.getAttribute("mno").toString()) : 0;
-		int count = basketMapper.dupChkBasket(bdto);
-		out.print(count);
 
-		if(count>0) {
-			int quantity = basketMapper.cntQuantity(bdto)+bdto.getQuantity();
-			out.print(quantity);
-			basketMapper.updateQuantity(bdto,quantity);
-		}else {
-			basketMapper.addBasket(bdto);
+		if (mno == 0) {
+			out.print("false");
+		} else {
+			bdto.setMno(mno);
+			int count = basketMapper.dupChkBasket(bdto);
+			
+			if(count > 0) {
+				int quantity = basketMapper.cntQuantity(bdto)+bdto.getQuantity();
+				basketMapper.updateQuantity(bdto,quantity);
+			}else {
+				basketMapper.addBasket(bdto);
+			}
+			out.print("true");
 		}
+		
 	}
 	
 	 //수량 변경

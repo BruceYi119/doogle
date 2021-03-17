@@ -66,6 +66,17 @@ const initProductDetail = () => {
 		});
 	});
 
+	$('button.btn-basket').bind('click', () => {
+		const pno = $('#detail-pno').val();
+		
+		$.post('/shop/addBasket', { pno: pno }, (res) => {
+			if (res === 'true')
+				showBasket('장바구니에 추가 되었습니다');
+			else
+				alert('장바구니 추가에 실패하였습니다.');
+		});
+	});
+
 };
 
 initProductDetail();
