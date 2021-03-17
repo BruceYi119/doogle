@@ -20,6 +20,7 @@ import kr.co.doogle.file.File;
 import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.FileMapper;
 import kr.co.doogle.mapper.PropositionMapper;
+import kr.co.doogle.member.Member;
 import kr.co.doogle.paging.Paging;
 
 @Controller
@@ -34,10 +35,15 @@ public class PropositionController {
 	private File file;
 	@Autowired
 	private Paging paging;
+	@Autowired
+	private Member member;
 
 	// 내가 작성한 리스트 보여주기
 	@RequestMapping("/shop/propositionList") // 로그인 필요
 	public String propositionList(Model model, HttpServletRequest request, HttpSession session) {
+		if (!member.isLogin(session))
+			return "redirect:/login";
+		
 		String id = (String) session.getAttribute("id");
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		String ctno = request.getParameter("ctno");
@@ -61,7 +67,10 @@ public class PropositionController {
 
 	// 문서 작성 폼
 	@RequestMapping("/shop/propositionWrite") // 로그인 필요
-	public String propositionWrite(Model model) {
+	public String propositionWrite(Model model, HttpSession session) {
+		if (!member.isLogin(session))
+			return "redirect:/login";
+		
 		List<CategoryDTO> category = categoryMapper.getAllSql("select * from category where lv=0 and type='o'");
 		model.addAttribute("url", "/shop/propositionWrite");
 		model.addAttribute("edit", "edit");
@@ -106,7 +115,10 @@ public class PropositionController {
 
 	// 문서 업데이트
 	@RequestMapping("/shop/propositionUpdate") // 로그인 필요
-	public String propositionUpdate(HttpServletRequest request, Model model) {
+	public String propositionUpdate(HttpServletRequest request, Model model, HttpSession session) {
+		if (!member.isLogin(session))
+			return "redirect:/login";
+		
 		int ppno = Integer.parseInt(request.getParameter("ppno"));
 		List<CategoryDTO> category = categoryMapper.getAllSql("select * from category where lv=0 and type='o'");
 		model.addAttribute("url", "/shop/propositionWrite");

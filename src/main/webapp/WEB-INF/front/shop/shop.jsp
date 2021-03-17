@@ -78,9 +78,9 @@
 	<div class="tit-goods"><h3><a href="/shop/event">이벤트 소식</a></h3></div>
 	<div class="base_wrap">
 		<ul id="product-slide2" class="product-slide-list">
-			<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
-			<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
-			<li><a href="/shop/product/detail/${dto.pno}"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="/shop/product/detail/1052"><img style="background-image: url('/static/upload/img/shop/product/1052.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="/shop/product/detail/390"><img style="background-image: url('/static/upload/img/shop/product/390.jpg');" class="product-slide-img" /></a></li>
+			<li><a href="/shop/product/detail/6364"><img style="background-image: url('/static/upload/img/shop/product/6364.jpg');" class="product-slide-img" /></a></li>
 		</ul>
 	</div>
 </div>
@@ -250,21 +250,14 @@
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<ul class="product-slide-list recipe">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
-				</ul>
-			</div>
-			<div class="carousel-item">
-				<ul class="product-slide-list recipe">
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
-					<li><a href="#"><img style="background-image: url('/static/upload/img/shop/product/213.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="/shop/recipe/content?rno=1"><img style="background-image: url('/static/front/img/shop/recipe/recipe1.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="/shop/recipe/content?rno=2"><img style="background-image: url('/static/front/img/shop/recipe/recipe2.jpg');" class="product-slide-img" /></a></li>
+					<li><a href="/shop/recipe/content?rno=3"><img style="background-image: url('/static/front/img/shop/recipe/recipe3.jpg');" class="product-slide-img" /></a></li>
 				</ul>
 			</div>
 		</div>
 		<a class="carousel-control-prev hide" href="#product-slide9" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
-		<a class="carousel-control-next" href="#product-slide9" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+		<a class="carousel-control-next hide" href="#product-slide9" data-slide="next"><span class="carousel-control-next-icon"></span></a>
 	</div>
 </div>
 <div class="tit-goods"><h3>인스타그램 고객 후기</h3></div>

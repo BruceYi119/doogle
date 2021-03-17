@@ -113,6 +113,7 @@
 									<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"></button>
 									<div class="dropdown-menu">
 										<a class="dropdown-item" href="/admin/recipe">레시피</a>
+										<a class="dropdown-item" href="/admin/recipe/add">추가</a>
 									</div>
 								</div>
 							</li>

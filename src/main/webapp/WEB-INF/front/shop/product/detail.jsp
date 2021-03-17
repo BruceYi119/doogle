@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="base_wrap mt20">
 	<div class="detail-wrap">
+		<input type="hidden" id="detail-pno" value="${dto.pno}" />
 		<input type="hidden" name="price" value="${dto.price}" />		
 		<input type="hidden" name="cnt" value="0" />
 		<input type="hidden" name="total-price" value="${dto.price}" />
@@ -28,7 +29,7 @@
 				<span>구매수량</span>
 				<span class="count">
 					<button type="button" class="btn-down">수량내리기</button>
-					<input type="number" readonly="readonly" value="1" name="dsp-cnt" />
+					<input type="number" readonly="readonly" value="0" name="dsp-cnt" />
 					<button type="button" class="btn-up">수량올리기</button>
 				</span>
 			</p>

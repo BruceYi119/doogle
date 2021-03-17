@@ -20,6 +20,7 @@ import kr.co.doogle.file.File;
 import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.EcoMapper;
 import kr.co.doogle.mapper.FileMapper;
+import kr.co.doogle.member.Member;
 import kr.co.doogle.paging.Paging;
 
 @Controller
@@ -34,9 +35,14 @@ public class EcoController {
 	private Paging paging;
 	@Autowired
 	private FileMapper fileMapper;
+	@Autowired
+	private Member member;
 
 	@RequestMapping("/shop/ecoList") // 로그인 필요
 	public String propositionList(Model model, HttpServletRequest request, HttpSession session) {
+		if (!member.isLogin(session))
+			return "redirect:/login";
+		
 		String id = (String) session.getAttribute("id");
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		String ctno = request.getParameter("ctno");
@@ -58,6 +64,9 @@ public class EcoController {
 
 	@RequestMapping("/shop/ecoWrite") // 로그인 필요
 	public String propositionWrite(Model model, HttpSession session) {
+		if (!member.isLogin(session))
+			return "redirect:/login";
+		
 		String id = (String) session.getAttribute("id");
 		List<CategoryDTO> category = categoryMapper.getAllSql("select * from category where lv=0 and type='e'");
 		model.addAttribute("url", "/shop/ecoWrite");
@@ -104,7 +113,10 @@ public class EcoController {
 	}
 
 	@RequestMapping("/shop/ecoUpdate")
-	public String propositionUpdate(HttpServletRequest request, Model model) {
+	public String propositionUpdate(HttpServletRequest request, Model model, HttpSession session) {
+		if (!member.isLogin(session))
+			return "redirect:/login";
+		
 		int epno = Integer.parseInt(request.getParameter("epno"));
 		List<CategoryDTO> category = categoryMapper.getAllSql("select * from category where lv=0 and type='e'");
 		model.addAttribute("url", "/shop/ecoWrite");
