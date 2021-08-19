@@ -536,7 +536,7 @@ public class OrderController {
 		// 주문한 장바구니의 내용을 가져와 주문목록 테이블에 삽입
 		ArrayList<BasketProductProdctOptionFileDTO> basketArr = basketMapper.getBasketJoin(jbno, mno);
 		int count = basketArr.size();
-
+		
 		// 시퀀스 조회 변수에 할당
 		int ono = ordersMapper.getSeq();
 
@@ -620,7 +620,7 @@ public class OrderController {
 				basketMapper.deleteOptionOrders(pono, mno);
 			}
 		}
-
+		
 		// 사용한 적립금 나의 적립금 테이블에서 빼주기
 		String creditExpUsed = creditUsed;
 //		savingMapper.creditSub(creditUsed,creditExpUsed,mno);
@@ -636,14 +636,21 @@ public class OrderController {
 		model.addAttribute("creditEarned", creditEarned);
 		model.addAttribute("gDTO", gDTO);
 		model.addAttribute("url", "/shop/end");
+		model.addAttribute("bnos", bnos);
 
 		return "/front/shop/order/end";
 	}
 
 	@RequestMapping("/shop/order/end")
-	public String end(Model model, HttpSession session) {
+	public String end(Model model, HttpSession session,HttpServletRequest request) {
 		if (member.isLogin(session) == false)
 			return "redirect:/login";
+		int mno = Integer.parseInt(request.getAttribute("mno").toString());
+		String bno = request.getParameter("bnos");
+		String[] bnos =  bno.split(",");
+		for(String b:bnos) {
+			basketMapper.deleteBasket(mno, Integer.parseInt(b));
+		}
 		model.addAttribute("url", "/shop/end");
 		return "/front/shop/order/end";
 	}

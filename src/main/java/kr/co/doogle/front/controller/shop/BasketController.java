@@ -11,12 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.doogle.dto.BasketDTO;
-import kr.co.doogle.dto.BasketDeliveryDTO;
 import kr.co.doogle.dto.BasketProductProdctOptionFileDTO;
+import kr.co.doogle.dto.DeliveryDTO;
+import kr.co.doogle.dto.GradeMemberDTO;
 import kr.co.doogle.mapper.BasketMapper;
+import kr.co.doogle.mapper.DeliveryMapper;
+import kr.co.doogle.mapper.GradeMapper;
 import kr.co.doogle.member.Member;
 
 @Controller
@@ -26,6 +28,10 @@ public class BasketController {
 	private BasketMapper basketMapper;
 	@Autowired
 	private Member member;
+	@Autowired
+	private GradeMapper gradeMapper;
+	@Autowired
+	private DeliveryMapper deliveryMapper;
 
 	@RequestMapping("/shop/basket")
 	public String basket(Model model,HttpSession session) {
@@ -33,58 +39,49 @@ public class BasketController {
 			return "redirect:/login";
 		
 		//int mno = 1;
-		int mno = Integer.parseInt(session.getAttribute("mno").toString());
+		String id = session.getAttribute("id").toString();
+		String mno = session.getAttribute("mno").toString();
+		
 		ArrayList<BasketProductProdctOptionFileDTO> list = basketMapper.getAllSellProduct(mno);
 		ArrayList<BasketProductProdctOptionFileDTO> fList = basketMapper.getFrozenProduct(mno);
 		ArrayList<BasketProductProdctOptionFileDTO> rList = basketMapper.getRoomProduct(mno);
 		ArrayList<BasketProductProdctOptionFileDTO> cList = basketMapper.getColdProduct(mno);
 		ArrayList<BasketProductProdctOptionFileDTO> dList = basketMapper.getDisableProduct(mno);
 		
-		BasketDeliveryDTO ddto = basketMapper.deliveryInfo(mno);
+		//배송정보 가져오기
+		DeliveryDTO ddto = deliveryMapper.getDefault(mno);
+		//회원별 적립률 가져오기
+		GradeMemberDTO mDTOEarn = gradeMapper.getEarn(id);
 		
 		double totalPrice = 0;		//총금액
 		double totalDisPrice = 0;	//할인금액
-		double payment = 0;			//결제예정금액s
+		double payment = 0;			//결제예정금액
 		double totalEarn = 0;			//총적립금
-
+		double earn = mDTOEarn.getEarn();	//적립률
+		
 		for (BasketProductProdctOptionFileDTO dto : list) {
 			//금액계산
 			if(dto.getSel_yn().equals("y")) {	//판매중인 제품
 				if(dto.getPono()>0) {	//옵션있을때
-					totalDisPrice += dto.getOprice()*dto.getDiscount()/100*dto.getQuantity();
 					totalPrice += dto.getOprice()*dto.getQuantity();
-					
 					switch (dto.getDis_yn()) {
 					case "y":	//할인상품
-						payment += dto.getOprice()*dto.getQuantity()*(1-dto.getDiscount()/100);
-						totalEarn += dto.getOprice()*dto.getQuantity()*(1-dto.getDiscount()/100)*dto.getEarn()/100;
-						break;
-
-					case "n":	//할인x
-						payment += dto.getOprice()*dto.getQuantity();
-						totalEarn += dto.getOprice()*dto.getQuantity()*dto.getEarn()/100;
+						totalDisPrice += Math.round(dto.getOprice()*dto.getDiscount()/100)*dto.getQuantity();
 						break;
 					}
-					
 				}else {	//옵션없을때
-					totalDisPrice += dto.getPprice()*dto.getDiscount()/100*dto.getQuantity();
 					totalPrice += dto.getPprice()*dto.getQuantity();
 					switch (dto.getDis_yn()) {
-					case "y":	//할인 상품
-						payment += dto.getPprice()*dto.getQuantity()*(1-dto.getDiscount()/100);
-						totalEarn +=  dto.getPprice()*dto.getQuantity()*(1-dto.getDiscount()/100)*dto.getEarn()/100;
-						break;
-					case "n":	//할인x
-						payment += dto.getPprice()*dto.getQuantity();
-						totalEarn += dto.getPprice()*dto.getQuantity()*dto.getEarn()/100;
+					case "y":	//할인상품
+						totalDisPrice += Math.round(dto.getPprice()*dto.getDiscount()/100)*dto.getQuantity();
 						break;
 					}
-					
 				}
-
 			}
 		}
-				
+		payment = totalPrice-totalDisPrice;
+		totalEarn = payment*earn/100;
+		
 		//판매 가능한 상품개수
 		int sellableSize = fList.size()+rList.size()+cList.size();
 		
@@ -92,6 +89,7 @@ public class BasketController {
 		model.addAttribute("totalDisPrice",Math.round(totalDisPrice));
 		model.addAttribute("payment",Math.round(payment));
 		model.addAttribute("totalEarn",Math.round(totalEarn));
+		model.addAttribute("earn",earn);
 		model.addAttribute("fList",fList);
 		model.addAttribute("rList",rList);
 		model.addAttribute("cList",cList);
@@ -103,25 +101,30 @@ public class BasketController {
 		return "/front/shop/basket/basket";
 	}
 
-	
+	//장바구니추가
 	@RequestMapping("/shop/addBasket")
 	@Transactional(timeout = 10)
 	public void addBasket(HttpSession session,BasketDTO bdto, PrintWriter out) {
 		int mno = session.getAttribute("mno") != null ? Integer.parseInt(session.getAttribute("mno").toString()) : 0;
-
+		boolean isRun = false;
+		if(isRun) {
+			out.print(-1);
+		}
+		isRun = true;
 		if (mno == 0) {
-			out.print("false");
+			out.print(-1);
 		} else {
 			bdto.setMno(mno);
 			int count = basketMapper.dupChkBasket(bdto);
 			
-			if(count > 0) {
+			if(count != 0) {
 				int quantity = basketMapper.cntQuantity(bdto)+bdto.getQuantity();
-				basketMapper.updateQuantity(bdto,quantity);
+				int num = basketMapper.updateQuantity(bdto,quantity);
+				out.print(2);
 			}else {
 				basketMapper.addBasket(bdto);
+				out.print(1);
 			}
-			out.print("true");
 		}
 		
 	}
@@ -164,7 +167,5 @@ public class BasketController {
 		}
 		return "redirect:/shop/basket";
 	}
-	
-	
 	
 }

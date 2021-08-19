@@ -1,7 +1,6 @@
 package kr.co.doogle.front.controller.shop;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -9,12 +8,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.doogle.dto.ProductProductOptionDTO;
+import kr.co.doogle.dto.ProductDTO;
 import kr.co.doogle.mapper.CategoryMapper;
 import kr.co.doogle.mapper.LivingMapper;
+import kr.co.doogle.mapper.ProductMapper;
 import kr.co.doogle.paging.Paging;
 
 @Controller
@@ -25,22 +26,25 @@ public class LivingController {
 	private Paging paging;
 	@Autowired
 	private CategoryMapper categoryMapper;
+	@Autowired
+	private ProductMapper productMapper;
 
 	@RequestMapping("/shop/living")
 	public ModelAndView living(HttpSession session, HttpServletRequest request, ModelAndView mv) {
-		int mno = 1;
-		int pno = 3;
-		ArrayList<ProductProductOptionDTO> pList = livingMapper.basketPopup(pno);
-		if (pList.size() == 1) {
-			mv.addObject("option", 0);
-			mv.addObject("dto", pList.get(0));
-		} else {
-
-			mv.addObject("option", pList.size());
-			mv.addObject("pList", pList);
-			mv.addObject("name", "[" + pList.get(0).getBrand() + "] " + pList.get(0).getPname());
-		}
-		// int mno = Integer.parseInt(session.getAttribute("mno").toString());
+		//int mno = 1;
+		int mno = Integer.parseInt(session.getAttribute("mno").toString());
+//		int pno = 3;
+//		ArrayList<ProductProductOptionDTO> pList = livingMapper.basketPopup(pno);
+//		if (pList.size() == 1) {
+//			mv.addObject("option", 0);
+//			mv.addObject("dto", pList.get(0));
+//		} else {
+//
+//			mv.addObject("option", pList.size());
+//			mv.addObject("pList", pList);
+//			mv.addObject("name", "[" + pList.get(0).getBrand() + "] " + pList.get(0).getPname());
+//		}
+		
 		int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
 		paging.setPaging(page, livingMapper.getTotal(mno), "/shop/living");
 		mv.addObject("list", livingMapper.getAllPaging(paging.getStartRow(), paging.getViewCnt(), mno));
@@ -48,11 +52,19 @@ public class LivingController {
 		mv.addObject("i", paging.getStartRow());
 		mv.addObject("paging", paging.getPageHtml());
 		mv.addObject("clist", categoryMapper.getAll("where type = #{type} and lv = #{lv}", "p", "0", null));
-
+		
 		mv.setViewName("/front/shop/living/living");
 		return mv;
 	}
-
+	//장바구니 추가모달
+	@RequestMapping("/shop/addBasketModal")
+	public String addBasket(HttpServletRequest request, PrintWriter out,Model model) {
+		int pno = Integer.parseInt(request.getParameter("pno"));
+		ProductDTO product = productMapper.getOne(pno);
+		model.addAttribute("product",product);
+		return  "redirect:/shop/living";
+	}
+	
 	@RequestMapping("/shop/deleteLiving")
 	public String deleteLiving(HttpServletRequest request, HttpSession session) {
 		// int mno = 1;
@@ -66,9 +78,9 @@ public class LivingController {
 	}
 
 	@RequestMapping("/shop/deleteOneLiving")
-	public String deleteOneLiving(HttpServletRequest request) {
-		int mno = 1;
-		// int mno = Integer.parseInt(session.getAttribute("mno").toString());
+	public String deleteOneLiving(HttpServletRequest request, HttpSession session) {
+		//int mno = 1;
+		int mno = Integer.parseInt(session.getAttribute("mno").toString());
 		int lno = Integer.parseInt(request.getParameter("lno"));
 		livingMapper.deleteLiving(mno, lno);
 		return "redirect:/shop/living";
@@ -82,11 +94,11 @@ public class LivingController {
 		int pno = Integer.parseInt(request.getParameter("pno"));
 		int countNum = livingMapper.isOnTheList(mno, pno);
 		
-		if (mno == 0) {
-			out.print("false");
+		if (countNum == 0) {
+			int cnt = livingMapper.addLiving(mno, pno);
+			out.print(cnt);
 		} else {
-			livingMapper.addLiving(mno, pno);
-			out.print("true");			
+			out.print(0);			
 		}
 	}
 }

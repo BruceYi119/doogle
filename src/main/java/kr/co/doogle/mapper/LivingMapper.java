@@ -15,7 +15,7 @@ import kr.co.doogle.dto.ProductProductOptionDTO;
 @Mapper
 public interface LivingMapper {
 	@Insert("insert into living values(s_living.nextval,#{mno},#{pno},sysdate)")
-	void addLiving(@Param("mno")int mno,@Param("pno") int pno);
+	int addLiving(@Param("mno")int mno,@Param("pno") int pno);
 	
 	@Select({"select l.*,p.price pprice,brand,p.name pname,discount,dis_yn,earn,earn_yn,pono,po.price oprice,po.name oname,f.fno,f.name fname,loc "
 			+ "from living l left join product p on p.pno=l.pno "
@@ -32,7 +32,7 @@ public interface LivingMapper {
 
 	
 	@Select("select p.pno,brand,p.name pname,p.price pprice,discount,dis_yn,earn,earn_yn,pono,po.price oprice,po.name oname from product p left join product_option po on p.pno=po.pno where p.pno=#{pno}") 
-	ArrayList<ProductProductOptionDTO> basketPopup(@Param("pno") int pno);
+	ProductProductOptionDTO productList(@Param("pno") int pno);
 	
 	
 	@Select("select count(*) from living where mno=#{mno}")
